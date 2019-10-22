@@ -1,0 +1,32 @@
+/* Purple #8e2efd */
+.navbar-brand{
+    height: 50px!important;
+}
+.navbar-brand img{
+    height: 100%!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.8)!important;
+}
+
+.navbar-light .nav-item.active {
+    position: relative;
+}
+.navbar-light .nav-item.active:before,
+.navbar-light .nav-item a.nav-link:hover:before{
+    content: '';
+    width: 100%;
+    border-bottom: solid 4px #8e2efd;
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+}
+.navbar-light .nav-item.active a.nav-link,
+.navbar-light .nav-item a.nav-link:hover {
+    color: #8e2efd!important;
+    position: relative;
+}
+
+
+

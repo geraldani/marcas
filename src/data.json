@@ -1,0 +1,35 @@
+{
+  "menu": {
+    "home": [
+      {
+        "name": "Trámites",
+        "submenu": [
+          {
+            "name": "Tramite 1",
+            "path": "/tramite1"
+          },
+          {
+            "name": "Tramite 2",
+            "path": "/tramite2"
+          },
+          {
+            "name": "Tramite 3",
+            "path": "/tramite3"
+          }
+        ]
+      },
+      {
+        "name": "¿Disputas de nombres de dominio?",
+        "path": "/domain"
+      },
+      {
+        "name": "Registrarme",
+        "path": "/sigup"
+      },
+      {
+        "name": "Ingresar",
+        "path": "/signin"
+      }
+    ]
+  }
+}

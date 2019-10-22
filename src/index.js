@@ -1,1 +1,22 @@
-console.log("hola mundo")
+import React from 'react'
+import ReactDOM from 'react-dom'
+import MainApp from './Views/MainApp'
+import './globalStyles.css'
+
+// Bootstrap y Jquery
+import 'bootstrap/dist/css/bootstrap.css'
+import $ from 'jquery'
+import Popper from 'popper.js'
+import 'bootstrap/dist/js/bootstrap.bundle.min'
+
+render()
+// Hot Module Replacement
+function render () {
+  ReactDOM.render(<MainApp />, document.getElementById('root'))
+}
+
+if (module.hot) {
+  module.hot.accept('./Views/MainApp', () => {
+    render()
+  })
+}
