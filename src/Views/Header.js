@@ -18,7 +18,7 @@ const Header = () => (
         aria-expanded='false'
         aria-label='Toggle navigation'
       >
-        <span className='navbar-toggler-icon'/>
+        <span className='navbar-toggler-icon' />
       </button>
 
       <div className='collapse navbar-collapse justify-content-end' id='navbarNavDropdown'>
@@ -44,8 +44,7 @@ const Header = () => (
 
 const Submenu = ({ items, name }) => (
   <>
-    <Link to='/' className='nav-link dropdown-toggle' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown'
-          aria-haspopup='true' aria-expanded='false'>
+    <Link to='/' className='nav-link dropdown-toggle' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' >
       {name}
     </Link>
     <div className='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>

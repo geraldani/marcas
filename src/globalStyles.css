@@ -28,7 +28,25 @@ body{
     padding-right: 6rem!important;
 }
 
-.mainTitle{
+.main-title{
     font-size: 1.5rem;
     margin-top: 5rem;
+}
+
+.text-normal{
+    font-weight: normal;
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+
+.big-margin{
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
+@media (max-width: 992px) {
+    .big-margin {
+        margin-left: 1.8rem;
+        margin-right: 1.8rem;
+    }
 }
