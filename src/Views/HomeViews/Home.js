@@ -1,15 +1,15 @@
 import React from 'react'
 import RegisterBrand from './RegisterBrand'
-import Work from './Work'
+// import Help from './Help'
+import Work from './howWeWork/Work'
 import AboutUs from './AboutUs'
-import Help from './Help'
 
 export default function Home () {
   return (
-    <div style={{ height: '800px', backgroundColor: 'pink' }}>
-      {/*<RegisterBrand />*/}
-      <Work />
-      {/*<AboutUs />*/}
+    <div style={{ marginTop: '66px' }}>
+      <RegisterBrand/>
+      <Work/>
+      <AboutUs/>
       {/*<Help />*/}
     </div>
   )

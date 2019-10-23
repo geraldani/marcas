@@ -31,5 +31,35 @@
         "path": "/signin"
       }
     ]
+  },
+  "register": {
+    "title": "Buscá y registrá tu marca",
+    "subtitle": "En Sitebrand te damos la posibilidad de registrar tu marca hoy, en el pais que vos quieras.",
+    "buttons": ["Registrar marca", "Otros trámites"]
+  },
+  "work": {
+    "title": "¿Cómo trabajamos?",
+    "cards": [
+      {
+        "title": "Selecciona tu trámite",
+        "description": "Podemos ayudarlo y simplificar el proceso de su trámite.",
+        "iconPath": "https://trello-attachments.s3.amazonaws.com/5da9c8ca832543113673af0f/5db04fffebfb0a55f8063c0c/dfd4b985d54c8f433d23e8c059880edd/icon-tramite.svg"
+      },
+      {
+        "title": "Ingresa los datos",
+        "description": "Le pedimos la información necesaria para encarar su trámite.",
+        "iconPath": "https://trello-attachments.s3.amazonaws.com/5da9c8ca832543113673af0f/5db04fffebfb0a55f8063c0c/461d19daf748d7bf63ff42195f9e420e/icon-datos.svg"
+      },
+      {
+        "title": "Proceso de seguimiento",
+        "description": "Aviso de seguimiento en que estado esta su trámite.",
+        "iconPath": "https://trello-attachments.s3.amazonaws.com/5da9c8ca832543113673af0f/5db04fffebfb0a55f8063c0c/6b5dea02a706adcde19ed5ec5ca448fb/icon-seguimiento.svg"
+      },
+      {
+        "title": "Finalización",
+        "description": "Confirmación de cierre de su trámite y aviso de próximas novedades.",
+        "iconPath": "https://trello-attachments.s3.amazonaws.com/5da9c8ca832543113673af0f/5db04fffebfb0a55f8063c0c/164df6f27ec1ecb77326eb3b39f27983/icon-finalizacion.svg"
+      }
+    ]
   }
 }

@@ -1,11 +1,11 @@
-import React  from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { menu } from '../data.json'
 import './styles.css'
 
 const Header = () => (
   <header>
-    <nav className='navbar sticky-top navbar-expand-lg navbar-light shadow-sm'>
+    <nav className='navbar navbar-expand-lg navbar-light shadow-sm fixed-top bg-white'>
       <Link className='navbar-brand' to='/'>
         <img src='https://img.pngio.com/melia-expansion-melia-hotels-international-brand-png-1060_328.png' alt='brand' className='img-fluid' />
       </Link>
@@ -18,7 +18,7 @@ const Header = () => (
         aria-expanded='false'
         aria-label='Toggle navigation'
       >
-        <span className='navbar-toggler-icon' />
+        <span className='navbar-toggler-icon'/>
       </button>
 
       <div className='collapse navbar-collapse justify-content-end' id='navbarNavDropdown'>
@@ -44,7 +44,8 @@ const Header = () => (
 
 const Submenu = ({ items, name }) => (
   <>
-    <Link to='/' className='nav-link dropdown-toggle' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+    <Link to='/' className='nav-link dropdown-toggle' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown'
+          aria-haspopup='true' aria-expanded='false'>
       {name}
     </Link>
     <div className='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>

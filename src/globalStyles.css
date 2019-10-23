@@ -22,3 +22,13 @@ body{
     font-weight: 500!important;
     font-size: 1.08rem!important;
 }
+
+.px-6{
+    padding-left: 6rem!important;
+    padding-right: 6rem!important;
+}
+
+.mainTitle{
+    font-size: 1.5rem;
+    margin-top: 5rem;
+}

@@ -1,0 +1,57 @@
+#sectionRegisterBrand .background-register{
+    background-image: url("../../assets/img/mg.jpg");
+    background-position: 50% 0;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    position: relative;
+    opacity: .85;
+}
+
+#sectionRegisterBrand .background-register:after {
+    content: '';
+    background-color: rgba(0,0,0,.4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#sectionRegisterBrand .background-register h2{
+    font-size: 1.9rem;
+    margin-bottom: 0;
+}
+#sectionRegisterBrand .background-register p{
+    font-size: 1.15rem;
+}
+#sectionRegisterBrand .text-normal{
+    font-weight: normal;
+}
+
+#sectionRegisterBrand .buttonsContainer{
+    margin-top: 30px;
+
+}
+#sectionRegisterBrand .buttonsContainer .btn-white{
+    color: white;
+    border: solid 2px white;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+#sectionRegisterBrand .buttonsContainer .btn-purple{
+    font-weight: 500;
+    background-color: #8e2efd;
+    color: white;
+    font-size: 1.15rem;
+    box-shadow: 0 0 11px -1px rgba(0,0,0,0.75);
+}
+
+@media (max-width: 768px) {
+    #sectionRegisterBrand .background-register {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        background-position: 70% 50%;
+    }
+
+}
