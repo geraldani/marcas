@@ -7,7 +7,7 @@ const URL = `http://localhost:${PORT}/`
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src', 'Work.js')
+    app: path.resolve(__dirname, 'src', 'index.js')
   },
   output: {
     filename: 'app.[hash].js',

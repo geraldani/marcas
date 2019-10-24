@@ -69,6 +69,9 @@
   "help": {
     "title": "En qué podemos ayudarte",
     "description": "It is a long fact that a reader will be distracted. It is a long fact that a reader will be distracted. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "buttonTitle": "Iniciar Trámite",
+    "buttonInfo": "Más info",
+    "url": "iniciotramite",
     "brands": [
       {
         "id": 1,

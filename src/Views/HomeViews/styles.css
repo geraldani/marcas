@@ -37,27 +37,6 @@
     font-size: 1.15rem;
 }
 
-#sectionRegisterBrand .buttonsContainer {
-    margin-top: 30px;
-
-}
-
-#sectionRegisterBrand .buttonsContainer .btn-white {
-    color: white;
-    border: solid 2px white;
-    font-size: 1.15rem;
-    font-weight: 500;
-}
-
-#sectionRegisterBrand .buttonsContainer .btn-purple {
-    font-weight: 500;
-    background-color: #8e2efd;
-    color: white;
-    font-size: 1.15rem;
-    box-shadow: 0 0 11px -1px rgba(0, 0, 0, 0.75);
-}
-
-
 
 @media (max-width: 768px) {
     #sectionRegisterBrand .background-register {

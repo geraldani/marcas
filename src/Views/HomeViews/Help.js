@@ -5,10 +5,20 @@ import CardInfo from '../utilities/InfoCards'
 
 const Help = () => (
   <section id='sectionHelp'>
-    <Title title={help.title} />
-    <p className='text-center text-normal mb-5 pb-4 big-margin' style={{ color: '#9e9e9e' }}>{help.description}</p>
-    <div>
-      <CardInfo />
+    <div className='container'>
+      <Title title={help.title} />
+      <p className='text-center text-normal mb-5 pb-4 big-margin' style={{ color: '#9e9e9e' }}>{help.description}</p>
+      {
+        help.brands.map((card, index) => (
+          <CardInfo
+            index={index}
+            key={card.id}
+            buttonTitle={help.buttonTitle}
+            link={`/${help.url}-${card.id}`}
+            {...card}
+          />
+        ))
+      }
     </div>
   </section>
 )
