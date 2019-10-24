@@ -13,6 +13,7 @@ const Help = () => (
           <CardInfo
             index={index}
             key={card.id}
+            buttonInfo={help.buttonInfo}
             buttonTitle={help.buttonTitle}
             link={`/${help.url}-${card.id}`}
             {...card}
