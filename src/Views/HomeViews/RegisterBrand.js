@@ -16,8 +16,8 @@ const RegisterBrand = () => (
         {
           register.buttons.map((title, index) =>
             index === 0
-              ? <Button key={index} title={title} styled='purple' className='mr-4' />
-              : <Button key={index} title={title} styled='outline-white' />
+              ? <Button key={index} title={title} styled='purple' className='mx-4 mb-3 mb-md-0 ml-md-0' />
+              : <Button key={index} title={title} styled='outline-white' className='mx-md-0 mx-4' />
           )
         }
       </div>

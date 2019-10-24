@@ -94,5 +94,31 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       }
     ]
-  }
+  },
+  "formalities": {
+    "title": "Trámites realizados",
+    "brands": [
+      {
+        "number": 100000,
+        "description": "Registros de marcas"
+      },
+      {
+        "number": 15000,
+        "description": "Disputas de dominio"
+      },
+      {
+        "number": 45000,
+        "description": "Registros internacionales"
+      },
+      {
+        "number": 4000,
+        "description": "Protocolos de registros Madrid"
+      }
+    ]
+  },
+  "footer": [
+    "Contactanos",
+    "Terminos y condiciones",
+    "Pregutas frecuentes"
+  ]
 }

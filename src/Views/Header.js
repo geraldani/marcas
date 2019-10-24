@@ -2,26 +2,25 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { menu } from '../data.json'
 import './styles.css'
+import Logo from './utilities/Logo'
 
 const Header = () => (
   <header>
     <nav className='navbar navbar-expand-lg navbar-light shadow-sm fixed-top bg-white'>
-      <Link className='navbar-brand' to='/'>
-        <img src='https://img.pngio.com/melia-expansion-melia-hotels-international-brand-png-1060_328.png' alt='brand' className='img-fluid' />
-      </Link>
+      <Logo />
       {/* Button for mobile that shows and hide the main menu */}
       <button
         className='navbar-toggler'
         type='button' data-toggle='collapse'
-        data-target='#navbarNavDropdown'
-        aria-controls='navbarNavDropdown'
+        data-target='#navbarNavHeader'
+        aria-controls='navbarNavHeader'
         aria-expanded='false'
         aria-label='Toggle navigation'
       >
         <span className='navbar-toggler-icon' />
       </button>
 
-      <div className='collapse navbar-collapse justify-content-end' id='navbarNavDropdown'>
+      <div className='collapse navbar-collapse justify-content-end' id='navbarNavHeader'>
         <ul className='navbar-nav'>
           {
             menu.home.map((menu, index) => {

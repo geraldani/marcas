@@ -49,7 +49,7 @@ export default CardInfo
 const StyledLink = styled(Link)`
   font-style: italic;
   color: ${COLORS.purple};
-  font-weight: normal;
+  font-weight: 500;
   ${props => props.margin};
   transition: all 200ms;
   @media (max-width: 768px) {
