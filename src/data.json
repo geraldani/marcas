@@ -116,6 +116,10 @@
       }
     ]
   },
+  "contact": {
+    "title": "Quiero que se contacten conmigo",
+    "buttonTitle": "Escribinos"
+  },
   "footer": [
     "Contactanos",
     "Terminos y condiciones",

@@ -35,7 +35,6 @@ const Styles = {
     font-weight: normal;
     font-size: .8rem;
     margin-bottom: 0;
-    margin-top: 8px;
     @media (max-width: 770px){
       text-align: center;
       margin-bottom: 1rem;

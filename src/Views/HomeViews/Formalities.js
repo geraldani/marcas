@@ -5,11 +5,11 @@ import BrandCards from '../utilities/BrandCards'
 
 const Formalities = () => {
   return (
-    <section className='mb-3'>
+    <section className='mb-5'>
       <div className=' container'>
         <div className='row'>
           <div className='col-12'>
-            <Title title={formalities.title} />
+            <Title title={formalities.title} className='mb-4' />
           </div>
           {
             formalities.brands.map((brand, index) => (
