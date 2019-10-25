@@ -9,7 +9,7 @@ import Footer from '../Footer'
 
 export default function Home () {
   return (
-    <div style={{ marginTop: '66px' }}>
+    <div className='margin-header'>
       <RegisterBrand />
       <Work />
       <AboutUs />

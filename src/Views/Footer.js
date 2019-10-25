@@ -3,7 +3,7 @@ import Logo from './utilities/Logo'
 import { Link } from 'react-router-dom'
 import { footer } from '../data.json'
 import styled from 'styled-components'
-import COLORS from './utilities/colors'
+import { COLORS } from './utilities/constants'
 
 const Footer = () => {
   return (

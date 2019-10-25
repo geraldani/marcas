@@ -5,7 +5,12 @@ const COLORS = {
   darkGrey: '#4a4a4a',
   grey: '#eee',
   lightGrey: '#f5f5f5',
-  textColor: '#6c757d'
+  textColor: '#6c757d',
+  mediumGray: '#d1d5e0'
 }
 
-export default COLORS
+const ROUTE = {
+  home: '/',
+  registerBrand: '/register-brand'
+}
+export { ROUTE, COLORS }

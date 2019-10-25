@@ -3,7 +3,7 @@ import Button from './Button'
 import { IoIosArrowDropright as ArrowIcon } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import COLORS from './colors'
+import { COLORS } from './constants'
 
 const CardInfo = (props) => {
   const pair = props.index % 2 === 0
@@ -27,11 +27,11 @@ const CardInfo = (props) => {
               {props.description}
             </p>
             <div className='d-flex align-items-center flex-column flex-md-row'>
-              {!pair && <MoreInfo />}
+              {!pair && <MoreInfo/>}
               <Button title={props.buttonTitle} link={props.link}>
-                <ArrowIcon size='1.6em' className='ml-2' />
+                <ArrowIcon size='1.6em' className='ml-2'/>
               </Button>
-              {pair && <MoreInfo />}
+              {pair && <MoreInfo/>}
             </div>
           </div>
         </div>

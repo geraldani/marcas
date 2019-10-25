@@ -1,5 +1,5 @@
 import React from 'react'
-import COLORS from '../utilities/colors'
+import { COLORS } from '../utilities/constants'
 import Title from '../utilities/Title'
 import { contact } from '../../data.json'
 import Button from '../utilities/Button'

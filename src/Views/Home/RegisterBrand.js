@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 import { register } from '../../data.json'
 import Button from '../utilities/Button'
+import { ROUTE } from '../utilities/constants'
 
 const RegisterBrand = () => (
   <section id='sectionRegisterBrand'>
@@ -16,7 +17,7 @@ const RegisterBrand = () => (
         {
           register.buttons.map((title, index) =>
             index === 0
-              ? <Button key={index} title={title} styled='purple' className='mx-4 mb-3 mb-md-0 ml-md-0' />
+              ? <Button key={index} title={title} link={ROUTE.registerBrand} styled='purple' className='mx-4 mb-3 mb-md-0 ml-md-0' />
               : <Button key={index} title={title} styled='outline-white' className='mx-md-0 mx-4' />
           )
         }

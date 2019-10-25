@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import COLORS from './colors'
+import { COLORS } from './constants'
 import { IoIosCheckmarkCircle as CheckIcon } from 'react-icons/io'
 
 const BrandCards = ({ number, description }) => {
   return (
     <Styled.div>
-      <Styled.h4>{number.toLocaleString()}</Styled.h4>
+      <Styled.h4>{number}</Styled.h4>
       <Styled.p>{description}</Styled.p>
       <Styled.CheckIcon size='22px' />
     </Styled.div>

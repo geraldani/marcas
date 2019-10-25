@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import COLORS from './colors'
+import { COLORS } from './constants'
 
 const Button = ({ title, styled = 'purple', children, link, onClick, className }) => {
   const ButtonLink = link ? StyledLink : StyledButton
@@ -23,19 +23,27 @@ const styles = css`
     padding: 0.5rem 1rem;
     background-color: ${({ styles }) => {
   switch (styles) {
-    case 'purple': return COLORS.purple
-    case 'outline-white': return COLORS.transparent
-    case 'outline-purple': return COLORS.transparent
-    default: return COLORS.white
+    case 'purple':
+      return COLORS.purple
+    case 'outline-white':
+      return COLORS.transparent
+    case 'outline-purple':
+      return COLORS.transparent
+    default:
+      return COLORS.white
   }
 }};
     border: 2px solid;
     border-color: ${({ styles }) => {
   switch (styles) {
-    case 'purple': return COLORS.transparent
-    case 'outline-white': return COLORS.white
-    case 'outline-purple': return COLORS.purple
-    default: return COLORS.transparent
+    case 'purple':
+      return COLORS.transparent
+    case 'outline-white':
+      return COLORS.white
+    case 'outline-purple':
+      return COLORS.purple
+    default:
+      return COLORS.transparent
   }
 }};
     vertical-align: middle;
@@ -62,5 +70,6 @@ const StyledButton = styled.button`${styles}` // para renderizar un boton con lo
 const StyledLink = styled(Link)`${styles}` // para renderizar un link (a) con los mismos estilos
 
 Button.propTypes = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  link: PropTypes.string
 }
