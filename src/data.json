@@ -124,5 +124,15 @@
     "Contactanos",
     "Terminos y condiciones",
     "Pregutas frecuentes"
+  ],
+  "countries": [
+    "Argentina",
+    "Brasil",
+    "Estados Unidos",
+    "España",
+    "Colombia",
+    "Chile",
+    "Ecuador",
+    "Venezuela"
   ]
 }

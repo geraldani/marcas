@@ -7,8 +7,10 @@ const CardSteps = ({ title, children }) => {
       <div className='card-header py-3  pl-5' style={{ backgroundColor: COLORS.lightGrey }}>
         <h4 className='mb-0'>{title}</h4>
       </div>
-      <div className='card-body pl-5'>
-        {children}
+      <div className='card-body p-0'>
+        <form>
+          {children}
+        </form>
       </div>
     </div>
   )

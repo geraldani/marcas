@@ -6,7 +6,8 @@ const COLORS = {
   grey: '#eee',
   lightGrey: '#f5f5f5',
   textColor: '#6c757d',
-  mediumGray: '#d1d5e0'
+  mediumGray: '#d1d5e0',
+  aqua: '#5cf8ea'
 }
 
 const ROUTE = {
