@@ -57,8 +57,7 @@ const styles = css`
         transform: scale(1);
         opacity: 0.7;
       }
-    }
-`
+    }`
 const StyledButton = styled.button`${styles}` // para renderizar un boton con los mismos estilos
 const StyledLink = styled(Link)`${styles}` // para renderizar un link (a) con los mismos estilos
 

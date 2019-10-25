@@ -31,7 +31,7 @@ export default Footer
 
 const Styles = {
   p: styled.p`
-    color: ${COLORS.grey};
+    color: #6c757d;
     font-weight: normal;
     font-size: .8rem;
     margin-bottom: 0;
