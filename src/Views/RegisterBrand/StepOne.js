@@ -18,10 +18,10 @@ const StepOne = () => {
         </select>
         {
           selectCountry &&
-          <CountrySelected>
-            {selectCountry}
-            <IconClose size='25px' className='ml-1' />
-          </CountrySelected>
+            <CountrySelected>
+              {selectCountry}
+              <IconClose size='25px' className='ml-1' />
+            </CountrySelected>
         }
       </div>
       <div className='form-group'>

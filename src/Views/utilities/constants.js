@@ -7,11 +7,12 @@ const COLORS = {
   lightGrey: '#f5f5f5',
   textColor: '#6c757d',
   mediumGray: '#d1d5e0',
-  aqua: '#5cf8ea'
+  aqua: '#5cf8ea',
+  blue: '#4990e2'
 }
 
-const ROUTE = {
+const ROUTES = {
   home: '/',
   registerBrand: '/register-brand'
 }
-export { ROUTE, COLORS }
+export { ROUTES, COLORS }
