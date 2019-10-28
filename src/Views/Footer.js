@@ -3,7 +3,7 @@ import Logo from './utilities/Logo'
 import { Link } from 'react-router-dom'
 import { footer } from '../data.json'
 import styled from 'styled-components'
-import { COLORS } from './utilities/constants'
+import { COLOR } from './utilities/constants'
 
 const Footer = () => {
   return (
@@ -41,11 +41,11 @@ const Styles = {
     }
 `,
   Link: styled(Link)`
-    color: ${COLORS.darkGrey};
+    color: ${COLOR.darkGrey};
     font-size: .8rem;
     &:hover{
       text-decoration: none;
-      color: ${COLORS.darkGrey};
+      color: ${COLOR.darkGrey};
       opacity: .8;
     }
     &:not(:last-child){

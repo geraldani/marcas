@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { COLORS } from './constants'
+import { COLOR } from './constants'
 import { IoIosCheckmark as CheckIcon } from 'react-icons/io'
 import PropTypes from 'prop-types'
 
@@ -47,20 +47,20 @@ const commonStyles = css`
     bottom: 0;
     margin: auto;
     left: 28px;
-    background-color: ${COLORS.purple};
+    background-color: ${COLOR.purple};
   }
 `
 const Circle = {
   Full: styled.p`
     ${commonStyles};
-    background-color: ${COLORS.purple};
-    color: ${COLORS.white};
+    background-color: ${COLOR.purple};
+    color: ${COLOR.white};
     box-shadow: 0 2px 7px -2px rgba(0,0,0,.7);
 `,
   Empty: styled.p`
     ${commonStyles};
-    border: solid 2px ${COLORS.purple};
-    color: ${COLORS.purple};
+    border: solid 2px ${COLOR.purple};
+    color: ${COLOR.purple};
     font-weight: 500;
 `
 }

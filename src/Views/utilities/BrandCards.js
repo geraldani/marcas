@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { COLORS } from './constants'
+import { COLOR } from './constants'
 import { IoIosCheckmarkCircle as CheckIcon } from 'react-icons/io'
 
 const BrandCards = ({ number, description }) => {
@@ -17,14 +17,14 @@ export default BrandCards
 
 const Styled = {
   div: styled.div`
-    border: solid 3px ${COLORS.grey};
-    border-bottom-color: ${COLORS.purple};
+    border: solid 3px ${COLOR.grey};
+    border-bottom-color: ${COLOR.purple};
     border-radius: 5px;
     height: 165px;
     position: relative;
   `,
   h4: styled.h4`
-    color: ${COLORS.purple};
+    color: ${COLOR.purple};
     font-size: 3.1rem;
     margin-top: 2rem;
     text-align: center;
@@ -32,7 +32,7 @@ const Styled = {
   `,
   p: styled.p`
     text-align: center;
-    color: ${COLORS.textColor};
+    color: ${COLOR.textColor};
     font-weight: normal;
     line-height: 1;
   `,
@@ -42,6 +42,6 @@ const Styled = {
     left: 0;
     right: 0;
     margin: 0 auto 10px auto;
-    color: ${COLORS.purple};
+    color: ${COLOR.purple};
   `
 }

@@ -1,32 +1,38 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { COLORS } from './constants'
+import { COLOR } from './constants'
 
-const CheckButtton = ({ value, title, description }) => {
+const CheckButttons = ({ value, title, description, name, onChange }) => {
   const changeColor = (e) => {
-    e.currentTarget.parentNode.childNodes.forEach(elem => {
-      elem.style.background = 'white'
+    e.currentTarget.parentNode.parentNode.childNodes.forEach(elem => {
+      elem.firstChild.style.background = 'white'
     })
-    e.currentTarget.style.background = COLORS.lightGrey
+    e.currentTarget.style.background = COLOR.lightGrey
   }
 
   return (
-    <Styled.Card onClick={changeColor}>
-      <Styled.Checkbox type='radio' value={value} name='radioButton' />
-      <Styled.CheckIcon />
-      <div>
-        <h5>{title}</h5>
-        <Styled.Description>
-          {description}
-        </Styled.Description>
-      </div>
-    </Styled.Card>
+    <div className='d-flex justify-content-end flex-column'>
+      <Styled.Card onClick={changeColor}>
+        <Styled.Checkbox type='radio' value={value} name={name} onChange={onChange} />
+        <Styled.CheckIcon />
+        <div>
+          <h5>{title}</h5>
+          <Styled.Description>
+            {description}
+          </Styled.Description>
+        </div>
+      </Styled.Card>
+      <Styled.Price to={`price${1}`}>
+        Ver precio
+      </Styled.Price>
+    </div>
   )
 }
 
 const Styled = {
   Description: styled.p`
-    color: ${COLORS.darkGrey};
+    color: ${COLOR.darkGrey};
     font-size: .9em;
     line-height: 1.2;
 `,
@@ -50,7 +56,7 @@ const Styled = {
     height: 22px;
     width: 22px;
     border-radius: 50%;
-    border: solid 2px ${COLORS.blue};
+    border: solid 2px ${COLOR.blue};
     &:after{
       display: none;
       content: '';
@@ -63,21 +69,28 @@ const Styled = {
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: ${COLORS.blue};
+      background-color: ${COLOR.blue};
     }
 `,
   Card: styled.label`
     display: flex;
     position: relative;
     border-radius: 10px;
-    border: solid 1px ${COLORS.mediumGray};
+    border: solid 1px ${COLOR.mediumGray};
     padding: 15px 15px 8px 55px;
-    margin-bottom: 20px;
     cursor: pointer;
+    margin-bottom: 0;
     &:hover{
-      background-color: ${COLORS.lightGrey};
+      background-color: ${COLOR.lightGrey};
     }
+`,
+  Price: styled(Link)`
+    text-align: right;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-style: italic;
+    font-size: .8em;
 `
 }
 
-export default CheckButtton
+export default CheckButttons

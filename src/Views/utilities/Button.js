@@ -2,53 +2,53 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-import { COLORS } from './constants'
+import { COLOR } from './constants'
 
 const Button = ({ title, styled = 'purple', children, link, onClick, className }) => {
-  const ButtonLink = link ? StyledLink : StyledButton
+  const StyledButtonLink = link ? Styled.Link : Styled.Button
 
   return (
-    <ButtonLink className={className} styles={styled} to={link} onClick={onClick}>
+    <StyledButtonLink className={className} styles={styled} to={link} onClick={onClick}>
       {title}
       {children}
-    </ButtonLink>
+    </StyledButtonLink>
   )
 }
 
 export default Button
 
 /* STYLES */
-const styles = css`
+const commonStyles = css`
     font-weight: 500;
     padding: 0.5rem 1rem;
     background-color: ${({ styles }) => {
   switch (styles) {
     case 'purple':
-      return COLORS.purple
+      return COLOR.purple
     case 'outline-white':
-      return COLORS.transparent
+      return COLOR.transparent
     case 'outline-purple':
-      return COLORS.transparent
+      return COLOR.transparent
     default:
-      return COLORS.white
+      return COLOR.white
   }
 }};
     border: 2px solid;
     border-color: ${({ styles }) => {
   switch (styles) {
     case 'purple':
-      return COLORS.transparent
+      return COLOR.transparent
     case 'outline-white':
-      return COLORS.white
+      return COLOR.white
     case 'outline-purple':
-      return COLORS.purple
+      return COLOR.purple
     default:
-      return COLORS.transparent
+      return COLOR.transparent
   }
 }};
     vertical-align: middle;
     border-radius: 0.25rem;
-    color: ${({ styles }) => styles === 'outline-purple' ? COLORS.purple : COLORS.white}!important;
+    color: ${({ styles }) => styles === 'outline-purple' ? COLOR.purple : COLOR.white}!important;
     text-align: center;
     display: inline-block;
     font-size: 1.25rem;
@@ -66,8 +66,10 @@ const styles = css`
         opacity: 0.7;
       }
     }`
-const StyledButton = styled.button`${styles}` // para renderizar un boton con los mismos estilos
-const StyledLink = styled(Link)`${styles}` // para renderizar un link (a) con los mismos estilos
+const Styled = {
+  Button: styled.button`${commonStyles}`, // para renderizar un boton con los mismos estilos
+  Link: styled(Link)`${commonStyles}` // para renderizar un link (a) con los mismos estilos
+}
 
 Button.propTypes = {
   title: PropTypes.string.isRequired,

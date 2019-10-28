@@ -125,6 +125,24 @@
     "Terminos y condiciones",
     "Pregutas frecuentes"
   ],
+  "steoOne": {
+    "checkButtons":[
+      {
+        "id": "df8d4984",
+        "value": "antecedentes",
+        "title": "Busqueda de antecedentes",
+        "description": "Un informe de búsqueda de marcas con el análisis y la opinión de un abogado sobre las posibilidades de registro.",
+        "subLink": "Ver precio"
+      },
+      {
+        "id": "564fdsfsd",
+        "value": "registro",
+        "title": "Solicitud de registro de marca",
+        "description": "Un abogado de marcas registrará y procesará su solicitud de marca ante la Oficina de Marcas.",
+        "subLink": "Ver precio"
+      }
+    ]
+  },
   "countries": [
     "Argentina",
     "Brasil",

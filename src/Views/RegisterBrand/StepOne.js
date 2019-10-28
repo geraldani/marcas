@@ -1,59 +1,118 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { COLORS } from '../utilities/constants'
-import { countries } from '../../data.json'
-import { IoIosCloseCircleOutline as IconClose } from 'react-icons/io'
-import CheckButtton from '../utilities/CheckButtton'
+import { COLOR } from '../utilities/constants'
+import { countries, steoOne } from '../../data.json'
+import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } from 'react-icons/io'
+import CheckButttons from '../utilities/CheckButtton'
 
-const StepOne = () => {
-  const [selectCountry, setSelectCountry] = useState('')
+const Alert = ({ showAlert }) => {
   return (
-    <div className='col-7 px-4 mt-5'>
-      <div className='form-group mr-5'>
-        <LabelForm htmlFor='countrySelect'>En qué pais quiero registrar mi marca</LabelForm>
-        <SubLabel>Paises</SubLabel>
-        <select className='custom-select' onChange={(e) => setSelectCountry(e.target.value)}>
-          <option value=''>Seleccione su pais</option>
-          {countries.map(country => <option value={country} key={country}>{country}</option>)}
-        </select>
-        {
-          selectCountry &&
-            <CountrySelected>
-              {selectCountry}
-              <IconClose size='25px' className='ml-1' />
-            </CountrySelected>
-        }
-      </div>
-      <div className='form-group'>
-        <CheckButtton
-          value='antecedentesBusqueda'
-          title='Busqueda de antecedendes'
-          description='Un informe de búsqueda de marcas con el análisis y la opinión de un abogado sobre las posibilidades de registro. '
-        />
-        <CheckButtton
-          value='registroMarca'
-          title='Solicitud de registro de marca'
-          description='Un abogado de marcas registrará y procesará su solicitud de marca ante la Oficina de Marcas. '
-        />
-      </div>
-    </div>
+    <Styled.Alert>
+      <p>
+        Te recomendamos que hagas la <strong>"Búsqueda de antecedentes"</strong> antes de hacer una solicitud
+      </p>
+      <span onClick={() => showAlert(false)}>
+        Cerrar
+        <IconClose size='1.8rem' />
+      </span>
+    </Styled.Alert>
   )
 }
 
-const LabelForm = styled.label`
-  font-size: 1.4em;
-`
-const SubLabel = styled.p`
-  color: ${COLORS.darkGrey};
-  font-size: .9em;
-`
-const CountrySelected = styled.p`
-  font-size: 1.1em;
-  display: inline-block;
-  padding: 5px 12px;
-  border-radius: 15px;
-  margin-top: 1em;
-  background-color: ${COLORS.aqua};
-  color: ${COLORS.darkGrey}`
+const StepOne = (props) => {
+  const [showAlert, setShowAlert] = useState(false)
+
+  const showRegisterAlert = (e) => {
+    !showAlert && e.target.value === 'registro'
+      ? setShowAlert(true)
+      : setShowAlert(false)
+  }
+
+  return (
+    <>
+      <div className='col-7 px-4 mt-5'>
+        <div className='form-group mr-5 position-relative' style={{ marginBottom: '7em' }}>
+          <Styled.LabelForm htmlFor='countrySelect'>En qué pais quiero registrar mi marca</Styled.LabelForm>
+          <Styled.SubLabel>Paises</Styled.SubLabel>
+          <select className='custom-select' onChange={(e) => props.setCountry(e.target.value)}>
+            <option value=''>Seleccione su pais</option>
+            {countries.map(country => <option value={country} selected={country === props.country} key={country}>{country}</option>)}
+          </select>
+          {
+            props.country &&
+              <Styled.CountrySelected>
+                {props.country}
+                <IconCloseCircle size='25px' className='ml-1' />
+              </Styled.CountrySelected>
+          }
+        </div>
+      </div>
+      <div className='col-12 px-0'>
+        <div className='border-top my-4' />
+        {
+          showAlert &&
+            <Alert showAlert={setShowAlert} />
+        }
+      </div>
+      <div className='col-7 px-4 mt-3'>
+        <div className='form-group'>
+          {
+            steoOne.checkButtons.map((elem) => (
+              <CheckButttons
+                key={elem.id}
+                value={elem.value}
+                title={elem.title}
+                name='buttonCheck'
+                description={elem.description}
+                onChange={showRegisterAlert}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </>
+  )
+}
+
+export const Styled = {
+  LabelForm: styled.label`
+    font-size: 1.4em;
+  `,
+  SubLabel: styled.p`
+    // color: ${COLOR.darkGrey};
+    font-size: .9em;
+  `,
+  CountrySelected: styled.p`
+    font-size: 1.1em;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 15px;
+    bottom:0;
+    margin-bottom: -50px;
+    position: absolute;
+    left: 0;
+    background-color: ${COLOR.aqua};
+    color: ${COLOR.darkGrey}
+  `,
+  Alert: styled.div`
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    background-color: ${COLOR.lighBlue};
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    & p{
+      margin-bottom: 0;
+    }
+    & span{
+      color: ${COLOR.blue};
+      font-style: italic;
+      font-weight: normal;
+      font-size: 0.8em;
+      cursor: pointer;
+    }
+  `
+}
 
 export default StepOne
