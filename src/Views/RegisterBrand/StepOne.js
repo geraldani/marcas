@@ -81,10 +81,10 @@ const StepOne = (props) => {
 
 export const Styled = {
   LabelForm: styled.label`
-    font-size: 1.3em;
+    font-size: 1.15em;
   `,
   SubLabel: styled.p`
-    // color: ${COLOR.darkGrey};
+    /* color: ${COLOR.darkGrey};*/
     font-size: .9em;
   `,
   CountrySelected: styled.p`

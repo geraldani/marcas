@@ -11,21 +11,21 @@ const StepTwo = (props) => {
   return (
     <>
       <div className='col-12 px-4 mt-5'>
-        <Styled.LabelForm htmlFor='countrySelect'>Datos del estudio encargado del seguimiento del
-          trámite
+        <Styled.LabelForm htmlFor='countrySelect'>
+          Datos del estudio encargado del seguimiento del trámite
         </Styled.LabelForm>
       </div>
       <div className='col-7 px-4 '>
         <div className='form-group mr-5 position-relative'>
           <Styled.SubLabel>Email</Styled.SubLabel>
-          <input type='email' className='form-control' name='email' value={email}
-                 onChange={event => setEmail(event.target.value)} />
+          <input type='email' className='form-control' name='email' value={email} onChange={event => setEmail(event.target.value)} />
         </div>
       </div>
       <div className='col-12 px-4 mt-4'>
         <Styled.LabelForm>Datos personales del titular marcario</Styled.LabelForm>
-        <StyledLegend>Para darle seguimiento a su solicitud de registro de marca, complete el siguiente
-          formulario.</StyledLegend>
+        <StyledLegend>
+          Para darle seguimiento a su solicitud de registro de marca, complete el siguiente formulario.
+        </StyledLegend>
       </div>
       <div className='col-5 px-4 mt-3'>
         <div className='form-group'>
@@ -52,7 +52,7 @@ const StepTwo = (props) => {
           <SubLabelDisabled className='mt-3 mb-0'>Razon social</SubLabelDisabled>
           <input type='text' className='form-control' name='razon' disabled />
           <Styled.SubLabel className='mt-3 mb-0'>País apoderado/Gestor</Styled.SubLabel>
-          <select className='custom-select'> TODO {/* TODO implementar el onchange del select */}
+          <select className='custom-select' defaultValue={props.country}> TODO {/* TODO implementar el onchange del select */}
             <option value=''>Seleccione su pais</option>
             {countries.map(country => <option value={country} key={country}>{country}</option>)}
           </select>
