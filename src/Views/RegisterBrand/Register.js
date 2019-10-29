@@ -9,6 +9,17 @@ import StepFour from './StepFour'
 import StepFive from './StepFive'
 import Button from '../utilities/Button'
 
+export const useInputChange = () => {
+  const [input, setInput] = useState({})
+
+  const handleInputChange = (e) => setInput({
+    ...input,
+    [e.currentTarget.name]: e.currentTarget.value
+  })
+
+  return [input, handleInputChange]
+}
+
 const Register = () => {
   const totalSteps = 5
   const [step, setStep] = useState(2)
@@ -30,8 +41,6 @@ const Register = () => {
   ]
 
   const [country, setCountry] = useState('')
-  const [email, setEmail] = useState('')
-
   const [dataForm, setDataForm] = useState(null)
 
   const clickNext = (e) => {
@@ -40,13 +49,13 @@ const Register = () => {
       window.alert('termine el asunto')
     } else {
       setStep(step + 1)
-      const newData = []
+      /* const newData = []
       const obj = {
         field: 'País de registro',
         value: country || ''
       }
       newData.push(obj)
-      setDataForm(newData)
+      setDataForm(newData) */
     }
   }
 
@@ -56,7 +65,7 @@ const Register = () => {
   }
 
   const ButtonsNavigation = () => (
-    <div className={`border-top py-3 px-4 d-flex ${step === 1 ? 'justify-content-end' : 'justify-content-between'}`}>
+    <div className={`border-top mt-5 py-3 px-4 d-flex ${step === 1 ? 'justify-content-end' : 'justify-content-between'}`}>
       {
         step > 1 && <Button title='Volver' className='px-5' styled='outline-purple' onClick={clickBack} />
       }
@@ -69,7 +78,7 @@ const Register = () => {
       case 1:
         return <StepOne country={country} setCountry={setCountry} />
       case 2:
-        return <StepTwo email={email} setEmail={setEmail} onChange={(e) => setEmail(e.target.value)} />
+        return <StepTwo />
       case 3:
         return <StepThree />
       case 4:

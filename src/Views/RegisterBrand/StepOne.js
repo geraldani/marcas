@@ -4,6 +4,7 @@ import { COLOR } from '../utilities/constants'
 import { countries, steoOne } from '../../data.json'
 import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } from 'react-icons/io'
 import CheckButttons from '../utilities/CheckButtton'
+import { Link } from 'react-router-dom'
 
 const Alert = ({ showAlert }) => {
   return (
@@ -65,7 +66,11 @@ const StepOne = (props) => {
                 name='buttonCheck'
                 description={elem.description}
                 onChange={showRegisterAlert}
-              />
+              >
+                <Styled.Price to={`price${1}`}>
+                  Ver precio
+                </Styled.Price>
+              </CheckButttons>
             ))
           }
         </div>
@@ -76,7 +81,7 @@ const StepOne = (props) => {
 
 export const Styled = {
   LabelForm: styled.label`
-    font-size: 1.4em;
+    font-size: 1.3em;
   `,
   SubLabel: styled.p`
     // color: ${COLOR.darkGrey};
@@ -112,7 +117,14 @@ export const Styled = {
       font-size: 0.8em;
       cursor: pointer;
     }
-  `
+  `,
+  Price: styled(Link)`
+    text-align: right;
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-style: italic;
+    font-size: .8em;
+`
 }
 
 export default StepOne

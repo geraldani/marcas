@@ -1,31 +1,36 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { COLOR } from './constants'
 
-const CheckButttons = ({ value, title, description, name, onChange }) => {
+const CheckButttons = (props) => {
+  const { value, title, description, name, onChange, children, className } = props
   const changeColor = (e) => {
     e.currentTarget.parentNode.parentNode.childNodes.forEach(elem => {
-      elem.firstChild.style.background = 'white'
+      elem.firstChild.style.background = COLOR.white
+      elem.firstChild.querySelector('p').style.color = COLOR.darkGrey
     })
     e.currentTarget.style.background = COLOR.lightGrey
+    e.currentTarget.querySelector('p').style.color = COLOR.black
   }
 
   return (
     <div className='d-flex justify-content-end flex-column'>
-      <Styled.Card onClick={changeColor}>
+      <Styled.Card onClick={changeColor} className={className}>
         <Styled.Checkbox type='radio' value={value} name={name} onChange={onChange} />
         <Styled.CheckIcon />
         <div>
-          <h5>{title}</h5>
-          <Styled.Description>
-            {description}
-          </Styled.Description>
+          {
+            title && <h5>{title}</h5>
+          }
+          {
+            description &&
+              <Styled.Description>
+                {description}
+              </Styled.Description>
+          }
         </div>
       </Styled.Card>
-      <Styled.Price to={`price${1}`}>
-        Ver precio
-      </Styled.Price>
+      {children}
     </div>
   )
 }
@@ -81,15 +86,11 @@ const Styled = {
     cursor: pointer;
     margin-bottom: 0;
     &:hover{
-      background-color: ${COLOR.lightGrey};
+      background-color: ${COLOR.lightGrey}!important;
     }
-`,
-  Price: styled(Link)`
-    text-align: right;
-    margin-bottom: 10px;
-    font-weight: normal;
-    font-style: italic;
-    font-size: .8em;
+     &:hover p{
+      color: ${COLOR.black}!important;
+    }
 `
 }
 
