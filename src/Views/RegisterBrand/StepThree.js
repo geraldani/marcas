@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import { COLOR } from '../utilities/constants'
 import ColorPicker from '../utilities/ColorPicker'
 import $ from 'jquery'
+import Measurement from '../utilities/Measurement'
 
 const StepThree = () => {
   // estado local
-  const [color, setColor] = useState('#000000')
+  const [color, setColor] = useState('#000000')// color del picker
 
   // effect para cargar el tooltip.. esquivalente a llamarlo en ComponentDidMount
   useEffect(() => {
@@ -15,7 +16,7 @@ const StepThree = () => {
   }, [])
 
   // componente de checkboxes
-  const Checkboxes = ({ title }) => (
+  const Checkboxes = ({ title, tooltipTitle }) => (
     <Style.Label>
       <Style.Checkbox type='checkbox' />
       <Style.CheckboxIcon />
@@ -23,7 +24,7 @@ const StepThree = () => {
       <Style.Tooltip
         data-toggle='tooltip'
         data-placement='right'
-        title='Text that explain what is this. Lorem ipsum has been'
+        title={tooltipTitle}
       />
     </Style.Label>
   )
@@ -36,22 +37,30 @@ const StepThree = () => {
           Quiero registrar
         </Styled.LabelForm>
       </div>
+      {/* Checkboxes del tipo de marca */}
       <div className='col-7 px-4 '>
         <div className='form-group mr-5 position-relative d-flex flex-column justify-content-start'>
-          <Checkboxes title='Marca denominativa' value='denominativa' />
-          <Checkboxes title='Mixta' value='mixta' />
-          <Checkboxes title='Figurativa' value='figurativa' />
+          <Checkboxes title='Marca denominativa' value='denominativa' tooltipTitle='Algo que describe la marca denominativa' />
+          <Checkboxes title='Mixta' value='mixta' tooltipTitle='Algo que describe la marca mixta' />
+          <Checkboxes title='Figurativa' value='figurativa' tooltipTitle='Algo que describe la marca figurativa' />
         </div>
       </div>
 
-      <div className='col-7 px-4 mt-5'>
+      {/* inputs de archivo color y medidas */}
+      <div className='col-8 px-4 mt-5'>
         <div className='form-group mr-5 position-relative'>
-          <Styled.SubLabel className='mt-3 mb-0'>Nombre/Marca</Styled.SubLabel>
+          <Styled.SubLabel className='mb-0'>Nombre/Marca</Styled.SubLabel>
           <input type='text' className='form-control' name='marca' />
-          <Styled.SubLabel className='mt-3 mb-0'>Adjuntar archivo</Styled.SubLabel>
+          <Styled.SubLabel className='mb-0'>Adjuntar archivo</Styled.SubLabel>
           <input type='file' className='form-control-file' name='file' placeholder='Seleccionar archivo' />
-          <Styled.SubLabel className='mt-3 mb-0'>Color de tu marca</Styled.SubLabel>
-          <ColorPicker color={color} setColor={setColor} />
+
+          {/* Color de la marca */}
+          <Styled.SubLabel className='mb-0'>Color de tu marca</Styled.SubLabel>
+          <ColorPicker color={color} setColor={setColor} title='Selecciona el color de tu marca' />
+
+          {/* Medidas de la marca */}
+          <Styled.SubLabel className='mb-0'>Medidas</Styled.SubLabel>
+          <Measurement />
         </div>
       </div>
     </>

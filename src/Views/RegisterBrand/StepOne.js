@@ -86,6 +86,7 @@ export const Styled = {
   SubLabel: styled.p`
     /* color: ${COLOR.darkGrey};*/
     font-size: .9em;
+    margin-top: 1.5rem;
   `,
   CountrySelected: styled.p`
     font-size: 1.1em;

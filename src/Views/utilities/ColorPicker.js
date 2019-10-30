@@ -1,42 +1,48 @@
 import React, { useState } from 'react'
 import { PhotoshopPicker as Picker } from 'react-color'
 import styled from 'styled-components'
-import { COLOR } from './constants'
 
-const ColorPicker = ({ color, setColor }) => {
+const isHexColor = hex => typeof hex === 'string' && hex.length === 6 && !isNaN(Number('0x' + hex))
+
+const ColorPicker = ({ color, setColor, title }) => {
   let colorSelected = color
   const [showPicker, setShowPicker] = useState(false)
+  const [colorInput, setColorInput] = useState(color)
 
   // handlers
-  const handleInputClick = e => {
-    e.preventDefault()
-    setShowPicker(true)
-  }
+  const handleSquareClick = () => setShowPicker(true)
   const handleOnAccept = () => {
     setColor(colorSelected)
     setShowPicker(!showPicker)
+    setColorInput(colorSelected)
   }
   const handleOnCancel = () => setShowPicker(!showPicker)
-  const onChangeColor = color => { colorSelected = color.hex }
+  const onChangePicker = newColor => { colorSelected = newColor.hex }
+  const handleInputChenge = e => {
+    const newColor = e.target.value
+    setColorInput(newColor)
+    if (isHexColor(newColor.slice(1))) {
+      setColor(newColor)
+    }
+  }
 
   return (
-    <div className='position-relative d-flex'>
-      <Styled.ColorSquare />
+    <div className='position-relative d-flex mt-2'>
+      <Styled.ColorSquare onClick={handleSquareClick} color={color} />
       <input
-        type='color'
-        // className='form-control'
+        type='text'
+        className='form-control ml-3'
         name='color'
-        defaultValue={color}
-        onClick={handleInputClick}
+        value={colorInput}
+        onChange={handleInputChenge}
       />
-      <Styled.ColorName>{color}</Styled.ColorName>
       {
         showPicker &&
           <Styled.PickerContainer>
             <Picker
               color={color}
-              header='Escoge el color de tu marca'
-              onChangeComplete={onChangeColor}
+              header={title}
+              onChangeComplete={onChangePicker}
               onAccept={handleOnAccept}
               onCancel={handleOnCancel}
             />
@@ -51,24 +57,17 @@ const Styled = {
   PickerContainer: styled.div`
   position: absolute;
   left: 0;
-  top: 100%;
+  bottom: 0;
   width: 450px;
-  margin-bottom: 20px;
   & .photoshop-picker{
     width: inherit!important;
   }
 `,
   ColorSquare: styled.span`
-  &+input{
-    height: 37px!important;
-    width: 40px!important;
-  }
-`,
-  ColorName: styled.span`
-    border: solid 1px ${COLOR.mediumGray};
-    margin-left: 20px;
-    padding: 6px;
-    font-weight: normal;
-    color: ${COLOR.darkGrey};
+  height: 36px;
+  width: 55px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: ${props => props.color};
 `
 }
