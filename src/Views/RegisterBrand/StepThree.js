@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Styled } from './StepOne'
 import styled from 'styled-components'
-import { COLOR } from '../utilities/constants'
 import ColorPicker from '../utilities/ColorPicker'
-import $ from 'jquery'
 import Measurement from '../utilities/Measurement'
+import { Styled } from './StepOne'
+import { COLOR } from '../utilities/constants'
+import $ from 'jquery'
 
 const StepThree = () => {
   // estado local
@@ -51,7 +51,10 @@ const StepThree = () => {
         <div className='form-group mr-5 position-relative'>
           <Styled.SubLabel className='mb-0'>Nombre/Marca</Styled.SubLabel>
           <input type='text' className='form-control' name='marca' />
+
+          {/* Archivo de la marca */}
           <Styled.SubLabel className='mb-0'>Adjuntar archivo</Styled.SubLabel>
+          {/* TODO estilar en input */}
           <input type='file' className='form-control-file' name='file' placeholder='Seleccionar archivo' />
 
           {/* Color de la marca */}
@@ -90,7 +93,7 @@ const Style = {
       background-color: ${COLOR.lighBlue};
       border-color: ${COLOR.blue}
     }
-     &:checked+span:after{
+     &:checked + span:after{
       display: block;
     }
 `,
@@ -141,28 +144,5 @@ const Style = {
       text-align: center;
     }
 `
-  /* Tooltext: styled.span`
-    visibility: visible;
-    width: 150px;
-    background-color: ${COLOR.black};
-    color: ${COLOR.white};
-    font-size: .7em;
-    text-align: center;
-    padding: 5px 2px;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-    left: 105%;
-    &:after{
-      content: '';
-      position: absolute;
-      top:0;
-      width: 0; 
-      height: 0; 
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 5px solid black;
-    }` */
 }
 export default StepThree

@@ -52,7 +52,7 @@ const StepTwo = (props) => {
           <SubLabelDisabled className='mt-3 mb-0'>Razon social</SubLabelDisabled>
           <input type='text' className='form-control' name='razon' disabled />
           <Styled.SubLabel className='mt-3 mb-0'>País apoderado/Gestor</Styled.SubLabel>
-          <select className='custom-select' defaultValue={props.country}> TODO {/* TODO implementar el onchange del select */}
+          <select className='custom-select' defaultValue={props.country}> {/* TODO implementar el onchange del select */}
             <option value=''>Seleccione su pais</option>
             {countries.map(country => <option value={country} key={country}>{country}</option>)}
           </select>
