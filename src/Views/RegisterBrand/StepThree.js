@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Styled } from './StepOne'
 import styled from 'styled-components'
 import { COLOR } from '../utilities/constants'
+import ColorPicker from '../utilities/ColorPicker'
 import $ from 'jquery'
 
 const StepThree = () => {
+  // estado local
+  const [color, setColor] = useState('#000000')
+
   // effect para cargar el tooltip.. esquivalente a llamarlo en ComponentDidMount
   useEffect(() => {
     $('[data-toggle="tooltip"]').tooltip()
   }, [])
 
+  // componente de checkboxes
   const Checkboxes = ({ title }) => (
     <Style.Label>
       <Style.Checkbox type='checkbox' />
@@ -23,6 +28,7 @@ const StepThree = () => {
     </Style.Label>
   )
 
+  // componente principal
   return (
     <>
       <div className='col-12 px-4 mt-5'>
@@ -45,7 +51,7 @@ const StepThree = () => {
           <Styled.SubLabel className='mt-3 mb-0'>Adjuntar archivo</Styled.SubLabel>
           <input type='file' className='form-control-file' name='file' placeholder='Seleccionar archivo' />
           <Styled.SubLabel className='mt-3 mb-0'>Color de tu marca</Styled.SubLabel>
-          <input type='color' className='form-control' name='color' />
+          <ColorPicker color={color} setColor={setColor} />
         </div>
       </div>
     </>
