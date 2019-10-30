@@ -5,7 +5,7 @@ import { COLOR } from './constants'
 
 const ColorPicker = ({ color, setColor }) => {
   let colorSelected = color
-  const [showPicker, setShowPicker] = useState(true)
+  const [showPicker, setShowPicker] = useState(false)
 
   // handlers
   const handleInputClick = e => {

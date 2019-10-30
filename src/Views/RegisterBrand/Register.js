@@ -22,7 +22,7 @@ export const useInputChange = () => {
 
 const Register = () => {
   const totalSteps = 5
-  const [step, setStep] = useState(3)
+  const [step, setStep] = useState(1)
 
   // Datos del formulario
   const initialCardInfo = [
