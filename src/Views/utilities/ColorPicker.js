@@ -55,13 +55,13 @@ export default ColorPicker
 
 const Styled = {
   PickerContainer: styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 450px;
-  & .photoshop-picker{
-    width: inherit!important;
-  }
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 450px;
+    & .photoshop-picker{
+      width: inherit!important;
+    }
 `,
   ColorSquare: styled.span`
   height: 36px;

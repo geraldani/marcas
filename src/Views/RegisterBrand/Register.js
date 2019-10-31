@@ -22,7 +22,7 @@ export const useInputChange = () => {
 
 const Register = () => {
   const totalSteps = 5
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(3)
 
   // Datos del formulario
   const initialCardInfo = [
@@ -65,11 +65,23 @@ const Register = () => {
   }
 
   const ButtonsNavigation = () => (
-    <div className={`border-top mt-5 py-3 px-4 d-flex ${step === 1 ? 'justify-content-end' : 'justify-content-between'}`}>
+    <div
+      className={`border-top mt-5 py-3 px-4 d-flex ${step === 1 ? 'justify-content-end' : 'justify-content-between'}`}
+    >
       {
-        step > 1 && <Button title='Volver' className='px-5' styled='outline-purple' onClick={clickBack} />
+        step > 1 &&
+          <Button
+            title='Volver'
+            className='px-5'
+            styled='outline-purple'
+            onClick={clickBack}
+          />
       }
-      <Button title={`${step === totalSteps ? 'Finalizar' : 'Continuar'} `} className='px-5' onClick={clickNext} />
+      <Button
+        title={`${step === totalSteps ? 'Finalizar' : 'Continuar'} `}
+        className='px-5'
+        onClick={clickNext}
+      />
     </div>
   )
 
@@ -94,15 +106,23 @@ const Register = () => {
     <section className='margin-header mb-5'>
       <div className='container-fluid pt-5 px-5'>
         <div className='row justify-content-end'>
+
+          {/* Circulos del paso actual y totales */}
           <div className='col-12 mb-4'>
             <CircleSteps actualStep={step} totalSteps={totalSteps} />
           </div>
+
+          {/* formulario principal */}
           <div className='col-9'>
             <CardSteps title={`Paso ${step}`}>
+              {/* Formulario actual dependiendo de que paso este */}
               <Steps />
+              {/* botones de navegacion */}
               <ButtonsNavigation />
             </CardSteps>
           </div>
+
+          {/* Detalle de la orden Card */}
           <div className='col-3'>
             <OrderCard data={dataForm} />
           </div>

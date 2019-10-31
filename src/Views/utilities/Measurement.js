@@ -36,7 +36,7 @@ const Measurement = () => {
 
 const squareWidth = 80
 const squareHeight = 100
-const hyp = Math.sqrt((Math.pow(squareWidth, 2) + Math.pow(squareHeight, 2)))
+const hyp = Math.sqrt((squareWidth * squareWidth) + (squareHeight * squareHeight))
 const angle = Math.asin(squareWidth / hyp)
 
 const Styled = {
@@ -76,17 +76,17 @@ const Styled = {
     margin-bottom: 15px;
     opacity: 0.7;
     &:after{
-    content: '';
-    width: 100%;
-    height: 10px;
-    border-right: solid 1px ${COLOR.darkGrey};
-    border-top: solid 1px ${COLOR.darkGrey};
-    border-left: solid 1px ${COLOR.darkGrey};
-    position:absolute;
-    opacity: 0.7;
-    z-index: 5;
-    top:100%;
-    left: 0;
+      content: '';
+      width: 100%;
+      height: 10px;
+      border-right: solid 1px ${COLOR.darkGrey};
+      border-top: solid 1px ${COLOR.darkGrey};
+      border-left: solid 1px ${COLOR.darkGrey};
+      position:absolute;
+      opacity: 0.7;
+      z-index: 5;
+      top:100%;
+      left: 0;
     }
 `,
   Height: styled.span`

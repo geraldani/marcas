@@ -5,15 +5,12 @@ import Measurement from '../utilities/Measurement'
 import { Styled } from './StepOne'
 import { COLOR } from '../utilities/constants'
 import $ from 'jquery'
+import Tooltip from '../utilities/Tooltip'
+import FileInput from '../utilities/FileInput'
 
 const StepThree = () => {
   // estado local
   const [color, setColor] = useState('#000000')// color del picker
-
-  // effect para cargar el tooltip.. esquivalente a llamarlo en ComponentDidMount
-  useEffect(() => {
-    $('[data-toggle="tooltip"]').tooltip()
-  }, [])
 
   // componente de checkboxes
   const Checkboxes = ({ title, tooltipTitle }) => (
@@ -21,14 +18,9 @@ const StepThree = () => {
       <Style.Checkbox type='checkbox' />
       <Style.CheckboxIcon />
       <span className='ml-4'>{title}</span>
-      <Style.Tooltip
-        data-toggle='tooltip'
-        data-placement='right'
-        title={tooltipTitle}
-      />
+      <Tooltip title={tooltipTitle} />
     </Style.Label>
   )
-
   // componente principal
   return (
     <>
@@ -49,13 +41,14 @@ const StepThree = () => {
       {/* inputs de archivo color y medidas */}
       <div className='col-8 px-4 mt-5'>
         <div className='form-group mr-5 position-relative'>
+
+          {/* Nombre de la marca */}
           <Styled.SubLabel className='mb-0'>Nombre/Marca</Styled.SubLabel>
           <input type='text' className='form-control' name='marca' />
 
           {/* Archivo de la marca */}
           <Styled.SubLabel className='mb-0'>Adjuntar archivo</Styled.SubLabel>
-          {/* TODO estilar en input */}
-          <input type='file' className='form-control-file' name='file' placeholder='Seleccionar archivo' />
+          <FileInput />
 
           {/* Color de la marca */}
           <Styled.SubLabel className='mb-0'>Color de tu marca</Styled.SubLabel>
@@ -123,25 +116,6 @@ const Style = {
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
-    }
-`,
-  Tooltip: styled.div`
-    position: relative;
-    top:-7px;
-    height: 9px;
-    width: 9px;
-    background-color: ${COLOR.blue};
-    border-radius: 50%;
-    margin-left: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    &:after{
-      content: '?';
-      position: absolute;
-      color: ${COLOR.white};
-      font-size: 9px;
-      text-align: center;
     }
 `
 }
