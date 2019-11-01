@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import CheckButttons from '../utilities/CheckButtton'
+import RadioButttons from '../utilities/RadioButtton'
 import { StyledLegend, StyledLabelName, StyledSublabel, marginBottom } from '../GlobalStyles'
 import { COLOR } from '../utilities/constants'
 import SelectCountry from '../utilities/SelectCountry'
@@ -35,13 +35,13 @@ const StepTwo = (props) => {
       </div>
       <div className='col-5 px-4 mt-3'>
         <div className='form-group'>
-          <CheckButttons
+          <RadioButttons
             className='mb-3'
             value='empresa'
             name='CheckBrand'
             description='Registrarme como una empresa'
           />
-          <CheckButttons
+          <RadioButttons
             className='mb-3'
             value='persona'
             name='CheckBrand'

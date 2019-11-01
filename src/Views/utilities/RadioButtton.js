@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { COLOR } from './constants'
 
-const CheckButttons = (props) => {
+const RadioButttons = (props) => {
   const { value, title, description, name, onChange, children, className, checked } = props
   const changeColor = (e) => {
     e.currentTarget.parentNode.parentNode.childNodes.forEach(elem => {
@@ -93,4 +93,4 @@ const StyledCard = styled.label`
   }
 `
 
-export default CheckButttons
+export default RadioButttons

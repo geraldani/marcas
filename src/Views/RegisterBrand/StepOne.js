@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { COLOR } from '../utilities/constants'
 import { steoOne } from '../../data.json'
 import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } from 'react-icons/io'
-import CheckButttons from '../utilities/CheckButtton'
+import RadioButttons from '../utilities/RadioButtton'
 import { Link } from 'react-router-dom'
 import SelectCountry from '../utilities/SelectCountry'
 import { StyledLabelName, marginBottom, StyledSublabel } from '../GlobalStyles'
@@ -57,7 +57,7 @@ const StepOne = (props) => {
         <div className='form-group'>
           {
             steoOne.checkButtons.map((elem, index) => (
-              <CheckButttons
+              <RadioButttons
                 key={elem.id}
                 value={elem.value}
                 title={elem.title}
@@ -69,7 +69,7 @@ const StepOne = (props) => {
                 <StyledPrice to={`price${1}`}>
                   Ver precio
                 </StyledPrice>
-              </CheckButttons>
+              </RadioButttons>
             ))
           }
         </div>

@@ -6,17 +6,9 @@ import { IoIosCheckmarkCircle as CheckIcon } from 'react-icons/io'
 const BrandCards = ({ number, description }) => {
   return (
     <StyledContainer>
-
-      <StyledNumber>
-        {number}
-      </StyledNumber>
-
-      <StyledDescription>
-        {description}
-      </StyledDescription>
-
+      <StyledNumber>{number}</StyledNumber>
+      <StyledDescription>{description}</StyledDescription>
       <StyledCheckIcon size='22px' />
-
     </StyledContainer>
   )
 }
@@ -49,5 +41,4 @@ const StyledCheckIcon = styled(CheckIcon)`
   margin: 0 auto 10px auto;
   color: ${COLOR.purple};
 `
-
 export default BrandCards

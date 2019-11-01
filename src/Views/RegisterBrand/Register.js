@@ -8,6 +8,7 @@ import StepThree from './StepThree'
 import StepFour from './StepFour'
 import StepFive from './StepFive'
 import Button from '../utilities/Button'
+import { ROUTES } from '../utilities/constants'
 
 export const useInputChange = () => {
   const [input, setInput] = useState({})
@@ -20,9 +21,9 @@ export const useInputChange = () => {
   return [input, handleInputChange]
 }
 
-const Register = () => {
+const Register = (props) => {
   const TOTAL_STEPS = 5
-  const [step, setStep] = useState(5)
+  const [step, setStep] = useState(1)
   const [country, setCountry] = useState('')
   const [countryAttorney, setCountryAttorney] = useState('')
   const [countryBrand, setCountryBrand] = useState('')
@@ -38,7 +39,7 @@ const Register = () => {
   const clickNext = (e) => {
     e.preventDefault()
     if (step === TOTAL_STEPS) {
-      window.alert('termine el asunto')
+      props.history.push(ROUTES.orderDetail)
     } else {
       setStep(step + 1)
     }

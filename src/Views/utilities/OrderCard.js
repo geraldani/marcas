@@ -4,15 +4,30 @@ import { COLOR } from './constants'
 import { IoIosInformationCircle as Icon } from 'react-icons/io'
 
 const OrderCard = (props) => {
-  // const order = false
+  // const { data } = props
+  const data = [
+    {
+      field: 'Tipo de registro',
+      value: 'Mixta'
+    },
+    {
+      field: 'Nombre de registro',
+      value: 'Grayshirts'
+    },
+    {
+      field: 'Pais de registro',
+      value: 'Argentina'
+    }
+  ]
+
   return (
     <div className='card text-center shadow-card border-0'>
       <div className='card-header bg-white py-3' style={{ borderBottomWidth: '2px' }}>
         <h4 className='text-left mb-0'>Detalle de Orden</h4>
       </div>
       {
-        props.data
-          ? <Order data={props.data} />
+        data
+          ? <Order data={data} />
           : <NoOrder />
       }
     </div>
@@ -26,33 +41,43 @@ const NoOrder = () => (
   </div>
 )
 
-const Order = ({ data }) => (
-  <>
+const Fields = ({ data }) => {
+  return (
     <ul className='list-group list-group-flush text-left'>
       {
         data.map((elem) => (
-          <li key={elem.field} className='list-group-item d-flex justify-content-between'>
+          <li key={elem.field} className='list-group-item d-flex justify-content-between px-0'>
             <StyledType>{elem.field}:</StyledType>
             <StyledValue style={{ fontSize: '.9em' }}>{elem.value}</StyledValue>
           </li>
         ))
       }
     </ul>
+  )
+}
+
+const Order = ({ data }) => (
+  <>
+    <Fields data={data} />
     <div className='card-footer text-left d-flex justify-content-between' style={{ backgroundColor: COLOR.mediumGray }}>
       <h5 className='mb-0 font-weight-bold'>Total:</h5>
-      <h5 className='mb-0 font-weight-bold'> </h5>
+      <h5 className='mb-0 font-weight-bold'>$54</h5>
     </div>
   </>
 )
+export default OrderCard
 
 const StyledType = styled.span`
   color: ${COLOR.textColor};
   font-size: .9em;
   opacity: .8;
+  margin-left: 1em;
 `
 const StyledValue = styled.span`
   font-size: .9em;
   opacity: .9;
+  margin-right: 1em;
+
 `
 const StyledNoOrder = styled.p`
   margin-bottom: 0;
@@ -67,5 +92,3 @@ const StyledIcon = styled(Icon)`
   left: 0;
   margin: auto;
 `
-
-export default OrderCard

@@ -14,7 +14,7 @@ const StyledLabelName = styled.label`
 `
 const StyledSublabel = styled.p`
  /* color: ${COLOR.darkGrey};*/
-    font-size: .9em;
+    font-size: 15px;
     margin-top: 1.5rem;
     margin-bottom: 0.7rem;
 `
