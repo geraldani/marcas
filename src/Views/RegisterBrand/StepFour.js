@@ -13,10 +13,10 @@ const StepFour = (props) => {
         <LabelName className='mb-4'>
           Registros anteriores
         </LabelName>
-        <SmallLegend>
+        <StyledLegend>
           Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que
           se utilizara la marca.
-        </SmallLegend>
+        </StyledLegend>
       </div>
 
       <div className='col-12 px-4 d-flex align-items-center'>

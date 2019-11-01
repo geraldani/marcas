@@ -29,9 +29,9 @@ const StepTwo = (props) => {
       </div>
       <div className='col-12 px-4 mt-4'>
         <LabelName>Datos personales del titular marcario</LabelName>
-        <SmallLegend>
+        <StyledLegend>
           Para darle seguimiento a su solicitud de registro de marca, complete el siguiente formulario.
-        </SmallLegend>
+        </StyledLegend>
       </div>
       <div className='col-5 px-4 mt-3'>
         <div className='form-group'>
@@ -73,10 +73,6 @@ const StepTwo = (props) => {
 
 const SubLabelDisabled = styled(Sublabel)`
   color: ${COLOR.darkGrey};
-`
-
-const SmallLegend = styled(StyledLegend)`
-  width: 50%!important;
 `
 
 export default StepTwo

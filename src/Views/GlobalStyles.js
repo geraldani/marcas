@@ -3,8 +3,10 @@ import { COLOR } from './utilities/constants'
 
 const StyledLegend = styled.p`
   color: ${COLOR.darkGrey};
-  font-size: 0.75em;
-  //width: 50%;
+  font-size: 0.78em;
+  font-weight: normal;
+  line-height: 1.2;
+  width: 65%;
 `
 
 const LabelName = styled.label`
