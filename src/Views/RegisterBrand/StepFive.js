@@ -1,5 +1,5 @@
 import React from 'react'
-import { LabelName, StyledLegend, Sublabel } from '../GlobalStyles'
+import { StyledLabelName, StyledLegend, StyledSublabel } from '../GlobalStyles'
 import styled from 'styled-components'
 import ClassCard from '../utilities/ClassCard'
 
@@ -7,9 +7,9 @@ const StepFive = () => {
   return (
     <>
       <div className='col-10 px-4 mt-5'>
-        <LabelName>
+        <StyledLabelName>
           ¿A que seccion pertenece?
-        </LabelName>
+        </StyledLabelName>
         <StyledLegend>
           Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que
           se utilizara la marca.
@@ -17,14 +17,14 @@ const StepFive = () => {
       </div>
 
       <div className='col-7 px-4'>
-        <Sublabel>Ingrese su producto / servicios</Sublabel>
+        <StyledSublabel>Ingrese su producto / servicios</StyledSublabel>
         <input type='text' className='form-control' placeholder='Cafe' />
       </div>
       <div className='col-9 px-4'>
-        <Sublabel>PRODUCTOS</Sublabel>
-        <ItalicLegend>
+        <StyledSublabel>PRODUCTOS</StyledSublabel>
+        <StyledItalicLegend>
           *Agregar texto de que cada clase elegida es un registro diferente
-        </ItalicLegend>
+        </StyledItalicLegend>
         <ClassCard number={1} />
         <ClassCard number={2} />
       </div>
@@ -32,7 +32,7 @@ const StepFive = () => {
   )
 }
 
-const ItalicLegend = styled(StyledLegend)`
+const StyledItalicLegend = styled(StyledLegend)`
   font-weight: 500;
   font-style: italic;
 `

@@ -43,7 +43,7 @@ const Header = () => (
 
 const Submenu = ({ items, name }) => (
   <>
-    <Link to='/' className='nav-link dropdown-toggle' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' >
+    <Link to='/' className='nav-link dropdown-toggle' id='navbarDropdownMenuLink' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
       {name}
     </Link>
     <div className='dropdown-menu' aria-labelledby='navbarDropdownMenuLink'>

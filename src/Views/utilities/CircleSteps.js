@@ -9,7 +9,11 @@ const CircleSteps = ({ actualStep, totalSteps }) => {
     <div className='d-flex'>
       {
         [...Array(totalSteps)].map((ele, index) => (
-          <CircleNumber key={index} number={index + 1} actualStep={actualStep} />
+          <CircleNumber
+            key={index}
+            number={index + 1}
+            actualStep={actualStep}
+          />
         ))
       }
     </div>
@@ -18,11 +22,23 @@ const CircleSteps = ({ actualStep, totalSteps }) => {
 
 const CircleNumber = ({ number, actualStep }) => {
   if (number === actualStep) {
-    return <Circle.Full>{number}</Circle.Full>
+    return (
+      <StyledCircleFull>
+        {number}
+      </StyledCircleFull>
+    )
   } else if (actualStep > number) {
-    return <Circle.Full><CheckIcon size='30px' /></Circle.Full>
+    return (
+      <StyledCircleFull>
+        <CheckIcon size='30px' />
+      </StyledCircleFull>
+    )
   } else {
-    return <Circle.Empty>{number}</Circle.Empty>
+    return (
+      <StyledCircleEmpty>
+        {number}
+      </StyledCircleEmpty>
+    )
   }
 }
 
@@ -50,20 +66,20 @@ const commonStyles = css`
     background-color: ${COLOR.purple};
   }
 `
-const Circle = {
-  Full: styled.p`
-    ${commonStyles};
-    background-color: ${COLOR.purple};
-    color: ${COLOR.white};
-    box-shadow: 0 2px 7px -2px rgba(0,0,0,.7);
-`,
-  Empty: styled.p`
-    ${commonStyles};
-    border: solid 2px ${COLOR.purple};
-    color: ${COLOR.purple};
-    font-weight: 500;
+
+const StyledCircleFull = styled.p`
+  ${commonStyles};
+  background-color: ${COLOR.purple};
+  color: ${COLOR.white};
+  box-shadow: 0 2px 7px -2px rgba(0,0,0,.7);
 `
-}
+
+const StyledCircleEmpty = styled.p`
+  ${commonStyles};
+  border: solid 2px ${COLOR.purple};
+  color: ${COLOR.purple};
+  font-weight: 500;
+`
 
 CircleSteps.propTypes = {
   actualStep: PropTypes.number.isRequired,

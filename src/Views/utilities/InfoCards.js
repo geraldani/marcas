@@ -27,11 +27,11 @@ const CardInfo = (props) => {
               {props.description}
             </p>
             <div className='d-flex align-items-center flex-column flex-md-row'>
-              {!pair && <MoreInfo/>}
+              {!pair && <MoreInfo />}
               <Button title={props.buttonTitle} link={props.link}>
-                <ArrowIcon size='1.6em' className='ml-2'/>
+                <ArrowIcon size='1.6em' className='ml-2' />
               </Button>
-              {pair && <MoreInfo/>}
+              {pair && <MoreInfo />}
             </div>
           </div>
         </div>

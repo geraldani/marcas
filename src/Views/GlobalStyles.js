@@ -9,10 +9,10 @@ const StyledLegend = styled.p`
   width: 65%;
 `
 
-const LabelName = styled.label`
+const StyledLabelName = styled.label`
   font-size: 1.15em;
 `
-const Sublabel = styled.p`
+const StyledSublabel = styled.p`
  /* color: ${COLOR.darkGrey};*/
     font-size: .9em;
     margin-top: 1.5rem;
@@ -23,7 +23,7 @@ const marginBottom = { marginBottom: '7rem' }
 
 export {
   StyledLegend,
-  Sublabel,
-  LabelName,
+  StyledSublabel,
+  StyledLabelName,
   marginBottom
 }

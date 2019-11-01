@@ -13,15 +13,15 @@ const Footer = () => {
         <div className='d-flex justify-content-end align-items-center flex-md-row flex-column'>
           {
             footer.map(faq => (
-              <Styles.Link key={faq} to='/'>
+              <StyledLink key={faq} to='/'>
                 {faq}
-              </Styles.Link>
+              </StyledLink>
             ))
           }
         </div>
       </div>
       <div className='mx-5'>
-        <Styles.p>2019 Sitebrand, Inc. All rights reserved</Styles.p>
+        <StyledCopyright>2019 Sitebrand, Inc. All rights reserved</StyledCopyright>
       </div>
     </footer>
   )
@@ -29,30 +29,28 @@ const Footer = () => {
 
 export default Footer
 
-const Styles = {
-  p: styled.p`
-    color: #6c757d;
-    font-weight: normal;
-    font-size: .8rem;
-    margin-bottom: 0;
-    @media (max-width: 770px){
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-`,
-  Link: styled(Link)`
-    color: ${COLOR.darkGrey};
-    font-size: .8rem;
-    &:hover{
-      text-decoration: none;
-      color: ${COLOR.darkGrey};
-      opacity: .8;
-    }
-    &:not(:last-child){
-      margin-right: 1.5em
-    }
-    @media (max-width: 728px){
-      margin-right: 0!important;
-    }
+const StyledCopyright = styled.p`
+  color: #6c757d;
+  font-weight: normal;
+  font-size: .8rem;
+  margin-bottom: 0;
+  @media (max-width: 770px){
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 `
-}
+const StyledLink = styled(Link)`
+  color: ${COLOR.darkGrey};
+  font-size: .8rem;
+  &:hover{
+    text-decoration: none;
+    color: ${COLOR.darkGrey};
+    opacity: .8;
+  }
+  &:not(:last-child){
+    margin-right: 1.5em
+  }
+  @media (max-width: 728px){
+    margin-right: 0!important;
+  }
+`

@@ -4,10 +4,10 @@ import { COLOR } from './constants'
 
 const CheckToggler = ({ checked }) => {
   return (
-    <StyledLabel>
+    <StyledContainer>
       <input type='checkbox' defaultChecked={checked} />
       <StyledSwitch />
-    </StyledLabel>
+    </StyledContainer>
   )
 }
 
@@ -37,10 +37,11 @@ const StyledSwitch = styled.div`
   }
 `
 
-const StyledLabel = styled.label`
+const StyledContainer = styled.div`
   position: relative;
   display: inline-flex;
   align-items: center;
+  margin-bottom: 0;
   & input{
     position: absolute;
     top: 0;

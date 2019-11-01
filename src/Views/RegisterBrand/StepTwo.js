@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import CheckButttons from '../utilities/CheckButtton'
-import { StyledLegend, LabelName, Sublabel, marginBottom } from '../GlobalStyles'
+import { StyledLegend, StyledLabelName, StyledSublabel, marginBottom } from '../GlobalStyles'
 import { COLOR } from '../utilities/constants'
 import SelectCountry from '../utilities/SelectCountry'
 
@@ -11,13 +11,13 @@ const StepTwo = (props) => {
   return (
     <>
       <div className='col-12 px-4 mt-5'>
-        <LabelName>
+        <StyledLabelName>
           Datos del estudio encargado del seguimiento del trámite
-        </LabelName>
+        </StyledLabelName>
       </div>
       <div className='col-7 px-4 '>
         <div className='mr-5'>
-          <Sublabel>Email</Sublabel>
+          <StyledSublabel>Email</StyledSublabel>
           <input
             type='email'
             className='form-control'
@@ -28,7 +28,7 @@ const StepTwo = (props) => {
         </div>
       </div>
       <div className='col-12 px-4 mt-4'>
-        <LabelName>Datos personales del titular marcario</LabelName>
+        <StyledLabelName>Datos personales del titular marcario</StyledLabelName>
         <StyledLegend>
           Para darle seguimiento a su solicitud de registro de marca, complete el siguiente formulario.
         </StyledLegend>
@@ -51,19 +51,19 @@ const StepTwo = (props) => {
       </div>
       <div className='col-7 px-4' style={marginBottom}>
         <div className='form-group mr-5 position-relative'>
-          <Sublabel>Nombre</Sublabel>
+          <StyledSublabel>Nombre</StyledSublabel>
           <input type='text' className='form-control' name='nombre' />
 
-          <Sublabel>Apellido</Sublabel>
+          <StyledSublabel>Apellido</StyledSublabel>
           <input type='text' className='form-control' name='apellido' />
 
-          <SubLabelDisabled>Razon social</SubLabelDisabled>
+          <StyledSublabelDisabled>Razon social</StyledSublabelDisabled>
           <input type='text' className='form-control' name='razon' disabled />
 
-          <Sublabel>País apoderado/Gestor</Sublabel>
+          <StyledSublabel>País apoderado/Gestor</StyledSublabel>
           <SelectCountry country={props.country} setCountry={props.setCountry} />
 
-          <Sublabel>CUIT</Sublabel>
+          <StyledSublabel>CUIT</StyledSublabel>
           <input type='text' className='form-control' name='cuit' />
         </div>
       </div>
@@ -71,7 +71,7 @@ const StepTwo = (props) => {
   )
 }
 
-const SubLabelDisabled = styled(Sublabel)`
+const StyledSublabelDisabled = styled(StyledSublabel)`
   color: ${COLOR.darkGrey};
 `
 

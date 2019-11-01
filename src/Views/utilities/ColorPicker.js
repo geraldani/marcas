@@ -28,7 +28,7 @@ const ColorPicker = ({ color, setColor, title }) => {
 
   return (
     <div className='position-relative d-flex'>
-      <Styled.ColorSquare onClick={handleSquareClick} color={color} />
+      <StyledColorSquare onClick={handleSquareClick} color={color} />
       <input
         type='text'
         className='form-control ml-3'
@@ -38,7 +38,7 @@ const ColorPicker = ({ color, setColor, title }) => {
       />
       {
         showPicker &&
-          <Styled.PickerContainer>
+          <StyledPickerContainer>
             <Picker
               color={color}
               header={title}
@@ -46,28 +46,26 @@ const ColorPicker = ({ color, setColor, title }) => {
               onAccept={handleOnAccept}
               onCancel={handleOnCancel}
             />
-          </Styled.PickerContainer>
+          </StyledPickerContainer>
       }
     </div>
   )
 }
 export default ColorPicker
 
-const Styled = {
-  PickerContainer: styled.div`
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 450px;
-    & .photoshop-picker{
-      width: inherit!important;
-    }
-`,
-  ColorSquare: styled.span`
+const StyledPickerContainer = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 450px;
+  & .photoshop-picker{
+    width: inherit!important;
+  }
+`
+const StyledColorSquare = styled.span`
   height: 36px;
   width: 55px;
   border-radius: 4px;
   cursor: pointer;
   background-color: ${props => props.color};
 `
-}

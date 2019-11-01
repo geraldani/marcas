@@ -2,7 +2,7 @@ import React from 'react'
 // import styled from 'styled-components'
 // import { COLOR } from '../utilities/constants'
 import CheckToggler from '../utilities/CheckToggler'
-import { LabelName, StyledLegend, Sublabel, marginBottom } from '../GlobalStyles'
+import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../GlobalStyles'
 import styled from 'styled-components'
 import SelectCountry from '../utilities/SelectCountry'
 
@@ -10,9 +10,9 @@ const StepFour = (props) => {
   return (
     <>
       <div className='col-10 px-4 mt-5'>
-        <LabelName className='mb-4'>
+        <StyledLabelName className='mb-4'>
           Registros anteriores
-        </LabelName>
+        </StyledLabelName>
         <StyledLegend>
           Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que
           se utilizara la marca.
@@ -31,10 +31,10 @@ const StepFour = (props) => {
       </div>
 
       <div className='col-7 px-4' style={marginBottom}>
-        <Sublabel>País</Sublabel>
+        <StyledSublabel>País</StyledSublabel>
         <SelectCountry country={props.country} setCountry={props.setCountry} />
 
-        <Sublabel>Numero de registro/acta</Sublabel>
+        <StyledSublabel>Numero de registro/acta</StyledSublabel>
         <input type='text' className='form-control' name='nombre' />
       </div>
     </>
@@ -51,10 +51,6 @@ const StyledOption = styled.span`
   &:last-child{
     margin: 0 10px;
   }
-`
-
-const SmallLegend = styled(StyledLegend)`
-  width: 70%;
 `
 
 const ClearLegend = styled(StyledLegend)`

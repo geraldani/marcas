@@ -6,11 +6,11 @@ import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } f
 import CheckButttons from '../utilities/CheckButtton'
 import { Link } from 'react-router-dom'
 import SelectCountry from '../utilities/SelectCountry'
-import { LabelName, marginBottom, Sublabel } from '../GlobalStyles'
+import { StyledLabelName, marginBottom, StyledSublabel } from '../GlobalStyles'
 
 const Alert = ({ showAlert }) => {
   return (
-    <Styled.Alert>
+    <StyledAlert>
       <p>
         Te recomendamos que hagas la <strong>"Búsqueda de antecedentes"</strong> antes de hacer una solicitud
       </p>
@@ -18,7 +18,7 @@ const Alert = ({ showAlert }) => {
         Cerrar
         <IconClose size='1.8rem' />
       </span>
-    </Styled.Alert>
+    </StyledAlert>
   )
 }
 
@@ -35,15 +35,15 @@ const StepOne = (props) => {
     <>
       <div className='col-7 px-4 mt-5'>
         <div className='form-group mr-5 position-relative' style={{ marginBottom: '7em' }}>
-          <LabelName>En qué pais quiero registrar mi marca</LabelName>
-          <Sublabel>Paises</Sublabel>
+          <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
+          <StyledSublabel>Paises</StyledSublabel>
           <SelectCountry country={props.country} setCountry={props.setCountry} />
           {
             props.country &&
-              <Styled.CountrySelected>
+              <StyledCountrySelected>
                 {props.country}
                 <IconCloseCircle size='25px' className='ml-1' />
-              </Styled.CountrySelected>
+              </StyledCountrySelected>
           }
         </div>
       </div>
@@ -66,9 +66,9 @@ const StepOne = (props) => {
                 onChange={showRegisterAlert}
                 checked={index === 0}
               >
-                <Styled.Price to={`price${1}`}>
+                <StyledPrice to={`price${1}`}>
                   Ver precio
-                </Styled.Price>
+                </StyledPrice>
               </CheckButttons>
             ))
           }
@@ -78,45 +78,43 @@ const StepOne = (props) => {
   )
 }
 
-const Styled = {
-  CountrySelected: styled.p`
-    font-size: 1.1em;
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 15px;
-    bottom:0;
-    margin-bottom: -50px;
-    position: absolute;
-    left: 0;
-    background-color: ${COLOR.aqua};
-    color: ${COLOR.darkGrey}
-  `,
-  Alert: styled.div`
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-    background-color: ${COLOR.lighBlue};
-    padding: 1rem;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    & p{
-      margin-bottom: 0;
-    }
-    & span{
-      color: ${COLOR.blue};
-      font-style: italic;
-      font-weight: normal;
-      font-size: 0.8em;
-      cursor: pointer;
-    }
-  `,
-  Price: styled(Link)`
-    text-align: right;
-    margin-bottom: 10px;
-    font-weight: normal;
-    font-style: italic;
-    font-size: .8em;
+const StyledCountrySelected = styled.p`
+  font-size: 1.1em;
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  bottom:0;
+  margin-bottom: -50px;
+  position: absolute;
+  left: 0;
+  background-color: ${COLOR.aqua};
+  color: ${COLOR.darkGrey}
 `
-}
+const StyledAlert = styled.div`
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  background-color: ${COLOR.lighBlue};
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  & p{
+    margin-bottom: 0;
+  }
+  & span{
+    color: ${COLOR.blue};
+    font-style: italic;
+    font-weight: normal;
+    font-size: 0.8em;
+    cursor: pointer;
+  }
+`
+const StyledPrice = styled(Link)`
+  text-align: right;
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-style: italic;
+  font-size: .8em;
+`
 
 export default StepOne

@@ -21,8 +21,8 @@ const OrderCard = (props) => {
 
 const NoOrder = () => (
   <div className='p-5 position-relative'>
-    <Style.Icon size='25px' />
-    <Style.noOrder>Todavía no hay avances de tu trámite</Style.noOrder>
+    <StyledIcon size='25px' />
+    <StyledNoOrder>Todavía no hay avances de tu trámite</StyledNoOrder>
   </div>
 )
 
@@ -32,8 +32,8 @@ const Order = ({ data }) => (
       {
         data.map((elem) => (
           <li key={elem.field} className='list-group-item d-flex justify-content-between'>
-            <Style.type>{elem.field}:</Style.type>
-            <Style.value style={{ fontSize: '.9em' }}>{elem.value}</Style.value>
+            <StyledType>{elem.field}:</StyledType>
+            <StyledValue style={{ fontSize: '.9em' }}>{elem.value}</StyledValue>
           </li>
         ))
       }
@@ -45,29 +45,27 @@ const Order = ({ data }) => (
   </>
 )
 
-const Style = {
-  type: styled.span`
-    color: ${COLOR.textColor};
-    font-size: .9em;
-    opacity: .8;
-`,
-  value: styled.span`
-    font-size: .9em;
-    opacity: .9;
-`,
-  noOrder: styled.p`
-    margin-bottom: 0;
-    color: ${COLOR.darkGrey};
-    font-size: .95em;
-    line-height: 1.2;
-`,
-  Icon: styled(Icon)`
-    position: absolute;
-    top: 20px;
-    right: 0;
-    left: 0;
-    margin: auto;
+const StyledType = styled.span`
+  color: ${COLOR.textColor};
+  font-size: .9em;
+  opacity: .8;
 `
-}
+const StyledValue = styled.span`
+  font-size: .9em;
+  opacity: .9;
+`
+const StyledNoOrder = styled.p`
+  margin-bottom: 0;
+  color: ${COLOR.darkGrey};
+  font-size: .95em;
+  line-height: 1.2;
+`
+const StyledIcon = styled(Icon)`
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  margin: auto;
+`
 
 export default OrderCard
