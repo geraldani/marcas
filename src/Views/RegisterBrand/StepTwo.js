@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Styled } from './StepOne'
 import CheckButttons from '../utilities/CheckButtton'
+import { StyledLegend, LabelName, Sublabel, marginBottom } from '../GlobalStyles'
 import { COLOR } from '../utilities/constants'
-import { countries } from '../../data'
+import SelectCountry from '../utilities/SelectCountry'
 
 const StepTwo = (props) => {
   const [email, setEmail] = useState('')
@@ -11,21 +11,27 @@ const StepTwo = (props) => {
   return (
     <>
       <div className='col-12 px-4 mt-5'>
-        <Styled.LabelForm htmlFor='countrySelect'>
+        <LabelName>
           Datos del estudio encargado del seguimiento del trámite
-        </Styled.LabelForm>
+        </LabelName>
       </div>
       <div className='col-7 px-4 '>
-        <div className='form-group mr-5 position-relative'>
-          <Styled.SubLabel>Email</Styled.SubLabel>
-          <input type='email' className='form-control' name='email' value={email} onChange={event => setEmail(event.target.value)} />
+        <div className='mr-5'>
+          <Sublabel>Email</Sublabel>
+          <input
+            type='email'
+            className='form-control'
+            name='email'
+            value={email}
+            onChange={event => setEmail(event.target.value)}
+          />
         </div>
       </div>
       <div className='col-12 px-4 mt-4'>
-        <Styled.LabelForm>Datos personales del titular marcario</Styled.LabelForm>
-        <StyledLegend>
+        <LabelName>Datos personales del titular marcario</LabelName>
+        <SmallLegend>
           Para darle seguimiento a su solicitud de registro de marca, complete el siguiente formulario.
-        </StyledLegend>
+        </SmallLegend>
       </div>
       <div className='col-5 px-4 mt-3'>
         <div className='form-group'>
@@ -43,40 +49,34 @@ const StepTwo = (props) => {
           />
         </div>
       </div>
-      <div className='col-7 px-4 '>
+      <div className='col-7 px-4' style={marginBottom}>
         <div className='form-group mr-5 position-relative'>
-          <Styled.SubLabel className='mt-3 mb-0'>Nombre</Styled.SubLabel>
+          <Sublabel>Nombre</Sublabel>
           <input type='text' className='form-control' name='nombre' />
-          <Styled.SubLabel className='mt-3 mb-0'>Apellido</Styled.SubLabel>
+
+          <Sublabel>Apellido</Sublabel>
           <input type='text' className='form-control' name='apellido' />
-          <SubLabelDisabled className='mt-3 mb-0'>Razon social</SubLabelDisabled>
+
+          <SubLabelDisabled>Razon social</SubLabelDisabled>
           <input type='text' className='form-control' name='razon' disabled />
-          <Styled.SubLabel className='mt-3 mb-0'>País apoderado/Gestor</Styled.SubLabel>
-          <select className='custom-select' defaultValue={props.country}> {/* TODO implementar el onchange del select */}
-            <option value=''>Seleccione su pais</option>
-            {countries.map(country => <option value={country} key={country}>{country}</option>)}
-          </select>
-          <Styled.SubLabel className='mt-3 mb-0'>CUIT</Styled.SubLabel>
+
+          <Sublabel>País apoderado/Gestor</Sublabel>
+          <SelectCountry country={props.country} setCountry={props.setCountry} />
+
+          <Sublabel>CUIT</Sublabel>
           <input type='text' className='form-control' name='cuit' />
         </div>
       </div>
-
-      {/* input con hook local
-      <input type='email' onChange={(e) => setEmail(e.target.value)} value={email} />
-
-      input con hook pasado por props
-      <input type='email' onChange={props.onChange} name='email' /> */}
     </>
   )
 }
 
-const SubLabelDisabled = styled(Styled.SubLabel)`
+const SubLabelDisabled = styled(Sublabel)`
   color: ${COLOR.darkGrey};
 `
-const StyledLegend = styled.p`
-  color: ${COLOR.darkGrey};
-  font-size: 0.75em;
-  width: 50%;
+
+const SmallLegend = styled(StyledLegend)`
+  width: 50%!important;
 `
 
 export default StepTwo

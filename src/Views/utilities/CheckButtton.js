@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { COLOR } from './constants'
 
 const CheckButttons = (props) => {
-  const { value, title, description, name, onChange, children, className } = props
+  const { value, title, description, name, onChange, children, className, checked } = props
   const changeColor = (e) => {
     e.currentTarget.parentNode.parentNode.childNodes.forEach(elem => {
       elem.firstChild.style.background = COLOR.white
@@ -15,8 +15,8 @@ const CheckButttons = (props) => {
 
   return (
     <div className='d-flex justify-content-end flex-column'>
-      <Styled.Card onClick={changeColor} className={className}>
-        <Styled.Checkbox type='radio' value={value} name={name} onChange={onChange} />
+      <Styled.Card onClick={changeColor} className={className} checked={checked}>
+        <Styled.Checkbox type='radio' value={value} name={name} onChange={onChange} defaultChecked={checked} />
         <Styled.CheckIcon />
         <div>
           {
@@ -24,7 +24,7 @@ const CheckButttons = (props) => {
           }
           {
             description &&
-              <Styled.Description>
+              <Styled.Description checked={checked}>
                 {description}
               </Styled.Description>
           }
@@ -37,7 +37,7 @@ const CheckButttons = (props) => {
 
 const Styled = {
   Description: styled.p`
-    color: ${COLOR.darkGrey};
+    color: ${props => props.checked ? COLOR.black : COLOR.darkGrey};
     font-size: .9em;
     line-height: 1.2;
 `,
@@ -85,6 +85,7 @@ const Styled = {
     padding: 15px 15px 8px 55px;
     cursor: pointer;
     margin-bottom: 0;
+    background-color: ${props => props.checked ? COLOR.lightGrey : COLOR.white};
     &:hover{
       background-color: ${COLOR.lightGrey}!important;
     }

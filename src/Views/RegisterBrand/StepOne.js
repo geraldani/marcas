@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { COLOR } from '../utilities/constants'
-import { countries, steoOne } from '../../data.json'
+import { steoOne } from '../../data.json'
 import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } from 'react-icons/io'
 import CheckButttons from '../utilities/CheckButtton'
 import { Link } from 'react-router-dom'
+import SelectCountry from '../utilities/SelectCountry'
+import { LabelName, marginBottom, Sublabel } from '../GlobalStyles'
 
 const Alert = ({ showAlert }) => {
   return (
@@ -33,12 +35,9 @@ const StepOne = (props) => {
     <>
       <div className='col-7 px-4 mt-5'>
         <div className='form-group mr-5 position-relative' style={{ marginBottom: '7em' }}>
-          <Styled.LabelForm htmlFor='countrySelect'>En qué pais quiero registrar mi marca</Styled.LabelForm>
-          <Styled.SubLabel>Paises</Styled.SubLabel>
-          <select className='custom-select' onChange={(e) => props.setCountry(e.target.value)}>
-            <option value=''>Seleccione su pais</option>
-            {countries.map(country => <option value={country} selected={country === props.country} key={country}>{country}</option>)}
-          </select>
+          <LabelName>En qué pais quiero registrar mi marca</LabelName>
+          <Sublabel>Paises</Sublabel>
+          <SelectCountry country={props.country} setCountry={props.setCountry} />
           {
             props.country &&
               <Styled.CountrySelected>
@@ -51,14 +50,13 @@ const StepOne = (props) => {
       <div className='col-12 px-0'>
         <div className='border-top my-4' />
         {
-          showAlert &&
-            <Alert showAlert={setShowAlert} />
+          showAlert && <Alert showAlert={setShowAlert} />
         }
       </div>
-      <div className='col-7 px-4 mt-3'>
+      <div className='col-7 px-4 mt-3' style={marginBottom}>
         <div className='form-group'>
           {
-            steoOne.checkButtons.map((elem) => (
+            steoOne.checkButtons.map((elem, index) => (
               <CheckButttons
                 key={elem.id}
                 value={elem.value}
@@ -66,6 +64,7 @@ const StepOne = (props) => {
                 name='buttonCheck'
                 description={elem.description}
                 onChange={showRegisterAlert}
+                checked={index === 0}
               >
                 <Styled.Price to={`price${1}`}>
                   Ver precio
@@ -79,15 +78,7 @@ const StepOne = (props) => {
   )
 }
 
-export const Styled = {
-  LabelForm: styled.label`
-    font-size: 1.15em;
-  `,
-  SubLabel: styled.p`
-    /* color: ${COLOR.darkGrey};*/
-    font-size: .9em;
-    margin-top: 1.5rem;
-  `,
+const Styled = {
   CountrySelected: styled.p`
     font-size: 1.1em;
     display: inline-block;

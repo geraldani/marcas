@@ -27,7 +27,7 @@ const ColorPicker = ({ color, setColor, title }) => {
   }
 
   return (
-    <div className='position-relative d-flex mt-2'>
+    <div className='position-relative d-flex'>
       <Styled.ColorSquare onClick={handleSquareClick} color={color} />
       <input
         type='text'

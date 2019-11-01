@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import OrderCard from '../utilities/OrderCard'
 import CircleSteps from '../utilities/CircleSteps'
 import CardSteps from '../utilities/CardSteps'
@@ -21,41 +21,26 @@ export const useInputChange = () => {
 }
 
 const Register = () => {
-  const totalSteps = 5
-  const [step, setStep] = useState(3)
-
-  // Datos del formulario
-  const initialCardInfo = [
-    {
-      field: 'País de registro',
-      value: null
-    },
-    {
-      field: 'Tipo de registro',
-      value: null
-    },
-    {
-      field: 'Nombre de registro',
-      value: null
-    }
-  ]
-
+  const TOTAL_STEPS = 5
+  const [step, setStep] = useState(4)
   const [country, setCountry] = useState('')
+  const [countryAttorney, setCountryAttorney] = useState('')
+  const [countryBrand, setCountryBrand] = useState('')
+
   const [dataForm, setDataForm] = useState(null)
+
+  // Atualizar los demas paises en base si cambio el pais principal
+  useEffect(() => {
+    setCountryAttorney(country)
+    setCountryBrand(country)
+  }, [country])
 
   const clickNext = (e) => {
     e.preventDefault()
-    if (step === totalSteps) {
+    if (step === TOTAL_STEPS) {
       window.alert('termine el asunto')
     } else {
       setStep(step + 1)
-      /* const newData = []
-      const obj = {
-        field: 'País de registro',
-        value: country || ''
-      }
-      newData.push(obj)
-      setDataForm(newData) */
     }
   }
 
@@ -64,6 +49,7 @@ const Register = () => {
     setStep(step - 1)
   }
 
+  // botones de navegacion para avanaza o retroceder en el formulario
   const ButtonsNavigation = () => (
     <div
       className={`border-top mt-5 py-3 px-4 d-flex ${step === 1 ? 'justify-content-end' : 'justify-content-between'}`}
@@ -78,7 +64,7 @@ const Register = () => {
           />
       }
       <Button
-        title={`${step === totalSteps ? 'Finalizar' : 'Continuar'} `}
+        title={`${step === TOTAL_STEPS ? 'Finalizar' : 'Continuar'} `}
         className='px-5'
         onClick={clickNext}
       />
@@ -90,11 +76,11 @@ const Register = () => {
       case 1:
         return <StepOne country={country} setCountry={setCountry} />
       case 2:
-        return <StepTwo country={country} />
+        return <StepTwo country={countryAttorney} setCountry={setCountryAttorney} />
       case 3:
         return <StepThree />
       case 4:
-        return <StepFour />
+        return <StepFour country={countryBrand} setCountry={setCountryBrand} />
       case 5:
         return <StepFive />
       default:
@@ -109,7 +95,7 @@ const Register = () => {
 
           {/* Circulos del paso actual y totales */}
           <div className='col-12 mb-4'>
-            <CircleSteps actualStep={step} totalSteps={totalSteps} />
+            <CircleSteps actualStep={step} totalSteps={TOTAL_STEPS} />
           </div>
 
           {/* formulario principal */}

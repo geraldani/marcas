@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ColorPicker from '../utilities/ColorPicker'
 import Measurement from '../utilities/Measurement'
-import { Styled } from './StepOne'
+import { LabelName, marginBottom, Sublabel } from '../GlobalStyles'
 import { COLOR } from '../utilities/constants'
-import $ from 'jquery'
 import Tooltip from '../utilities/Tooltip'
 import FileInput from '../utilities/FileInput'
 
@@ -25,9 +24,9 @@ const StepThree = () => {
   return (
     <>
       <div className='col-12 px-4 mt-5'>
-        <Styled.LabelForm className='mb-4'>
+        <LabelName className='mb-4'>
           Quiero registrar
-        </Styled.LabelForm>
+        </LabelName>
       </div>
       {/* Checkboxes del tipo de marca */}
       <div className='col-7 px-4 '>
@@ -39,23 +38,23 @@ const StepThree = () => {
       </div>
 
       {/* inputs de archivo color y medidas */}
-      <div className='col-8 px-4 mt-5'>
+      <div className='col-8 px-4 mt-5' style={marginBottom}>
         <div className='form-group mr-5 position-relative'>
 
           {/* Nombre de la marca */}
-          <Styled.SubLabel className='mb-0'>Nombre/Marca</Styled.SubLabel>
+          <Sublabel>Nombre/Marca</Sublabel>
           <input type='text' className='form-control' name='marca' />
 
           {/* Archivo de la marca */}
-          <Styled.SubLabel className='mb-0'>Adjuntar archivo</Styled.SubLabel>
+          <Sublabel>Adjuntar archivo</Sublabel>
           <FileInput />
 
           {/* Color de la marca */}
-          <Styled.SubLabel className='mb-0'>Color de tu marca</Styled.SubLabel>
+          <Sublabel>Color de tu marca</Sublabel>
           <ColorPicker color={color} setColor={setColor} title='Selecciona el color de tu marca' />
 
           {/* Medidas de la marca */}
-          <Styled.SubLabel className='mb-0'>Medidas</Styled.SubLabel>
+          <Sublabel>Medidas</Sublabel>
           <Measurement />
         </div>
       </div>

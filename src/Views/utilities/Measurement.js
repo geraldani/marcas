@@ -18,10 +18,10 @@ const Measurement = () => {
   }
 
   return (
-    <div className='d-flex' style={{ marginBottom: '5rem' }}>
+    <div className='d-flex'>
       {
         measure.map(elem => (
-          <Styled.Label className='mt-2' key={elem}>
+          <Styled.Label key={elem}>
             <Styled.LabelName>
               {elem} (cm)
             </Styled.LabelName>
