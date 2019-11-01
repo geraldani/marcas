@@ -6,6 +6,7 @@ import Register from './RegisterBrand/Register'
 import FinalRegister from './RegisterBrand/FinalRegister'
 import FinishRegister from './RegisterBrand/FinishRegister'
 import { ROUTES } from './utilities/constants'
+import SignUp from './RegisterBrand/SignUp'
 
 const MainApp = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const MainApp = () => (
         <Route exact path={ROUTES.registerBrand} component={Register} />
         <Route exact path={ROUTES.orderDetail} component={FinalRegister} />
         <Route exact path={ROUTES.finishRegister} component={FinishRegister} />
+        <Route exact path={ROUTES.signup} component={SignUp} />
       </Switch>
     </Layout>
   </BrowserRouter>

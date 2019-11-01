@@ -17,6 +17,7 @@ const StyledSublabel = styled.p`
     font-size: 15px;
     margin-top: 1.5rem;
     margin-bottom: 0.7rem;
+    text-align: left;
 `
 
 const marginBottom = { marginBottom: '7rem' }

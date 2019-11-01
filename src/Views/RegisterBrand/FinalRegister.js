@@ -66,24 +66,22 @@ const fakeData = [
 
 const FinalRegister = () => {
   return (
-    <div className='margin-header'>
-      <div className='container-fluid pt-5 px-5'>
-        <div className='row justify-content-center'>
-          <CircleSteps actualStep={6} totalSteps={5} />
-          <div className='col-9 mt-3 mb-5'>
-            <CardSteps title='Detalle de orden' className='pb-5' style={{ paddingBottom: '5rem' }}>
-              {
-                fakeData.map(elem => (
-                  <StyledFieldContainer key={elem} className='col-9'>
-                    <Fields items={elem.items} />
-                  </StyledFieldContainer>
-                ))
-              }
-            </CardSteps>
-            <div className='d-flex justify-content-center flex-column align-items-center'>
-              <StyledTotal>Total: $520</StyledTotal>
-              <Button className='px-5' title='Finalizar' link={ROUTES.finishRegister} />
-            </div>
+    <div className='container-fluid pt-5 px-5 margin-header'>
+      <div className='row justify-content-center'>
+        <CircleSteps actualStep={6} totalSteps={5} />
+        <div className='col-9 mt-3 mb-5'>
+          <CardSteps title='Detalle de orden' className='pb-5' style={{ paddingBottom: '5rem' }}>
+            {
+              fakeData.map(elem => (
+                <StyledFieldContainer key={elem} className='col-9'>
+                  <Fields items={elem.items} />
+                </StyledFieldContainer>
+              ))
+            }
+          </CardSteps>
+          <div className='d-flex justify-content-center flex-column align-items-center'>
+            <StyledTotal>Total: $520</StyledTotal>
+            <Button className='px-5' title='Finalizar' link={ROUTES.finishRegister} />
           </div>
         </div>
       </div>

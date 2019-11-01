@@ -18,6 +18,7 @@ const ROUTES = {
   home: '/',
   registerBrand: '/register-brand',
   orderDetail: '/order-detail',
-  finishRegister: '/finish-register'
+  finishRegister: '/finish-register',
+  signup: '/sign-up'
 }
 export { ROUTES, COLOR }
