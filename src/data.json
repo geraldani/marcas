@@ -24,7 +24,7 @@
       },
       {
         "name": "Registrarme",
-        "path": "/sigup"
+        "path": "/sign-up"
       },
       {
         "name": "Ingresar",
