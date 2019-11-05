@@ -3,8 +3,7 @@ import { StyledType, StyledValue, StyledNoOrder, StyledIcon } from './styles'
 import { COLOR } from '../../constants'
 
 const OrderCard = (props) => {
-  // const { data } = props
-  const fakeData = [
+  /* const fakeData = [
     {
       field: 'Tipo de registro',
       value: 'Mixta'
@@ -17,7 +16,8 @@ const OrderCard = (props) => {
       field: 'Pais de registro',
       value: 'Argentina'
     }
-  ]
+  ] */
+  const fakeData = null
 
   return (
     <div className='card text-center shadow-card border-0'>

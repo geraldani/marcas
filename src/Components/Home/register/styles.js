@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import background from '../../../assets/img/mg.jpg'
-import { COLOR } from '../../common/constants'
+import { COLOR, SCREEN } from '../../common/constants'
 
 export const StyledContainer = styled.div`
   background-image: url(${background});
@@ -28,7 +28,7 @@ export const StyledContainer = styled.div`
   & p{
     font-size: 1.15rem;
   }
-  @media (max-width: 768px){
+  @media (max-width: ${SCREEN.md}px){
     padding-top: 100px;
     padding-bottom: 100px;
     background-position: 70% 50%;

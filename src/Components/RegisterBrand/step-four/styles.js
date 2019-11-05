@@ -18,6 +18,7 @@ const ClearLegend = styled(StyledLegend)`
   opacity: 0.7;
   width: 60%;
   margin-bottom: 0;
+  margin-left: 1em;
 `
 
 export { StyledOption, ClearLegend }

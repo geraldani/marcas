@@ -36,14 +36,14 @@ const OrderDetail = () => {
   return (
     <>
       <Header />
-      <div className='container-fluid pt-5 px-5 margin-header'>
+      <div className='pt-5 px-md-5 px-3 margin-header'>
         <div className='row justify-content-center'>
           <CircleSteps actualStep={6} totalSteps={5} />
-          <div className='col-9 mt-3 mb-5'>
-            <CardSteps title='Detalle de orden' className='pb-5' style={{ paddingBottom: '5rem' }}>
+          <div className='col-md-9 col-12 mt-3 mb-5'>
+            <CardSteps title='Detalle de orden' className='pb-5'>
               {
                 fakeData.map(elem => (
-                  <StyledFieldContainer key={elem} className='col-9'>
+                  <StyledFieldContainer key={elem} className='col-11 col-md-9'>
                     <Fields items={elem.items} />
                   </StyledFieldContainer>
                 ))

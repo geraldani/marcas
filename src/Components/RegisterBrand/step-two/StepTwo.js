@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import RadioButttons from '../../common/inputs/radio/RadioButtton'
-import { StyledLegend, StyledLabelName, StyledSublabel, marginBottom } from '../../GlobalStyles'
+import { StyledLegend, StyledLabelName, StyledSublabel, StyledDivMarginBottom } from '../../GlobalStyles'
 import { COLOR } from '../../common/constants'
 import SelectCountry from '../../common/inputs/select/SelectCountry'
 
@@ -10,13 +10,13 @@ const StepTwo = (props) => {
 
   return (
     <>
-      <div className='col-12 px-4 mt-5'>
+      <div className='col-12 px-4 mt-3 mt-md-5'>
         <StyledLabelName>
           Datos del estudio encargado del seguimiento del trámite
         </StyledLabelName>
       </div>
-      <div className='col-7 px-4 '>
-        <div className='mr-5'>
+      <div className='col-lg-7 col-12 px-4 '>
+        <div className='mr-lg-5'>
           <StyledSublabel>Email</StyledSublabel>
           <input
             type='email'
@@ -33,7 +33,7 @@ const StepTwo = (props) => {
           Para darle seguimiento a su solicitud de registro de marca, complete el siguiente formulario.
         </StyledLegend>
       </div>
-      <div className='col-5 px-4 mt-3'>
+      <div className='col-lg-5 col-12 px-4 mt-3'>
         <div className='form-group'>
           <RadioButttons
             className='mb-3'
@@ -49,8 +49,8 @@ const StepTwo = (props) => {
           />
         </div>
       </div>
-      <div className='col-7 px-4' style={marginBottom}>
-        <div className='form-group mr-5 position-relative'>
+      <StyledDivMarginBottom className='col-lg-7 col-12 px-4'>
+        <div className='form-group mr-md-5 position-relative'>
           <StyledSublabel>Nombre</StyledSublabel>
           <input type='text' className='form-control' name='nombre' />
 
@@ -66,7 +66,7 @@ const StepTwo = (props) => {
           <StyledSublabel>CUIT</StyledSublabel>
           <input type='text' className='form-control' name='cuit' />
         </div>
-      </div>
+      </StyledDivMarginBottom>
     </>
   )
 }

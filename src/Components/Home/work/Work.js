@@ -2,6 +2,7 @@ import React from 'react'
 import { work } from '../../../data.json'
 import IconCard from '../../common/cards/icon/IconCard'
 import styled from 'styled-components'
+import { SCREEN } from '../../common/constants'
 
 const Work = () => {
   return (
@@ -27,7 +28,7 @@ const StyledTitle = styled.h2`
   margin-bottom: 1.5rem;
   font-size: 24px;
   margin-top: 5rem;
-  @media (max-width: 768px) {
+  @media (max-width: ${SCREEN.md}px) {
     margin-bottom: 1rem;
     margin-top: 2rem;
   }

@@ -21,4 +21,12 @@ const ROUTES = {
   finishRegister: '/finish-register',
   signup: '/sign-up'
 }
-export { ROUTES, COLOR }
+
+// for media queries screens
+const SCREEN = {
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200
+}
+export { ROUTES, COLOR, SCREEN }

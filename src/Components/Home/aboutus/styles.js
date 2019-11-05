@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import imageBackground from '../../../assets/img/about.jpg'
+import { SCREEN } from '../../common/constants'
 
 const StyledContainer = styled.div`
   background-image: url(${imageBackground});
@@ -22,7 +23,7 @@ const StyledContainer = styled.div`
     left: 0;
     z-index: -1;
   }
-  @media (max-width: 768px) {
+  @media (max-width: ${SCREEN.md}px) {
     background-position-x: 40%;
   }
 `

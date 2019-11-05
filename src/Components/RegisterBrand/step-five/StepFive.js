@@ -44,7 +44,7 @@ const FakeData = [
 const StepFive = () => {
   return (
     <>
-      <div className='col-10 px-4 mt-5'>
+      <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
         <StyledLabelName>
           ¿A que seccion pertenece?
         </StyledLabelName>
@@ -54,11 +54,11 @@ const StepFive = () => {
         </StyledLegend>
       </div>
 
-      <div className='col-7 px-4'>
+      <div className='col-md-7 col-12 px-4'>
         <StyledSublabel>Ingrese su producto / servicios</StyledSublabel>
         <input type='text' className='form-control' placeholder='Cafe' />
       </div>
-      <div className='col-9 px-4' style={marginBottom}>
+      <div className='col-md-9 col-12 px-4' style={marginBottom}>
         <StyledSublabel>PRODUCTOS</StyledSublabel>
         <StyledItalicLegend>*Agregar texto de que cada clase elegida es un registro diferente</StyledItalicLegend>
         {

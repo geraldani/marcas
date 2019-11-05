@@ -1,13 +1,13 @@
 import React from 'react'
 import CheckToggler from '../../common/inputs/toggler/CheckToggler'
-import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../../GlobalStyles'
+import { StyledLabelName, StyledLegend, StyledSublabel, StyledDivMarginBottom } from '../../GlobalStyles'
 import SelectCountry from '../../common/inputs/select/SelectCountry'
 import { StyledOption, ClearLegend } from './styles'
 
 const StepFour = (props) => {
   return (
     <>
-      <div className='col-10 px-4 mt-5'>
+      <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
         <StyledLabelName className='mb-4'>
           Registros anteriores
         </StyledLabelName>
@@ -28,13 +28,13 @@ const StepFour = (props) => {
         </ClearLegend>
       </div>
 
-      <div className='col-7 px-4' style={marginBottom}>
+      <StyledDivMarginBottom className='col-12 col-md-7 px-4'>
         <StyledSublabel>País</StyledSublabel>
         <SelectCountry country={props.country} setCountry={props.setCountry} />
 
         <StyledSublabel>Numero de registro/acta</StyledSublabel>
         <input type='text' className='form-control' name='nombre' />
-      </div>
+      </StyledDivMarginBottom>
     </>
   )
 }

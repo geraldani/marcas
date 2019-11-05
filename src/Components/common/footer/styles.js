@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { COLOR } from '../constants'
+import { COLOR, SCREEN } from '../constants'
 
 const StyledCopyright = styled.p`
   color: #6c757d;
   font-weight: normal;
   font-size: .8rem;
   margin-bottom: 0;
-  @media (max-width: 770px){
+  @media (max-width: ${SCREEN.md}px){
     text-align: center;
     margin-bottom: 1rem;
   }
@@ -23,7 +23,7 @@ const StyledLink = styled(Link)`
   &:not(:last-child){
     margin-right: 1.5em
   }
-  @media (max-width: 728px){
+  @media (max-width: ${SCREEN.md}px){
     margin-right: 0!important;
   }
 `

@@ -52,4 +52,3 @@ const ColorPicker = ({ color, setColor, title }) => {
   )
 }
 export default ColorPicker
-

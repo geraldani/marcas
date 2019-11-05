@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { SCREEN } from '../../constants'
 
 const StyledPickerContainer = styled.div`
   position: absolute;
@@ -7,6 +8,9 @@ const StyledPickerContainer = styled.div`
   width: 450px;
   & .photoshop-picker{
     width: inherit!important;
+  }
+  @media (max-width: ${SCREEN.sm}px){
+    width: 340px;
   }
 `
 const StyledColorSquare = styled.span`

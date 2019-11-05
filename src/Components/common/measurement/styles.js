@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../constants'
+import { COLOR, SCREEN } from '../constants'
 
 const squareWidth = 80
 const squareHeight = 100
@@ -12,6 +12,9 @@ const StyledSquare = styled.div`
   background-color: ${COLOR.lightGrey};
   border: solid 2px ${COLOR.mediumGray};
   position: relative;
+  @media (max-width: ${SCREEN.md}px){
+    margin-top: 2.5rem;
+  }
   &:after,
   &:before{
     content: '';
@@ -87,10 +90,18 @@ const StyledLabel = styled.label`
       content: 'x';
       position: absolute;
       vertical-align: middle;
-      bottom: 28px;
+      bottom: 35px;
       right: -19px;
       color: ${COLOR.darkGray};
       opacity: 0.6;
+    }
+  }
+  @media (max-width: ${SCREEN.md}px){
+    :first-child:after{
+      bottom: 9px;
+    }
+    :last-child{
+      margin-right: 0;
     }
   }
   

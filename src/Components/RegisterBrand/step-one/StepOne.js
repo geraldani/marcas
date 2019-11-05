@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } from 'react-icons/io'
 import RadioButttons from '../../common/inputs/radio/RadioButtton'
 import SelectCountry from '../../common/inputs/select/SelectCountry'
-import { StyledLabelName, marginBottom, StyledSublabel } from '../../GlobalStyles'
+import { StyledLabelName, StyledSublabel, StyledDivMarginBottom } from '../../GlobalStyles'
 import { StyledCountrySelected, StyledAlert, StyledPrice } from './styles'
 import { steoOne } from '../../../data.json'
 
@@ -33,8 +33,8 @@ const StepOne = (props) => {
 
   return (
     <>
-      <div className='col-7 px-4 mt-5'>
-        <div className='form-group mr-5 position-relative' style={{ marginBottom: '7em' }}>
+      <StyledDivMarginBottom className='col-lg-7 col-12 px-4 mt-md-5 mt-3'>
+        <div className='form-group mr-lg-5 mr-0 position-relative'>
           <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
           <StyledSublabel>Paises</StyledSublabel>
           <SelectCountry country={props.country} setCountry={props.setCountry} />
@@ -46,14 +46,14 @@ const StepOne = (props) => {
               </StyledCountrySelected>
           }
         </div>
-      </div>
+      </StyledDivMarginBottom>
       <div className='col-12 px-0'>
         <div className='border-top my-4' />
         {
           showAlert && <Alert showAlert={setShowAlert} />
         }
       </div>
-      <div className='col-7 px-4 mt-3' style={marginBottom}>
+      <StyledDivMarginBottom className='col-lg-7 col-12 px-4 mt-3'>
         <div className='form-group'>
           {
             steoOne.checkButtons.map((elem, index) => (
@@ -73,9 +73,11 @@ const StepOne = (props) => {
             ))
           }
         </div>
-      </div>
+      </StyledDivMarginBottom>
     </>
   )
 }
+
+
 
 export default StepOne

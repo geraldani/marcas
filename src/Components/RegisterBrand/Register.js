@@ -24,7 +24,7 @@ export const useInputChange = () => {
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
-  const [step, setStep] = useState(1)
+  const [step, setStep] = useState(5)
   const [country, setCountry] = useState('')
   const [countryAttorney, setCountryAttorney] = useState('')
   const [countryBrand, setCountryBrand] = useState('')
@@ -54,17 +54,18 @@ const Register = (props) => {
   // botones de navegacion para avanaza o retroceder en el formulario
   const ButtonsNavigation = () => (
     <div
-      className={`border-top mt-5 py-3 px-4 d-flex ${step === 1 ? 'justify-content-end' : 'justify-content-between'}`}
+      className={`border-top mt-5 py-3 px-4 d-flex flex-column flex-md-row ${step === 1 ? 'justify-content-end' : 'justify-content-between'}`}
     >
-      {
+      {/* Boton volver */
         step > 1 &&
           <Button
             title='Volver'
-            className='px-5'
+            className='px-5 mb-3 mb-md-0'
             styled='outline-purple'
             onClick={clickBack}
           />
       }
+      {/* Boton continuar o finalizar */}
       <Button
         title={`${step === TOTAL_STEPS ? 'Finalizar' : 'Continuar'} `}
         className='px-5'
@@ -85,8 +86,6 @@ const Register = (props) => {
         return <StepFour country={countryBrand} setCountry={setCountryBrand} />
       case 5:
         return <StepFive />
-      default:
-        return <div>paso invalido</div>
     }
   }
 
@@ -113,7 +112,7 @@ const Register = (props) => {
             </div>
 
             {/* Detalle de la orden Card */}
-            <div className='col-12 mt-4'>
+            <div className='col-12 mt-4 col-lg-3 mt-lg-0'>
               <OrderCard data={dataForm} />
             </div>
           </div>

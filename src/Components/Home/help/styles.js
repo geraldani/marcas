@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../../common/constants'
+import { COLOR, SCREEN } from '../../common/constants'
 
 const StyledText = styled.p`
   text-align: center;
@@ -11,7 +11,7 @@ const StyledText = styled.p`
   padding-bottom: 1.5rem;
   margin-left: 15rem;
   margin-right: 15rem;
-  @media (max-width: 992px) {
+  @media (max-width: ${SCREEN.lg}px) {
     margin-left: 1.8rem;
     margin-right: 1.8rem;
     margin-bottom: 1rem;

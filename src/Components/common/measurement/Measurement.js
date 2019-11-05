@@ -17,17 +17,19 @@ const Measurement = () => {
   }
 
   return (
-    <div className='d-flex'>
-      {
-        measure.map(elem => (
-          <StyledLabel key={elem}>
-            <StyledLabelName>
-              {elem} (cm)
-            </StyledLabelName>
-            <input type='number' className='form-control' />
-          </StyledLabel>
-        ))
-      }
+    <div className='d-flex flex-md-row flex-column'>
+      <div className='d-flex'>
+        {
+          measure.map(elem => (
+            <StyledLabel key={elem}>
+              <StyledLabelName>
+                {elem} (cm)
+              </StyledLabelName>
+              <input type='number' className='form-control' />
+            </StyledLabel>
+          ))
+        }
+      </div>
       <SquareMeasure />
     </div>
   )

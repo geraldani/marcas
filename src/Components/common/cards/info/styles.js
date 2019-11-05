@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { COLOR } from '../../constants'
+import { COLOR, SCREEN } from '../../constants'
 import Button from '../../buttons/Button'
 
 const StyledLink = styled(Link)`
@@ -9,7 +9,7 @@ const StyledLink = styled(Link)`
   font-weight: 500;
   ${props => props.margin};
   transition: all 200ms;
-  @media (max-width: 768px) {
+  @media (max-width: ${SCREEN.md}px) {
     margin: 1rem 0;
   }
   &:hover{
@@ -20,7 +20,7 @@ const StyledLink = styled(Link)`
 `
 
 const StyledButton = styled(Button)`
-  @media (max-width: 768px){
+  @media (max-width: ${SCREEN.md}px){
     width: 100%;
   }
 

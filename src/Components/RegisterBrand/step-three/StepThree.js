@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ColorPicker from '../../common/inputs/color/ColorPicker'
 import Measurement from '../../common/measurement/Measurement'
-import { StyledLabelName, marginBottom, StyledSublabel } from '../../GlobalStyles'
+import { StyledLabelName, StyledDivMarginBottom, StyledSublabel } from '../../GlobalStyles'
 import FileInput from '../../common/inputs/file/FileInput'
 import CkeckInput from '../../common/check/CkeckInput'
 
@@ -30,14 +30,14 @@ const StepThree = () => {
   // componente principal
   return (
     <>
-      <div className='col-12 px-4 mt-5'>
+      <div className='col-12 px-4 mt-md-5 mt-3'>
         <StyledLabelName className='mb-4'>
           Quiero registrar
         </StyledLabelName>
       </div>
       {/* Checkboxes del tipo de marca */}
-      <div className='col-7 px-4 '>
-        <div className='form-group mr-5 position-relative d-flex flex-column justify-content-start'>
+      <div className='col-lg-7 col-12 px-4 '>
+        <div className='form-group mr-md-5 position-relative d-flex flex-column justify-content-start'>
           {
             FakeData.map(elem => (
               <CkeckInput
@@ -52,8 +52,8 @@ const StepThree = () => {
       </div>
 
       {/* inputs de archivo color y medidas */}
-      <div className='col-8 px-4 mt-5' style={marginBottom}>
-        <div className='form-group mr-5 position-relative'>
+      <StyledDivMarginBottom className='col-lg-8 col-12 px-4 mt-md-5 mt-4'>
+        <div className='form-group mr-md-5 position-relative'>
 
           {/* Nombre de la marca */}
           <StyledSublabel>Nombre/Marca</StyledSublabel>
@@ -71,7 +71,7 @@ const StepThree = () => {
           <StyledSublabel>Medidas</StyledSublabel>
           <Measurement />
         </div>
-      </div>
+      </StyledDivMarginBottom>
     </>
   )
 }
