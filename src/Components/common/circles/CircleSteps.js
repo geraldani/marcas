@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 const CircleSteps = ({ actualStep, totalSteps }) => {
   return (
-    <div className='d-flex'>
+    <div className='d-flex justify-content-md-start justify-content-center'>
       {
         [...Array(totalSteps)].map((ele, index) => (
           <CircleNumber

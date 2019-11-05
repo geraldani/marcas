@@ -94,7 +94,7 @@ const Register = (props) => {
     <>
       <Header />
       <section className='margin-header mb-5'>
-        <div className='container-fluid pt-5 px-5'>
+        <div className='container-fluid pt-5 px-3 px-md-5'>
           <div className='row justify-content-end'>
 
             {/* Circulos del paso actual y totales */}
@@ -103,7 +103,7 @@ const Register = (props) => {
             </div>
 
             {/* formulario principal */}
-            <div className='col-9'>
+            <div className='col-12 col-lg-9'>
               <CardSteps title={`Paso ${step}`}>
                 {/* Formulario actual dependiendo de que paso este */}
                 <Steps />
@@ -113,7 +113,7 @@ const Register = (props) => {
             </div>
 
             {/* Detalle de la orden Card */}
-            <div className='col-3'>
+            <div className='col-12 mt-4'>
               <OrderCard data={dataForm} />
             </div>
           </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { COLOR } from '../../common/constants'
 import Title from '../../common/title/Title'
 import { contact } from '../../../data.json'
-import Button from '../../common/buttons/Button'
+import { StyledButton } from './styles'
 
 const Contact = () => {
   return (
@@ -14,7 +14,7 @@ const Contact = () => {
             color={COLOR.darkGrey}
             className='m-0'
           />
-          <Button
+          <StyledButton
             className='ml-3'
             title={contact.buttonTitle}
             styled='outline-purple'

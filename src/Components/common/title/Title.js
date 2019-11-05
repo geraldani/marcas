@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StyledTitle } from './styles'
 
 const Title = ({ title, color = 'black', className = '' }) => (
-  <h2
-    className={`text-center main-title ${className}`}
+  <StyledTitle
+    className={className}
     style={{ color }}
   >
     {title}
-  </h2>
+  </StyledTitle>
 )
 export default Title
 

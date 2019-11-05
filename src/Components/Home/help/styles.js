@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { COLOR } from '../../common/constants'
 
-export const StyledText = styled.p`
+const StyledText = styled.p`
   text-align: center;
   font-weight: normal;
   font-size: 16px;
@@ -14,5 +14,8 @@ export const StyledText = styled.p`
   @media (max-width: 992px) {
     margin-left: 1.8rem;
     margin-right: 1.8rem;
+    margin-bottom: 1rem;
   }
 `
+
+export { StyledText }

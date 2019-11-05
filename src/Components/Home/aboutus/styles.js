@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import imageBackground from '../../../assets/img/about.jpg'
 
-export const StyledAboutContainer = styled.div`
+const StyledContainer = styled.div`
   background-image: url(${imageBackground});
   z-index: -2;
   background-size: cover;
@@ -26,3 +26,4 @@ export const StyledAboutContainer = styled.div`
     background-position-x: 40%;
   }
 `
+export { StyledContainer }
