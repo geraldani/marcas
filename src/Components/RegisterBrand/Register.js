@@ -24,7 +24,7 @@ const Register = (props) => {
       props.history.push(ROUTES.orderDetail)
     } else {
       if (!country) {
-        setCountryError(!countryError)
+        setCountryError(true)
       } else {
         setStep(step + 1)
       }
