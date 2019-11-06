@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "Un sitio para registrar marcas",
   "main": "index.js",
+  "engines": {
+    "npm": "5.7.1",
+    "node": "9.5.0"
+  },
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack.dev.config.js",
-    "prod": "webpack --mode production"
+    "start": "webpack --mode production"
   },
   "repository": {
     "type": "git",

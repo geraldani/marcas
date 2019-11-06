@@ -4,7 +4,7 @@ const RED = 'rgba(171,1,0,0.82)'
 
 const StyledSelect = styled.select`
   &.error{
-    box-shadow: 0 0 9px 3px ${RED};
+    border: solid 1px ${RED};
     outline: none;
   }
 `
