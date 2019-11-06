@@ -49,9 +49,9 @@ const OrderDetail = () => {
                 ))
               }
             </CardSteps>
-            <div className='d-flex justify-content-center flex-column align-items-center'>
+            <div className='d-flex justify-content-center align-items-center flex-column'>
               <StyledTotal>Total: $520</StyledTotal>
-              <Button className='px-5' title='Finalizar' link={ROUTES.finishRegister} />
+              <Button className='px-5 w-md-100' title='Finalizar' link={ROUTES.finishRegister} />
             </div>
           </div>
         </div>

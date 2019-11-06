@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { COLOR } from '../../constants'
-import { IoIosInformationCircle as Icon } from 'react-icons/io'
 
 const StyledType = styled.span`
   color: ${COLOR.textColor};
@@ -20,7 +19,7 @@ const StyledNoOrder = styled.p`
   font-size: .95em;
   line-height: 1.2;
 `
-const StyledIcon = styled(Icon)`
+const StyledIcon = styled.img`
   position: absolute;
   top: 20px;
   right: 0;

@@ -24,7 +24,7 @@ export const useInputChange = () => {
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
-  const [step, setStep] = useState(5)
+  const [step, setStep] = useState(1)
   const [country, setCountry] = useState('')
   const [countryAttorney, setCountryAttorney] = useState('')
   const [countryBrand, setCountryBrand] = useState('')

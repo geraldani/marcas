@@ -22,9 +22,9 @@ const Form = ({ fields, buttonName, link }) => {
 const RegisterCard = (props) => {
   return (
     <>
-      <div className='container-fluid pt-5 px-5 margin-header'>
+      <div className='container-fluid pt-0 pt-md-5 px-4 px-md-5 margin-header'>
         <div className='row justify-content-center'>
-          <div className='col-5 mt-3 mb-5 card text-center px-0'>
+          <div className='col-md-7 col-lg-6 col-xl-5 col-12 mt-3 mb-5 px-2 px-md-0 card text-center px-0'>
             {
               props.children
             }

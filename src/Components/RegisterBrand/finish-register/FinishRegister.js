@@ -2,10 +2,11 @@ import React from 'react'
 import RegisterCard from '../../common/cards/register/RegisterCard'
 import Header from '../../common/header/Header'
 import { ROUTES } from '../../common/constants'
-import { StyledImage, StyledSubtitle } from './styles'
+import { StyledImage, StyledSubtitle, StyledTitle } from './styles'
 import { StyledLabelName } from '../../GlobalStyles'
+import imageUrl from '../../../assets/img/svg/icon-confirm.svg'
+//= 'https://static.vecteezy.com/system/resources/previews/000/504/333/non_2x/vector-beer-icon-in-flat-line-style-beer-mug-logo-for-social-media-banner-party-poster-corporate-identity-and-app-icon-design.jpg'
 
-const imageUrl = 'https://static.vecteezy.com/system/resources/previews/000/504/333/non_2x/vector-beer-icon-in-flat-line-style-beer-mug-logo-for-social-media-banner-party-poster-corporate-identity-and-app-icon-design.jpg'
 const FinishRegister = () => {
   const fakeData = [
     { name: 'Contraseña', type: 'password' },
@@ -17,8 +18,10 @@ const FinishRegister = () => {
       <Header />
       <RegisterCard data={fakeData} buttonName='Aceptar' link={ROUTES.signup}>
         <StyledImage src={imageUrl} alt='image' />
-        <h3>¡Felicitaciones!</h3>
-        <h3>Estas a un paso de finalizar<br />tu trámite</h3>
+        <StyledTitle>¡Felicitaciones!</StyledTitle>
+        <StyledTitle>
+          Estas a un paso de finalizar<br />tu trámite
+        </StyledTitle>
         <StyledSubtitle>
           En este momento estamos gestionando tu pedido.
         </StyledSubtitle>
@@ -27,7 +30,7 @@ const FinishRegister = () => {
           Te estaremos enviando un mail con los avances
         </StyledSubtitle>
 
-        <StyledLabelName style={{ marginTop: '4rem' }}>
+        <StyledLabelName className='mt-md-5 mt-4'>
           Crea tu clave para luego ver el estado de tu trámite
         </StyledLabelName>
       </RegisterCard>

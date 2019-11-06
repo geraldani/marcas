@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyledType, StyledValue, StyledNoOrder, StyledIcon } from './styles'
 import { COLOR } from '../../constants'
+import icon from '../../../../assets/img/svg/icon-empty.svg'
 
 const OrderCard = (props) => {
   /* const fakeData = [
@@ -35,7 +36,7 @@ const OrderCard = (props) => {
 
 const NoOrder = () => (
   <div className='p-5 position-relative'>
-    <StyledIcon size='25px' />
+    <StyledIcon src={icon} alt='icon' />
     <StyledNoOrder>Todavía no hay avances de tu trámite</StyledNoOrder>
   </div>
 )

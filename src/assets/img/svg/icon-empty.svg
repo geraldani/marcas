@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="24px" viewBox="0 0 23 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2-Paso1" transform="translate(-1195.000000, -330.000000)" fill-rule="nonzero">
+            <g id="section-two" transform="translate(1056.000000, 226.000000)">
+                <g id="Group-4" transform="translate(139.000000, 104.000000)">
+                    <path d="M22.5,24.002 L21,24.002 L2,24.002 L0.5,24.002 C0.224,24.002 0,23.777 0,23.502 C0,23.225 0.224,23.001 0.5,23.001 L2.396,23.001 L11.5,-1.77635684e-15 L20.604,23.001 L22.5,23.001 C22.775,23.001 23,23.225 23,23.502 C23,23.777 22.775,24.002 22.5,24.002 Z M11.5,2.718 L9.408,8 L13.591,8 L11.5,2.718 Z M8,12 L8,11.561 L4.659,20 L18.34,20 L15,11.561 L15,12 L8,12 Z M17,18 L6,18 L6,17 L17,17 L17,18 Z" id="Shape" fill="#000000"></path>
+                    <polygon id="Path" fill="#9013FE" points="18.735 21 4.263 21 3.47 23.002 19.528 23.002"></polygon>
+                    <polygon id="Path" fill="#9013FE" points="13.986 9 9.013 9 8.221 11 14.777 11"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
