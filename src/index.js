@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MainApp from './Components/MainApp'
+import MainApp from './Views/MainApp'
 import './globalStyles.css'
 
 // Bootstrap y Jquery
@@ -15,7 +15,7 @@ function render () {
 }
 
 if (module.hot) {
-  module.hot.accept('./Components/MainApp', () => {
+  module.hot.accept('./Views/MainApp', () => {
     render()
   })
 }

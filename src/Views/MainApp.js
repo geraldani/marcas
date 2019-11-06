@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './Home/Home'
-import Register from './RegisterBrand/Register'
+import Register from '../Components/RegisterBrand/Register'
 import OrderDetail from './RegisterBrand/order-detail/OrderDetail'
 import FinishRegister from './RegisterBrand/finish-register/FinishRegister'
 import SignUp from './SignUp/SignUp'

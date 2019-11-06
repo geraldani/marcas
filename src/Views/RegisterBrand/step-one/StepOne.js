@@ -37,9 +37,14 @@ const StepOne = (props) => {
         <div className='form-group mr-lg-5 mr-0 position-relative'>
           <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
           <StyledSublabel>Paises</StyledSublabel>
-          <SelectCountry country={props.country} setCountry={props.setCountry} />
+          <SelectCountry
+            country={props.country}
+            setCountry={props.setCountry}
+            error={props.error}
+            setError={props.setError}
+          />
           {
-            props.country &&
+            props.country && // label con el pais seleccionado
               <StyledCountrySelected>
                 {props.country}
                 <IconCloseCircle size='25px' className='ml-1' />
@@ -77,7 +82,5 @@ const StepOne = (props) => {
     </>
   )
 }
-
-
 
 export default StepOne
