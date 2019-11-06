@@ -10,7 +10,10 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack.dev.config.js",
     "prod": "webpack --mode production",
-    "start": "webpack-dev-server --config ./webpack.dev.config.js"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
