@@ -37,7 +37,7 @@ const OrderDetail = () => {
     <>
       <Header />
       <div className='pt-5 px-md-5 px-3 margin-header'>
-        <div className='row justify-content-center'>
+        <div className='row justify-content-center align-items-center flex-column'>
           <CircleSteps actualStep={6} totalSteps={5} />
           <div className='col-md-9 col-12 mt-3 mb-5'>
             <CardSteps title='Detalle de orden' className='pb-5'>

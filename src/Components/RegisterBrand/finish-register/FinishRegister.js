@@ -5,7 +5,6 @@ import { ROUTES } from '../../common/constants'
 import { StyledImage, StyledSubtitle, StyledTitle } from './styles'
 import { StyledLabelName } from '../../GlobalStyles'
 import imageUrl from '../../../assets/img/svg/icon-confirm.svg'
-//= 'https://static.vecteezy.com/system/resources/previews/000/504/333/non_2x/vector-beer-icon-in-flat-line-style-beer-mug-logo-for-social-media-banner-party-poster-corporate-identity-and-app-icon-design.jpg'
 
 const FinishRegister = () => {
   const fakeData = [
@@ -19,9 +18,11 @@ const FinishRegister = () => {
       <RegisterCard data={fakeData} buttonName='Aceptar' link={ROUTES.signup}>
         <StyledImage src={imageUrl} alt='image' />
         <StyledTitle>¡Felicitaciones!</StyledTitle>
+
         <StyledTitle>
           Estas a un paso de finalizar<br />tu trámite
         </StyledTitle>
+
         <StyledSubtitle>
           En este momento estamos gestionando tu pedido.
         </StyledSubtitle>
