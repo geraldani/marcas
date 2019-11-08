@@ -16,7 +16,14 @@ const RegisterView = (props) => {
       case 1:
         return <StepOne country={props.country} setCountry={props.setCountry} error={props.countryError} setError={props.setCountryError} />
       case 2:
-        return <StepTwo country={props.countryAttorney} setCountry={props.setCountryAttorney} />
+        return (
+          <StepTwo
+            country={props.countryAttorney}
+            setCountry={props.setCountryAttorney}
+            email={props.email}
+            setEmail={props.setEmail}
+          />
+        )
       case 3:
         return <StepThree />
       case 4:
@@ -33,12 +40,12 @@ const RegisterView = (props) => {
     >
       {/* Boton volver */
         props.step > 1 &&
-          <Button
-            title='Volver'
-            className='px-5 mb-3 mb-md-0'
-            styled='outline-purple'
-            onClick={props.handleClickBack}
-          />
+        <Button
+          title='Volver'
+          className='px-5 mb-3 mb-md-0'
+          styled='outline-purple'
+          onClick={props.handleClickBack}
+        />
       }
       {/* Boton continuar o finalizar */}
       <Button

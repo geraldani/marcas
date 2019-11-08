@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { ROUTES } from '../../Views/common/constants'
 import RegisterView from '../../Views/RegisterBrand/register/RegisterView'
 
+const setViewUp = () => window.scroll(0, 0) // pone el viewport al principio de la pagina
+
 const Register = (props) => {
   const TOTAL_STEPS = 5
   const [step, setStep] = useState(1)
@@ -9,6 +11,7 @@ const Register = (props) => {
   const [countryError, setCountryError] = useState(false)
   const [countryAttorney, setCountryAttorney] = useState('')
   const [countryBrand, setCountryBrand] = useState('')
+  const [email, setEmail] = useState('')
   const [dataForm, setDataForm] = useState(null)
 
   // Atualizar los demas paises en base si cambio el pais principal
@@ -19,7 +22,7 @@ const Register = (props) => {
 
   const clickNext = (e) => {
     e.preventDefault()
-    window.scroll(0, 0) // pone el viewport al principio de la pagina
+    setViewUp()
     if (step === TOTAL_STEPS) {
       props.history.push(ROUTES.orderDetail)
     } else {
@@ -33,6 +36,7 @@ const Register = (props) => {
 
   const clickBack = (e) => {
     e.preventDefault()
+    setViewUp()
     setStep(step - 1)
   }
 
@@ -51,6 +55,8 @@ const Register = (props) => {
       handleClickNext={clickNext}
       handleClickBack={clickBack}
       dataForm={dataForm}
+      email={email}
+      setEmail={setEmail}
     />
   )
 }

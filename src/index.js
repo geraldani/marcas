@@ -7,11 +7,12 @@ import './globalStyles.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import Popper from 'popper.js'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
+import PruebasFormsHooks from './pruebasFormsHooks'
 
 render()
 // Hot Module Replacement
 function render () {
-  ReactDOM.render(<MainApp />, document.getElementById('root'))
+  ReactDOM.render(<PruebasFormsHooks />, document.getElementById('root'))
 }
 
 if (module.hot) {

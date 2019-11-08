@@ -11,9 +11,7 @@ const StyledSelect = styled.select`
 
 const StyledError = styled.p`
   color: ${RED};
-  //color: #d24c49;
-  margin-top: 8px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: normal;
   position: absolute;
 `

@@ -10,9 +10,7 @@ const Alert = ({ showAlert }) => {
   return (
     <StyledAlert>
       <p>
-        Te recomendamos que hagas la
-        <strong>"Búsqueda de antecedentes"</strong>
-        antes de hacer una solicitud
+        Te recomendamos que hagas la <strong>"Búsqueda de antecedentes"</strong> antes de hacer una solicitud
       </p>
       <span onClick={() => showAlert(false)}>
         Cerrar
