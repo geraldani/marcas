@@ -18,15 +18,19 @@ const StyledLabelName = styled.label`
     font-size: 1em;
   }
 `
-const StyledSublabel = styled.p`
- /* color: ${COLOR.darkGrey};*/
-    font-size: 15px;
-    margin-top: 1.5rem;
-    margin-bottom: 0.7rem;
-    text-align: left;
-    @media (max-width: ${SCREEN.lg}px){
-      margin-top: 0.7rem;
-    }
+const StyledSublabel = styled.label`
+  color: ${props => props.disabled ? COLOR.darkGrey : COLOR.black};
+  font-size: 15px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+  text-align: left;
+  width: 100%;
+  &>*{
+    margin-top: 0.5em;
+  }
+  @media (max-width: ${SCREEN.lg}px){
+    margin-top: 0.7rem;
+  }
 `
 
 const StyledDivMarginBottom = styled.div`

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { SCREEN } from '../../constants'
+import styled, { css } from 'styled-components'
+import { COLOR, SCREEN } from '../../constants'
 
 const StyledPickerContainer = styled.div`
   position: absolute;
@@ -18,7 +18,23 @@ const StyledColorSquare = styled.span`
   width: 55px;
   border-radius: 4px;
   cursor: pointer;
-  background-color: ${props => props.color};
+  position: relative;
+  background-color: ${props => props.isHexColor ? props.color : 'transparent'};
+  border: ${props => props.isHexColor ? 'none' : `solid 1px ${COLOR.darkGrey}`};
+  &:after{
+  ${props => !props.isHexColor &&
+    css`
+      content: '';
+      width: 1px;
+      height: 58px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: ${COLOR.black};
+      transform-origin: top center;
+      transform: rotate(55deg); `
+    }
+  }
 `
 
 export { StyledPickerContainer, StyledColorSquare }

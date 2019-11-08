@@ -58,6 +58,10 @@ body {
     margin-top: 66px!important;
 }
 
+.error{
+    border: solid 1px rgba(171,1,0,0.82)!important;
+}
+
 @media (max-width: 992px) {
     .big-margin {
         margin-left: 1.8rem;

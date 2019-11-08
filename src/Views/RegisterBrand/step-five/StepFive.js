@@ -3,6 +3,7 @@ import ClassCard from '../../common/cards/class/ClassCard'
 import { IoIosArrowForward as ArrowIcon } from 'react-icons/io'
 import { StyledButton, StyledItalicLegend } from './styles'
 import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../../GlobalStyles'
+import InputText from '../../common/inputs/text/InputText'
 
 const FakeData = [
   {
@@ -45,9 +46,7 @@ const StepFive = () => {
   return (
     <>
       <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
-        <StyledLabelName>
-          ¿A que seccion pertenece?
-        </StyledLabelName>
+        <StyledLabelName>¿A que seccion pertenece?</StyledLabelName>
         <StyledLegend>
           Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que
           se utilizara la marca.
@@ -55,9 +54,9 @@ const StepFive = () => {
       </div>
 
       <div className='col-md-7 col-12 px-4'>
-        <StyledSublabel>Ingrese su producto / servicios</StyledSublabel>
-        <input type='text' className='form-control' placeholder='Cafe' />
+        <InputText label='Ingrese su producto / servicios' name='producto' type='text'/>
       </div>
+
       <div className='col-md-9 col-12 px-4' style={marginBottom}>
         <StyledSublabel>PRODUCTOS</StyledSublabel>
         <StyledItalicLegend>*Agregar texto de que cada clase elegida es un registro diferente</StyledItalicLegend>

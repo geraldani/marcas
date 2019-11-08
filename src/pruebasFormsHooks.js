@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react'
 
-const useInput = (inicialValue = '') => {
+/* const useInput = (inicialValue = '') => {
   const [value, setValue] = useState(inicialValue)
   const onChange = e => setValue(e.target.value)
   return { value, onChange }
-}
+} */
+
+const Input = ({ type, name, value, onChange, errorAlert, label }) => (
+  <>
+    <label>
+      {label}
+      <input type={type} name={name} value={value || ''} onChange={onChange} />
+      <br />
+      <ValidationAlert content={errorAlert} />
+    </label>
+    <br />
+  </>
+)
 const useForm = (callback, validate, currentStep) => {
   const [value, setValues] = useState({})
   const [errors, setErrors] = useState({})
@@ -22,26 +34,18 @@ const useForm = (callback, validate, currentStep) => {
     setErrors(validate(value, currentStep, rules))
     setIsSubmitting(true)
   }
-  const handleFocus = e => {
-    e.persist()
-    const attr = e.target.getAttribute.required
-    if (attr !== null)
-    // rules[e.target.name] = true
-      setRules(rule => {
-        return { ...rule, [e.target.name]: true }
-      })
-  }
 
   const handleChange = (event) => {
     event.persist()
-    setValues(values => ({ ...values, [event.target.name]: event.target.value }))
+    const elem = event.target
+    console.log(elem.type)
+    setValues(values => ({ ...values, [elem.name]: elem.type === 'checkbox' ? elem.checked : elem.value }))
   }
 
   return {
     value,
     handleChange,
     handleSubmit,
-    handleFocus,
     errors
   }
 }
@@ -50,15 +54,11 @@ const ValidationAlert = ({ content }) => {
   else return null
 }
 const validate = (values, step, rules) => {
-  const obt = Object.keys(rules)
-  console.log(obt)
-
   const errors = {}
   switch (step) {
     case 1:
-      obt.forEach(elem => {
-        if (!values[elem]) errors[elem] = elem + ' is required'
-      })
+      if (!values.name) errors.name = 'name is required'
+      if (!values.email) errors.email = 'email is required'
       /* else if (!/\S+@\S+\.\S+/.test(values.email)) { errors.email = 'Email address is invalid' } */
       // if (!values.name) errors.name = 'name is required'
       /* else if (values.name.length < 8) { errors.name = 'name must be 8 or more characters' } */
@@ -71,35 +71,24 @@ const validate = (values, step, rules) => {
 }
 
 const One = (props) => {
-  const events = { onChange: props.onChange, onFocus: props.onFocus }
-  const { err, value } = props
-
+  const { err, value, onChange } = props
   return (
     <>
-      <label>
-        nombre
-        <input
-          type='text'
-          name='name'
-          value={value.name || ''}
-          {...events}
-          required
-          minLength={45}
-        />
-      </label>
-      <br />
-      <ValidationAlert content={err.name} />
-      <label>
-        email
-        <input
-          value={value.email || ''}
-          type='email'
-          required
-          name='email'
-          {...events}
-        />
-      </label>
-      <br />
+      <Input
+        type='text'
+        label='Nombre'
+        name='name'
+        value={value.name}
+        errorAlert={err.name}
+        onChange={onChange}
+      />
+      <Input
+        value={value.email}
+        type='email'
+        name='email'
+        onChange={onChange}
+        label='Email'
+      />
       <ValidationAlert content={err.email} />
 
     </>
@@ -119,7 +108,7 @@ const Two = ({ onChange, value, err }) => {
       <br />
       <label>
         selecciones su pais
-        <select name='country'>
+        <select name='country' defaultValue={value} onChange={onChange}>
           <option value=''>Seleccione</option>
           <option value='argentina'>Argentina</option>
           <option value='espana'>Espana</option>
@@ -136,24 +125,25 @@ const Two = ({ onChange, value, err }) => {
 
       <label>
         check 1
-        <input type='checkbox' value='check1' name='checkOption' />
+        <input type='checkbox' value='check1' name='checkOption1' onChange={onChange} />
       </label>
       <br />
 
       <label>
         check 2
-        <input type='checkbox' value='check2' name='checkOption' />
+        <input type='checkbox' value='check2' name='checkOption2' onChange={onChange} />
       </label>
       <br />
     </>
   )
 }
-const Three = () => {
+const Three = ({onChange}) => {
   return (
     <>
       <label>
         edad
         <input
+          onChange={onChange}
           type='number'
           name='edad'
         />
@@ -161,12 +151,12 @@ const Three = () => {
       <br />
       <label>
         opcion 1
-        <input type='radio' name='radioOpcion' value='opcion1' />
+        <input type='radio' name='radioOpcion' value='opcion1' onChange={onChange} />
       </label>
       <br />
       <label>
         opcion 2
-        <input type='radio' name='radioOpcion' value='opcion2' />
+        <input type='radio' name='radioOpcion' value='opcion2' onChange={onChange} />
       </label>
       <br />
     </>
@@ -191,14 +181,15 @@ const CurrentStep = (props) => {
 
 const PruebasFormsHooks = () => {
   const total = 3
+
   const handleClick = () => {
     if (step === total) window.alert('final de la validacion')
     else setStep(step + 1)
   }
 
   const [step, setStep] = useState(1)
-  const { value, errors, handleChange, handleSubmit, handleFocus } = useForm(handleClick, validate, step)
-  const Inputs = { value, onChange: handleChange, onFocus: handleFocus }
+  const { value, errors, handleChange, handleSubmit } = useForm(handleClick, validate, step)
+  const Inputs = { value, onChange: handleChange }
   return (
     <div style={{ padding: '5rem' }}>
       <form>

@@ -20,7 +20,7 @@ const Alert = ({ showAlert }) => {
   )
 }
 
-const StepOne = (props) => {
+const StepOne = ({ value, onChange }) => {
   const [showAlert, setShowAlert] = useState(false)
 
   const showRegisterAlert = (e) => {
@@ -34,19 +34,18 @@ const StepOne = (props) => {
       <StyledDivMarginBottom className='col-lg-7 col-12 px-4 mt-md-5 mt-3'>
         <div className='form-group mr-lg-5 mr-0 position-relative'>
           <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
-          <StyledSublabel>Paises</StyledSublabel>
-          <SelectCountry
-            country={props.country}
-            setCountry={props.setCountry}
-            error={props.error}
-            setError={props.setError}
-          />
+          {/*<SelectCountry
+            label='Paises'
+            value={value.countryRegister || ''}
+            onChange={onChange}
+            name='countryRegister'
+          />*/}
           {
-            props.country && // label con el pais seleccionado
-              <StyledCountrySelected>
-                {props.country}
-                <IconCloseCircle size='25px' className='ml-1' />
-              </StyledCountrySelected>
+       /*     value.countryRegister && // label con el pais seleccionado
+            <StyledCountrySelected>
+              {value}
+              <IconCloseCircle size='25px' className='ml-1' />
+            </StyledCountrySelected>*/
           }
         </div>
       </StyledDivMarginBottom>

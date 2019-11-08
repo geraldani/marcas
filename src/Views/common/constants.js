@@ -11,7 +11,8 @@ const COLOR = {
   aqua: '#5cf8ea',
   blue: '#4990e2',
   lighBlue: '#b5d2f2',
-  mediumBlue: '#8bb9ed'
+  mediumBlue: '#8bb9ed',
+  red: 'rgba(171,1,0,0.82)'
 }
 
 const ROUTES = {

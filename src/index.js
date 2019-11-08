@@ -12,7 +12,7 @@ import PruebasFormsHooks from './pruebasFormsHooks'
 render()
 // Hot Module Replacement
 function render () {
-  ReactDOM.render(<PruebasFormsHooks />, document.getElementById('root'))
+  ReactDOM.render(<MainApp />, document.getElementById('root'))
 }
 
 if (module.hot) {

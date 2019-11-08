@@ -1,35 +1,33 @@
 import React from 'react'
 import { countries } from '../../../../data'
-import { StyledSelect, StyledError } from './styles'
+import ErrorAlert from '../alerts/ErrorAlert'
+import { StyledSublabel } from '../../../GlobalStyles'
 
-const SelectCountry = ({ country, setCountry, error, setError }) => {
-  const handleChange = e => {
+const SelectCountry = ({ value, onChange, error, setError, label, name }) => {
+/*  const handleChange = e => {
     setCountry(e.target.value)
     setError(false)
-  }
+  } */
+
+  const defaultOption = 'Seleccione su pais'
 
   return (
     <>
-      <StyledSelect
-        className={`custom-select ${error ? 'error' : ''}`}
-        onChange={handleChange}
-        defaultValue={country}
-      >
-        <option value=''>Seleccione su pais</option>
-        {
-          countries.map(contry =>
-            <option
-              value={contry}
-              key={contry}
-            >
-              {contry}
-            </option>
-          )
-        }
-      </StyledSelect>
-      {
-        error && <StyledError>Por favor, introduzca un valor</StyledError>
-      }
+      <StyledSublabel>
+        {label}
+        <select
+          className={`custom-select ${error ? 'error' : ''}`}
+          onChange={onChange}
+          defaultValue={value}
+          name={name}
+        >
+          <option value=''>{defaultOption}</option>
+          {
+            countries.map(contry => <option value={contry} key={contry}>{contry}</option>)
+          }
+        </select>
+        {{/* error && <ErrorAlert message='Por favor, introduzca un valor' /> */}}
+      </StyledSublabel>
     </>
   )
 }

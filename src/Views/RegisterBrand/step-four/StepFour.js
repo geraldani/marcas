@@ -3,6 +3,7 @@ import CheckToggler from '../../common/inputs/toggler/CheckToggler'
 import { StyledLabelName, StyledLegend, StyledSublabel, StyledDivMarginBottom } from '../../GlobalStyles'
 import SelectCountry from '../../common/inputs/select/SelectCountry'
 import { StyledOption, ClearLegend } from './styles'
+import InputText from '../../common/inputs/text/InputText'
 
 const StepFour = (props) => {
   return (
@@ -29,11 +30,8 @@ const StepFour = (props) => {
       </div>
 
       <StyledDivMarginBottom className='col-12 col-md-7 px-4'>
-        <StyledSublabel>País</StyledSublabel>
-        <SelectCountry country={props.country} setCountry={props.setCountry} />
-
-        <StyledSublabel>Numero de registro/acta</StyledSublabel>
-        <input type='text' className='form-control' name='nombre' />
+        <SelectCountry country={props.country} setCountry={props.setCountry} label='País' />
+        <InputText label='Numero de registro/acta' name='nro-registro' type='text' />
       </StyledDivMarginBottom>
     </>
   )
