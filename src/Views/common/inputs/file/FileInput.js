@@ -10,6 +10,8 @@ const FileInput = ({ label, value, onChange }) => {
 
   const handleChange = e => {
     onChange(e)
+
+    // esta parte es para que se muestre el nombre del archivo seleccionado en el campo del input y no solo el path
     const elem = e.target.value
     const splitedString = elem.split('\\')
     setFileName(splitedString[splitedString.length - 1])

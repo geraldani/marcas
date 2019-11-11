@@ -7,7 +7,6 @@ import { StyledCountrySelected, StyledAlert, StyledPrice, StyledCircle } from '.
 import { steoOne } from '../../../data.json'
 
 const CountrySelected = ({ country, name, removeCountry }) => {
-  // TODO eliminar el estilo gris del opcion enfocado cuando se elimina ese elemento del array
   return (
     <StyledCountrySelected>
       <span>{country.charAt(0).toUpperCase() + country.slice(1)}</span>
@@ -57,8 +56,16 @@ const StepOne = ({ value, onChange, removeCountry }) => {
             />
           </div>
           {
-            value[selectName] && // label con el pais seleccionado
-            value[selectName].map(country => <CountrySelected removeCountry={removeCountry} country={country} name={selectName} key={country} />)
+            // label con el pais seleccionado
+            value[selectName] &&
+              value[selectName].map(country => (
+                <CountrySelected
+                  removeCountry={removeCountry}
+                  country={country}
+                  name={selectName}
+                  key={country}
+                />
+              ))
           }
         </div>
       </StyledDivMarginBottom>

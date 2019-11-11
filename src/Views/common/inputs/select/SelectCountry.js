@@ -22,6 +22,7 @@ const Select = ({ value, onChange, error, setError, label, name, multiple }) => 
           defaultValue={value[name] || multiple ? [] : ''}
           name={name}
           multiple={multiple}
+          // TODO eliminar el estilo gris de la opcion enfocada cuando se elimina ese elemento del array
         >
           <option value={multiple ? [] : ''}>{defaultOption}</option>
           {

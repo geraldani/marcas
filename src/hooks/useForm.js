@@ -34,7 +34,6 @@ const useForm = (currentStep, submitCallback) => {
     }
 
     setState(values => {
-      console.log('el value ', value)
       let arr = values[elem.name] || []
       if (value) arr = arr.concat([value])
       // [...(values[elem.name] || []), ...[value]]
@@ -45,7 +44,7 @@ const useForm = (currentStep, submitCallback) => {
     })
   }
 
-  const removeCountry = (e, inputName) => {// para remover los paises del multiselect
+  const removeCountry = (e, inputName) => { // para remover los paises del multiselect
     const deleteElement = e.target.parentNode.firstChild.innerHTML.toLowerCase()
     setState(val => {
       const vectorRemoved = val[inputName]

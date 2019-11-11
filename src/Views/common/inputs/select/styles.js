@@ -4,7 +4,7 @@ const StyledSelect = styled.select`
   & option[disabled]{
     color: grey;
     font-style: italic;
-    background: #c8c8c8;
+    background: transparent;
   }:-
   &:-internal-list-box option:checked{
     color: yellow!important;
