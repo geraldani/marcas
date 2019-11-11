@@ -51,7 +51,9 @@ const StepThree = (props) => {
       <StyledDivMarginBottom className='col-lg-8 col-12 px-4 mt-md-5 mt-4'>
         <div className='form-group mr-md-5 position-relative'>
           <InputText label='Nombre/Marca' name='nombreMarca' type='text' {...props} />
+
           <FileInput label='Adjuntar archivo' {...props} />
+
           <ColorPicker
             label='Color de tu marca'
             title='Selecciona el color de tu marca'

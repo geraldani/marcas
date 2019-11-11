@@ -3,8 +3,10 @@ import { StyledFileName, StyledFileButton } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import InputText from '../text/InputText'
 
+const fileInputName = 'fileUpload'
+
 const FileInput = ({ label, value, onChange }) => {
-  const [fileName, setFileName] = useState('Seleccionar archivo')
+  const [fileName, setFileName] = useState(value[fileInputName] || 'Seleccionar archivo')
 
   const handleChange = e => {
     onChange(e)
@@ -21,7 +23,7 @@ const FileInput = ({ label, value, onChange }) => {
 
         <StyledFileButton>
           Agregar
-          <InputText value={value} label='' name='fileUpload' type='file' onChange={handleChange} />
+          <InputText value={value[fileInputName] || ''} label='' name={fileInputName} type='file' onChange={handleChange} />
         </StyledFileButton>
       </div>
     </StyledSublabel>
