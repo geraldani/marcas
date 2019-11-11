@@ -7,8 +7,8 @@ const setViewUp = () => window.scroll(0, 0) // pone el viewport al principio de 
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
-  const [step, setStep] = useState(2)
-  const { state, handleChange } = useForm()
+  const [step, setStep] = useState(1)
+  const { state, handleChange, removeCountry } = useForm()
 
   // Atualizar los demas paises en base si cambio el pais principal
   /*  useEffect(() => {
@@ -46,6 +46,7 @@ const Register = (props) => {
       onChange={handleChange}
       handleClickBack={clickBack}
       handleClickNext={clickNext}
+      removeCountry={removeCountry}
     />
   )
 }

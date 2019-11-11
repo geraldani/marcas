@@ -1,7 +1,7 @@
 import React from 'react'
 import CheckToggler from '../../common/inputs/toggler/CheckToggler'
 import { StyledLabelName, StyledLegend, StyledSublabel, StyledDivMarginBottom } from '../../GlobalStyles'
-import SelectCountry from '../../common/inputs/select/SelectCountry'
+import Select from '../../common/inputs/select/SelectCountry'
 import { StyledOption, ClearLegend } from './styles'
 import InputText from '../../common/inputs/text/InputText'
 
@@ -30,7 +30,7 @@ const StepFour = (props) => {
       </div>
 
       <StyledDivMarginBottom className='col-12 col-md-7 px-4'>
-        <SelectCountry country={props.country} setCountry={props.setCountry} label='País' />
+        <Select country={props.country} setCountry={props.setCountry} label='País' />
         <InputText label='Numero de registro/acta' name='nro-registro' type='text' />
       </StyledDivMarginBottom>
     </>

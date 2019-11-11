@@ -1,5 +1,6 @@
 const COLOR = {
-  purple: '#8e2efd',
+  // purple: '#8e2efd',
+  purple: '#6d2e80',
   white: '#ffffff',
   black: '#000',
   transparent: 'transparent',

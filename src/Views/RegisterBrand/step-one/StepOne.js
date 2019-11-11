@@ -1,10 +1,21 @@
 import React, { useState } from 'react'
 import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } from 'react-icons/io'
 import RadioButttons from '../../common/inputs/radio/RadioButtton'
-import SelectCountry from '../../common/inputs/select/SelectCountry'
-import { StyledLabelName, StyledSublabel, StyledDivMarginBottom } from '../../GlobalStyles'
-import { StyledCountrySelected, StyledAlert, StyledPrice } from './styles'
+import Select from '../../common/inputs/select/SelectCountry'
+import { StyledLabelName, StyledDivMarginBottom } from '../../GlobalStyles'
+import { StyledCountrySelected, StyledAlert, StyledPrice, StyledCircle } from './styles'
 import { steoOne } from '../../../data.json'
+
+const CountrySelected = ({ country, name, removeCountry }) => {
+  // TODO eliminar el estilo gris del opcion enfocado cuando se elimina ese elemento del array
+  return (
+    <StyledCountrySelected>
+      <span>{country.charAt(0).toUpperCase() + country.slice(1)}</span>
+      <IconCloseCircle size='25px' className='ml-1' />
+      <StyledCircle onClick={(e) => removeCountry(e, name)} />
+    </StyledCountrySelected>
+  )
+}
 
 const Alert = ({ showAlert }) => {
   return (
@@ -20,10 +31,12 @@ const Alert = ({ showAlert }) => {
   )
 }
 
-const StepOne = ({ value, onChange }) => {
+const StepOne = ({ value, onChange, removeCountry }) => {
   const [showAlert, setShowAlert] = useState(false)
+  const selectName = 'countryRegister'
 
   const showRegisterAlert = (e) => {
+    onChange(e)
     !showAlert && e.target.value === 'registro'
       ? setShowAlert(true)
       : setShowAlert(false)
@@ -31,21 +44,21 @@ const StepOne = ({ value, onChange }) => {
 
   return (
     <>
-      <StyledDivMarginBottom className='col-lg-7 col-12 px-4 mt-md-5 mt-3'>
+      <StyledDivMarginBottom className='col-12 px-4 mt-md-5 mt-3'>
         <div className='form-group mr-lg-5 mr-0 position-relative'>
-          <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
-          {/*<SelectCountry
-            label='Paises'
-            value={value.countryRegister || ''}
-            onChange={onChange}
-            name='countryRegister'
-          />*/}
+          <div className='col-lg-7 col-12 px-0'>
+            <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
+            <Select
+              label='Paises'
+              value={value}
+              onChange={onChange}
+              name={selectName}
+              multiple
+            />
+          </div>
           {
-       /*     value.countryRegister && // label con el pais seleccionado
-            <StyledCountrySelected>
-              {value}
-              <IconCloseCircle size='25px' className='ml-1' />
-            </StyledCountrySelected>*/
+            value[selectName] && // label con el pais seleccionado
+            value[selectName].map(country => <CountrySelected removeCountry={removeCountry} country={country} name={selectName} key={country} />)
           }
         </div>
       </StyledDivMarginBottom>
@@ -58,15 +71,15 @@ const StepOne = ({ value, onChange }) => {
       <StyledDivMarginBottom className='col-lg-7 col-12 px-4 mt-3'>
         <div className='form-group'>
           {
-            steoOne.checkButtons.map((elem, index) => (
+            steoOne.checkButtons.map(elem => (
               <RadioButttons
                 key={elem.id}
                 value={elem.value}
                 title={elem.title}
-                name='buttonCheck'
+                name='busquedaSolicitud'
                 description={elem.description}
                 onChange={showRegisterAlert}
-                checked={index === 0}
+                defaultCheked={elem.value === 'antecedentes'}
               >
                 <StyledPrice to={`price${1}`}>
                   Ver precio

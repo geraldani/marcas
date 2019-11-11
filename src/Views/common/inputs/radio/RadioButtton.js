@@ -3,7 +3,7 @@ import { COLOR } from '../../constants'
 import { StyledDescription, StyledCheckbox, StyledCheckIcon, StyledCard } from './styles'
 
 const RadioButttons = (props) => {
-  const { value, title, description, name, onChange, children, className, checked } = props
+  const { value, title, description, name, onChange, children, className, checked, defaultCheked } = props
 
   //TODO cambiar esta forma de aplicar estilos
   const changeColor = (e) => {
@@ -17,8 +17,10 @@ const RadioButttons = (props) => {
 
   return (
     <div className='d-flex justify-content-end flex-column'>
+      {/* TODO como poner un solo checked al componente de estilos */}
       <StyledCard onClick={changeColor} className={className} checked={checked}>
-        <StyledCheckbox type='radio' value={value} name={name} onChange={onChange} defaultChecked={checked} />
+        {/* input de tipo radio */}
+        <StyledCheckbox type='radio' value={value} name={name} onChange={onChange} defaultChecked={defaultCheked} />
         <StyledCheckIcon />
         <div>
           {

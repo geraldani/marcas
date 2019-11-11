@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import RadioButttons from '../../common/inputs/radio/RadioButtton'
 import { StyledLegend, StyledLabelName, StyledSublabel, StyledDivMarginBottom } from '../../GlobalStyles'
 import { COLOR } from '../../common/constants'
-import SelectCountry from '../../common/inputs/select/SelectCountry'
+import Select from '../../common/inputs/select/SelectCountry'
 import InputText from '../../common/inputs/text/InputText'
 
 const StepTwo = (props) => {
@@ -40,7 +40,7 @@ const StepTwo = (props) => {
             value='empresa'
             onChange={props.onChange}
             name='tipoRegistro'
-            checked={props.value.tipoRegistro === 'empresa'}
+            // checked={props.value.tipoRegistro === 'empresa'}
             description='Registrarme como una empresa'
           />
           <RadioButttons
@@ -48,7 +48,7 @@ const StepTwo = (props) => {
             value='persona'
             name='tipoRegistro'
             onChange={props.onChange}
-            checked={props.value.tipoRegistro === 'persona'}
+            // checked={props.value.tipoRegistro === 'persona'}
             description='Registrarme como persona física'
           />
         </div>
@@ -59,7 +59,7 @@ const StepTwo = (props) => {
           <InputText label='Nombre' name='nombre' type='text' {...props} />
           <InputText label='Apellido' name='apellido' type='text' {...props} />
           <InputText label='Razón social' name='ra-social' type='text' disabled {...props} />
-          {/*<SelectCountry label='País apoderado/Gestor' country={props.country} setCountry={props.setCountry} />*/}
+          <Select label='País apoderado/Gestor' {...props} name='countryGestor' />
           <InputText label='CUIT' name='cuit' type='text' {...props} />
         </div>
       </StyledDivMarginBottom>

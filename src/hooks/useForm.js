@@ -20,7 +20,7 @@ const useForm = (currentStep, submitCallback) => {
       setIsSubmitting(true)
     } */
 
-  const handleChange = (event, inputName, specificValue) => { // el segundo y tercer parametro es para especificar una key y un valor especifico a modificar que no sea el valor del target
+  const handleChange = (event, inputName, specificValue) => { // el segundo y tercer parametro es para especificar una key y un valor especifico a modificar que no sea el valor del target (como el caso del color que viene desde un picker distinto
     event.persist()
     const elem = event.target
     let value
@@ -33,17 +33,36 @@ const useForm = (currentStep, submitCallback) => {
       value = elem.value
     }
 
-    setState(values => ({
-      ...values,
-      [inputName || elem.name]: value
-    }))
+    setState(values => {
+      console.log('el value ', value)
+      let arr = values[elem.name] || []
+      if (value) arr = arr.concat([value])
+      // [...(values[elem.name] || []), ...[value]]
+      return ({
+        ...values,
+        [inputName || elem.name]: elem.multiple ? arr : value // aqui pregunto si el input es el country select, esto es para implementar el multiselect
+      })
+    })
+  }
+
+  const removeCountry = (e, inputName) => {// para remover los paises del multiselect
+    const deleteElement = e.target.parentNode.firstChild.innerHTML.toLowerCase()
+    setState(val => {
+      const vectorRemoved = val[inputName]
+      vectorRemoved.splice(vectorRemoved.indexOf(deleteElement), 1)
+      return ({
+        ...val,
+        [inputName]: vectorRemoved
+      })
+    })
   }
 
   return {
     state,
-    handleChange
-    /*handleSubmit,
-    errors*/
+    handleChange,
+    removeCountry
+    /* handleSubmit,
+    errors */
   }
 }
 

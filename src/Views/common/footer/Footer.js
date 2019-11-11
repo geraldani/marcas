@@ -18,7 +18,7 @@ const Footer = () => {
           }
         </div>
       </div>
-      <div className='mx-5'>
+      <div className='mx-5 pb-3'>
         <StyledCopyright>2019 Sitebrand, Inc. All rights reserved</StyledCopyright>
       </div>
     </footer>

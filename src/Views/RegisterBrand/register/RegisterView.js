@@ -12,9 +12,11 @@ import OrderCard from '../../common/cards/order/OrderCard'
 
 const Steps = (props) => {
   let WrappedComponennt
+  let aditionalProps = {}
   switch (props.step) {
     case 1:
       WrappedComponennt = StepOne
+      aditionalProps = { removeCountry: props.removeCountry }
       break
     case 2:
       WrappedComponennt = StepTwo
@@ -29,7 +31,7 @@ const Steps = (props) => {
       WrappedComponennt = StepFive
       break
   }
-  return <WrappedComponennt value={props.value} onChange={props.onChange} />
+  return <WrappedComponennt {...aditionalProps} value={props.value} onChange={props.onChange} />
 }
 
 const RegisterView = (props) => {
@@ -39,12 +41,12 @@ const RegisterView = (props) => {
       className={`border-top mt-5 py-3 px-4 d-flex flex-column flex-md-row ${props.step === 1 ? 'justify-content-end' : 'justify-content-between'}`}>
       {/* Boton volver */
         props.step > 1 &&
-          <Button
-            title='Volver'
-            className='px-5 mb-3 mb-md-0'
-            styled='outline-purple'
-            onClick={props.handleClickBack}
-          />
+        <Button
+          title='Volver'
+          className='px-5 mb-3 mb-md-0'
+          styled='outline-purple'
+          onClick={props.handleClickBack}
+        />
       }
       {/* Boton continuar o finalizar */}
       <Button

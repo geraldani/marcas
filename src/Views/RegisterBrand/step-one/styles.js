@@ -2,18 +2,36 @@ import styled from 'styled-components'
 import { COLOR, SCREEN } from '../../common/constants'
 import { Link } from 'react-router-dom'
 
-const StyledCountrySelected = styled.p`
+const StyledCircle = styled.div`
+  height: 25px;
+  width: 25px;
+  display: inherit;
+  position: absolute;
+  right: 12px;
+  //background-color: rgba(0,0,0,0.5);
+  // border: 2px solid ${COLOR.darkGrey};
+  border-radius: 50%;
+  cursor: pointer;
+  @media (max-width: ${SCREEN.lg}px){
+    width: 20px;
+    height: 20px;
+    right: 9px;
+  }
+`
+
+const StyledCountrySelected = styled.div`
   font-size: 1.1em;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px 12px;
   border-radius: 15px;
   bottom:0;
-  margin-bottom: -50px;
-  position: absolute;
-  left: 0;
+  margin-right: 15px;
+  position: relative;
   background-color: ${COLOR.aqua};
   color: ${COLOR.darkGrey};
-  @media (max-width: ${SCREEN.md}px){
+  @media (max-width: ${SCREEN.lg}px){
     font-size: 0.8em;
     padding: 3px 9px;
     margin-bottom: -32px;
@@ -62,5 +80,6 @@ const StyledPrice = styled(Link)`
 export {
   StyledCountrySelected,
   StyledAlert,
-  StyledPrice
+  StyledPrice,
+  StyledCircle
 }
