@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyledSwitch, StyledContainer } from './styles'
 
-const CheckToggler = ({ checked }) => {
+const CheckToggler = ({ value, onChange, name, type }) => {
   return (
     <StyledContainer>
-      <input type='checkbox' defaultChecked={checked} />
+      <input type={type} defaultChecked={value} name={name} onChange={onChange} />
       <StyledSwitch />
     </StyledContainer>
   )

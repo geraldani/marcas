@@ -6,33 +6,25 @@ import { ROUTES } from '../../common/constants'
 import Button from '../../common/buttons/Button'
 import Header from '../../common/header/Header'
 
-const fakeData = [
-  {
-    items: [
-      { field: 'Nombre', value: 'Daniela' },
-      { field: 'Apellido', value: 'De Sousa' },
-      { field: 'Email', value: 'geraldynchidesousa@gmail.com' },
-      { field: 'Razon social', value: '------' },
-      { field: 'País apoderado', value: 'Argentina' },
-      { field: 'CUIT', value: '20-00000000-6' }
-    ]
-  },
-  {
-    items: [
-      { field: 'Tipo de registro', value: 'Mixta' },
-      { field: 'Nombre de registro', value: 'Grayshirts' },
-      { field: 'Pais de registro', value: 'Argentina' }
-    ]
-  },
-  {
-    items: [
-      { field: 'Clase 1', value: '$$' },
-      { field: 'Clase 15', value: '$$' }
-    ]
-  }
-]
+const OrderDetail = (props) => {
+  const state = props.location.state // el estado pasapo por props en el history
 
-const OrderDetail = () => {
+  const groupFilds = [
+    [
+      state.name,
+      state.surname,
+      state.email,
+      state.razonSocial,
+      state.countryGestor,
+      state.cuit
+    ],
+    [
+      state.color,
+      state.brandName,
+      state.countryPrevious
+    ]
+  ]
+
   return (
     <>
       <Header />
@@ -42,9 +34,9 @@ const OrderDetail = () => {
           <div className='col-md-9 col-12 mt-3 mb-5'>
             <CardSteps title='Detalle de orden' className='pb-5'>
               {
-                fakeData.map(elem => (
-                  <StyledFieldContainer key={elem} className='col-11 col-md-9'>
-                    <Fields items={elem.items} />
+                groupFilds.map(vec => (
+                  <StyledFieldContainer key={vec} className='col-11 col-md-9'>
+                    <Fields items={vec} />
                   </StyledFieldContainer>
                 ))
               }
@@ -65,9 +57,9 @@ const Fields = ({ items }) => {
     <ul className='list-group list-group-flush text-left'>
       {
         items.map((elem) => (
-          <StyledItem key={elem.field}>
-            <StyledType>{elem.field}:</StyledType>
-            <StyledValue style={{ fontSize: '.9em' }}>{elem.value}</StyledValue>
+          <StyledItem key={elem.name}>
+            <StyledType>{elem.label}:</StyledType>
+            <StyledValue style={{ fontSize: '.9em' }}>{elem.value || '------'}</StyledValue>
           </StyledItem>
         ))
       }

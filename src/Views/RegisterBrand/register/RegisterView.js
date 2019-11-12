@@ -31,7 +31,7 @@ const Steps = (props) => {
       WrappedComponennt = StepFive
       break
   }
-  return <WrappedComponennt {...aditionalProps} value={props.value} onChange={props.onChange} />
+  return <WrappedComponennt {...aditionalProps} state={props.state} onChange={props.onChange} />
 }
 
 const RegisterView = (props) => {
@@ -70,18 +70,20 @@ const RegisterView = (props) => {
             </div>
 
             {/* formulario principal */}
-            <div className='col-12 col-lg-9'>
-              <CardSteps title={`Paso ${props.step}`}>
-                {/* Formulario actual dependiendo de que paso este */}
-                <Steps {...props} />
-                {/* botones de navegacion */}
-                <ButtonsNavigation />
-              </CardSteps>
-            </div>
+            <div className='row w-100 m-0'>
+              <div className='col-12 col-lg-9 order-lg-first order-last'>
+                <CardSteps title={`Paso ${props.step}`}>
+                  {/* Formulario actual dependiendo de que paso este */}
+                  <Steps {...props} />
+                  {/* botones de navegacion */}
+                  <ButtonsNavigation />
+                </CardSteps>
+              </div>
 
-            {/* Detalle de la orden Card */}
-            <div className='col-12 mt-4 col-lg-3 mt-lg-0'>
-              <OrderCard />
+              {/* Detalle de la orden Card */}
+              <div className='col-12 mt-4 col-lg-3 mt-lg-0 order-lg-last order-first mb-4'>
+                <OrderCard />
+              </div>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ const Select = ({ value, onChange, error, setError, label, name, multiple }) => 
         <StyledSelect
           className={`custom-select ${error ? 'error' : ''}`}
           onChange={onChange}
-          defaultValue={value[name] || multiple ? [] : ''}
+          defaultValue={value}
           name={name}
           multiple={multiple}
           // TODO eliminar el estilo gris de la opcion enfocada cuando se elimina ese elemento del array
@@ -30,7 +30,7 @@ const Select = ({ value, onChange, error, setError, label, name, multiple }) => 
               <option
                 value={contry.toLowerCase()}
                 key={contry}
-                disabled={multiple ? value[name] && value[name].find(elem => elem === contry.toLowerCase()) === contry.toLowerCase() : false}
+                disabled={multiple ? value.find(elem => elem === contry.toLowerCase()) === contry.toLowerCase() : false}
               >
                 {contry}
               </option>

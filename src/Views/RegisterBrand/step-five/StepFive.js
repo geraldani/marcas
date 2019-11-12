@@ -11,15 +11,15 @@ const FakeData = [
     items: [
       {
         description: 'Seleccionar todos',
-        value: 'selectAllClase1'
+        name: 'selectAllClase1'
       },
       {
         description: 'is simply text of the printing and typerestting industry. Lorem ipsum has been the insdustry standard dummy',
-        value: 'clase1valor1'
+        name: 'clase1valor1'
       },
       {
         description: 'is simply text of the printing and typerestting industry. Lorem ipsum has been the industry standard dummy.',
-        value: 'clase1valor2'
+        name: 'clase1valor2'
       }
     ]
   },
@@ -28,41 +28,46 @@ const FakeData = [
     items: [
       {
         description: 'Seleccionar todos',
-        value: 'selectAllClase2'
+        name: 'selectAllClase2'
       },
       {
         description: 'is simply text of the printing and typeresttings industry. Lorem ipsums has been the industry standard dummy',
-        value: 'clase2valor1'
+        name: 'clase2valor1'
       },
       {
         description: 'is simply text of the printing and typerestting industry. Lorem ipsum has been the industry standard dummy',
-        value: 'clase2valor2'
+        name: 'clase2valor2'
       }
     ]
   }
 ]
 
-const StepFive = () => {
+const StepFive = (props) => {
+  const { state, onChange } = props
+  //todo
   return (
     <>
       <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
         <StyledLabelName>¿A que seccion pertenece?</StyledLabelName>
         <StyledLegend>
-          Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que
-          se utilizara la marca.
+          Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que se utilizara la marca.
         </StyledLegend>
       </div>
 
       <div className='col-md-7 col-12 px-4'>
-        <InputText label='Ingrese su producto / servicios' name='producto' type='text'/>
+        <InputText
+          {...state.productService}
+          onChange={onChange}
+        />
       </div>
 
       <div className='col-md-9 col-12 px-4' style={marginBottom}>
         <StyledSublabel>PRODUCTOS</StyledSublabel>
         <StyledItalicLegend>*Agregar texto de que cada clase elegida es un registro diferente</StyledItalicLegend>
         {
+          // todo arreglar este fakedata desde el modelo o dinamicamente (no datos hardcodeados)
           FakeData.map((elem) => (
-            <ClassCard title={elem.title} key={elem} items={elem.items} />
+            <ClassCard name={elem.title} key={elem.title} items={elem.items} onChange={props.onChange} />
           ))
         }
         <StyledButton>

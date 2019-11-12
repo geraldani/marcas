@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-const useForm = (currentStep, submitCallback) => {
-  const [state, setState] = useState({})
+const useForm = (InitialState = {}, submitCallback) => {
+  const [state, setState] = useState(InitialState)
   // const [errors, setErrors] = useState({})
   // const [isSubmitting, setIsSubmitting] = useState(false)
   // const [rules, setRules] = useState({})
@@ -22,8 +22,10 @@ const useForm = (currentStep, submitCallback) => {
 
   const handleChange = (event, inputName, specificValue) => { // el segundo y tercer parametro es para especificar una key y un valor especifico a modificar que no sea el valor del target (como el caso del color que viene desde un picker distinto
     event.persist()
-    const elem = event.target
-    let value
+    const elem = event.target // el elemento del onChange
+    let value // el nuevo valor a modificar
+    let elemReturn // el nuevo estado a retornar
+    console.log('el nuevo valor del color desde el hook ', specificValue)
 
     if (specificValue) {
       value = specificValue
@@ -33,25 +35,45 @@ const useForm = (currentStep, submitCallback) => {
       value = elem.value
     }
 
-    setState(values => {
-      let arr = values[elem.name] || []
-      if (value) arr = arr.concat([value])
-      // [...(values[elem.name] || []), ...[value]]
-      return ({
-        ...values,
-        [inputName || elem.name]: elem.multiple ? arr : value // aqui pregunto si el input es el country select, esto es para implementar el multiselect
-      })
-    })
+    if (elem.type === 'checkbox' && inputName) { // chequeo si el tipo de checkbox porque el modelado de datos para este tipo es diferente
+      const newOptions = state[inputName].options
+      newOptions.find(o => o.name === elem.name).value = value // busco el objeto que contiene el nombre del input que estoy cambiando
+      elemReturn = {
+        ...state,
+        [inputName]: {
+          ...state[inputName],
+          options: newOptions
+        }
+      }
+    } else {
+      let arr
+      if (elem.multiple) { // esto solo es para select multiple
+        arr = state[elem.name].value
+        if (value) arr = arr.concat([value])
+      }
+      elemReturn = {
+        ...state,
+        [inputName || elem.name]: {
+          ...state[elem.name || inputName], // esto es por si viene el valor desde los valores especificados en vez del target
+          value: elem.multiple ? arr : value// aqui pregunto si el input es el select multiple, esto es para implementar el multiselect
+        }
+      }
+    }
+
+    setState(elemReturn)
   }
 
   const removeCountry = (e, inputName) => { // para remover los paises del multiselect
     const deleteElement = e.target.parentNode.firstChild.innerHTML.toLowerCase()
-    setState(val => {
-      const vectorRemoved = val[inputName]
+    setState(state => {
+      const vectorRemoved = state[inputName].value
       vectorRemoved.splice(vectorRemoved.indexOf(deleteElement), 1)
       return ({
-        ...val,
-        [inputName]: vectorRemoved
+        ...state,
+        [inputName]: {
+          ...state[inputName],
+          value: vectorRemoved
+        }
       })
     })
   }

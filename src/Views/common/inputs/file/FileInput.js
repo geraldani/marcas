@@ -3,18 +3,20 @@ import { StyledFileName, StyledFileButton } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import InputText from '../text/InputText'
 
-const fileInputName = 'fileUpload'
+const findFileName = (value) => {
+  const splitedString = value.split('\\')
+  const lastElem = splitedString.length - 1
+  return splitedString[lastElem]
+}
 
-const FileInput = ({ label, value, onChange }) => {
-  const [fileName, setFileName] = useState(value[fileInputName] || 'Seleccionar archivo')
+const FileInput = ({ label, value, name, onChange, type }) => {
+  const initialValue = value ? findFileName(value) : 'Seleccionar archivo'
+  const [fileName, setFileName] = useState(initialValue)
 
   const handleChange = e => {
     onChange(e)
-
-    // esta parte es para que se muestre el nombre del archivo seleccionado en el campo del input y no solo el path
     const elem = e.target.value
-    const splitedString = elem.split('\\')
-    setFileName(splitedString[splitedString.length - 1])
+    setFileName(findFileName(elem))// esta parte es para que se muestre el nombre del archivo seleccionado en el campo del input y no solo el path
   }
 
   return (
@@ -25,7 +27,7 @@ const FileInput = ({ label, value, onChange }) => {
 
         <StyledFileButton>
           Agregar
-          <InputText value={value[fileInputName] || ''} label='' name={fileInputName} type='file' onChange={handleChange} />
+          <InputText value='' label='' name={name} type={type} onChange={handleChange} />
         </StyledFileButton>
       </div>
     </StyledSublabel>

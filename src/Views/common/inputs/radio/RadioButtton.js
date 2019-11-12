@@ -3,7 +3,7 @@ import { COLOR } from '../../constants'
 import { StyledDescription, StyledCheckbox, StyledCheckIcon, StyledCard } from './styles'
 
 const RadioButttons = (props) => {
-  const { value, title, description, name, onChange, children, className, checked, defaultCheked } = props
+  const { value, label, description, name, onChange, children, className, checked, defaultCheked } = props
 
   //TODO cambiar esta forma de aplicar estilos
   const changeColor = (e) => {
@@ -24,7 +24,7 @@ const RadioButttons = (props) => {
         <StyledCheckIcon />
         <div>
           {
-            title && <h5>{title}</h5>
+            label && <h5>{label}</h5>
           }
           {
             description &&

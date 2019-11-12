@@ -10,13 +10,13 @@ const Input = ({ type, classname, name, disabled, value, onChange, initialValue 
     name={name}
     disabled={disabled}
     defaultValue={initialValue}
-    value={value ? value[name] : ''}
+    value={value}
     onChange={onChange}
   />
 )
 
 const InputWithLabel = (props) => (
-  <StyledSublabel disabled>
+  <StyledSublabel disabled={props.disabled}>
     {props.label}
     <Input {...props} />
   </StyledSublabel>

@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ROUTES } from '../../Views/common/constants'
 import RegisterView from '../../Views/RegisterBrand/register/RegisterView'
 import useForm from '../../hooks/useForm'
+import { Model } from './model'
 
 const setViewUp = () => window.scroll(0, 0) // pone el viewport al principio de la pagina
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
-  const [step, setStep] = useState(1)
-  const { state, handleChange, removeCountry } = useForm()
-
-  // Atualizar los demas paises en base si cambio el pais principal
-  /*  useEffect(() => {
-      setCountryAttorney(country)
-      setCountryBrand(country)
-    }, [country])*/
+  const [step, setStep] = useState(5)
+  const { state, handleChange, removeCountry } = useForm(Model)
 
   const clickNext = (e) => {
     e.preventDefault()
     setViewUp()
     if (step === TOTAL_STEPS) {
-      props.history.push(ROUTES.orderDetail)
+      props.history.push({
+        pathname: ROUTES.orderDetail,
+        state: state
+      })
     } else {
       /*  if (!country) {
           setCountryError(true)
@@ -42,7 +40,7 @@ const Register = (props) => {
     <RegisterView
       step={step}
       totalSteps={TOTAL_STEPS}
-      value={state}
+      state={state}
       onChange={handleChange}
       handleClickBack={clickBack}
       handleClickNext={clickNext}

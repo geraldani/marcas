@@ -10,9 +10,8 @@ export const isHexColor = hex => {
   // return typeof hex === 'string' && hex.length === 6 && !isNaN(Number('0x' + hex))
 }
 
-const ColorPicker = ({ title, label, value, onChange, name }) => {
-  const initialColor = '#000000'
-  let colorSelected = initialColor
+const ColorPicker = ({ title, label, value, onChange, name, type }) => {
+  let colorSelected = value
   const [showPicker, setShowPicker] = useState(false)
   // const [color, setColor] = useState(initialColor)
 
@@ -22,6 +21,7 @@ const ColorPicker = ({ title, label, value, onChange, name }) => {
   const handleOnAccept = (e) => {
     // setColor(colorSelected)
     setShowPicker(!showPicker)
+    console.log('new color ', colorSelected)
     onChange(e, name, colorSelected)
   }
 
@@ -40,13 +40,26 @@ const ColorPicker = ({ title, label, value, onChange, name }) => {
     <StyledSublabel>
       {label}
       <div className='position-relative d-flex'>
-        <StyledColorSquare onClick={handleSquareClick} color={value[name] || initialColor} isHexColor={isHexColor(value[name] || initialColor)} />
-        <InputText value={value} label='' onChange={handleInputChenge} name={name} type='text' className='ml-3' initialValue={initialColor} />
+        {/* El rectangulo que mostrara el color */}
+        <StyledColorSquare
+          onClick={handleSquareClick}
+          color={value}
+          isHexColor={isHexColor(value)}
+        />
+        {/* input para meter el color  */}
+        <InputText
+          value={value}
+          label=''
+          onChange={handleInputChenge}
+          name={name}
+          type={type}
+          className='ml-3'
+        />
         {
           showPicker &&
           <StyledPickerContainer>
             <Picker
-              color={value[name] || initialColor}
+              color={value}
               header={title}
               onChangeComplete={onChangePicker}
               onAccept={handleOnAccept}

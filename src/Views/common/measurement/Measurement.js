@@ -1,17 +1,22 @@
 import React from 'react'
 import { StyledSquare, StyledWidth, StyledLabelName, StyledLabel, StyledHeight } from './styles'
+import InputText from '../inputs/text/InputText'
 
-const Measurement = () => {
-  const measure = ['Ancho', 'Alto']
+const Measurement = (props) => {
+  const { state, onChange } = props
+  const measure = [state.width, state.height]
 
-  const SquareMeasure = () => {
+  const SquareMeasure = () => { // el recuadro explicando las medidas requeridas
     return (
       <div className='position-relative'>
         <StyledSquare>
-          <StyledWidth>{measure[0]}</StyledWidth>
-          <StyledHeight>{measure[1]}</StyledHeight>
+          {
+            measure.map((elem, index) => {
+              const WrappedComponenet = index === 0 ? StyledWidth : StyledHeight
+              return <WrappedComponenet key={elem.name}>{elem.label}</WrappedComponenet>
+            })
+          }
         </StyledSquare>
-
       </div>
     )
   }
@@ -21,11 +26,11 @@ const Measurement = () => {
       <div className='d-flex'>
         {
           measure.map(elem => (
-            <StyledLabel key={elem}>
+            <StyledLabel key={elem.name}>
               <StyledLabelName>
-                {elem} (cm)
+                {elem.label} (cm)
               </StyledLabelName>
-              <input type='number' className='form-control' />
+              <InputText label='' onChange={onChange} name={elem.name} type={elem.type} value={elem.value} />
             </StyledLabel>
           ))
         }

@@ -6,25 +6,8 @@ import FileInput from '../../common/inputs/file/FileInput'
 import CkeckInput from '../../common/check/CkeckInput'
 import InputText from '../../common/inputs/text/InputText'
 
-const FakeData = [
-  {
-    title: 'Marca denominativa',
-    value: 'denominativa',
-    tooltipTitle: 'Algo que describe la marca denominativa'
-  },
-  {
-    title: 'Mixta',
-    value: 'mixta',
-    tooltipTitle: 'Algo que describe la marca mixta'
-  },
-  {
-    title: 'Figurativa',
-    value: 'figurativa',
-    tooltipTitle: 'Algo que describe la marca figurativa'
-  }
-]
-
 const StepThree = (props) => {
+  const { onChange, state } = props
   // componente principal
   return (
     <>
@@ -35,12 +18,14 @@ const StepThree = (props) => {
       <div className='col-lg-7 col-12 px-4 '>
         <div className='form-group mr-md-5 position-relative d-flex flex-column justify-content-start'>
           {
-            FakeData.map(elem => (
+            state.marcaType.options.map(elem => (
               <CkeckInput
-                title={elem.title}
-                value={elem.value}
+                label={elem.label}
+                name={elem.name}
                 tooltipTitle={elem.tooltipTitle}
-                key={elem.value}
+                key={elem.name}
+                checked={elem.value}
+                onChange={e => onChange(e, state.marcaType.name)}
               />
             ))
           }
@@ -50,19 +35,17 @@ const StepThree = (props) => {
       {/* inputs de archivo color y medidas */}
       <StyledDivMarginBottom className='col-lg-8 col-12 px-4 mt-md-5 mt-4'>
         <div className='form-group mr-md-5 position-relative'>
-          <InputText label='Nombre/Marca' name='nombreMarca' type='text' {...props} />
-
-          <FileInput label='Adjuntar archivo' {...props} />
+          <InputText {...state.brandName} onChange={onChange} />
+          <FileInput {...state.file} onChange={onChange} />
 
           <ColorPicker
-            label='Color de tu marca'
+            {...state.color}
             title='Selecciona el color de tu marca'
-            name='color'
-            {...props}
+            onChange={onChange}
           />
           <StyledSublabel>
             Medidas
-            <Measurement />
+            <Measurement {...props} />
           </StyledSublabel>
 
         </div>

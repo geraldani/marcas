@@ -4,7 +4,6 @@ import RadioButttons from '../../common/inputs/radio/RadioButtton'
 import Select from '../../common/inputs/select/SelectCountry'
 import { StyledLabelName, StyledDivMarginBottom } from '../../GlobalStyles'
 import { StyledCountrySelected, StyledAlert, StyledPrice, StyledCircle } from './styles'
-import { steoOne } from '../../../data.json'
 
 const CountrySelected = ({ country, name, removeCountry }) => {
   return (
@@ -30,9 +29,8 @@ const Alert = ({ showAlert }) => {
   )
 }
 
-const StepOne = ({ value, onChange, removeCountry }) => {
+const StepOne = ({ state, onChange, removeCountry }) => {
   const [showAlert, setShowAlert] = useState(false)
-  const selectName = 'countryRegister'
 
   const showRegisterAlert = (e) => {
     onChange(e)
@@ -48,24 +46,24 @@ const StepOne = ({ value, onChange, removeCountry }) => {
           <div className='col-lg-7 col-12 px-0'>
             <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
             <Select
-              label='Paises'
-              value={value}
+              label={state.countryRegister.label}
+              value={state.countryRegister.value}
               onChange={onChange}
-              name={selectName}
+              name={state.countryRegister.name}
               multiple
             />
           </div>
           {
             // label con el pais seleccionado
-            value[selectName] &&
-              value[selectName].map(country => (
-                <CountrySelected
-                  removeCountry={removeCountry}
-                  country={country}
-                  name={selectName}
-                  key={country}
-                />
-              ))
+            // state[selectName] &&
+            state.countryRegister.value.map(country => (
+              <CountrySelected
+                removeCountry={removeCountry}
+                country={country}
+                name={state.countryRegister.name}
+                key={country}
+              />
+            ))
           }
         </div>
       </StyledDivMarginBottom>
@@ -78,17 +76,17 @@ const StepOne = ({ value, onChange, removeCountry }) => {
       <StyledDivMarginBottom className='col-lg-7 col-12 px-4 mt-3'>
         <div className='form-group'>
           {
-            steoOne.checkButtons.map(elem => (
+            state.searchRequest.options.map(elem => (
               <RadioButttons
-                key={elem.id}
+                key={elem.value}
                 value={elem.value}
-                title={elem.title}
-                name='busquedaSolicitud'
+                label={elem.label}
+                name={state.searchRequest.name}
                 description={elem.description}
                 onChange={showRegisterAlert}
-                defaultCheked={elem.value === 'antecedentes'}
+                defaultCheked={elem.value === state.searchRequest.value}
               >
-                <StyledPrice to={`price${1}`}>
+                <StyledPrice to={`price-${elem.value}`}>
                   Ver precio
                 </StyledPrice>
               </RadioButttons>
