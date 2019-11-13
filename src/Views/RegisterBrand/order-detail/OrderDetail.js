@@ -59,12 +59,20 @@ const Fields = ({ items }) => {
   return (
     <ul className='list-group list-group-flush text-left'>
       {
-        items.map((elem) => (
-          <StyledItem key={elem.name}>
-            <StyledType>{elem.label}:</StyledType>
-            <StyledValue style={{ fontSize: '.9em' }}>{elem.value || '------'}</StyledValue>
-          </StyledItem>
-        ))
+        items.map((elem) => {
+          console.log('el elemento ', typeof (elem.value))
+          return (
+            <StyledItem key={elem.name}>
+              <StyledType>{elem.label}:</StyledType>
+              <StyledValue style={{ fontSize: '.9em' }}>{
+                typeof (elem.value) === 'object'
+                  ? elem.value.map((o, index, arr) => <span key={o}>{o.concat(index !== (arr.length - 1) ? ', ' : '')}</span>)
+                  : elem.value || '------'
+              }
+              </StyledValue>
+            </StyledItem>
+          )
+        })
       }
     </ul>
   )
