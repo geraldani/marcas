@@ -5,13 +5,14 @@ import { StyledSelect } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import PropTypes from 'prop-types'
 
-const Select = ({ value, onChange, error, setError, label, name, multiple }) => {
+const Select = ({ value, onChange, error, setError, label, name, type }) => {
   /*  const handleChange = e => {
       setCountry(e.target.value)
       setError(false)
     } */
+  const multiple = type === 'select-multi'
+
   const defaultOption = 'Seleccione su pais'
-  // TODO estilar el multiselect para que se vea igual al single select
   return (
     <>
       <StyledSublabel>
@@ -19,18 +20,16 @@ const Select = ({ value, onChange, error, setError, label, name, multiple }) => 
         <StyledSelect
           className={`custom-select ${error ? 'error' : ''}`}
           onChange={onChange}
-          defaultValue={value}
+          value={multiple ? value[value.length - 1] ? value[value.length - 1] : '' : value}
           name={name}
-          multiple={multiple}
-          // TODO eliminar el estilo gris de la opcion enfocada cuando se elimina ese elemento del array
         >
           <option value={multiple ? [] : ''}>{defaultOption}</option>
           {
             countries.map(contry => (
               <option
-                value={contry.toLowerCase()}
+                value={contry}
                 key={contry}
-                disabled={multiple ? value.find(elem => elem === contry.toLowerCase()) === contry.toLowerCase() : false}
+                disabled={multiple ? value.find(elem => elem === contry) === contry : false}
               >
                 {contry}
               </option>

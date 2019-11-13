@@ -11,6 +11,7 @@ const StyledValue = styled.span`
   font-size: .9em;
   opacity: .9;
   margin-right: 1em;
+  text-align: right;
 
 `
 const StyledNoOrder = styled.p`

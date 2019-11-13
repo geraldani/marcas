@@ -86,7 +86,7 @@ export const Model = {
     value: ''
   },
   marcaType: {
-    type: 'checkbok',
+    type: 'checkbox',
     name: 'marcaType',
     options: [
       {
@@ -170,5 +170,5 @@ export const Model = {
         value: false
       }
     ]
-  },
+  }
 }

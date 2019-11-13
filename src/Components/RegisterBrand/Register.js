@@ -8,7 +8,7 @@ const setViewUp = () => window.scroll(0, 0) // pone el viewport al principio de 
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
-  const [step, setStep] = useState(5)
+  const [step, setStep] = useState(1)
   const { state, handleChange, removeCountry } = useForm(Model)
 
   const clickNext = (e) => {

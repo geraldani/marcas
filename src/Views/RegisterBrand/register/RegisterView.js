@@ -61,7 +61,7 @@ const RegisterView = (props) => {
     <>
       <Header />
       <section className='margin-header mb-5'>
-        <div className='container-fluid pt-5 px-3 px-md-5'>
+        <div className='container-fluid pt-4 pt-md-5 px-3 px-md-5'>
           <div className='row justify-content-end'>
 
             {/* Circulos del paso actual y totales */}
@@ -82,7 +82,7 @@ const RegisterView = (props) => {
 
               {/* Detalle de la orden Card */}
               <div className='col-12 mt-4 col-lg-3 mt-lg-0 order-lg-last order-first mb-4'>
-                <OrderCard />
+                <OrderCard state={props.state} />
               </div>
             </div>
           </div>

@@ -8,7 +8,7 @@ import { StyledCountrySelected, StyledAlert, StyledPrice, StyledCircle } from '.
 const CountrySelected = ({ country, name, removeCountry }) => {
   return (
     <StyledCountrySelected>
-      <span>{country.charAt(0).toUpperCase() + country.slice(1)}</span>
+      <span>{country}</span>
       <IconCloseCircle size='25px' className='ml-1' />
       <StyledCircle onClick={(e) => removeCountry(e, name)} />
     </StyledCountrySelected>
@@ -46,16 +46,14 @@ const StepOne = ({ state, onChange, removeCountry }) => {
           <div className='col-lg-7 col-12 px-0'>
             <StyledLabelName>En qué pais quiero registrar mi marca</StyledLabelName>
             <Select
-              label={state.countryRegister.label}
-              value={state.countryRegister.value}
+              {...state.countryRegister}
               onChange={onChange}
-              name={state.countryRegister.name}
-              multiple
+              // multiple
             />
           </div>
           {
             // label con el pais seleccionado
-            // state[selectName] &&
+            state.countryRegister.value &&
             state.countryRegister.value.map(country => (
               <CountrySelected
                 removeCountry={removeCountry}

@@ -25,7 +25,7 @@ const useForm = (InitialState = {}, submitCallback) => {
     const elem = event.target // el elemento del onChange
     let value // el nuevo valor a modificar
     let elemReturn // el nuevo estado a retornar
-    console.log('el nuevo valor del color desde el hook ', specificValue)
+    const multiple = state[elem.name] ? state[elem.name].type === 'select-multi' : false
 
     if (specificValue) {
       value = specificValue
@@ -47,7 +47,7 @@ const useForm = (InitialState = {}, submitCallback) => {
       }
     } else {
       let arr
-      if (elem.multiple) { // esto solo es para select multiple
+      if (multiple) { // esto solo es para select multiple
         arr = state[elem.name].value
         if (value) arr = arr.concat([value])
       }
@@ -55,7 +55,7 @@ const useForm = (InitialState = {}, submitCallback) => {
         ...state,
         [inputName || elem.name]: {
           ...state[elem.name || inputName], // esto es por si viene el valor desde los valores especificados en vez del target
-          value: elem.multiple ? arr : value// aqui pregunto si el input es el select multiple, esto es para implementar el multiselect
+          value: multiple ? arr : value// aqui pregunto si el input es el select multiple, esto es para implementar el multiselect
         }
       }
     }

@@ -8,20 +8,23 @@ import Header from '../../common/header/Header'
 
 const OrderDetail = (props) => {
   const state = props.location.state // el estado pasapo por props en el history
-
   const groupFilds = [
     [
       state.name,
       state.surname,
       state.email,
       state.razonSocial,
-      state.countryGestor,
+      { ...state.countryGestor, label: 'País apoderado' },
       state.cuit
     ],
     [
-      state.color,
-      state.brandName,
-      state.countryPrevious
+      { ...state.color, label: 'Tipo de registro' },
+      { ...state.brandName, label: 'Nombre de registro' },
+      { ...state.countryRegister, label: 'País de registro' }
+    ],
+    [
+      { label: 'Clase 1', value: '$$' },
+      { label: 'Clase 15', value: '$$' }
     ]
   ]
 

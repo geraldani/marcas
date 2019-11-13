@@ -28,13 +28,15 @@ const StyledCountrySelected = styled.div`
   border-radius: 15px;
   bottom:0;
   margin-right: 15px;
+  margin-bottom: 0.8em;
   position: relative;
   background-color: ${COLOR.aqua};
   color: ${COLOR.darkGrey};
   @media (max-width: ${SCREEN.lg}px){
     font-size: 0.8em;
     padding: 3px 9px;
-    margin-bottom: -32px;
+      margin-right: 9px;
+    //margin-bottom: -32px;
     svg{
       width: 20px;
       height: 20px;
