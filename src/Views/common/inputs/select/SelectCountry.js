@@ -1,15 +1,17 @@
 import React from 'react'
 import { countries } from '../../../../data'
-import ErrorAlert from '../alerts/ErrorAlert'
+import ErrorAlert from '../../alerts/ErrorAlert'
 import { StyledSelect } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import PropTypes from 'prop-types'
 
-const Select = ({ value, onChange, error, setError, label, name, type }) => {
+const Select = ({ value, onChange, error, label, name, type }) => {
   /*  const handleChange = e => {
       setCountry(e.target.value)
       setError(false)
     } */
+
+  // console.log('hay errores en el select? ', error)
   const multiple = type === 'select-multi'
 
   const defaultOption = 'Seleccione su pais'
@@ -36,7 +38,7 @@ const Select = ({ value, onChange, error, setError, label, name, type }) => {
             ))
           }
         </StyledSelect>
-        {/* error && <ErrorAlert message='Por favor, introduzca un valor' /> */}
+        <ErrorAlert message={error} />
       </StyledSublabel>
     </>
   )

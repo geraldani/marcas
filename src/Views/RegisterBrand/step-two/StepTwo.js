@@ -7,7 +7,7 @@ import InputText from '../../common/inputs/text/InputText'
 const inputRadioName = 'tipoRegistro'
 
 const StepTwo = (props) => {
-  const { state, onChange } = props
+  const { state, onChange, errors } = props
   const [disableInput, setDisableInput] = useState(state.regiterType.value === 'persona')
   const handleChange = (e) => {
     props.onChange(e)
@@ -32,6 +32,7 @@ const StepTwo = (props) => {
             type={state.email.type}
             value={state.email.value}
             onChange={props.onChange}
+            errors={errors.email}
           />
         </div>
       </div>

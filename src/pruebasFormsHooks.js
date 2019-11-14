@@ -17,7 +17,7 @@ const Input = ({ type, name, value, onChange, errorAlert, label }) => (
     <br />
   </>
 )
-const useForm = (callback, validate, currentStep) => {
+const useForm = (nextStep, validate, currentStep) => {
   const [value, setValues] = useState({})
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -25,7 +25,7 @@ const useForm = (callback, validate, currentStep) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      callback()
+      nextStep()
     }
   }, [errors])
 

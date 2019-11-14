@@ -27,8 +27,9 @@ const StyledCountrySelected = styled.div`
   padding: 5px 12px;
   border-radius: 15px;
   bottom:0;
-  margin-right: 15px;
+  margin-right: 12px;
   margin-bottom: 0.8em;
+  margin-top: 0.45em;
   position: relative;
   background-color: ${COLOR.aqua};
   color: ${COLOR.darkGrey};

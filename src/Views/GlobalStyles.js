@@ -22,7 +22,7 @@ const StyledSublabel = styled.label`
   color: ${props => props.disabled ? COLOR.darkGrey : COLOR.black};
   font-size: 15px;
   margin-top: 1.5rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 3px;
   text-align: left;
   width: 100%;
   &>*{

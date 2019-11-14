@@ -10,6 +10,7 @@ import CircleSteps from '../../common/circles/CircleSteps'
 import CardSteps from '../../common/cards/steps/CardSteps'
 import OrderCard from '../../common/cards/order/OrderCard'
 
+// vista de los pasos o vistas del formulario con datos a ser pedidos en cada uno
 const Steps = (props) => {
   let WrappedComponennt
   let aditionalProps = {}
@@ -31,31 +32,44 @@ const Steps = (props) => {
       WrappedComponennt = StepFive
       break
   }
-  return <WrappedComponennt {...aditionalProps} state={props.state} onChange={props.onChange} />
+  return <WrappedComponennt {...aditionalProps} state={props.state} onChange={props.onChange} errors={props.errors} />
+}
+
+// botones de navegacion para avanaza o retroceder en el formulario
+const ButtonsNavigation = ({ step, handleClickBack, totalSteps, handleClickNext }) => {
+  const buttonTitle = step === totalSteps ? 'Finalizar' : 'Continuar'
+  const justify = step === 1 ? 'justify-content-end' : 'justify-content-between'
+
+  const ButtonBack = () =>
+    <Button
+      title='Volver'
+      className='px-5 mb-3 mb-md-0'
+      styled='outline-purple'
+      onClick={handleClickBack}
+    />
+
+  const ButtonNext = () =>
+    <Button
+      title={buttonTitle}
+      className='px-5'
+      onClick={handleClickNext}
+    />
+
+  return (
+    <div className={`border-top mt-5 py-3 px-4 d-flex flex-column flex-md-row ${justify}`}>
+      {step > 1 && <ButtonBack />}
+      <ButtonNext />
+    </div>
+  )
 }
 
 const RegisterView = (props) => {
-  // botones de navegacion para avanaza o retroceder en el formulario
-  const ButtonsNavigation = () => (
-    <div
-      className={`border-top mt-5 py-3 px-4 d-flex flex-column flex-md-row ${props.step === 1 ? 'justify-content-end' : 'justify-content-between'}`}>
-      {/* Boton volver */
-        props.step > 1 &&
-        <Button
-          title='Volver'
-          className='px-5 mb-3 mb-md-0'
-          styled='outline-purple'
-          onClick={props.handleClickBack}
-        />
-      }
-      {/* Boton continuar o finalizar */}
-      <Button
-        title={`${props.step === props.totalSteps ? 'Finalizar' : 'Continuar'} `}
-        className='px-5'
-        onClick={props.handleClickNext}
-      />
-    </div>
-  )
+  const buttonsProps = {
+    step: props.step,
+    handleClickBack: props.handleClickBack,
+    totalSteps: props.totalSteps,
+    handleClickNext: props.handleClickNext
+  }
 
   return (
     <>
@@ -76,7 +90,7 @@ const RegisterView = (props) => {
                   {/* Formulario actual dependiendo de que paso este */}
                   <Steps {...props} />
                   {/* botones de navegacion */}
-                  <ButtonsNavigation />
+                  <ButtonsNavigation {...buttonsProps} />
                 </CardSteps>
               </div>
 

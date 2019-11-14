@@ -29,7 +29,7 @@ const Alert = ({ showAlert }) => {
   )
 }
 
-const StepOne = ({ state, onChange, removeCountry }) => {
+const StepOne = ({ state, onChange, removeCountry, errors }) => {
   const [showAlert, setShowAlert] = useState(false)
 
   const showRegisterAlert = (e) => {
@@ -48,7 +48,7 @@ const StepOne = ({ state, onChange, removeCountry }) => {
             <Select
               {...state.countryRegister}
               onChange={onChange}
-              // multiple
+              error={errors.countryRegister}
             />
           </div>
           {
@@ -65,6 +65,7 @@ const StepOne = ({ state, onChange, removeCountry }) => {
           }
         </div>
       </StyledDivMarginBottom>
+
       <div className='col-12 px-0'>
         <div className='border-top my-4' />
         {
@@ -84,9 +85,7 @@ const StepOne = ({ state, onChange, removeCountry }) => {
                 onChange={showRegisterAlert}
                 defaultCheked={elem.value === state.searchRequest.value}
               >
-                <StyledPrice to={`price-${elem.value}`}>
-                  Ver precio
-                </StyledPrice>
+                <StyledPrice to={`price-${elem.value}`}>Ver precio</StyledPrice>
               </RadioButttons>
             ))
           }

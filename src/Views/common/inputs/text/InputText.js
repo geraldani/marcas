@@ -1,5 +1,5 @@
 import React from 'react'
-import ErrorAlert from '../alerts/ErrorAlert'
+import ErrorAlert from '../../alerts/ErrorAlert'
 import { StyledSublabel } from '../../../GlobalStyles'
 import PropTypes from 'prop-types'
 
@@ -22,15 +22,16 @@ const InputWithLabel = (props) => (
   </StyledSublabel>
 )
 
-const InputText = ({ type, name, value, onChange, errorAlert, label, disabled, className, initialValue }) => {
-  const classname = className ? `form-control ${className}` : 'form-control'
+const InputText = ({ type, name, value, onChange, errors, label, disabled, className, initialValue }) => {
+  const errorClass = errors ? 'error' : ''
+  const classname = className ? `form-control ${className} ${errorClass}` : `form-control ${errorClass}`
 
   const prop = { type, classname, name, disabled, value, onChange, label, initialValue }
 
   return (
     <>
       {label ? <InputWithLabel {...prop} /> : <Input {...prop} />}
-      {errorAlert && <ErrorAlert message={errorAlert} />}
+      <ErrorAlert message={errors} />
     </>
   )
 }

@@ -1,24 +1,35 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import validation from '../Components/RegisterBrand/validation'
+import { setViewUp } from '../Components/utils'
 
-const useForm = (InitialState = {}, submitCallback) => {
-  const [state, setState] = useState(InitialState)
-  // const [errors, setErrors] = useState({})
-  // const [isSubmitting, setIsSubmitting] = useState(false)
-  // const [rules, setRules] = useState({})
+const useForm = (InitialState = {}, nextStepCallback, currentStep) => {
+  const [state, setState] = useState(InitialState) // el estado o datos del formulario
+  const [errors, setErrors] = useState({}) // los errores de las validaciones del formulario
+  const [isNextStep, setIsNextStep] = useState(false) // para saber si estoy dando click al boton de next
 
-  /*
-    useEffect(() => {
-      if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback()
+  // este effect es para validar el formulario cuando se haga click en next
+  useEffect(() => {
+    if (isNextStep) {
+      if (Object.keys(errors).length === 0) {
+        nextStepCallback()
       }
-    }, [errors])
-  */
+    }
+  }, [errors])
 
-  /*  const handleSubmit = (event) => {
-      if (event) event.preventDefault()
-      setErrors(validate(value, currentStep, rules))
-      setIsSubmitting(true)
-    } */
+  // este effect es para quitar la alarma de error cuando se llene el campo requerido
+  useEffect(() => {
+    if (Object.keys(errors).length !== 0) {
+      setErrors(validation(state, currentStep))
+      setIsNextStep(false)
+    }
+  }, [state])
+
+  const nextStep = (event) => {
+    if (event) event.preventDefault()
+    // setViewUp()
+    setErrors(validation(state, currentStep))
+    setIsNextStep(true)
+  }
 
   const handleChange = (event, inputName, specificValue) => { // el segundo y tercer parametro es para especificar una key y un valor especifico a modificar que no sea el valor del target (como el caso del color que viene desde un picker distinto
     event.persist()
@@ -59,12 +70,11 @@ const useForm = (InitialState = {}, submitCallback) => {
         }
       }
     }
-
     setState(elemReturn)
   }
 
   const removeCountry = (e, inputName) => { // para remover los paises del multiselect
-    const deleteElement = e.target.parentNode.firstChild.innerHTML.toLowerCase()
+    const deleteElement = e.target.parentNode.firstChild.innerHTML
     setState(state => {
       const vectorRemoved = state[inputName].value
       vectorRemoved.splice(vectorRemoved.indexOf(deleteElement), 1)
@@ -81,7 +91,9 @@ const useForm = (InitialState = {}, submitCallback) => {
   return {
     state,
     handleChange,
-    removeCountry
+    removeCountry,
+    nextStep,
+    errors
     /* handleSubmit,
     errors */
   }
