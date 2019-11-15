@@ -7,10 +7,9 @@ const Form = ({ fields, buttonName, link }) => {
     <form>
       {
         fields.map(field => (
-          <>
-            <StyledSublabel>{field.name}</StyledSublabel>
+          <StyledSublabel key={field.name}>{field.name}
             <input type={field.type} className='form-control' />
-          </>
+          </StyledSublabel>
         ))
       }
       <Button title={buttonName} className='w-100 mt-4' link={link} />

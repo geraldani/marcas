@@ -21,8 +21,10 @@ const ROUTES = {
   registerBrand: '/register-brand',
   orderDetail: '/order-detail',
   finishRegister: '/finish-register',
-  login: '/:contain',
-  moreInfo: '/info/:name'
+  moreInfo: '/info/:name',
+  faq: '/faqs',
+  terms: '/terms-and-conditions',
+  login: '/:contain'
 }
 
 // for media queries screens

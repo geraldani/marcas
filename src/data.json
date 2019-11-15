@@ -116,12 +116,21 @@
     "buttonTitle": "Escribinos"
   },
   "footer": [
-    "Contactanos",
-    "Terminos y condiciones",
-    "Pregutas frecuentes"
+    {
+      "name": "Contactanos",
+      "url": "/jpjp"
+    },
+    {
+      "name": "Terminos y condiciones",
+      "url": "/terms-and-conditions"
+    },
+    {
+      "name": "Pregutas frecuentes",
+      "url": "/faqs"
+    }
   ],
   "steoOne": {
-    "checkButtons":[
+    "checkButtons": [
       {
         "id": "df8d4984",
         "value": "antecedentes",

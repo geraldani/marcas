@@ -7,6 +7,8 @@ import FinishRegister from './RegisterBrand/finish-register/FinishRegister'
 import Sign from './SignUp/Sign'
 import { ROUTES } from './common/constants'
 import MoreInfo from './Home/moreInfo/moreInfo'
+import Faqs from './Faq/Faqs'
+import TermsConditions from './Faq/TermsConditions'
 
 const MainApp = () => (
   <BrowserRouter>
@@ -15,8 +17,10 @@ const MainApp = () => (
       <Route exact path={ROUTES.registerBrand} component={Register} />
       <Route exact path={ROUTES.orderDetail} component={OrderDetail} />
       <Route exact path={ROUTES.finishRegister} component={FinishRegister} />
-      <Route exact path={ROUTES.login} component={Sign} />
       <Route exact path={ROUTES.moreInfo} component={MoreInfo} />
+      <Route exact path={ROUTES.terms} component={TermsConditions} />
+      <Route exact path={ROUTES.faq} component={Faqs} />
+      <Route exact path={ROUTES.login} component={Sign} />
     </Switch>
   </BrowserRouter>
 )

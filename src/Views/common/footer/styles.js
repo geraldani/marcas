@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { COLOR, SCREEN } from '../constants'
 
 const StyledCopyright = styled.p`
-  color: #6c757d;
+  color: ${COLOR.mediumGray};
   font-weight: normal;
   font-size: .8rem;
   margin-bottom: 0;

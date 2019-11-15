@@ -10,11 +10,14 @@ const Footer = () => {
         <Logo className='mx-auto mx-md-0 mb-2' />
         <div className='d-flex justify-content-end align-items-center flex-md-row flex-column'>
           {
-            footer.map(faq => (
-              <StyledLink key={faq} to='/'>
-                {faq}
-              </StyledLink>
-            ))
+            footer.map(faq => {
+              console.log('faq', faq)
+              return (
+                <StyledLink key={faq.name} to={faq.url}>
+                  {faq.name}
+                </StyledLink>
+              )
+            })
           }
         </div>
       </div>
