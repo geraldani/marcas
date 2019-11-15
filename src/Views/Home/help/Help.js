@@ -3,6 +3,7 @@ import Title from '../../common/title/Title'
 import CardInfo from '../../common/cards/info/InfoCards'
 import { help } from '../../../data.json'
 import { StyledText } from './styles'
+// import uuid from 'uuid'
 
 const Help = () => (
   <section id='sectionHelp'>

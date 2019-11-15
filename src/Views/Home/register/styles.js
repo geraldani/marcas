@@ -1,12 +1,12 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import background from '../../../assets/img/mg.jpg'
 import { COLOR, SCREEN } from '../../common/constants'
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.section`
   background-image: url(${background});
   background-position: 50% 0;
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: ${props => props.buttons ? '200px' : '100px'};
+  padding-bottom: ${props => props.buttons ? '200px' : '100px'};
   position: relative;
   opacity: .85;
   color: ${COLOR.white};
@@ -24,13 +24,21 @@ export const StyledContainer = styled.div`
   & h2{
     font-size: 1.9rem;
     margin-bottom: 0;
+    text-transform: ${props => props.buttons ? 'uppercase' : 'none'};
   }
   & p{
     font-size: 1.15rem;
+    margin-left: 15em;
+    margin-right: 15em;
+    margin-top: 0.6em;
   }
   @media (max-width: ${SCREEN.md}px){
     padding-top: 100px;
     padding-bottom: 100px;
     background-position: 70% 50%;
+    & p{
+      margin-left: 1em;
+      margin-right: 1em;
+    }
   }
 `

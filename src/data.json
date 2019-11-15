@@ -24,18 +24,13 @@
       },
       {
         "name": "Registrarme",
-        "path": "/sign-up"
+        "path": "/signup"
       },
       {
         "name": "Ingresar",
-        "path": "/sign-in"
+        "path": "/signin"
       }
     ]
-  },
-  "register": {
-    "title": "Buscá y registrá tu marca",
-    "subtitle": "En Sitebrand te damos la posibilidad de registrar tu marca hoy, en el pais que vos quieras.",
-    "buttons": ["Registrar marca", "Otros trámites"]
   },
   "work": {
     "title": "¿Cómo trabajamos?",
@@ -74,24 +69,24 @@
     "url": "iniciotramite",
     "brands": [
       {
-        "id": "dfd844sdf64",
+        "id": "registro-marca",
         "title": "Registro de marcas",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "description": "Algo que describa la el registro de marca. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       },
       {
-        "id": "854df4158dfdf41",
+        "id": "disputa-dominios",
         "title": "Disputa de dominios",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "description": "Algo que describa la disputa de dominio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       },
       {
-        "id": "sdfsd848fsdfs4",
+        "id": "registros-internacionales",
         "title": "Registros internacionales",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "description": "Algo que describa los registros internacionales. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       },
       {
-        "id": "dsf47854rf845srf",
+        "id": "procolo-registro",
         "title": "Protocolo de registros Madrid",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        "description": "Algo que describa el protocolo de registro. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
       }
     ]
   },

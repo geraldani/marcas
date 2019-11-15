@@ -8,12 +8,18 @@ import Contact from './contact/Contact'
 import Footer from '../common/footer/Footer'
 import Header from '../common/header/Header'
 
+const props = {
+  title: 'Buscá y registrá tu marca',
+  subtitle: 'En Sitebrand te damos la posibilidad de registrar tu marca hoy, en el pais que vos quieras.',
+  buttons: ['Registrar marca', 'Otros trámites']
+}
+
 export default function Home () {
   return (
     <>
       <Header showMenu />
       <div className='margin-header'>
-        <RegisterBrand />
+        <RegisterBrand {...props} />
         <Work />
         <AboutUs />
         <Help />

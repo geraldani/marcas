@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { COLOR } from '../../constants'
 
 const StyledIconContainer = styled.div`
   background-color: #fafafa;
@@ -22,7 +23,7 @@ const StyledTitle = styled.h3`
 `
 const StyledText = styled.p`
   text-align: center;
-  color: #9e9e9e;
+  color: ${COLOR.textColor};
   font-weight: normal;
   font-size: 16px;
   line-height: 1.3;
