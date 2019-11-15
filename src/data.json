@@ -28,7 +28,7 @@
       },
       {
         "name": "Ingresar",
-        "path": "/signin"
+        "path": "/sign-in"
       }
     ]
   },

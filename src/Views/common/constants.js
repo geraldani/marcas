@@ -21,7 +21,8 @@ const ROUTES = {
   registerBrand: '/register-brand',
   orderDetail: '/order-detail',
   finishRegister: '/finish-register',
-  signup: '/sign-up'
+  signup: '/sign-up',
+  signin: '/sign-in'
 }
 
 // for media queries screens

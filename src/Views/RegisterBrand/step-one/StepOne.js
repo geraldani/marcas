@@ -18,9 +18,7 @@ const CountrySelected = ({ country, name, removeCountry }) => {
 const Alert = ({ showAlert }) => {
   return (
     <StyledAlert>
-      <p>
-        Te recomendamos que hagas la <strong>"Búsqueda de antecedentes"</strong> antes de hacer una solicitud
-      </p>
+      <p>Te recomendamos que hagas la <strong>"Búsqueda de antecedentes"</strong> antes de hacer una solicitud</p>
       <span onClick={() => showAlert(false)}>
         Cerrar
         <IconClose size='1.8rem' />
