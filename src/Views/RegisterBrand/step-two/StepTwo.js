@@ -64,11 +64,11 @@ const StepTwo = (props) => {
 
       <StyledDivMarginBottom className='col-lg-7 col-12 px-4'>
         <div className='form-group mr-md-5 position-relative'>
-          <InputText {...state.name} onChange={onChange} />
-          <InputText {...state.surname} onChange={onChange} />
+          <InputText {...state.name} onChange={onChange} errors={errors.name} />
+          <InputText {...state.surname} onChange={onChange} errors={errors.surname} />
           <InputText{...state.razonSocial} disabled={disableInput} onChange={onChange} />
-          <Select {...state.countryGestor} onChange={onChange} />
-          <InputText {...state.cuit} onChange={onChange} />
+          <Select {...state.countryGestor} onChange={onChange} errors={errors.countryGestor} />
+          <InputText {...state.cuit} onChange={onChange} errors={errors.cuit} />
         </div>
       </StyledDivMarginBottom>
     </>
