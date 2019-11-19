@@ -6,7 +6,6 @@ import Footer from '../common/footer/Footer'
 import { setViewUp } from '../../Components/utils'
 import { StyledContainer } from './styles'
 
-
 const Faqs = () => {
   setViewUp()
   return (
@@ -17,16 +16,18 @@ const Faqs = () => {
           <h2 className='text-center'>
             Preguntas frecuentes
           </h2>
-          {
-            textFaq.map(elem => (
-              <StyledContainer key={elem.title}>
-                <h4>{elem.title}</h4>
-                {
-                  elem.text.map(text => <p key={text}>{text}</p>)
-                }
-              </StyledContainer>
-            ))
-          }
+          <div className='px-5 mx-5'>
+            {
+              textFaq.map((elem, index) => (
+                <StyledContainer key={elem.title}>
+                  <h4>{`${index + 1}. ${elem.title}`}</h4>
+                  {
+                    elem.text.map(text => <p key={text} dangerouslySetInnerHTML={{ __html: text }} />)
+                  }
+                </StyledContainer>
+              ))
+            }
+          </div>
         </div>
       </div>
       <Footer />
