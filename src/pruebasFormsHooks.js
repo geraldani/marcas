@@ -38,7 +38,6 @@ const useForm = (nextStep, validate, currentStep) => {
   const handleChange = (event) => {
     event.persist()
     const elem = event.target
-    console.log(elem.type)
     setValues(values => ({ ...values, [elem.name]: elem.type === 'checkbox' ? elem.checked : elem.value }))
   }
 

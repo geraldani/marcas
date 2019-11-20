@@ -3,7 +3,7 @@ import { StyledSquare, StyledWidth, StyledLabelName, StyledLabel, StyledHeight }
 import InputText from '../inputs/text/InputText'
 
 const Measurement = (props) => {
-  const { state, onChange } = props
+  const { state, onChange, errors } = props
   const measure = [state.width, state.height]
 
   const SquareMeasure = () => { // el recuadro explicando las medidas requeridas
@@ -30,7 +30,7 @@ const Measurement = (props) => {
               <StyledLabelName>
                 {elem.label} (cm)
               </StyledLabelName>
-              <InputText label='' onChange={onChange} name={elem.name} type={elem.type} value={elem.value} />
+              <InputText label='' onChange={onChange} name={elem.name} type={elem.type} value={elem.value} error={errors[elem.name]} />
             </StyledLabel>
           ))
         }

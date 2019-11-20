@@ -11,7 +11,6 @@ const Footer = () => {
         <div className='d-flex justify-content-end align-items-center flex-md-row flex-column'>
           {
             footer.map(faq => {
-              console.log('faq', faq)
               return (
                 <StyledLink key={faq.name} to={faq.url}>
                   {faq.name}

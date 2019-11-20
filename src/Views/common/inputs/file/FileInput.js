@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { StyledFileName, StyledFileButton } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import InputText from '../text/InputText'
+import ErrorAlert from '../../alerts/ErrorAlert'
 
 const findFileName = (value) => {
   const splitedString = value.split('\\')
@@ -9,7 +10,7 @@ const findFileName = (value) => {
   return splitedString[lastElem]
 }
 
-const FileInput = ({ label, value, name, onChange, type }) => {
+const FileInput = ({ label, value, name, onChange, type, error }) => {
   const initialValue = value ? findFileName(value) : 'Seleccionar archivo'
   const [fileName, setFileName] = useState(initialValue)
 
@@ -23,13 +24,14 @@ const FileInput = ({ label, value, name, onChange, type }) => {
     <StyledSublabel>
       {label}
       <div className='d-flex position-relative'>
-        <StyledFileName>{fileName}</StyledFileName>
+        <StyledFileName className={error ? 'error' : ''}>{fileName}</StyledFileName>
 
         <StyledFileButton>
           Agregar
           <InputText value='' label='' name={name} type={type} onChange={handleChange} />
         </StyledFileButton>
       </div>
+      <ErrorAlert message={error} />
     </StyledSublabel>
   )
 }

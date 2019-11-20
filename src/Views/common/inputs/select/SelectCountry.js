@@ -10,6 +10,8 @@ const Select = ({ value, onChange, error, label, name, type }) => {
   const valueDefault = multiple ? value[value.length - 1] ? value[value.length - 1] : '' : value
   const defaultOption = 'Seleccione su pais'
 
+  console.log('el error', error)
+
   return (
     <StyledSublabel>
       {label}

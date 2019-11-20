@@ -2,39 +2,23 @@ import React, { useState } from 'react'
 import { PhotoshopPicker as Picker } from 'react-color'
 import { StyledPickerContainer, StyledColorSquare } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
+import { isHexColor } from '../../../../Components/utils'
 import InputText from '../text/InputText'
 
-export const isHexColor = hex => {
-  const regex = /^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/
-  return typeof hex === 'string' && regex.test(hex)
-  // return typeof hex === 'string' && hex.length === 6 && !isNaN(Number('0x' + hex))
-}
-
-const ColorPicker = ({ title, label, value, onChange, name, type }) => {
+const ColorPicker = ({ title, label, value, onChange, name, type, error }) => {
   let colorSelected = value
   const [showPicker, setShowPicker] = useState(false)
-  // const [color, setColor] = useState(initialColor)
 
   // handlers
   const handleSquareClick = () => setShowPicker(true)
 
   const handleOnAccept = (e) => {
-    // setColor(colorSelected)
     setShowPicker(!showPicker)
-    console.log('new color ', colorSelected)
     onChange(e, name, colorSelected)
   }
 
   const handleOnCancel = () => setShowPicker(!showPicker)
   const onChangePicker = newColor => { colorSelected = newColor.hex }
-
-  const handleInputChenge = e => {
-    const newColor = e.target.value
-    onChange(e)
-    if (isHexColor(newColor.slice(1))) {
-      // setColor(newColor)
-    }
-  }
 
   return (
     <StyledSublabel>
@@ -50,10 +34,12 @@ const ColorPicker = ({ title, label, value, onChange, name, type }) => {
         <InputText
           value={value}
           label=''
-          onChange={handleInputChenge}
+          onChange={onChange}
           name={name}
           type={type}
           className='ml-3'
+          error={error}
+          errorStyle={{ bottom: '-21px' }}
         />
         {
           showPicker &&

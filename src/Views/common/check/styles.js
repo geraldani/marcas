@@ -38,7 +38,9 @@ const StyledCheckboxIcon = styled.span`
   left: 0;
   height: 15px;
   width: 15px;
-  border: solid 2px ${COLOR.mediumGray};
+  border-style: solid;
+  border-width: 2px;
+  border-color: ${props => props.error ? COLOR.red : COLOR.mediumGray};
   border-radius: 2px;
   transition: 0.4s;
   &:after{

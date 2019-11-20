@@ -48,7 +48,6 @@ const Sign = (props) => {
   let elem
   if (props.match.params.contain === 'signup') elem = dataRegister
   else if (props.match.params.contain === 'signin') elem = dataLogin
-  console.log('de donde me estas llamando ',props.match.params)
   return (
     <>
       <Header showMenu />

@@ -22,16 +22,15 @@ const InputWithLabel = (props) => (
   </StyledSublabel>
 )
 
-const InputText = ({ type, name, value, onChange, errors, label, disabled, className, initialValue }) => {
-  const errorClass = errors ? 'error' : ''
+const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle }) => {
+  const errorClass = error ? 'error' : ''
   const classname = className ? `form-control ${className} ${errorClass}` : `form-control ${errorClass}`
-
   const prop = { type, classname, name, disabled, value, onChange, label, initialValue }
 
   return (
     <>
       {label ? <InputWithLabel {...prop} /> : <Input {...prop} />}
-      <ErrorAlert message={errors} />
+      <ErrorAlert message={error} style={errorStyle} />
     </>
   )
 }

@@ -43,8 +43,8 @@ const FakeData = [
 ]
 
 const StepFive = (props) => {
-  const { state, onChange } = props
-  //todo
+  const { state, onChange, errors } = props
+  // todo
   return (
     <>
       <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
@@ -58,6 +58,7 @@ const StepFive = (props) => {
         <InputText
           {...state.productService}
           onChange={onChange}
+          error={errors.productService}
         />
       </div>
 

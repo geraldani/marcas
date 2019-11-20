@@ -60,7 +60,6 @@ const Fields = ({ items }) => {
     <ul className='list-group list-group-flush text-left'>
       {
         items.map((elem) => {
-          console.log('el elemento ', typeof (elem.value))
           return (
             <StyledItem key={elem.name}>
               <StyledType>{elem.label}:</StyledType>

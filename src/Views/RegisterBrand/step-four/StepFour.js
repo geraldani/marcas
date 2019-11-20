@@ -6,7 +6,7 @@ import { StyledOption, ClearLegend } from './styles'
 import InputText from '../../common/inputs/text/InputText'
 
 const StepFour = (props) => {
-  const { state, onChange } = props
+  const { state, onChange, errors } = props
   return (
     <>
       <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
@@ -29,8 +29,8 @@ const StepFour = (props) => {
       </div>
 
       <StyledDivMarginBottom className='col-12 col-md-7 px-4'>
-        <Select {...state.countryPrevious} onChange={onChange} />
-        <InputText {...state.nroRegistro} onChange={onChange} />
+        <Select {...state.countryPrevious} onChange={onChange} error={errors.countryPrevious} />
+        <InputText {...state.nroRegistro} onChange={onChange} error={errors.nroRegistro} />
       </StyledDivMarginBottom>
     </>
   )

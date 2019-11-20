@@ -16,6 +16,7 @@ const StepTwo = (props) => {
       : setDisableInput(false)
   }
 
+  console.log('el error del paso 2 ', errors)
   return (
     <>
       <div className='col-12 px-4 mt-3 mt-md-5'>
@@ -26,14 +27,7 @@ const StepTwo = (props) => {
 
       <div className='col-lg-7 col-12 px-4 '>
         <div className='mr-lg-5'>
-          <InputText
-            label={state.email.label}
-            name={state.email.name}
-            type={state.email.type}
-            value={state.email.value}
-            onChange={props.onChange}
-            errors={errors.email}
-          />
+          <InputText {...state.email} onChange={props.onChange} error={errors.email} />
         </div>
       </div>
 
@@ -64,11 +58,11 @@ const StepTwo = (props) => {
 
       <StyledDivMarginBottom className='col-lg-7 col-12 px-4'>
         <div className='form-group mr-md-5 position-relative'>
-          <InputText {...state.name} onChange={onChange} errors={errors.name} />
-          <InputText {...state.surname} onChange={onChange} errors={errors.surname} />
-          <InputText{...state.razonSocial} disabled={disableInput} onChange={onChange} />
-          <Select {...state.countryGestor} onChange={onChange} errors={errors.countryGestor} />
-          <InputText {...state.cuit} onChange={onChange} errors={errors.cuit} />
+          <InputText {...state.name} onChange={onChange} error={errors.name} />
+          <InputText {...state.surname} onChange={onChange} error={errors.surname} />
+          <InputText {...state.razonSocial} disabled={disableInput} onChange={onChange} error={errors.razonSocial} />
+          <Select {...state.countryGestor} onChange={onChange} error={errors.countryGestor} />
+          <InputText {...state.cuit} onChange={onChange} error={errors.cuit} />
         </div>
       </StyledDivMarginBottom>
     </>
