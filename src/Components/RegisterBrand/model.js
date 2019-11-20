@@ -28,8 +28,8 @@ export const Model = {
     type: 'email',
     value: ''
   },
-  regiterType: {
-    name: 'regiterType',
+  registerType: {
+    name: 'registerType',
     type: 'radio',
     value: 'persona',
     options: [
@@ -82,7 +82,7 @@ export const Model = {
   nroRegistro: {
     label: 'Numero de registro/acta',
     name: 'nroRegistro',
-    type: 'text',
+    type: 'number',
     value: ''
   },
   marcaType: {
@@ -150,7 +150,7 @@ export const Model = {
     type: 'text',
     value: ''
   },
-  classProducts: {
+  /* classProducts: {
     type: 'checkbok',
     name: 'classProducts',
     options: [
@@ -170,5 +170,5 @@ export const Model = {
         value: false
       }
     ]
-  }
+  } */
 }

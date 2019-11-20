@@ -24,6 +24,8 @@ const ROUTES = {
   moreInfo: '/info/:name',
   faq: '/faqs',
   terms: '/terms-and-conditions',
+  signin: '/signin',
+  signup: '/signup',
   login: '/:contain'
 }
 

@@ -14,12 +14,14 @@ const StyledImage = styled.img`
   }
 `
 const StyledTitle = styled.h3`
+  text-align: center;
   @media (max-width: ${SCREEN.md}px){
     font-size: 1.5rem;
   }
 `
 
 const StyledSubtitle = styled.p`
+  text-align: center;
   margin-bottom: 0;
   color: ${COLOR.textColor};
   line-height: 1.2;

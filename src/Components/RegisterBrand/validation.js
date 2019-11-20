@@ -23,7 +23,7 @@ const validation = (state, actualStep) => {
       if (!state.surname.value) errors.surname = 'Introduzca un apellido'
       if (!state.countryGestor.value) errors.countryGestor = 'Seleccione un pais'
       if (!state.cuit.value) errors.cuit = 'Introduzca su Cuit'
-      if (state.regiterType.value === 'empresa' && !state.razonSocial.value) errors.razonSocial = 'Introduzca la razon social'
+      if (state.registerType.value === 'empresa' && !state.razonSocial.value) errors.razonSocial = 'Introduzca la razon social'
       break
     case 3:
       if (!state.brandName.value) errors.brandName = 'Introduzca el nombre de su marca'
