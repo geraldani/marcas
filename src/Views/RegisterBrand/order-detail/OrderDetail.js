@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CardSteps from '../../common/cards/steps/CardSteps'
 import CircleSteps from '../../common/circles/CircleSteps'
 import { StyledTotal, StyledItem, StyledType, StyledValue, StyledFieldContainer } from './styles'
 import { ROUTES } from '../../common/constants'
 import Button from '../../common/buttons/Button'
 import Header from '../../common/header/Header'
+// import { useFetch } from '../../../hooks/useFetch'
 
-const handleClick = (e, state) => {
+const fetchData = async (data, url) => {
+
+}
+
+const handleClick = async (e, state, history, setLoading) => {
   e.preventDefault()
   const data = {}
   const marcas = []
@@ -15,26 +20,31 @@ const handleClick = (e, state) => {
     let value = elem.value
     if (elem.name === 'marcaType') {
       elem.options.forEach(elem => {
-        if (elem.value) {
-          marcas.push(elem.name)
-        }
+        if (elem.value) marcas.push(elem.name)
       })
       value = marcas
     }
     data[elem.name] = value
   })
-  // window.alert('hay que guardar esto')
 
   const url = 'https://marcas-api-test.herokuapp.com/paperwork/new'
-  window.fetch(url, {
+  const fetchBody = {
     method: 'POST',
     body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(res => res.json())
-    .then(response => console.log('Success:', response))
-    .catch(error => console.error('Error:', error))
+    headers: { 'Content-Type': 'application/json' }
+  }
+
+  try {
+    setLoading(true)
+    const res = await window.fetch(url, fetchBody)
+    const response = await res.json()
+    console.log('la respuesta fue ', response)
+    setLoading(false)
+  } catch (e) {
+    console.log('Ocurrio un error ', e.message)
+  }
+  history.push(ROUTES.finishRegister)
+
 }
 
 const OrderDetail = (props) => {
@@ -58,6 +68,7 @@ const OrderDetail = (props) => {
       { label: 'Clase 15', value: '$$' }
     ]
   ]
+  const [loading, setLoading] = useState(false)
 
   return (
     <>
@@ -77,8 +88,16 @@ const OrderDetail = (props) => {
             </CardSteps>
             <div className='d-flex justify-content-center align-items-center flex-column'>
               <StyledTotal>Total: $520</StyledTotal>
-              <Button className='px-5 w-md-100' title='Finalizar' onClick={(e) => handleClick(e, state)} />
+              <Button
+                className='px-5 w-md-100'
+                title='Finalizar'
+                onClick={(e) => handleClick(e, state, props.history, setLoading)}
+              />
             </div>
+            {
+              loading &&
+                <div>Cargando</div>
+            }
           </div>
         </div>
       </div>

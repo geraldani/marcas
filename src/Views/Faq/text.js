@@ -68,7 +68,7 @@ export const textFaq = [
   },
 
   {
-    title: '¿EL REGISTRO DE UNA MARCA, DE UN MODELO DE UTILIDAD O DE UNA PATENTE DE INVENCIÓN ES INTERNACIONAL?',
+    title: '¿El registro de una marca, de un modelo de utilidad o de una patente de invencion es internacional?',
     text: ['No. Cada solicitud de Marca, patente, Diseño o modelo de utilidad debe ser registrado en cada país. Las marcas tienen validez territorial, razón por la cual debe solicitar el registro en cada país dentro del cual desee protegerla.<br/>Con LAWEB.IO es posible realizar este servicio a nivel mundial.']
   },
   {
