@@ -7,12 +7,7 @@ import Button from '../../common/buttons/Button'
 import Header from '../../common/header/Header'
 // import { useFetch } from '../../../hooks/useFetch'
 
-const fetchData = async (data, url) => {
-
-}
-
-const handleClick = async (e, state, history, setLoading) => {
-  e.preventDefault()
+const getData = (state) => {
   const data = {}
   const marcas = []
 
@@ -26,7 +21,12 @@ const handleClick = async (e, state, history, setLoading) => {
     }
     data[elem.name] = value
   })
+  return data
+}
 
+const handleClick = async (e, state, history, setLoading) => {
+  e.preventDefault()
+  const data = getData(state)
   const url = 'https://marcas-api-test.herokuapp.com/paperwork/new'
   const fetchBody = {
     method: 'POST',
@@ -44,7 +44,6 @@ const handleClick = async (e, state, history, setLoading) => {
     console.log('Ocurrio un error ', e.message)
   }
   history.push(ROUTES.finishRegister)
-
 }
 
 const OrderDetail = (props) => {
@@ -95,8 +94,7 @@ const OrderDetail = (props) => {
               />
             </div>
             {
-              loading &&
-                <div>Cargando</div>
+              loading && <div>Cargando</div>
             }
           </div>
         </div>
