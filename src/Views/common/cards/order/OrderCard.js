@@ -51,10 +51,7 @@ const HeaderOrder = () => (
 
 const Data = ({ element }) => {
   if (element.type === 'checkbox') {
-    return (
-      element.options.filter(elem => elem.value)
-        .map(o => <StyledValue key={o.name}>{o.label}</StyledValue>)
-    )
+    return element.options.filter(elem => elem.value).map(o => <StyledValue key={o.name}>{o.label}</StyledValue>)
   }
   if (typeof (element.value) === 'object') {
     return element.value.map(el => <StyledValue key={el}>{el}</StyledValue>)
