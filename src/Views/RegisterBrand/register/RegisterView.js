@@ -11,13 +11,16 @@ import CardSteps from '../../common/cards/steps/CardSteps'
 import OrderCard from '../../common/cards/order/OrderCard'
 
 // vista de los pasos o vistas del formulario con datos a ser pedidos en cada uno
-const Steps = (props) => {
-  let WrappedComponennt
+const Steps = ({ state, onChange, errors, step, removeCountry }) => {
+  const commonProps = { state, onChange, errors }
+
   let aditionalProps = {}
-  switch (props.step) {
+  let WrappedComponennt
+
+  switch (step) {
     case 1:
       WrappedComponennt = StepOne
-      aditionalProps = { removeCountry: props.removeCountry }
+      aditionalProps = { removeCountry }
       break
     case 2:
       WrappedComponennt = StepTwo
@@ -32,7 +35,7 @@ const Steps = (props) => {
       WrappedComponennt = StepFive
       break
   }
-  return <WrappedComponennt {...aditionalProps} state={props.state} onChange={props.onChange} errors={props.errors} />
+  return <WrappedComponennt {...aditionalProps} {...commonProps} />
 }
 
 // botones de navegacion para avanaza o retroceder en el formulario

@@ -94,8 +94,6 @@ const useForm = (InitialState = {}, nextStepCallback, currentStep) => {
     removeCountry,
     nextStep,
     errors
-    /* handleSubmit,
-    errors */
   }
 }
 

@@ -41,7 +41,7 @@ const Register = (props) => {
     errors
   }
 
-  return <RegisterView{...registerProps} />
+  return <RegisterView {...registerProps} />
 }
 
 export default Register
