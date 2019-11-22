@@ -11,5 +11,4 @@ const StyledLoader = styled.div`
   bottom: calc(50vh - ${LoaderSize / 2}px);
   left: calc(50vw - ${LoaderSize / 2}px);
 `
-
 export { StyledLoader }

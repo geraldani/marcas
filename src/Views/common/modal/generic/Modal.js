@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { StyledModal } from './styles.js'
 import { useWindowHeight } from '../../../../hooks/useWindowHeight'
 
 const container = document.getElementById('modal')
 
-const Modal = ({ children, showModal, setShowModal, showButton }) => {
+const Modal = ({ children, showModal, setShowModal, showCloseButton }) => {
   const windowHeight = useWindowHeight()
 
   const MainModal = () => {
@@ -13,7 +13,11 @@ const Modal = ({ children, showModal, setShowModal, showButton }) => {
       return (
         <StyledModal height={windowHeight}>
           {
-            showButton && <button title='Cerrar Modal' onClick={() => setShowModal(!showModal)} />
+            showCloseButton &&
+              <button
+                title='Cerrar Modal'
+                onClick={() => setShowModal(!showModal)}
+              />
           }
           {children}
         </StyledModal>

@@ -30,20 +30,18 @@ const Register = (props) => {
     setStep(step - 1)
   }
 
-  // console.log('estado ', state, ' el paso actual ', step, 'hay errores? ', errors)
+  const registerProps = {
+    step,
+    totalSteps: TOTAL_STEPS,
+    state,
+    onChange: handleChange,
+    handleClickBack: clickBack,
+    handleClickNext: nextStep,
+    removeCountry,
+    errors
+  }
 
-  return (
-    <RegisterView
-      step={step}
-      totalSteps={TOTAL_STEPS}
-      state={state}
-      onChange={handleChange}
-      handleClickBack={clickBack}
-      handleClickNext={nextStep}
-      removeCountry={removeCountry}
-      errors={errors}
-    />
-  )
+  return <RegisterView{...registerProps} />
 }
 
 export default Register
