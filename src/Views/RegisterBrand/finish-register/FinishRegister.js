@@ -5,12 +5,14 @@ import { ROUTES } from '../../common/constants'
 import { StyledImage, StyledSubtitle, StyledTitle } from './styles'
 import { StyledLabelName } from '../../GlobalStyles'
 import imageUrl from '../../../assets/img/svg/icon-confirm.svg'
+import { setViewUp } from '../../../Components/utils'
 
 const FinishRegister = () => {
   const fakeData = [
     { name: 'Contraseña', type: 'password' },
     { name: 'Repetir contraseña', type: 'password' }
   ]
+  setViewUp()
 
   return (
     <>

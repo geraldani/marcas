@@ -5,6 +5,7 @@ import { StyledTotal, StyledItem, StyledType, StyledValue, StyledFieldContainer 
 import { ROUTES } from '../../common/constants'
 import Button from '../../common/buttons/Button'
 import Header from '../../common/header/Header'
+import ModalLoader from '../../common/modal/ModalLoader'
 // import { useFetch } from '../../../hooks/useFetch'
 
 const getData = (state) => {
@@ -24,7 +25,7 @@ const getData = (state) => {
   return data
 }
 
-const handleClick = async (e, state, history, setLoading) => {
+const handleFinishClick = async (e, state, history, setLoading) => {
   e.preventDefault()
   const data = getData(state)
   const url = 'https://marcas-api-test.herokuapp.com/paperwork/new'
@@ -40,10 +41,10 @@ const handleClick = async (e, state, history, setLoading) => {
     const response = await res.json()
     console.log('la respuesta fue ', response)
     setLoading(false)
+    history.push(ROUTES.finishRegister)
   } catch (e) {
     console.log('Ocurrio un error ', e.message)
   }
-  history.push(ROUTES.finishRegister)
 }
 
 const OrderDetail = (props) => {
@@ -69,13 +70,19 @@ const OrderDetail = (props) => {
   ]
   const [loading, setLoading] = useState(false)
 
+  const handleBackClick = () => {
+    props.history.push({
+      pathname: ROUTES.registerBrand,
+      state: { step: 5, data: state }
+    })
+  }
   return (
     <>
       <Header />
-      <div className='pt-5 px-md-5 px-3 margin-header'>
+      <div className='pt-5 px-md-5 px-3 margin-header mb-4'>
         <div className='row justify-content-center align-items-center flex-column'>
           <CircleSteps actualStep={6} totalSteps={5} />
-          <div className='col-md-9 col-12 mt-3 mb-5'>
+          <div className='col-md-9 col-12 mt-3'>
             <CardSteps title='Detalle de orden' className='pb-5'>
               {
                 groupFilds.map(vec => (
@@ -87,14 +94,22 @@ const OrderDetail = (props) => {
             </CardSteps>
             <div className='d-flex justify-content-center align-items-center flex-column'>
               <StyledTotal>Total: $520</StyledTotal>
-              <Button
-                className='px-5 w-md-100'
-                title='Finalizar'
-                onClick={(e) => handleClick(e, state, props.history, setLoading)}
-              />
+              <div className='d-flex justify-content-between w-100'>
+                <Button
+                  className='px-5 w-md-100'
+                  title='Volver'
+                  styled='outline-purple'
+                  onClick={handleBackClick}
+                />
+                <Button
+                  className='px-5 w-md-100'
+                  title='Finalizar'
+                  onClick={(e) => handleFinishClick(e, state, props.history, setLoading)}
+                />
+              </div>
             </div>
             {
-              loading && <div>Cargando</div>
+              loading && <ModalLoader />
             }
           </div>
         </div>
@@ -124,7 +139,7 @@ const Fields = ({ items }) => {
       {
         items.map((elem) => {
           return (
-            <StyledItem key={elem.name}>
+            <StyledItem key={elem.label}>
               <StyledType>{elem.label}:</StyledType>
               <StyledValue style={{ fontSize: '.9em' }}>
                 <Data elem={elem} />

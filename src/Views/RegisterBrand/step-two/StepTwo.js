@@ -16,7 +16,6 @@ const StepTwo = (props) => {
       : setDisableInput(false)
   }
 
-  console.log('el error del paso 2 ', errors)
   return (
     <>
       <div className='col-12 px-4 mt-3 mt-md-5'>

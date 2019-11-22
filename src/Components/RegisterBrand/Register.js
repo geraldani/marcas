@@ -7,7 +7,8 @@ import { Model } from './model'
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
-  const [step, setStep] = useState(1)
+  const previousState = props.location.state // el estado pasapo por props en el history
+  const [step, setStep] = useState(previousState ? previousState.step : 1)
 
   const clickNext = (e) => {
     // e.preventDefault()
@@ -22,7 +23,7 @@ const Register = (props) => {
     }
   }
 
-  const { state, handleChange, removeCountry, nextStep, errors } = useForm(Model, clickNext, step)
+  const { state, handleChange, removeCountry, nextStep, errors } = useForm(previousState ? previousState.data : Model, clickNext, step)
   const clickBack = (e) => {
     e.preventDefault()
     setViewUp()

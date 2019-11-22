@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import Loader from './Views/common/loader/Loader'
+import Modal from './Views/common/modal/generic/Modal'
+import ModalLoader from './Views/common/modal/ModalLoader'
 
 /* const useInput = (inicialValue = '') => {
   const [value, setValue] = useState(inicialValue)
@@ -136,7 +139,7 @@ const Two = ({ onChange, value, err }) => {
     </>
   )
 }
-const Three = ({onChange}) => {
+const Three = ({ onChange }) => {
   return (
     <>
       <label>
@@ -189,8 +192,13 @@ const PruebasFormsHooks = () => {
   const [step, setStep] = useState(1)
   const { value, errors, handleChange, handleSubmit } = useForm(handleClick, validate, step)
   const Inputs = { value, onChange: handleChange }
+  const [loader, setLoader] = useState(false)
+  const [modal, setModal] = useState(true)
   return (
     <div style={{ padding: '5rem' }}>
+      <button onClick={() => setModal(!modal)}>show modal</button>
+
+      <button onClick={() => setLoader(!loader)}>show loader</button>
       <form>
         <CurrentStep
           step={step}
