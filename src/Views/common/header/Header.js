@@ -1,8 +1,10 @@
 import React from 'react'
 import Logo from '../logo/Logo'
 import { Link } from 'react-router-dom'
-import { menu } from '../../../data.json'
+import { data } from '../../../data.js'
 import { StyledNavItem, StyledLink } from './styles'
+
+const { menu } = data
 
 const Header = (props) => (
   <header>
@@ -42,7 +44,6 @@ const Header = (props) => (
           </div>
         </>
       }
-
     </nav>
   </header>
 )

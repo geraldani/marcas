@@ -1,8 +1,10 @@
 import React from 'react'
-import { COLOR } from '../../common/constants'
+import { COLOR, ROUTES } from '../../../utils/constants'
 import Title from '../../common/title/Title'
-import { contact } from '../../../data.json'
+import { data } from '../../../data.js'
 import { StyledButton } from './styles'
+
+const { contact } = data
 
 const Contact = () => {
   return (
@@ -18,6 +20,7 @@ const Contact = () => {
             className='ml-3'
             title={contact.buttonTitle}
             styled='outline-purple'
+            link={ROUTES.writeContact}
           />
         </div>
       </div>

@@ -20,13 +20,18 @@ const ROUTES = {
   home: '/',
   registerBrand: '/register-brand',
   orderDetail: '/order-detail',
+  otherTrams: '/otros-tramites',
   finishRegister: '/finish-register',
-  moreInfo: '/info/:name',
+  beginBrand: '/inicio-tramite',
+  writeContact: '/write-us',
+  moreInfo: '/info',
   faq: '/faqs',
   terms: '/terms-and-conditions',
+  contact: '/contact-with-us',
   signin: '/signin',
   signup: '/signup',
   login: '/:contain'
+
 }
 
 // for media queries screens

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../../constants'
+import { COLOR } from '../../../../utils/constants'
 
 const StyledFileName = styled.span`
   border-bottom-left-radius: 0.25rem;

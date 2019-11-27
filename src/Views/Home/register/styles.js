@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import background from '../../../assets/img/mg.jpg'
-import { COLOR, SCREEN } from '../../common/constants'
+import { COLOR, SCREEN } from '../../../utils/constants'
 
 export const StyledContainer = styled.section`
   background-image: url(${background});

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../../constants'
+import { COLOR } from '../../../../utils/constants'
 
 const SwitchWidth = 50
 const SwitchHeight = 25

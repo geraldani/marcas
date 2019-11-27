@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { COLOR, SCREEN } from '../../constants'
+import { COLOR, SCREEN } from '../../../../utils/constants'
 import Button from '../../buttons/Button'
 
 const StyledLink = styled(Link)`

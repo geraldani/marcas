@@ -1,4 +1,4 @@
-import { isEmailValid, isHexColor } from '../utils'
+import { isEmailValid, isHexColor } from '../../utils'
 
 const hayMarcaSelected = (marcas) => {
   let checked = false

@@ -1,5 +1,5 @@
 import React from 'react'
-import { COLOR } from '../../constants'
+import { COLOR } from '../../../../utils/constants'
 import { StyledDescription, StyledCheckbox, StyledCheckIcon, StyledCard } from './styles'
 
 const RadioButttons = (props) => {

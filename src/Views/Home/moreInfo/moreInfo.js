@@ -1,13 +1,15 @@
 import React from 'react'
 import Header from '../../common/header/Header'
 import RegisterBrand from '../register/RegisterBrand'
-import { help } from '../../../data.json'
+import { data } from '../../../data.js'
 import LoginCard from '../../common/login'
 import Footer from '../../common/footer/Footer'
 import { IoIosCheckmark as Check } from 'react-icons/io'
-import { StyledText } from './styles'
-import { COLOR } from '../../common/constants'
-import { setViewUp } from '../../../Components/utils'
+import { StyledContainer } from './styles'
+import { COLOR } from '../../../utils/constants'
+import { setViewUp } from '../../../utils'
+
+const { help } = data
 
 const inputData = [
   {
@@ -29,20 +31,21 @@ const MoreInfo = (props) => {
       <RegisterBrand title={elem.title} subtitle={elem.description} />
       <div className='row m-0'>
         <div className='col-12 col-md-7 p-5'>
-          <h3>Lorem ipsun has been the industry's standard dummy</h3>
-          <StyledText className='text-left mt-4'>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy
-            text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries.
-          </StyledText>
           {
-
-            [...Array(5)].map(text => (
-              <StyledText key={text}>
-                <Check size='35px' color={COLOR.purple} />
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </StyledText>
+            elem.info.map(detailInfo => (
+              <StyledContainer key={detailInfo.title} isEnum={detailInfo.isEnum}>
+                <h3>{detailInfo.title}</h3>
+                {
+                  detailInfo.text.map(text => (
+                    <p key={text}>
+                      {
+                        detailInfo.isEnum && <Check size='30px' color={COLOR.purple} />
+                      }
+                      {text}
+                    </p>
+                  ))
+                }
+              </StyledContainer>
             ))
           }
         </div>

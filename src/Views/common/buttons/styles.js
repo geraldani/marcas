@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { COLOR, SCREEN } from '../constants'
+import { COLOR, SCREEN } from '../../../utils/constants'
 import { Link } from 'react-router-dom'
 
 const commonStyles = css`

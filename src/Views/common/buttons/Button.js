@@ -11,6 +11,7 @@ const Button = ({ title, styled = 'purple', children, link, onClick, className }
       styles={styled}
       to={link}
       onClick={onClick}
+      title={title}
     >
       {title}
       {children}

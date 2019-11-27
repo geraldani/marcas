@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../constants'
+import { COLOR } from '../../../utils/constants'
 
 export const StyledTooltip = styled.div`
   position: relative;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoIosArrowDropright as ArrowIcon } from 'react-icons/io'
 import { StyledLink, StyledButton } from './styles'
-import { COLOR } from '../../constants'
+import { COLOR, ROUTES } from '../../../../utils/constants'
 
 const CardInfo = (props) => {
   const pair = props.index % 2 === 0
@@ -11,7 +11,7 @@ const CardInfo = (props) => {
     text: pair ? 'text-md-left' : 'text-md-right',
     margin: pair ? 'margin-left: 2rem' : 'margin-right: 2rem'
   }
-  const MoreInfo = () => <StyledLink to={`info/${props.id}`} margin={classes.margin}>{props.buttonInfo}.</StyledLink>
+  const MoreInfo = () => <StyledLink to={`${ROUTES.moreInfo}/${props.id}`} margin={classes.margin}>{props.buttonInfo}.</StyledLink>
 
   return (
     <div className={`row mx-0 mb-3 mb-md-5 ${classes.justify}`}>

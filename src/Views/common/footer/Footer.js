@@ -1,7 +1,9 @@
 import React from 'react'
 import Logo from '../logo/Logo'
-import { footer } from '../../../data.json'
+import { data } from '../../../data.js'
 import { StyledCopyright, StyledLink } from './styles'
+
+const { footer } = data
 
 const Footer = () => {
   return (
