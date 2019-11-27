@@ -27,7 +27,7 @@ const data = {
         submenu: [
           {
             name: routesRegisterBrand.register.title,
-            path: ROUTES.registerBrand
+            path: ROUTES.beginBrand + '/' + routesRegisterBrand.register.id
           },
           {
             name: routesRegisterBrand.renovar.title,
