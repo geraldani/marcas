@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../../common/constants'
+import { COLOR } from '../../../utils/constants'
 import { StyledLegend } from '../../GlobalStyles'
 
 const StyledButton = styled.button`

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { COLOR } from '../common/constants'
+import { COLOR } from '../../utils/constants'
 
 const commonStyles = css`
   color: ${COLOR.darkGrey};

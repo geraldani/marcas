@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR, SCREEN } from '../../common/constants'
+import { COLOR, SCREEN } from '../../../utils/constants'
 
 const StyledText = styled.p`
   text-align: center;

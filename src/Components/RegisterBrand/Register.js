@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ROUTES } from '../../Views/common/constants'
+import { ROUTES } from '../../utils/constants'
 import RegisterView from '../../Views/RegisterBrand/register/RegisterView'
 import useForm from '../../hooks/useForm'
-import { setViewUp } from '../utils'
+import { setViewUp } from '../../utils'
 import { Model } from './model'
 
 const Register = (props) => {

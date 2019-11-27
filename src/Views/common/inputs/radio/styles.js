@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../../constants'
+import { COLOR } from '../../../../utils/constants'
 
 const StyledDescription = styled.p`
   color: ${props => props.checked ? COLOR.black : COLOR.darkGrey};

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR, SCREEN } from '../../common/constants'
+import { COLOR, SCREEN } from '../../../utils/constants'
 import { Link } from 'react-router-dom'
 
 const StyledCircle = styled.div`

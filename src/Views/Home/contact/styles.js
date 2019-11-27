@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Button from '../../common/buttons/Button'
-import { SCREEN } from '../../common/constants'
+import { SCREEN } from '../../../utils/constants'
 
 const StyledButton = styled(Button)`
   @media (max-width: ${SCREEN.md}px){

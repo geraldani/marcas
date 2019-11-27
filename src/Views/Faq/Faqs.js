@@ -1,9 +1,9 @@
 import React from 'react'
 import Header from '../common/header/Header'
-import { COLOR } from '../common/constants'
+import { COLOR } from '../../utils/constants'
 import { textFaq } from './text'
 import Footer from '../common/footer/Footer'
-import { setViewUp } from '../../Components/utils'
+import { setViewUp } from '../../utils'
 import { StyledContainer } from './styles'
 
 const Faqs = () => {

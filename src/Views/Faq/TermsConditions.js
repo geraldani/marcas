@@ -1,8 +1,8 @@
 import React from 'react'
 import Header from '../common/header/Header'
 import Footer from '../common/footer/Footer'
-import { COLOR } from '../common/constants'
-import { setViewUp } from '../../Components/utils'
+import { COLOR } from '../../utils/constants'
+import { setViewUp } from '../../utils'
 import { StyledParagraph } from './styles'
 import { textTermsConditions } from './text'
 

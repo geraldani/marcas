@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../../common/constants'
+import { COLOR } from '../../../utils/constants'
 
 const StyledTotal = styled.h4`
   text-align: center;

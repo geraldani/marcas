@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledType, StyledValue, StyledNoOrder, StyledIcon } from './styles'
-import { COLOR } from '../../constants'
+import { COLOR } from '../../../../utils/constants'
 import icon from '../../../../assets/img/svg/icon-empty.svg'
 
 const isThereData = (data) => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR, SCREEN } from '../constants'
+import { COLOR, SCREEN } from '../../../utils/constants'
 
 const squareWidth = 80
 const squareHeight = 100

@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../../common/buttons/Button'
 import { StyledContainer } from './styles'
-import { ROUTES } from '../../common/constants'
+import { ROUTES } from '../../../utils/constants'
 
 const RegisterBrand = (props) => (
   <StyledContainer {...props}>
@@ -27,6 +27,7 @@ const RegisterBrand = (props) => (
                 key={index}
                 title={title}
                 styled='outline-white'
+                link={ROUTES.otherTrams}
                 className='mx-md-0 mx-4' />
           )
         }

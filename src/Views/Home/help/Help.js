@@ -1,9 +1,10 @@
 import React from 'react'
 import Title from '../../common/title/Title'
 import CardInfo from '../../common/cards/info/InfoCards'
-import { help } from '../../../data.json'
+import { data } from '../../../data.js'
 import { StyledText } from './styles'
-// import uuid from 'uuid'
+
+const { help } = data
 
 const Help = () => (
   <section id='sectionHelp'>
@@ -19,7 +20,7 @@ const Help = () => (
             key={card.id}
             buttonInfo={help.buttonInfo}
             buttonTitle={help.buttonTitle}
-            link={`/${help.url}-${card.id}`}
+            link={`${help.url}/${card.id}`}
             {...card}
           />
         ))

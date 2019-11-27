@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR, SCREEN } from './common/constants'
+import { COLOR, SCREEN } from '../utils/constants'
 
 const StyledLegend = styled.p`
   color: ${COLOR.darkGrey};

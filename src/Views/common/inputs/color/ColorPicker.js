@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { PhotoshopPicker as Picker } from 'react-color'
 import { StyledPickerContainer, StyledColorSquare } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
-import { isHexColor } from '../../../../Components/utils'
+import { isHexColor } from '../../../../utils'
 import InputText from '../text/InputText'
 
 const ColorPicker = ({ title, label, value, onChange, name, type, error }) => {

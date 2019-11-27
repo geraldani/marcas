@@ -1,5 +1,5 @@
 import { css } from 'styled-components'
-import { COLOR } from '../../constants'
+import { COLOR } from '../../../../utils/constants'
 
 export const StylesCkeckInput = css`
     color: ${COLOR.darkGrey + '8c'};

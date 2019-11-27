@@ -1,9 +1,11 @@
 import React from 'react'
-import { countries } from '../../../../data'
+import { data } from '../../../../data.js'
 import ErrorAlert from '../../alerts/ErrorAlert'
 import { StyledSelect } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import PropTypes from 'prop-types'
+
+const { countries } = data
 
 const Select = ({ value, onChange, error, label, name, type }) => {
   const multiple = type === 'select-multi'

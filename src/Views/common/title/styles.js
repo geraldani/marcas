@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { SCREEN } from '../constants'
+import { SCREEN } from '../../../utils/constants'
 
 const StyledTitle = styled.h2`
   text-align: center;

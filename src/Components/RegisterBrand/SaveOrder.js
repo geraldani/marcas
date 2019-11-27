@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import OrderDetail from '../../Views/RegisterBrand/order-detail/OrderDetail'
-import { ROUTES } from '../../Views/common/constants'
+import { ROUTES } from '../../utils/constants'
 
 // para armar el cuerpo del json a ser enviado a guardarse a partir de los datos guardados en el estado
 const getData = (state) => {

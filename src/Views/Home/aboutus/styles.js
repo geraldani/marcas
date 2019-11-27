@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import imageBackground from '../../../assets/img/about.jpg'
-import { SCREEN } from '../../common/constants'
+import { SCREEN } from '../../../utils/constants'
 
 const StyledContainer = styled.div`
   background-image: url(${imageBackground});

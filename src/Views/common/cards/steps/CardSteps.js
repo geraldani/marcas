@@ -1,5 +1,5 @@
 import React from 'react'
-import { COLOR } from '../../constants'
+import { COLOR } from '../../../../utils/constants'
 
 const CardSteps = (props) => {
   const { title, children, style } = props

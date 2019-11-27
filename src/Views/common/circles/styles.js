@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { COLOR } from '../constants'
+import { COLOR } from '../../../utils/constants'
 
 const commonStyles = css`
   height: 30px;
