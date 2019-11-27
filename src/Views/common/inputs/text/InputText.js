@@ -2,6 +2,7 @@ import React from 'react'
 import ErrorAlert from '../../alerts/ErrorAlert'
 import { StyledSublabel } from '../../../GlobalStyles'
 import PropTypes from 'prop-types'
+import Tooltip from '../../tooltip/Tooltip'
 
 const Input = ({ type, classname, name, disabled, value, onChange, initialValue }) => (
   <input
@@ -17,15 +18,18 @@ const Input = ({ type, classname, name, disabled, value, onChange, initialValue 
 
 const InputWithLabel = (props) => (
   <StyledSublabel disabled={props.disabled}>
-    {props.label}
+    <span className='d-flex'>
+      {props.label}
+      {props.tooltip && <Tooltip title={props.tooltip} style={{ marginTop: '0.5em' }} />}
+    </span>
     <Input {...props} />
   </StyledSublabel>
 )
 
-const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle }) => {
+const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle, tooltip }) => {
   const errorClass = error ? 'error' : ''
   const classname = className ? `form-control ${className} ${errorClass}` : `form-control ${errorClass}`
-  const prop = { type, classname, name, disabled, value, onChange, label, initialValue }
+  const prop = { type, classname, name, disabled, value, onChange, label, initialValue, tooltip }
 
   return (
     <>

@@ -5,17 +5,17 @@ const routesRegisterBrand = {
     id: 'registro-marca',
     title: 'Registro de marcas'
   },
-  disputa: {
-    id: 'disputa-dominios',
-    title: 'Disputa de dominios'
+  renovar: {
+    id: 'renovar-marca',
+    title: 'Renovar una marca'
   },
   international: {
-    id: 'registros-internacionales',
-    title: 'Registros internacionales'
+    id: 'transferir-marca',
+    title: 'Transferir o cambiar de rubro de Marcas'
   },
-  protocolo: {
-    id: 'procolo-registro',
-    title: 'Protocolo de registro Madrid'
+  oponer: {
+    id: 'oponer-marca',
+    title: 'Oponer a una marca'
   }
 }
 
@@ -27,19 +27,19 @@ const data = {
         submenu: [
           {
             name: routesRegisterBrand.register.title,
-            path: ROUTES.beginBrand + '/' + routesRegisterBrand.register.id
+            path: ROUTES.registerBrand
           },
           {
-            name: routesRegisterBrand.disputa.title,
-            path: ROUTES.beginBrand + '/' + routesRegisterBrand.disputa.id
+            name: routesRegisterBrand.renovar.title,
+            path: ROUTES.beginBrand + '/' + routesRegisterBrand.renovar.id
           },
           {
             name: routesRegisterBrand.international.title,
             path: ROUTES.beginBrand + '/' + routesRegisterBrand.international.id
           },
           {
-            name: routesRegisterBrand.protocolo.title,
-            path: ROUTES.beginBrand + '/' + routesRegisterBrand.protocolo.id
+            name: routesRegisterBrand.oponer.title,
+            path: ROUTES.beginBrand + '/' + routesRegisterBrand.oponer.id
           }
         ]
       },
@@ -185,22 +185,99 @@ const data = {
           ]
         },
         {
-          id: routesRegisterBrand.disputa.id,
-          title: routesRegisterBrand.disputa.title,
-          description: 'Algo que describa la disputa de dominio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          info: []
+          id: routesRegisterBrand.renovar.id,
+          title: routesRegisterBrand.renovar.title,
+          description: 'Al cumplirse los 10 años de haber registrado tu marca, debés renovar el registro para conservar tus derechos otorgados por el registro marcario.',
+          info: [
+            {
+              title: '',
+              isEnum: false,
+              text: [
+                'Las marcas están protegidas durante 10 años. Podés renovar el registro indefinidamente (durante nuevos períodos consecutivos de 10 años), en un plazo de 60 días previos al vencimiento.'
+              ]
+            },
+            {
+              title: '¿A quién está dirigido?',
+              isEnum: false,
+              text: [
+                'A los titulares de la marca o legítimos sucesores, apoderados o agentes de la propiedad industrial matriculados, y gestores autorizados.',
+                'Una marca puede ser renovada sólo si fue utilizada durante los últimos 5 años.'
+              ]
+            },
+            {
+              title: '¿Qué necesito?',
+              isEnum: true,
+              text: [
+                'Clave fiscal (nivel 2), en caso realizar el trámite bajo la modalidad en línea. Para eso tenés que vincular el servicio del INPI en tu cuenta de AFIP, como te indica el Instructivo',
+                'Tener declarado un domicilio legal en la Ciudad Autónoma de Buenos Aires.',
+                'Transmisión de los derechos marcarios como transferencia, en caso de que el titular haya fallecido.',
+                'Para apoderados: copia del poder firmada por el apoderado declarando bajo juramento que es fiel a su original e instrumenta mandato vigente.',
+                'Personas jurídicas: declaración jurada sobre las facultades del firmante detallando instrumentos societarios (Actas de Asamblea, de Directorio) con datos de inscripción y expresión de que poseen facultades para realizar el acto de renovación.',
+                'Declaración jurada de uso, manifestando que la marca fue utilizada dentro de los 5 años previos al vencimiento en estas instancias:'
+              ]
+            }
+          ]
         },
         {
           id: routesRegisterBrand.international.id,
           title: routesRegisterBrand.international.title,
-          description: 'Algo que describa los registros internacionales. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          info: []
+          description: 'Es el trámite de inscripción de una modificación en la titularidad de un derecho de MARCA ya sea por transmisión (transferencia) o por modificación en el nombre o tipo societario o nombre de persona humana (cambio de rubro)',
+          info: [
+            {
+              title: '¿A quién está dirigido?',
+              isEnum: false,
+              text: [
+                'Cualquier persona física o jurídica TITULAR DE DERECHOS en trámite o concedidos DE MARCAS que pretendan transferir sus derechos o haya modificado su denominación social.',
+                'Se puede realizar a través de Agentes de la Propiedad Industrial pero estos deben resultar apoderados y si actúan por el transmitente para instrumentar la transferencia deben poseer facultades de disposición para el acto.'
+              ]
+            },
+            {
+              title: '¿Qué necesito?',
+              isEnum: true,
+              text: [
+                'La transferencia puede instrumentarse mediante el formulario ACREDITACIÓN DE CESIÓN (certificando la firma del cedente y cónyuge en el) el cual se halla disponible dentro del Formulario de Transferencia y Cambio de Rubro link Formulario de Transferencia de Marcas.o mediante instrumento público o privado con firma certificada.',
+                'Los firmantes que actuaren por un derecho que no es el propio, deberán acreditar, por medio de la certificación notarial o judicial, la representación que invoquen y que se encuentran debidamente facultados para la realización del acto.',
+                'Cuando el acto se hubiese celebrado en el extranjero su forma se regirá por las leyes del país en el que se hubiera otorgado. El acto puede instrumentarse en el mismo formulario (Citado en el punto 1).',
+                'Cuando la transferencia se opere como consecuencia de la venta del fondo de comercio, del que la marca forme parte, la misma se deberá justificarse mediante el documento que acredite la respectiva inscripción en el Registro Público de Comercio (Ley 11.867).',
+                'Cuando la transferencia se efectúe por causa de muerte del titular, no se tomará razón de la misma sin orden expresa del Juez interviniente en la sucesión del titular del derecho que se transmite. Deberán consignarse los datos de los herederos, sus partes indivisas y el autorizado a suscribir el formulario.',
+                'Para hacer efectiva la transmisión el cedente o la denominación anterior no debe hallarse con medidas cautelares que lo impidan.',
+                'Para el caso de tratarse de múltiples TITULARES – CEDENTES y/o múltiples ADQUIRENTES – CESIONARIOS deben presentarse tantos formularios como cedentes o adquirentes resulten.'
+              ]
+            },
+            {
+              title: '¿Cómo hago?',
+              isEnum: true,
+              text: [
+                'Poseer clave fiscal y registrarse.',
+                'Completar las diferentes pantallas de información.',
+                'Adjuntar PDF con la documentación que acredite la transferencia (contrato o el mismo formulario) escaneada, cumpliendo con los requisitos informados precedentemente (certificación de firmas, entre otros).',
+                'Generar y abonar Volante Electrónico de Pago (VEP).'
+              ]
+            },
+            {
+              title: '¿Cuánto tiempo lleva hacer el trámite?',
+              isEnum: false,
+              text: [
+                'El trámite lleva: 2 meses',
+                'El tramite sin observaciones hasta su inscripción demora 2 meses.'
+              ]
+            }
+          ]
         },
         {
-          id: routesRegisterBrand.protocolo.id,
-          title: routesRegisterBrand.protocolo.title,
-          description: 'Algo que describa el protocolo de registro. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-          info: []
+          id: routesRegisterBrand.oponer.id,
+          title: routesRegisterBrand.oponer.title,
+          description: 'Algo que describa la opocicion del registro de marca',
+          info: [
+            {
+              title: '',
+              isEnum: false,
+              text: [
+                'Para realizar el trámite de forma presencial o por correo postal descargar los siguientes formularios (obligatorios a partir del 1 de enero de 2019).',
+                'Importante: Los formularios deben ser completados utilizando la computadora o a máquina, ser impresos en hoja A4, blanca y simple faz. No se recibirán formularios o documentación que no posea firma original.'
+              ]
+            }
+          ]
         }
       ]
   },

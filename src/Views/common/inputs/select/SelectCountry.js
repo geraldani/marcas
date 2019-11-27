@@ -4,17 +4,22 @@ import ErrorAlert from '../../alerts/ErrorAlert'
 import { StyledSelect } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import PropTypes from 'prop-types'
+import Tooltip from '../../tooltip/Tooltip'
 
 const { countries } = data
 
-const Select = ({ value, onChange, error, label, name, type }) => {
+const Select = ({ value, onChange, error, label, name, type, tooltip }) => {
   const multiple = type === 'select-multi'
   const valueDefault = multiple ? value[value.length - 1] ? value[value.length - 1] : '' : value
   const defaultOption = 'Seleccione su pais'
 
   return (
     <StyledSublabel>
-      {label}
+      <span className='d-flex'>
+        {label}
+        {tooltip && <Tooltip title={tooltip} style={{ marginTop: '0.5em' }} />}
+      </span>
+
       <StyledSelect
         className={`custom-select ${error ? 'error' : ''}`}
         onChange={onChange}
