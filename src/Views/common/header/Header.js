@@ -1,10 +1,8 @@
 import React from 'react'
 import Logo from '../logo/Logo'
 import { Link } from 'react-router-dom'
-import { data } from '../../../data.js'
+import { menu } from '../../../data.js'
 import { StyledNavItem, StyledLink } from './styles'
-
-const { menu } = data
 
 const Header = (props) => (
   <header>
@@ -28,9 +26,13 @@ const Header = (props) => (
           <div className='collapse navbar-collapse justify-content-end' id='navbarNavHeader'>
             <ul className='navbar-nav'>
               {
-                menu.home.map((menu, index) => {
+                menu.home.map(menu => {
+                  let active = ''
+                  if (menu.path && props.page) {
+                    active = props.page === menu.path.slice(1) ? 'active' : ''
+                  }
                   return (
-                    <StyledNavItem className='nav-item position-relative' key={index}>
+                    <StyledNavItem className={`nav-item position-relative ${active}`} key={menu.name}>
                       {
                         menu.submenu
                           ? <Submenu items={menu.submenu} name={menu.name} />

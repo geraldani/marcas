@@ -5,7 +5,7 @@ import Button from '../../buttons/Button'
 
 const StyledLink = styled(Link)`
   font-style: italic;
-  color: ${COLOR.purple};
+  color: ${COLOR.primary};
   font-weight: 500;
   ${props => props.margin};
   transition: all 200ms;
@@ -14,7 +14,7 @@ const StyledLink = styled(Link)`
   }
   &:hover{
     text-decoration: none;
-    color: ${COLOR.purple};
+    color: ${COLOR.primary};
     opacity: 0.6;
   }
 `

@@ -1,10 +1,8 @@
 import React from 'react'
 import { COLOR, ROUTES } from '../../../utils/constants'
 import Title from '../../common/title/Title'
-import { data } from '../../../data.js'
+import { contact } from '../../../data.js'
 import { StyledButton } from './styles'
-
-const { contact } = data
 
 const Contact = () => {
   return (

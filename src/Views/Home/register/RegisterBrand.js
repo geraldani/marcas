@@ -21,7 +21,6 @@ const RegisterBrand = (props) => (
                 key={index}
                 title={title}
                 link={ROUTES.registerBrand}
-                styled='purple'
                 className='mx-4 mb-3 mb-md-0 ml-md-0' />
               : <Button
                 key={index}

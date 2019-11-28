@@ -4,6 +4,7 @@ import LoginCard from '../common/login'
 import Footer from '../common/footer/Footer'
 import ConstructionPage from '../common/Warnings/constructioPage'
 import PageNotFound from '../common/Warnings/PageNotFound'
+import { ROUTES } from '../../utils/constants'
 
 const dataRegister = {
   header: 'Registrate',
@@ -46,14 +47,23 @@ const dataLogin = {
   ]
 }
 
+const existRoute = (param) => {
+  let exist = false
+  Object.values(ROUTES).forEach(route => {
+    if (param === route.slice(1)) exist = true
+  })
+  return exist
+}
+
 const Sign = (props) => {
   let elem
   let other = false
   let doesntexist = false
   const param = props.match.params.contain
-  if (param === 'signup') elem = dataRegister
-  else if (param === 'signin') elem = dataLogin
-  else if (param === 'domain' || param === 'contact-with-us' || param === 'otros-tramites' || param === 'write-us') other = true
+
+  if (param === ROUTES.signup.slice(1)) elem = dataRegister
+  else if (param === ROUTES.signin.slice(1)) elem = dataLogin
+  else if (existRoute(param)) other = true
   else doesntexist = true
 
   const CardLogin = () => (
@@ -68,7 +78,7 @@ const Sign = (props) => {
 
   return (
     <>
-      <Header showMenu />
+      <Header showMenu page={param} />
       {
         other
           ? <ConstructionPage />

@@ -1,9 +1,7 @@
 import React from 'react'
-import { data } from '../../../data.js'
+import { formalities } from '../../../data.js'
 import Title from '../../common/title/Title'
 import BrandCards from '../../common/cards/brand/BrandCards'
-
-const { formalities } = data
 
 const Formalities = () => (
   <section className='mb-5'>

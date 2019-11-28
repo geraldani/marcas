@@ -1,15 +1,13 @@
 import React from 'react'
 import Header from '../../common/header/Header'
 import RegisterBrand from '../register/RegisterBrand'
-import { data } from '../../../data.js'
+import { help } from '../../../data.js'
 import LoginCard from '../../common/login'
 import Footer from '../../common/footer/Footer'
 import { IoIosCheckmark as Check } from 'react-icons/io'
 import { StyledContainer } from './styles'
 import { COLOR } from '../../../utils/constants'
 import { setViewUp } from '../../../utils'
-
-const { help } = data
 
 const inputData = [
   {
@@ -39,7 +37,7 @@ const MoreInfo = (props) => {
                   detailInfo.text.map(text => (
                     <p key={text}>
                       {
-                        detailInfo.isEnum && <Check size='30px' color={COLOR.purple} />
+                        detailInfo.isEnum && <Check size='30px' color={COLOR.primary} />
                       }
                       {text}
                     </p>

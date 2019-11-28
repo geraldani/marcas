@@ -1,10 +1,8 @@
 import React from 'react'
-import { data } from '../../../data.js'
+import { work } from '../../../data.js'
 import IconCard from '../../common/cards/icon/IconCard'
 import styled from 'styled-components'
 import { SCREEN } from '../../../utils/constants'
-
-const { work } = data
 
 const Work = () => (
   <section>

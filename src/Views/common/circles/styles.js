@@ -22,21 +22,21 @@ const commonStyles = css`
     bottom: 0;
     margin: auto;
     left: 28px;
-    background-color: ${COLOR.purple};
+    background-color: ${COLOR.primary};
   }
 `
 
 const StyledCircleFull = styled.p`
   ${commonStyles};
-  background-color: ${COLOR.purple};
+  background-color: ${COLOR.primary};
   color: ${COLOR.white};
   box-shadow: 0 2px 7px -2px rgba(0,0,0,.7);
 `
 
 const StyledCircleEmpty = styled.p`
   ${commonStyles};
-  border: solid 2px ${COLOR.purple};
-  color: ${COLOR.purple};
+  border: solid 2px ${COLOR.primary};
+  color: ${COLOR.primary};
   font-weight: 500;
 `
 

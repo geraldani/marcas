@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const StyledContainer = styled.div`
   button{
     font-style: italic;
-    color: ${COLOR.purple};
+    color: ${COLOR.primary};
     font-size: 0.8em;
     margin-top: -10px;
     font-weight: 500;

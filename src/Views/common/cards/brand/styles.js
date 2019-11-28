@@ -4,13 +4,13 @@ import { IoIosCheckmarkCircle as CheckIcon } from 'react-icons/io'
 
 const StyledContainer = styled.div`
   border: solid 3px ${COLOR.grey};
-  border-bottom-color: ${COLOR.purple};
+  border-bottom-color: ${COLOR.primary};
   border-radius: 5px;
   height: 165px;
   position: relative;
 `
 const StyledNumber = styled.h4`
-  color: ${COLOR.purple};
+  color: ${COLOR.primary};
   font-size: 3.1rem;
   margin-top: 2rem;
   text-align: center;
@@ -28,7 +28,7 @@ const StyledCheckIcon = styled(CheckIcon)`
   left: 0;
   right: 0;
   margin: 0 auto 10px auto;
-  color: ${COLOR.purple};
+  color: ${COLOR.primary};
 `
 
 export { StyledContainer, StyledCheckIcon, StyledDescription, StyledNumber }

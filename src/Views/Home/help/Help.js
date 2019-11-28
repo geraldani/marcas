@@ -1,10 +1,8 @@
 import React from 'react'
 import Title from '../../common/title/Title'
 import CardInfo from '../../common/cards/info/InfoCards'
-import { data } from '../../../data.js'
+import { help } from '../../../data.js'
 import { StyledText } from './styles'
-
-const { help } = data
 
 const Help = () => (
   <section id='sectionHelp'>

@@ -7,14 +7,14 @@ const StyledNavItem = styled.li`
   &.active:before{
     content: '';
     width: 100%;
-    border-bottom: solid 4px ${COLOR.purple};
+    border-bottom: solid 4px ${COLOR.primary};
     position: absolute;
     left: 0;
     bottom: -12px;
   }
   &.active a.nav-link,
   & a.nav-link:hover {
-    color: ${COLOR.purple}!important;
+    color: ${COLOR.primary}!important;
     position: relative;
   }
 `

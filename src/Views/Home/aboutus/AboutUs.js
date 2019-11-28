@@ -1,9 +1,7 @@
 import React from 'react'
-import { data } from '../../../data.js'
+import { about } from '../../../data.js'
 import Title from '../../common/title/Title'
 import { StyledContainer } from './styles.js'
-
-const { about } = data
 
 const AboutUs = () => (
   <section>

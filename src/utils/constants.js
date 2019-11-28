@@ -1,6 +1,6 @@
 const COLOR = {
-  // purple: '#8e2efd',
-  purple: '#6d2e80',
+  // primary: '#8e2efd',
+  primary: '#6d2e80',
   white: '#ffffff',
   black: '#000',
   transparent: 'transparent',
@@ -18,19 +18,20 @@ const COLOR = {
 
 const ROUTES = {
   home: '/',
-  registerBrand: '/register-brand',
-  orderDetail: '/order-detail',
-  otherTrams: '/otros-tramites',
+  registerBrand: '/registrar-marca',
   finishRegister: '/finish-register',
   beginBrand: '/inicio-tramite',
-  writeContact: '/write-us',
   moreInfo: '/info',
+  orderDetail: '/order-detail',
   faq: '/faqs',
   terms: '/terms-and-conditions',
-  contact: '/contact-with-us',
   signin: '/signin',
   signup: '/signup',
-  login: '/:contain'
+  login: '/:contain',
+  contact: '/contact-with-us',
+  otherTrams: '/otros-tramites',
+  writeContact: '/write-us',
+  domain: '/disputa-dominio'
 
 }
 

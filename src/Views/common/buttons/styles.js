@@ -8,10 +8,10 @@ const commonStyles = css`
   background-color: ${({ styles }) => {
   switch (styles) {
     case 'purple':
-      return COLOR.purple
+      return COLOR.primary
     case 'outline-white':
       return COLOR.transparent
-    case 'outline-purple':
+    case 'outline-primary':
       return COLOR.transparent
     default:
       return COLOR.white
@@ -24,15 +24,15 @@ const commonStyles = css`
       return COLOR.transparent
     case 'outline-white':
       return COLOR.white
-    case 'outline-purple':
-      return COLOR.purple
+    case 'outline-primary':
+      return COLOR.primary
     default:
       return COLOR.transparent
   }
 }};
   vertical-align: middle;
   border-radius: 0.25rem;
-  color: ${({ styles }) => styles === 'outline-purple' ? COLOR.purple : COLOR.white}!important;
+  color: ${({ styles }) => styles === 'outline-primary' ? COLOR.primary : COLOR.white}!important;
   text-align: center;
   display: inline-block;
   font-size: 1.25rem;
