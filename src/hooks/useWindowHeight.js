@@ -17,11 +17,9 @@ export const useWindowWidth = () => {
   useEffect(() => {
     const handleResize = () => {
       const width = document.body.offsetWidth + 10
-      if (width < SCREEN.lg) {
-        setDropDown(false)
-      } else {
-        setDropDown(true)
-      }
+      width < SCREEN.lg
+        ? setDropDown(false)
+        : setDropDown(true)
     }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
