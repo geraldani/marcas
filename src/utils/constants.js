@@ -32,7 +32,6 @@ const ROUTES = {
   otherTrams: '/otros-tramites',
   writeContact: '/write-us',
   domain: '/disputa-dominio'
-
 }
 
 // for media queries screens

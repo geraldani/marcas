@@ -49,6 +49,7 @@ const StyledCard = styled.label`
   border: solid 1px ${COLOR.mediumGray};
   padding: 15px 15px 8px 55px;
   cursor: pointer;
+  width: 100%;
   margin-bottom: 0;
   background-color: ${props => props.checked ? COLOR.lightGrey : COLOR.white};
   &:hover{

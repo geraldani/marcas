@@ -47,7 +47,7 @@ const ButtonsNavigation = ({ step, handleClickBack, totalSteps, handleClickNext 
     <Button
       title='Volver'
       className='px-5 mb-3 mb-md-0'
-      styled='outline-purple'
+      styled='outline-primary'
       onClick={handleClickBack}
     />
 

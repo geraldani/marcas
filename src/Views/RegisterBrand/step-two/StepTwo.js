@@ -4,49 +4,16 @@ import { StyledLegend, StyledLabelName, StyledDivMarginBottom } from '../../Glob
 import Select from '../../common/inputs/select/SelectCountry'
 import InputText from '../../common/inputs/text/InputText'
 import MoreInfoButton from '../../common/buttons/MoreInfo/MoreInfoButton'
-import Modal from '../../common/modal/generic/Modal'
-import Button from '../../common/buttons/Button'
-
-const RadioModal = ({ setShowModal, showModal, info }) => {
-  const refContainer = useRef(null)
-  return (
-    <Modal setShowModal={setShowModal} showCloseButton showModal={showModal}>
-      <div style={{ backgroundColor: 'white', padding: '20px', width: '800px', borderRadius: '20px' }} ref={refContainer}>
-        {
-          info &&
-          info.map(elem => (
-            <div key={elem.title}>
-              <h2 style={{ fontSize: '1.3em' }}>{elem.title}</h2>
-              {
-                elem.text.map(text => (
-                  <p style={{ fontSize: '0.9em', fontWeight: 'normal' }} key={text}>{text}</p>
-                ))
-              }
-            </div>
-          ))
-        }
-        <Button title='Cerrar' onClick={() => setShowModal(false)} />
-      </div>
-    </Modal>
-  )
-}
 
 const StepTwo = (props) => {
   const { state, onChange, errors } = props
   const [disableInput, setDisableInput] = useState(state.registerType.value === 'persona')
-  const [showModal, setShowModal] = useState(false)
-  const [infoModal, setInfoModal] = useState(null)
+  // para deshabilitar o no el campo de razon social
   const handleChange = (e) => {
     props.onChange(e)
     e.target.value === 'persona'
       ? setDisableInput(true)
       : setDisableInput(false)
-  }
-
-  const openModal = (e, info) => {
-    e.preventDefault()
-    setInfoModal(info)
-    setShowModal(true)
   }
 
   return (
@@ -63,16 +30,14 @@ const StepTwo = (props) => {
             {...state.email}
             onChange={props.onChange}
             error={errors.email}
-            tooltip='El email con el que se logueara el interesado'
+            moreInfo='El email con el que se logueara el interesado'
           />
         </div>
       </div>
 
       <div className='col-12 px-4 mt-4'>
         <StyledLabelName>Datos personales del titular marcario</StyledLabelName>
-        <StyledLegend>
-          Para darle seguimiento a su solicitud de registro de marca, complete el siguiente formulario.
-        </StyledLegend>
+        <StyledLegend>Para darle seguimiento a su solicitud de registro de marca, complete el siguiente formulario.</StyledLegend>
       </div>
 
       <div className='col-lg-5 col-12 px-4 mt-3'>
@@ -88,19 +53,17 @@ const StepTwo = (props) => {
                 description={elem.label}
                 defaultCheked={elem.value === state.registerType.value}
               >
-                <MoreInfoButton onClick={(e) => openModal(e, elem.description)} />
+                <MoreInfoButton info={elem.value + ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget dapibus est, sit amet mattis urna. Sed laoreet egestas est, consectetur vehicula mi cursus ut. Nullam elementum volutpat quam ac dapibus. Quisque imperdiet orci purus, vel mattis turpis euismod vitae. Duis eget purus nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sagittis venenatis lorem eu commodo. Nam aliquet pulvinar nulla id vulputate. Integer dictum sagittis nunc quis commodo. Donec lacus arcu, tincidunt faucibus nisl a, auctor vulputate nunc. Sed sed nisi tempor augue tempor porta. Maecenas metus urna, facilisis id ipsum in, ultricies vestibulum urna. Curabitur viverra quam eget elit pharetra maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus.'} showInModal />
               </RadioButttons>
             ))
           }
-          <RadioModal setShowModal={setShowModal} showModal={showModal} info={infoModal} />
         </div>
       </div>
 
       <StyledDivMarginBottom className='col-lg-7 col-12 px-4'>
         <div className='form-group mr-md-5 position-relative'>
-          <InputText {...state.name} onChange={onChange} error={errors.name}
-                     tooltip='El nombre del propietario de la marca' />
-          <InputText {...state.surname} onChange={onChange} error={errors.surname} />
+          <InputText {...state.name} onChange={onChange} error={errors.name} tooltip='El nombre del propietario de la marca' />
+          <InputText {...state.surname} onChange={onChange} error={errors.surname} moreInfo='algo mas que me guste' />
           <InputText {...state.razonSocial} disabled={disableInput} onChange={onChange} error={errors.razonSocial} />
           <Select {...state.countryGestor} onChange={onChange} error={errors.countryGestor} />
           <InputText {...state.cuit} onChange={onChange} error={errors.cuit} />

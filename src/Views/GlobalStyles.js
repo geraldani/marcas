@@ -1,5 +1,26 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 import { COLOR, SCREEN } from '../utils/constants'
+
+const StyledScroll = css`
+::-webkit-scrollbar {
+    width: 10px!important;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${COLOR.primary + 'c7'};
+  }
+    ::-webkit-scrollbar-track {
+    background: ${COLOR.mediumGray};
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: ${COLOR.primary};
+  }
+
+`
+const GlobalStyles = createGlobalStyle`
+  ${StyledScroll}
+`
 
 const StyledLegend = styled.p`
   color: ${COLOR.darkGrey};
@@ -48,5 +69,7 @@ export {
   StyledSublabel,
   StyledLabelName,
   StyledDivMarginBottom,
-  marginBottom
+  marginBottom,
+  GlobalStyles,
+  StyledScroll
 }

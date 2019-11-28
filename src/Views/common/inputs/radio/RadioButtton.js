@@ -16,7 +16,7 @@ const RadioButttons = (props) => {
   }
 
   return (
-    <div className='d-flex justify-content-end flex-column'>
+    <div className='d-flex justify-content-end flex-column align-items-end'>
       {/* TODO como poner un solo checked al componente de estilos */}
       <StyledCard onClick={changeColor} className={className} checked={checked}>
         {/* input de tipo radio */}

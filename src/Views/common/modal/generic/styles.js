@@ -1,24 +1,18 @@
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 const StyledModal = styled.div`
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0,0,0,.6);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: absolute;
   z-index: 2000;
-  top: 0;
+  top: ${props => {console.log(props.offset); return props.offset}}px;
   left: 0;
   right: 0;
-   height: ${props => props.height}px;
-  &>*:nth-child(2),
-  &>*:nth-child(3){
-    position: fixed;
-    //bottom: calc(50vh - px);
-    bottom: calc(50vh - 100px);
-    left: calc(50vw - 400px);
-  }
+  height: 100vh;
+  //height: ${props => props.height}px;
 `
 
 const StyledButton = styled.button`
@@ -51,5 +45,10 @@ const StyledButton = styled.button`
   &:hover:after{ transform: scale(1.1) rotate(-45deg);}
   &:hover:before{ transform: scale(1.1) rotate(45deg); }
 `
+const ScrollFade = createGlobalStyle`
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+`
 
-export { StyledModal, StyledButton }
+export { StyledModal, StyledButton, ScrollFade }
