@@ -47,7 +47,7 @@ const StepOne = ({ state, onChange, removeCountry, errors }) => {
               {...state.countryRegister}
               onChange={onChange}
               error={errors.countryRegister}
-              tooltip='El pais donde se hara el registro'
+              info='El pais donde se hara el registro'
             />
           </div>
           {

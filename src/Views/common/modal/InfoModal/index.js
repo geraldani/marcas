@@ -25,7 +25,9 @@ const ModalInfo = ({ info, setShowModal }) => {
            </div>
          )) */
       }
-      <Button title='Cerrar' onClick={setShowModal} />
+      <div className='d-flex flex-column flex-md-row justify-content-md-center justify-content-end w-100'>
+        <Button title='Cerrar' onClick={setShowModal} />
+      </div>
     </StyledModal>
   )
 }

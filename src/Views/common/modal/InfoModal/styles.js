@@ -5,15 +5,15 @@ import { StyledScroll } from '../../../GlobalStyles'
 const StyledModal = styled.div`
   display: flex;
   position: fixed;
-  top:calc(50vh - 250px);
+  top:calc(50vh - 45%);
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   background-color: ${COLOR.white};
   padding: 30px;
   border-radius: 10px;
-  width: 800px; 
-  height: 500px;
+  width: 80%; 
+  height: 90%;
   svg{
     position: absolute;
     right: 10px;
@@ -27,6 +27,8 @@ const StyledTextContainer = styled.div`
   width: 100%;
   overflow-y: auto;
   padding-right:20px;
+  font-size: 0.8em;
+  font-weight: normal;
   ${StyledScroll}
 `
 

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyledType, StyledValue, StyledNoOrder, StyledIcon } from './styles'
-import { COLOR } from '../../../../utils/constants'
+import { COLOR, SCREEN } from '../../../../utils/constants'
 import icon from '../../../../assets/img/svg/icon-empty.svg'
+import { useWindowWidth } from '../../../../hooks/useWindowHeight'
 
 const isThereData = (data) => {
   let hayData = false
@@ -12,6 +13,9 @@ const isThereData = (data) => {
 }
 
 const OrderCard = ({ state }) => {
+  const { dropDown, setDropDown } = useWindowWidth()
+  const setShowOrder = () => setDropDown(!dropDown)
+
   const data = [
     { ...state.marcaType, label: 'Tipo de registro' },
     { ...state.brandName, label: 'Nombre de registro' },
@@ -19,11 +23,13 @@ const OrderCard = ({ state }) => {
   ]
   return (
     <div className='card text-center shadow-card border-0'>
-      <HeaderOrder />
+      <HeaderOrder showOrder={setShowOrder} />
       {
-        isThereData(data)
-          ? <Order data={data} />
-          : <NoOrder />
+        dropDown
+          ? isThereData(data)
+            ? <Order data={data} />
+            : <NoOrder />
+          : null
       }
     </div>
   )
@@ -43,9 +49,12 @@ const NoOrder = () => (
   </div>
 )
 
-const HeaderOrder = () => (
+const HeaderOrder = ({ showOrder }) => (
   <div className='card-header bg-white py-3' style={{ borderBottomWidth: '2px' }}>
     <h4 className='text-left mb-0'>Detalle de Orden</h4>
+    <button className='d-lg-none' onClick={showOrder}>
+      show
+    </button>
   </div>
 )
 

@@ -5,8 +5,9 @@ import { StyledSelect } from './styles'
 import { StyledSublabel } from '../../../GlobalStyles'
 import PropTypes from 'prop-types'
 import Tooltip from '../../tooltip/Tooltip'
+import MoreInfoButton from '../../buttons/MoreInfo/MoreInfoButton'
 
-const Select = ({ value, onChange, error, label, name, type, tooltip }) => {
+const Select = ({ value, onChange, error, label, name, type, tooltip, info }) => {
   const multiple = type === 'select-multi'
   const valueDefault = multiple ? value[value.length - 1] ? value[value.length - 1] : '' : value
   const defaultOption = 'Seleccione su pais'
@@ -16,6 +17,7 @@ const Select = ({ value, onChange, error, label, name, type, tooltip }) => {
       <span className='d-flex'>
         {label}
         {tooltip && <Tooltip title={tooltip} style={{ marginTop: '0.5em' }} />}
+        {info && <MoreInfoButton info={info} showInModal />}
       </span>
 
       <StyledSelect

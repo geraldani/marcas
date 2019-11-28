@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import RadioButttons from '../../common/inputs/radio/RadioButtton'
 import { StyledLegend, StyledLabelName, StyledDivMarginBottom } from '../../GlobalStyles'
 import Select from '../../common/inputs/select/SelectCountry'
@@ -53,7 +53,7 @@ const StepTwo = (props) => {
                 description={elem.label}
                 defaultCheked={elem.value === state.registerType.value}
               >
-                <MoreInfoButton info={elem.value + ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget dapibus est, sit amet mattis urna. Sed laoreet egestas est, consectetur vehicula mi cursus ut. Nullam elementum volutpat quam ac dapibus. Quisque imperdiet orci purus, vel mattis turpis euismod vitae. Duis eget purus nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sagittis venenatis lorem eu commodo. Nam aliquet pulvinar nulla id vulputate. Integer dictum sagittis nunc quis commodo. Donec lacus arcu, tincidunt faucibus nisl a, auctor vulputate nunc. Sed sed nisi tempor augue tempor porta. Maecenas metus urna, facilisis id ipsum in, ultricies vestibulum urna. Curabitur viverra quam eget elit pharetra maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus.'} showInModal />
+                <MoreInfoButton info={elem.description} showInModal />
               </RadioButttons>
             ))
           }

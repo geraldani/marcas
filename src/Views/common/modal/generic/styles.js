@@ -47,7 +47,7 @@ const StyledButton = styled.button`
 `
 const ScrollFade = createGlobalStyle`
   ::-webkit-scrollbar {
-    width: 0;
+    width: 0!important;
   }
 `
 

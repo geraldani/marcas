@@ -8,7 +8,7 @@ import { Model } from './model'
 const Register = (props) => {
   const TOTAL_STEPS = 5
   const previousState = props.location.state // el estado pasapo por props en el history
-  const [step, setStep] = useState(previousState ? previousState.step : 2)
+  const [step, setStep] = useState(previousState ? previousState.step : 1)
 
   const clickNext = (e) => {
     // e.preventDefault()
