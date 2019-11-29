@@ -25,6 +25,14 @@ body {
     font-size: 1.08rem !important;
 }
 
+#root{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
 .px-6 {
     padding-left: 6rem !important;
     padding-right: 6rem !important;
