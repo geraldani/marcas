@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { COLOR } from '../../../../utils/constants'
+import { COLOR, SCREEN } from '../../../../utils/constants'
 import { IoIosCheckmarkCircle as CheckIcon } from 'react-icons/io'
 
 const StyledContainer = styled.div`
@@ -15,6 +15,9 @@ const StyledNumber = styled.h4`
   margin-top: 2rem;
   text-align: center;
   margin-bottom: 0;
+  @media (min-width: ${SCREEN.md}px) and (max-width: ${SCREEN.lg}px){
+      font-size: 2.1rem;
+  }
 `
 const StyledDescription = styled.p`
   text-align: center;
