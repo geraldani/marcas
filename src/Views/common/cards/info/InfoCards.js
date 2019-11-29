@@ -1,7 +1,8 @@
 import React from 'react'
 import { IoIosArrowDropright as ArrowIcon } from 'react-icons/io'
-import { StyledLink, StyledButton } from './styles'
+import { StyledButton } from './styles'
 import { COLOR, ROUTES } from '../../../../utils/constants'
+import Button from '../../buttons/Button'
 
 const CardInfo = (props) => {
   const pair = props.index % 2 === 0
@@ -11,7 +12,15 @@ const CardInfo = (props) => {
     text: pair ? 'text-md-left' : 'text-md-right',
     margin: pair ? 'margin-left: 2rem' : 'margin-right: 2rem'
   }
-  const MoreInfo = () => <StyledLink to={`${ROUTES.moreInfo}/${props.id}`} margin={classes.margin}>{props.buttonInfo}.</StyledLink>
+
+  const MoreInfoButton = () => (
+    <Button
+      title={props.buttonInfo + '.'}
+      link={`${ROUTES.moreInfo}/${props.id}`}
+      styled='simple-primary'
+      style={{ fontSize: '1.08rem', fontStyle: 'italic' }}
+    />
+  )
 
   return (
     <div className={`row mx-0 mb-3 mb-md-5 ${classes.justify}`}>
@@ -25,11 +34,11 @@ const CardInfo = (props) => {
               {props.description}
             </p>
             <div className={`d-flex align-items-center flex-column flex-md-row w-100 ${classes.justify}`}>
-              {!pair && <MoreInfo />}
+              {!pair && <MoreInfoButton />}
               <StyledButton title={props.buttonTitle} link={props.link}>
                 <ArrowIcon size='1.6em' className='ml-2' />
               </StyledButton>
-              {pair && <MoreInfo />}
+              {pair && <MoreInfoButton />}
             </div>
           </div>
         </div>

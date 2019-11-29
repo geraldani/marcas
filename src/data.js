@@ -7,6 +7,7 @@ const Tramites = [
     title2: 'Registros de marcas',
     wordDone: '100.000',
     description: 'Una marca es un signo con capacidad distintiva que permite diferenciar de los demás aquellos productos o servicios que son propiedad de una persona o empresa. Registrarla te otorga el título de propiedad y derecho exclusivo sobre ella.',
+    url: ROUTES.registerBrand,
     info: [
       {
         title: '¿Para sirve una marca?',
@@ -90,11 +91,13 @@ const Tramites = [
         ]
       }
     ]
-  }, {
+  },
+  {
     id: 'renovar-marca',
     title: 'Renovar una marca',
     title2: 'Renovaciones de marcas',
     wordDone: '15.000',
+    url: ROUTES.beginBrand + '/' + 'renovar-marca',
     description: 'Al cumplirse los 10 años de haber registrado tu marca, debés renovar el registro para conservar tus derechos otorgados por el registro marcario.',
     info: [
       {
@@ -130,6 +133,7 @@ const Tramites = [
     title: 'Transferir o cambiar de rubro de Marcas',
     title2: 'Transferencias de marcas',
     wordDone: '45.000',
+    url: ROUTES.beginBrand + '/' + 'transferir-marca',
     description: 'Es el trámite de inscripción de una modificación en la titularidad de un derecho de MARCA ya sea por transmisión (transferencia) o por modificación en el nombre o tipo societario o nombre de persona humana (cambio de rubro)',
     info: [
       {
@@ -274,7 +278,6 @@ const help = {
   description: 'It is a long fact that a reader will be distracted. It is a long fact that a reader will be distracted. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   buttonTitle: 'Iniciar Trámite',
   buttonInfo: 'Más info',
-  url: ROUTES.beginBrand,
   brands: Tramites
 }
 

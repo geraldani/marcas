@@ -7,21 +7,33 @@ const ButtonStylesTypes = {
     background-color: ${COLOR.primary};
     color: ${COLOR.white};
     border-color: ${COLOR.primary}!important;
+    &:hover{
+      color: ${COLOR.white}!important;
+    }
   `,
   'outline-white': css`
     background-color: ${COLOR.transparent};
     color: ${COLOR.white};
     border-color: ${COLOR.white};
+    &:hover{
+      color: ${COLOR.white}!important;
+    }
   `,
   'outline-primary': css`
     background-color: ${COLOR.transparent};
     color: ${COLOR.primary};
     border-color: ${COLOR.primary};
+     &:hover{
+      color: ${COLOR.primary}!important;
+    }
   `,
   'simple-primary': css`
     background-color: ${COLOR.transparent};
     color: ${COLOR.primary};
-    border-color: ${COLOR.transparent};
+    border: none!important;
+     &:hover{
+      color: ${COLOR.primary}!important;
+    }
   `
 }
 
@@ -42,7 +54,6 @@ const commonStyles = css`
   &:hover{
     transform: scale(1.05);
     text-decoration: none;
-    color: white; 
     cursor: pointer;
   }
   @media (max-width: ${SCREEN.md}px){
