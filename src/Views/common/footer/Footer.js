@@ -5,8 +5,8 @@ import { StyledCopyright, StyledLink } from './styles'
 
 const Footer = () => {
   return (
-    <footer className='border-top'>
-      <div className='row mx-5 pt-3 justify-content-md-between justify-content-center flex-md-row flex-column'>
+    <footer className='border-top px-3'>
+      <div className='row mx-5 pt-3 justify-content-md-between justify-content-center flex-md-row flex-column mx-0'>
         <Logo className='mx-auto mx-md-0 mb-2' />
         <div className='d-flex justify-content-end align-items-center flex-md-row flex-column'>
           {
