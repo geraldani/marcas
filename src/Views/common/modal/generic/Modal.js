@@ -39,7 +39,7 @@ const Modal = ({ children, showModal, setShowModal, showCloseButton }) => {
 
 Modal.propTypes = {
   showModal: PropTypes.bool.isRequired,
-  setShowModal: PropTypes.func.isRequired
+  setShowModal: PropTypes.func
 }
 
 export default Modal

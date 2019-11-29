@@ -3,9 +3,9 @@ import Modal from '../generic/Modal'
 import Loader from '../../loader/Loader'
 import { StyledLoader } from './styles'
 
-const ModalLoader = () => {
+const ModalLoader = (props) => {
   return (
-    <Modal showModal>
+    <Modal showModal={props.showModal}>
       <StyledLoader>
         <Loader />
         <p>CARGANDO...</p>

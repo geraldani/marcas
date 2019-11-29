@@ -24,9 +24,7 @@ const OrderDetail = (props) => {
               <StyledTotal>Total: $520</StyledTotal>
               <ButtonsNavigation handleClickBack={handleClickBack} handleClickFinish={handleClickFinish} />
             </div>
-            {
-              loading && <ModalLoader />
-            }
+            <ModalLoader showModal={loading} />
           </div>
         </div>
       </div>
@@ -35,10 +33,11 @@ const OrderDetail = (props) => {
 }
 
 const ButtonsNavigation = ({ handleClickBack, handleClickFinish }) => (
-  <div className='d-flex justify-content-between w-100'>
+  <div
+    className='d-flex justify-content-md-between flex-column flex-md-row flex-md-row justify-content-center align-items-center w-100'>
     {/* BOTON DE REGRESAR A MODIFICAR LA ORDEN */}
     <Button
-      className='px-5 w-md-100'
+      className='px-5 w-md-100 mb-3 mt-md-0'
       title='Volver'
       styled='outline-primary'
       onClick={handleClickBack}

@@ -9,15 +9,16 @@ const isHexColor = hex => {
   // return typeof hex === 'string' && hex.length === 6 && !isNaN(Number('0x' + hex))
 }
 
-const enableScroll = () => { window.onscroll = () => {} }
+const enableScroll = () => {
+  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  document.removeEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
+}
 
 const disableScroll = () => {
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-
-  window.onscroll = () => {
-    window.scrollTo(scrollLeft, scrollTop)
-  }
+  document.addEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
 }
 
 export {
