@@ -12,11 +12,11 @@ const Faqs = () => {
     <>
       <Header showMenu />
       <div className='margin-header d-flex'>
-        <div className='col-12 p-5' style={{ backgroundColor: COLOR.lightGrey }}>
+        <div className='col-12  p-md-5 pt-4' style={{ backgroundColor: COLOR.lightGrey }}>
           <h2 className='text-center'>
             Preguntas frecuentes
           </h2>
-          <div className='px-5 mx-5'>
+          <div className='px-md-5 mx-md-5 px-2'>
             {
               textFaq.map((elem, index) => (
                 <StyledContainer key={elem.title}>
