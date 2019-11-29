@@ -82,7 +82,7 @@ const RegisterView = (props) => {
           <div className='row justify-content-end'>
 
             {/* Circulos del paso actual y totales */}
-            <div className='col-12 mb-4'>
+            <div className='col-12 mb-0 mb-md-4'>
               <CircleSteps actualStep={props.step} totalSteps={props.totalSteps} />
             </div>
 
@@ -98,7 +98,7 @@ const RegisterView = (props) => {
               </div>
 
               {/* Detalle de la orden Card */}
-              <div className='col-12 mt-4 col-lg-3 mt-lg-0 order-lg-last order-first mb-4'>
+              <div className='col-12 mt-2 mt-md-4 col-lg-3 mt-lg-0 order-lg-last order-first mb-4'>
                 <OrderCard state={props.state} />
               </div>
             </div>

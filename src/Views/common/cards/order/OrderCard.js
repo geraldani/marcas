@@ -51,8 +51,8 @@ const NoOrder = () => (
 )
 
 const HeaderOrder = ({ setShowOrder, showOrder }) => (
-  <div className='card-header bg-white py-3 d-flex justify-content-between' style={{ borderBottomWidth: '2px' }}>
-    <h4 className='text-left mb-0'>Detalle de Orden</h4>
+  <div className='card-header bg-white py-2 py-md-3 d-flex justify-content-between' style={{ borderBottomWidth: '2px' }}>
+    <h4 className='text-left mb-0 h4-small'>Detalle de Orden</h4>
     <StyledButtonIcon className='d-lg-none' onClick={setShowOrder} drop={showOrder}>
       <IconDropdown size='25px' />
     </StyledButtonIcon>
