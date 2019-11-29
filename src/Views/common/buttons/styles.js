@@ -2,37 +2,36 @@ import styled, { css } from 'styled-components'
 import { COLOR, SCREEN } from '../../../utils/constants'
 import { Link } from 'react-router-dom'
 
+const ButtonStylesTypes = {
+  primary: css`
+    background-color: ${COLOR.primary};
+    color: ${COLOR.white};
+    border-color: ${COLOR.primary}!important;
+  `,
+  'outline-white': css`
+    background-color: ${COLOR.transparent};
+    color: ${COLOR.white};
+    border-color: ${COLOR.white};
+  `,
+  'outline-primary': css`
+    background-color: ${COLOR.transparent};
+    color: ${COLOR.primary};
+    border-color: ${COLOR.primary};
+  `,
+  'simple-primary': css`
+    background-color: ${COLOR.transparent};
+    color: ${COLOR.primary};
+    border-color: ${COLOR.transparent};
+  `
+}
+
 const commonStyles = css`
+  ${props => ButtonStylesTypes[Object.keys(ButtonStylesTypes).find(style => style === props.styles)]};
   font-weight: 500;
   padding: 0.5rem 1rem;
-  background-color: ${({ styles }) => {
-  switch (styles) {
-    case 'purple':
-      return COLOR.primary
-    case 'outline-white':
-      return COLOR.transparent
-    case 'outline-primary':
-      return COLOR.transparent
-    default:
-      return COLOR.white
-  }
-}};
   border: 2px solid;
-  border-color: ${({ styles }) => {
-  switch (styles) {
-    case 'purple':
-      return COLOR.transparent
-    case 'outline-white':
-      return COLOR.white
-    case 'outline-primary':
-      return COLOR.primary
-    default:
-      return COLOR.transparent
-  }
-}};
   vertical-align: middle;
   border-radius: 0.25rem;
-  color: ${({ styles }) => styles === 'outline-primary' ? COLOR.primary : COLOR.white}!important;
   text-align: center;
   display: inline-block;
   font-size: 1.25rem;

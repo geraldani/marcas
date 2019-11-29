@@ -2,12 +2,13 @@ import React from 'react'
 import Header from '../../common/header/Header'
 import RegisterBrand from '../register/RegisterBrand'
 import { help } from '../../../data.js'
-import LoginCard from '../../common/login'
+import FormCard from '../../common/miniForm'
 import Footer from '../../common/footer/Footer'
-import { IoIosCheckmark as Check } from 'react-icons/io'
+import { IoIosCheckmark as IconCheck, IoIosArrowRoundBack as IconBack } from 'react-icons/io'
 import { StyledContainer } from './styles'
 import { COLOR } from '../../../utils/constants'
 import { setViewUp } from '../../../utils'
+import Button from '../../common/buttons/Button'
 
 const inputData = [
   {
@@ -29,6 +30,16 @@ const MoreInfo = (props) => {
       <RegisterBrand title={elem.title} subtitle={elem.description} />
       <div className='row m-0'>
         <div className='col-12 col-md-7 p-5'>
+          <Button
+            title='Volver'
+            onClick={() => props.history.goBack()}
+            styled='simple-primary'
+            className='px-1 py-1'
+            style={{ fontSize: '0.97rem' }}
+            childrenFirst
+          >
+            <IconBack size='25px' />
+          </Button>
           {
             elem.info.map(detailInfo => (
               <StyledContainer key={detailInfo.title} isEnum={detailInfo.isEnum}>
@@ -37,7 +48,7 @@ const MoreInfo = (props) => {
                   detailInfo.text.map(text => (
                     <p key={text}>
                       {
-                        detailInfo.isEnum && <Check size='30px' color={COLOR.primary} />
+                        detailInfo.isEnum && <IconCheck size='30px' color={COLOR.primary} />
                       }
                       {text}
                     </p>
@@ -49,7 +60,7 @@ const MoreInfo = (props) => {
         </div>
 
         <div className='col-12 col-md-5 px-5 my-5'>
-          <LoginCard
+          <FormCard
             data={inputData}
             title='Quiero que se contacten conmigo'
             buttonName='Aceptar'

@@ -17,7 +17,7 @@ const Contact = () => {
           <StyledButton
             className='ml-3'
             title={contact.buttonTitle}
-            styled='outline-purple'
+            styled='outline-primary'
             link={ROUTES.writeContact}
           />
         </div>

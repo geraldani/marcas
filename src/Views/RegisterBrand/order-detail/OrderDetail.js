@@ -40,7 +40,7 @@ const ButtonsNavigation = ({ handleClickBack, handleClickFinish }) => (
     <Button
       className='px-5 w-md-100'
       title='Volver'
-      styled='outline-purple'
+      styled='outline-primary'
       onClick={handleClickBack}
     />
     {/* BOTON DE GUARDAR LA ORDER */}
