@@ -10,8 +10,8 @@ module.exports = {
   },
   output: {
     filename: 'js/app.[hash].js',
-    path: path.resolve(__dirname, 'dist')
-    // publicPath: '/'
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   optimization: {
     minimizer: [

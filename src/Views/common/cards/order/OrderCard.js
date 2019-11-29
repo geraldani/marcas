@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { StyledType, StyledValue, StyledNoOrder, StyledIcon } from './styles'
-import { COLOR, SCREEN } from '../../../../utils/constants'
+import React from 'react'
+import { StyledType, StyledValue, StyledNoOrder, StyledIcon, StyledButtonIcon } from './styles'
+import { COLOR } from '../../../../utils/constants'
 import icon from '../../../../assets/img/svg/icon-empty.svg'
 import { useWindowWidth } from '../../../../hooks/useWindowHeight'
+import { IoIosArrowDropdownCircle as IconDropdown } from 'react-icons/io'
 
 const isThereData = (data) => {
   let hayData = false
@@ -23,7 +24,7 @@ const OrderCard = ({ state }) => {
   ]
   return (
     <div className='card text-center shadow-card border-0'>
-      <HeaderOrder showOrder={setShowOrder} />
+      <HeaderOrder setShowOrder={setShowOrder} showOrder={dropDown} />
       {
         dropDown
           ? isThereData(data)
@@ -49,12 +50,12 @@ const NoOrder = () => (
   </div>
 )
 
-const HeaderOrder = ({ showOrder }) => (
-  <div className='card-header bg-white py-3' style={{ borderBottomWidth: '2px' }}>
+const HeaderOrder = ({ setShowOrder, showOrder }) => (
+  <div className='card-header bg-white py-3 d-flex justify-content-between' style={{ borderBottomWidth: '2px' }}>
     <h4 className='text-left mb-0'>Detalle de Orden</h4>
-    <button className='d-lg-none' onClick={showOrder}>
-      show
-    </button>
+    <StyledButtonIcon className='d-lg-none' onClick={setShowOrder} drop={showOrder}>
+      <IconDropdown size='25px' />
+    </StyledButtonIcon>
   </div>
 )
 

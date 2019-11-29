@@ -6,8 +6,7 @@ import ModalInfo from '../../modal/InfoModal'
 import PropTypes from 'prop-types'
 import { COLOR } from '../../../../utils/constants'
 
-const MoreInfoButton = ({ style, showInModal, info }) => {
-  const type = 'icon'
+const MoreInfoButton = ({ style, showInModal, info, type = 'icon' }) => {
   const onClick = (e) => {
     e.preventDefault()
     handleModal()
@@ -21,7 +20,7 @@ const MoreInfoButton = ({ style, showInModal, info }) => {
       <StyledButtonInfo onClick={onClick} type={type}>
         {
           type === 'icon'
-            ? <IconInfo color={COLOR.primary} size='100%' />
+            ? <IconInfo color={COLOR.primary} size='100%' title='Más informacion' />
             : <span>Mas info</span>
         }
       </StyledButtonInfo>

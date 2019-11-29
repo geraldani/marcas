@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import { COLOR } from '../../../../utils/constants'
 
 const StyledType = styled.span`
@@ -28,4 +28,21 @@ const StyledIcon = styled.img`
   margin: auto;
 `
 
-export { StyledType, StyledValue, StyledNoOrder, StyledIcon }
+const StyledButtonIcon = styled.button`
+  padding: 0;
+  background: none;
+  border: navajowhite;
+  transition: all 200ms;
+  ${props => props.drop && css`
+    transform: rotate(180deg);
+  `}
+  svg{
+    fill: ${COLOR.primary}
+  }
+  :focus{
+    outline: none;
+    // outline: dotted 1px ${COLOR.primary};
+  }
+`
+
+export { StyledType, StyledValue, StyledNoOrder, StyledIcon, StyledButtonIcon }

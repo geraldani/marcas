@@ -30,7 +30,7 @@ const StepTwo = (props) => {
             {...state.email}
             onChange={props.onChange}
             error={errors.email}
-            moreInfo='El email con el que se logueara el interesado'
+            tooltip='El email con el que se logueara el interesado'
           />
         </div>
       </div>

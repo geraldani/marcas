@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { COLOR } from '../../../utils/constants'
+import { COLOR, SCREEN } from '../../../utils/constants'
 
 const commonStyles = css`
   height: 30px;
@@ -23,6 +23,14 @@ const commonStyles = css`
     margin: auto;
     left: 28px;
     background-color: ${COLOR.primary};
+  }
+  @media (max-width: ${SCREEN.sm}px){
+    &:not(:last-child){
+      margin-right: 20px;
+    }
+     &:not(:last-child):after{
+      width: 22px;
+     }
   }
 `
 
