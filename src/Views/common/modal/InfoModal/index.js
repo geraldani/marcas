@@ -10,21 +10,9 @@ const ModalInfo = ({ info, setShowModal }) => {
       <IconClose size='20px' onClick={setShowModal} />
       <StyledTextContainer>
         {
-          [...Array(4)].map(elem => <p key={uuid()}>{info}</p>)
+          [...Array(4)].map(() => <p key={uuid()}>{info}</p>)
         }
       </StyledTextContainer>
-      {
-        /* info.map(elem => (
-           <div key={elem.title}>
-             <h2 style={{ fontSize: '1.3em' }}>{elem.title}</h2>
-             {
-               elem.text.map(text => (
-                 <p style={{ fontSize: '0.9em', fontWeight: 'normal' }} key={text}>{text}</p>
-               ))
-             }
-           </div>
-         )) */
-      }
       <div className='d-flex flex-column flex-md-row justify-content-md-center justify-content-end w-100'>
         <Button title='Cerrar' onClick={setShowModal} />
       </div>

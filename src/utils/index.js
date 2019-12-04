@@ -10,15 +10,15 @@ const isHexColor = hex => {
 }
 
 const enableScroll = () => {
-  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-  document.removeEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
+  window.onscroll = () => {}
+  // document.removeEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
 }
 
 const disableScroll = () => {
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-  document.addEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
+  window.onscroll = () => window.scrollTo(scrollLeft, scrollTop)
+  // document.addEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
 }
 
 export {
