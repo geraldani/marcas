@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import MainApp from './Views/MainApp'
-import { GlobalStyles } from './Views/GlobalStyles'
-import './globalStyles.css'
+import { GlobalStyles } from './Views/styles/GlobalStyles'
+import './Views/styles/globalStyles.css'
 
 // Bootstrap y Jquery
 import 'bootstrap/dist/css/bootstrap.css'

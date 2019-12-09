@@ -13,6 +13,7 @@ const COLOR = {
   blue: '#4990e2',
   lighBlue: '#b5d2f2',
   mediumBlue: '#8bb9ed',
+  darkBlue: '#303e5b',
   red: 'rgba(171,1,0,0.82)'
 }
 

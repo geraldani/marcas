@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import RadioButttons from '../../common/inputs/radio/RadioButtton'
-import { StyledLegend, StyledLabelName, StyledDivMarginBottom } from '../../GlobalStyles'
+import { StyledLegend, StyledLabelName, StyledDivMarginBottom } from '../../styles/GlobalStyles'
 import Select from '../../common/inputs/select/SelectCountry'
 import InputText from '../../common/inputs/text/InputText'
 import MoreInfoButton from '../../common/buttons/MoreInfo/MoreInfoButton'

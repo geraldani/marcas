@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle, css } from 'styled-components'
-import { COLOR, SCREEN } from '../utils/constants'
+import { COLOR, SCREEN } from '../../utils/constants'
 
 const StyledScroll = css`
 ::-webkit-scrollbar {
@@ -23,6 +23,9 @@ const GlobalStyles = createGlobalStyle`
   input:focus{
     outline: none!important;
     box-shadow: none!important;
+  }
+  p{
+    margin: 0;
   }
   button:focus{
     outline: none!important;

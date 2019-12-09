@@ -1,6 +1,6 @@
 import React from 'react'
 import CheckToggler from '../../common/inputs/toggler/CheckToggler'
-import { StyledLabelName, StyledLegend, StyledDivMarginBottom } from '../../GlobalStyles'
+import { StyledLabelName, StyledLegend, StyledDivMarginBottom } from '../../styles/GlobalStyles'
 import Select from '../../common/inputs/select/SelectCountry'
 import { StyledOption, ClearLegend } from './styles'
 import InputText from '../../common/inputs/text/InputText'

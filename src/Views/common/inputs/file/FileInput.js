@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { StyledFileName, StyledFileButton } from './styles'
-import { StyledSublabel } from '../../../GlobalStyles'
+import { StyledSublabel } from '../../../styles/GlobalStyles'
 import InputText from '../text/InputText'
 import ErrorAlert from '../../alerts/ErrorAlert'
 

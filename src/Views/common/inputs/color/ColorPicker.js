@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { PhotoshopPicker as Picker } from 'react-color'
 import { StyledPickerContainer, StyledColorSquare } from './styles'
-import { StyledSublabel } from '../../../GlobalStyles'
+import { StyledSublabel } from '../../../styles/GlobalStyles'
 import { isHexColor } from '../../../../utils'
 import InputText from '../text/InputText'
 

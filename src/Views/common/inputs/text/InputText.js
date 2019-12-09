@@ -1,6 +1,6 @@
 import React from 'react'
 import ErrorAlert from '../../alerts/ErrorAlert'
-import { StyledSublabel } from '../../../GlobalStyles'
+import { StyledSublabel } from '../../../styles/GlobalStyles'
 import PropTypes from 'prop-types'
 import Tooltip from '../../tooltip/Tooltip'
 import MoreInfoButton from '../../buttons/MoreInfo/MoreInfoButton'

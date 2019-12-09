@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledSublabel } from '../../../GlobalStyles'
+import { StyledSublabel } from '../../../styles/GlobalStyles'
 import Button from '../../buttons/Button'
 
 const Form = ({ fields, buttonName, link }) => {

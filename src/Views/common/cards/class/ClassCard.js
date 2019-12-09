@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledSublabel } from '../../../GlobalStyles'
+import { StyledSublabel } from '../../../styles/GlobalStyles'
 import CkeckInput from '../../check/CkeckInput'
 import { StylesCkeckInput } from './styles'
 

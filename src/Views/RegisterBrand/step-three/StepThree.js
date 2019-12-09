@@ -4,7 +4,7 @@ import Measurement from '../../common/measurement/Measurement'
 import FileInput from '../../common/inputs/file/FileInput'
 import InputText from '../../common/inputs/text/InputText'
 import CheckContainer from '../../common/check/CheckContainer'
-import { StyledLabelName, StyledDivMarginBottom, StyledSublabel } from '../../GlobalStyles'
+import { StyledLabelName, StyledDivMarginBottom, StyledSublabel } from '../../styles/GlobalStyles'
 
 const StepThree = (props) => {
   const { onChange, state, errors } = props

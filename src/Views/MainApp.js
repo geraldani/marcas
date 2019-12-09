@@ -11,11 +11,13 @@ import SaveOrder from '../Components/RegisterBrand/SaveOrder'
 import ConstructionPage from './common/Warnings/constructioPage'
 import PageNotFound from './common/Warnings/PageNotFound'
 import { ROUTES } from '../utils/constants'
+import DashBoard from './Dashboard'
 
 const MainApp = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path={ROUTES.home} component={Home} />
+      {/*<Route exact path={ROUTES.home} component={Home} />*/}
+      <Route exact path={ROUTES.home} component={DashBoard} />
       <Route exact path={ROUTES.registerBrand} component={Register} />
       <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
       <Route exact path={ROUTES.finishRegister} component={FinishRegister} />

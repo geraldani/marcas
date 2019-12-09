@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { COLOR } from '../../../utils/constants'
-import { StyledLegend } from '../../GlobalStyles'
+import { StyledLegend } from '../../styles/GlobalStyles'
 
 const StyledButton = styled.button`
   width: 98%;

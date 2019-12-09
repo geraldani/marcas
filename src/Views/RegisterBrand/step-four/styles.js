@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { StyledLegend } from '../../GlobalStyles'
+import { StyledLegend } from '../../styles/GlobalStyles'
 
 const StyledOption = styled.span`
   font-weight: normal;

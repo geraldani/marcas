@@ -2,7 +2,7 @@ import React from 'react'
 import ClassCard from '../../common/cards/class/ClassCard'
 import { IoIosArrowForward as ArrowIcon } from 'react-icons/io'
 import { StyledButton, StyledItalicLegend } from './styles'
-import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../../GlobalStyles'
+import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../../styles/GlobalStyles'
 import InputText from '../../common/inputs/text/InputText'
 import { IoMdSearch as SearchIcon } from 'react-icons/io'
 

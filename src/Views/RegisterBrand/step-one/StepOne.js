@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { IoIosCloseCircleOutline as IconCloseCircle, IoIosClose as IconClose } from 'react-icons/io'
 import RadioButttons from '../../common/inputs/radio/RadioButtton'
 import Select from '../../common/inputs/select/SelectCountry'
-import { StyledLabelName, StyledDivMarginBottom } from '../../GlobalStyles'
+import { StyledLabelName, StyledDivMarginBottom } from '../../styles/GlobalStyles'
 import { StyledCountrySelected, StyledAlert, StyledPrice, StyledCircle } from './styles'
 
 const CountrySelected = ({ country, name, removeCountry }) => {

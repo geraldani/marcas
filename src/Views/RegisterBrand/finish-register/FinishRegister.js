@@ -3,7 +3,7 @@ import RegisterCard from '../../common/cards/register/RegisterCard'
 import Header from '../../common/header/Header'
 import { ROUTES } from '../../../utils/constants'
 import { StyledImage, StyledSubtitle, StyledTitle } from './styles'
-import { StyledLabelName } from '../../GlobalStyles'
+import { StyledLabelName } from '../../styles/GlobalStyles'
 import imageUrl from '../../../assets/img/svg/icon-confirm.svg'
 import { setViewUp } from '../../../utils'
 

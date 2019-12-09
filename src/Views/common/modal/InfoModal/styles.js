@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { COLOR } from '../../../../utils/constants'
-import { StyledScroll } from '../../../GlobalStyles'
+import { StyledScroll } from '../../../styles/GlobalStyles'
 
 const StyledModal = styled.div`
   display: flex;
