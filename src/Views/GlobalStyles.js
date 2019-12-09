@@ -19,7 +19,14 @@ const StyledScroll = css`
 
 `
 const GlobalStyles = createGlobalStyle`
-  ${StyledScroll}
+  ${StyledScroll};
+  input:focus{
+    outline: none!important;
+    box-shadow: none!important;
+  }
+  button:focus{
+    outline: none!important;
+  }
 `
 
 const StyledLegend = styled.p`
@@ -43,7 +50,7 @@ const StyledSublabel = styled.label`
   color: ${props => props.disabled ? COLOR.darkGrey : COLOR.black};
   font-size: 15px;
   margin-top: 1.5rem;
-  margin-bottom: 3px;
+  margin-bottom: 0;
   text-align: left;
   width: 100%;
   &>*{

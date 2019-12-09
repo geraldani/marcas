@@ -5,15 +5,9 @@ import PropTypes from 'prop-types'
 import Tooltip from '../../tooltip/Tooltip'
 import MoreInfoButton from '../../buttons/MoreInfo/MoreInfoButton'
 
-const Input = ({ type, classname, name, disabled, value, onChange, initialValue }) => (
+const Input = (props) => (
   <input
-    type={type}
-    className={classname}
-    name={name}
-    disabled={disabled}
-    defaultValue={initialValue}
-    value={value}
-    onChange={onChange}
+    {...props}
   />
 )
 
@@ -28,10 +22,22 @@ const InputWithLabel = (props) => (
   </StyledSublabel>
 )
 
-const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle, tooltip, moreInfo }) => {
+const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle, tooltip, moreInfo, onKeyDown }) => {
   const errorClass = error ? 'error' : ''
   const classname = className ? `form-control ${className} ${errorClass}` : `form-control ${errorClass}`
-  const prop = { type, classname, name, disabled, value, onChange, label, initialValue, tooltip, moreInfo }
+  const prop = {
+    type,
+    className: classname,
+    name,
+    disabled,
+    value,
+    onChange,
+    label,
+    defaultValue: initialValue,
+    tooltip,
+    moreinfo: moreInfo,
+    onKeyDown
+  }
 
   return (
     <>

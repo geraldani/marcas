@@ -26,7 +26,7 @@ const RegisterBrand = (props) => (
                 key={index}
                 title={title}
                 styled='outline-white'
-                link={ROUTES.otherTrams}
+                link='/#otros-tramites'
                 className='mx-md-0 mx-4' />
           )
         }

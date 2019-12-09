@@ -4,6 +4,7 @@ import { IoIosArrowForward as ArrowIcon } from 'react-icons/io'
 import { StyledButton, StyledItalicLegend } from './styles'
 import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../../GlobalStyles'
 import InputText from '../../common/inputs/text/InputText'
+import { IoMdSearch as SearchIcon } from 'react-icons/io'
 
 const FakeData = [
   {
@@ -50,16 +51,36 @@ const StepFive = (props) => {
       <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
         <StyledLabelName>¿A que seccion pertenece?</StyledLabelName>
         <StyledLegend>
-          Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que se utilizara la marca.
+          Busque las clases en las que desea registrar su marca comercial, segun los productos o servicios para los que
+          se utilizara la marca.
         </StyledLegend>
       </div>
 
-      <div className='col-md-7 col-12 px-4'>
-        <InputText
-          {...state.productService}
-          onChange={onChange}
-          error={errors.productService}
-        />
+      <div className='col-md-7 col-12 px-4 d-flex align-items-end'>
+        <div style={{ width: 'calc(100% - 30px)' }}>
+          <InputText
+            {...state.productService}
+            onChange={onChange}
+            error={errors.productService}
+            className='search-input'
+            onKeyDown={(e) => {
+              const code = e.keyCode || e.charCode
+              if (code === 13) {
+                e.preventDefault()
+                console.log(e.target)
+              }
+            }}
+          />
+        </div>
+        <button style={{
+          width: '30px',
+          height: '38px',
+          border: 'none',
+          borderBottomRightRadius: '0.25rem',
+          borderTopRightRadius: '0.25rem'
+        }}>
+          <SearchIcon />
+        </button>
       </div>
 
       <div className='col-md-9 col-12 px-4' style={marginBottom}>
@@ -68,12 +89,12 @@ const StepFive = (props) => {
         {
           // todo arreglar este fakedata desde el modelo o dinamicamente (no datos hardcodeados)
           FakeData.map((elem) => (
-            <ClassCard name={elem.title} key={elem.title} items={elem.items} onChange={props.onChange} />
+            <ClassCard name={elem.title} key={elem.title} items={elem.items} onChange={props.onChange}/>
           ))
         }
         <StyledButton>
           Quiero agregar mas clases a mi registro
-          <ArrowIcon size='18px' />
+          <ArrowIcon size='18px'/>
         </StyledButton>
       </div>
     </>

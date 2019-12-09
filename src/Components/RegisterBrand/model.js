@@ -151,7 +151,7 @@ export const Model = {
     name: 'productService',
     type: 'text',
     value: ''
-  },
+  }
   /* classProducts: {
     type: 'checkbok',
     name: 'classProducts',

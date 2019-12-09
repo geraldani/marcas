@@ -9,7 +9,7 @@ const CardSteps = (props) => {
         <h4 className='mb-0'>{title}</h4>
       </div>
       <div className='card-body p-0'>
-        <form>
+        <form onSubmit={e => { e.preventDefault() }}>
           {children}
         </form>
       </div>

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { COLOR, SCREEN } from '../../../utils/constants'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import { HashLink as Link } from 'react-router-hash-link'
 
 const ButtonStylesTypes = {
   primary: css`

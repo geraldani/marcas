@@ -5,7 +5,7 @@ import { help } from '../../../data.js'
 import { StyledText } from './styles'
 
 const Help = () => (
-  <section id='sectionHelp'>
+  <section id='otros-tramites'>
     <div className='container'>
       <Title title={help.title} className='mb-4' />
       <StyledText>
