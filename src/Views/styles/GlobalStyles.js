@@ -49,8 +49,15 @@ const StyledLabelName = styled.label`
     font-size: 1em;
   }
 `
+const color = (color, disabled) => {
+  if (disabled) return COLOR.darkGrey
+  else {
+    if (color) return color
+    else return COLOR.black
+  }
+}
 const StyledSublabel = styled.label`
-  color: ${props => props.disabled ? COLOR.darkGrey : COLOR.black};
+  color: ${props => color(props.color, props.disabled)};
   font-size: 15px;
   margin-top: 1.5rem;
   margin-bottom: 0;

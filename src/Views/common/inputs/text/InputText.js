@@ -12,20 +12,20 @@ const Input = (props) => (
 )
 
 const InputWithLabel = (props) => (
-  <StyledSublabel disabled={props.disabled}>
+  <StyledSublabel disabled={props.disabled} color={props.colorLabel}>
     <span className='d-flex'>
       {props.label}
-      {props.tooltip && <Tooltip title={props.tooltip} style={{ marginTop: '0.5em' }} />}
-      {props.moreInfo && <MoreInfoButton info={props.moreInfo} showInModal />}
+      {props.tooltip && <Tooltip title={props.tooltip} style={{ marginTop: '0.5em' }}/>}
+      {props.moreInfo && <MoreInfoButton info={props.moreInfo} showInModal/>}
     </span>
     <Input {...props} />
   </StyledSublabel>
 )
 
-const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle, tooltip, moreInfo, onKeyDown }) => {
+const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle, tooltip, moreInfo, onKeyDown, colorLabel, style }) => {
   const errorClass = error ? 'error' : ''
   const classname = className ? `form-control ${className} ${errorClass}` : `form-control ${errorClass}`
-  const prop = {
+  const commonProps = {
     type,
     className: classname,
     name,
@@ -35,13 +35,15 @@ const InputText = ({ type, name, value, onChange, error, label, disabled, classN
     label,
     defaultValue: initialValue,
     tooltip,
+    colorLabel,
     moreinfo: moreInfo,
-    onKeyDown
+    onKeyDown,
+    style
   }
 
   return (
     <>
-      {label ? <InputWithLabel {...prop} /> : <Input {...prop} />}
+      {label ? <InputWithLabel {...commonProps} /> : <Input {...commonProps} />}
       <ErrorAlert message={error} style={errorStyle} />
     </>
   )

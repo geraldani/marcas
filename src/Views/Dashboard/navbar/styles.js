@@ -3,8 +3,8 @@ import { COLOR } from '../../../utils/constants'
 import { HashLink as Link } from 'react-router-hash-link'
 
 const StyledNav = styled.nav`
-  height: 100%;
-  background: ${COLOR.darkBlue}
+  height: ${props => props.viewPortHeight >= props.height ? 'calc(100vh - 66px)' : '100%'};
+  background: ${COLOR.darkBlue};
 `
 const StyledLink = styled(Link)`
   padding: 0.7rem 1rem;

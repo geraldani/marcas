@@ -2,16 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyledLink, StyledButton } from './styles'
 
-const Button = ({ title, styled = 'primary', children, link, onClick, className, style, childrenFirst }) => {
+const Button = ({ title, styled = 'primary', children, link, onClick, className, style, childrenFirst, size = 'md', color }) => {
+  const commonProps = {
+    className,
+    styles: styled,
+    to: link,
+    onClick,
+    title,
+    style,
+    size,
+    color
+  }
   const StyledButtonLink = link ? StyledLink : StyledButton
   return (
     <StyledButtonLink
-      className={className}
-      styles={styled}
-      to={link}
-      onClick={onClick}
-      title={title}
-      style={style}
+      {...commonProps}
     >
       {childrenFirst && children}
       {title}

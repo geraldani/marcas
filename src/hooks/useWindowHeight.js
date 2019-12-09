@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { SCREEN } from '../utils/constants'
 
+//la primera variable re retorna representa el valor maximo de la ventana mientras que el segundo es el valor de la ventana del ViewPort
 export const useWindowHeight = () => {
   const body = document.body
   const html = document.documentElement
@@ -9,7 +10,7 @@ export const useWindowHeight = () => {
   useEffect(() => {
     setMaxHeight(Math.max(body.scrollHeight, body.offsetHeight, body.clientHeight, html.clientHeight, html.scrollHeight, html.offsetHeight))
   }, [])
-  return maxHeight
+  return [maxHeight, html.clientHeight]
 }
 
 export const useWindowWidth = () => {
