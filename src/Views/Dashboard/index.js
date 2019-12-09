@@ -3,6 +3,7 @@ import HeaderDash from './header/header'
 import Navbar from './navbar/Navbar'
 import InputText from '../common/inputs/text/InputText'
 import Button from '../common/buttons/Button'
+import TableFilter from './table/TableFilter'
 
 const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
   const formStructure = [
@@ -34,14 +35,15 @@ const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
         <div className='col-2 px-0'>
           <Navbar/>
         </div>
+        {/*<div className='col-10 px-0' style={{ background: 'blue' }}>*/}
         <div className='col-10 px-0' style={{ background: '#f7f8fc' }}>
-          <div className='col py-3' style={{ background: 'white' }}>
+          <div className='col py-3 px-4' style={{ background: 'white' }}>
             Tus trámites
           </div>
           <div className='row m-0'>
             {
               formStructure.map(elem => (
-                <div className='col' key={elem.name}>
+                <div className='col px-4' key={elem.name}>
                   <InputText
                     style={{ paddingTop: '0.2rem', paddingBottom: '0.2rem', fontSize: '15px' }}
                     onChange={() => {}}
@@ -53,6 +55,9 @@ const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
             <div className='col d-flex justify-content-start align-items-end'>
               <Button title='Aplicar filtro' size='sm' color='#4990e2' />
             </div>
+          </div>
+          <div className="col px-4">
+            <TableFilter/>
           </div>
         </div>
       </div>
