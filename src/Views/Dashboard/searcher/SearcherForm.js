@@ -1,7 +1,6 @@
 import React from 'react'
 import InputText from '../../common/inputs/text/InputText'
 import Button from '../../common/buttons/Button'
-import Select from '../../common/inputs/select/SelectCountry'
 import Proptypes from 'prop-types'
 
 const SearcherForm = ({ formData }) => {

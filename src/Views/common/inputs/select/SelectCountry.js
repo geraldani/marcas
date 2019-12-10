@@ -1,5 +1,4 @@
 import React from 'react'
-import { countries } from '../../../../data.js'
 import ErrorAlert from '../../alerts/ErrorAlert'
 import { StyledSelect } from './styles'
 import { StyledSublabel } from '../../../styles/GlobalStyles'
@@ -7,7 +6,7 @@ import PropTypes from 'prop-types'
 import Tooltip from '../../tooltip/Tooltip'
 import MoreInfoButton from '../../buttons/MoreInfo/MoreInfoButton'
 
-const Select = ({ value, onChange, error, label, name, type, tooltip, info }) => {
+const Select = ({ value, onChange, error, label, name, type, tooltip, info, options }) => {
   const multiple = type === 'select-multi'
   const valueDefault = multiple ? value[value.length - 1] ? value[value.length - 1] : '' : value
   const defaultOption = 'Seleccione su pais'
@@ -28,7 +27,7 @@ const Select = ({ value, onChange, error, label, name, type, tooltip, info }) =>
       >
         <option value={multiple ? [] : ''}>{defaultOption}</option>
         {
-          countries.map(contry => (
+          options.map(contry => (
             <option
               value={contry}
               key={contry}
@@ -48,7 +47,8 @@ Select.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.any.isRequired
+  value: PropTypes.any.isRequired,
+  options: PropTypes.array.isRequired
 }
 
 export default Select

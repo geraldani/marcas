@@ -4,6 +4,7 @@ import { StyledLegend, StyledLabelName, StyledDivMarginBottom } from '../../styl
 import Select from '../../common/inputs/select/SelectCountry'
 import InputText from '../../common/inputs/text/InputText'
 import MoreInfoButton from '../../common/buttons/MoreInfo/MoreInfoButton'
+import { countries } from '../../../data'
 
 const StepTwo = (props) => {
   const { state, onChange, errors } = props
@@ -65,7 +66,7 @@ const StepTwo = (props) => {
           <InputText {...state.name} onChange={onChange} error={errors.name} tooltip='El nombre del propietario de la marca' />
           <InputText {...state.surname} onChange={onChange} error={errors.surname} moreInfo='algo mas que me guste' />
           <InputText {...state.razonSocial} disabled={disableInput} onChange={onChange} error={errors.razonSocial} />
-          <Select {...state.countryGestor} onChange={onChange} error={errors.countryGestor} />
+          <Select {...state.countryGestor} onChange={onChange} error={errors.countryGestor} options={countries} />
           <InputText {...state.cuit} onChange={onChange} error={errors.cuit} />
         </div>
       </StyledDivMarginBottom>

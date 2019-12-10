@@ -3,6 +3,7 @@ import CheckToggler from '../../common/inputs/toggler/CheckToggler'
 import { StyledLabelName, StyledLegend, StyledDivMarginBottom } from '../../styles/GlobalStyles'
 import Select from '../../common/inputs/select/SelectCountry'
 import { StyledOption, ClearLegend } from './styles'
+import { countries } from '../../../data'
 import InputText from '../../common/inputs/text/InputText'
 
 const StepFour = (props) => {
@@ -29,7 +30,7 @@ const StepFour = (props) => {
       </div>
 
       <StyledDivMarginBottom className='col-12 col-md-7 px-4'>
-        <Select {...state.countryPrevious} onChange={onChange} error={errors.countryPrevious} />
+        <Select {...state.countryPrevious} onChange={onChange} error={errors.countryPrevious} options={countries} />
         <InputText {...state.nroRegistro} onChange={onChange} error={errors.nroRegistro} />
       </StyledDivMarginBottom>
     </>
