@@ -1,8 +1,8 @@
-import styled  from 'styled-components'
+import styled, {css}  from 'styled-components'
 import { COLOR } from '../../../utils/constants'
 
 const StyledTable = styled.table`
-  border-radius: 10px;
+  border-radius: 7px;
   thead th{
     border-top: none;
     color: ${COLOR.darkGrey};
@@ -24,7 +24,7 @@ const StyledTable = styled.table`
       }
     }
     tr:hover{
-      box-shadow: inset 5px 0 ${COLOR.primary};
+      ${props => props.hoverable && css`box-shadow: inset 5px 0 ${COLOR.primary}`};
     }
   }
 `

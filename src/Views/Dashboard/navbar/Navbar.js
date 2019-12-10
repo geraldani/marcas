@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <StyledNav className='nav flex-column' {...{ viewPortHeight, height }}>
       <StyledLink active to={ROUTES.registerBrand}>Tus Tramites</StyledLink>
-      <StyledLink to={ROUTES.registerBrand}>Marcas locales</StyledLink>
+      <StyledLink to={ROUTES.searchBrand}>Marcas locales</StyledLink>
     </StyledNav>
   )
 }

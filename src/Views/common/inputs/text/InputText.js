@@ -12,7 +12,7 @@ const Input = (props) => (
 )
 
 const InputWithLabel = (props) => (
-  <StyledSublabel disabled={props.disabled} color={props.colorLabel}>
+  <StyledSublabel disabled={props.disabled} color={props.colorlabel}>
     <span className='d-flex'>
       {props.label}
       {props.tooltip && <Tooltip title={props.tooltip} style={{ marginTop: '0.5em' }}/>}
@@ -22,7 +22,7 @@ const InputWithLabel = (props) => (
   </StyledSublabel>
 )
 
-const InputText = ({ type, name, value, onChange, error, label, disabled, className, initialValue, errorStyle, tooltip, moreInfo, onKeyDown, colorLabel, style }) => {
+const InputText = ({ type, name, value, onChange, error, label, disabled, className, defaultValue, errorStyle, tooltip, moreInfo, onKeyDown, colorLabel, style }) => {
   const errorClass = error ? 'error' : ''
   const classname = className ? `form-control ${className} ${errorClass}` : `form-control ${errorClass}`
   const commonProps = {
@@ -33,7 +33,7 @@ const InputText = ({ type, name, value, onChange, error, label, disabled, classN
     value,
     onChange,
     label,
-    defaultValue: initialValue,
+    defaultValue,
     tooltip,
     colorlabel: colorLabel,
     moreinfo: moreInfo,
@@ -50,10 +50,11 @@ const InputText = ({ type, name, value, onChange, error, label, disabled, classN
 }
 InputText.propTypes = {
   type: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.any.isRequired
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  defaultValue: PropTypes.string
 }
 
 export default InputText

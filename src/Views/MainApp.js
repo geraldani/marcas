@@ -12,6 +12,7 @@ import ConstructionPage from './common/Warnings/constructioPage'
 import PageNotFound from './common/Warnings/PageNotFound'
 import { ROUTES } from '../utils/constants'
 import DashBoard from './Dashboard'
+import SearchBrand from './Dashboard/searchBrand/SearchBrand'
 
 const MainApp = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const MainApp = () => (
       <Route exact path={ROUTES.home} component={DashBoard} />
       <Route exact path={ROUTES.registerBrand} component={Register} />
       <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
+      <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
       <Route exact path={ROUTES.finishRegister} component={FinishRegister} />
       <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo} />
       <Route exact path={ROUTES.terms} component={TermsConditions} />

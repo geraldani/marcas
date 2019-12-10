@@ -1,13 +1,307 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeaderDash from './header/header'
 import Navbar from './navbar/Navbar'
-import InputText from '../common/inputs/text/InputText'
-import Button from '../common/buttons/Button'
-import TableFilter from './table/TableFilter'
-import Paginator from './paginator/Paginator'
+import ListBrands from './seeAllBrands/ListBrands'
+import Detail from './seeDetail/Detail'
 
 const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
-  const formStructure = [
+  const fakeTitleTable = [
+    'Fecha',
+    'Título',
+    'Asignado',
+    'Expediente',
+    'Vencimiento',
+    ''
+  ]
+  const fakeData = [
+    {
+      id: 1,
+      date: new Date(),
+      titularID: 785,
+      titular: 'Marcas locales',
+      assigned: 'Geraldyn Chirinos',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    },
+    {
+      id: 2,
+      date: new Date(2018, 11, 24, 18, 25, 30),
+      titularID: 175,
+      titular: 'Marcas sociales',
+      assigned: 'Photography',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    },
+    {
+      id: 3,
+      date: new Date(),
+      titularID: 475,
+      titular: 'Marcas gringas',
+      assigned: 'Estudio',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 45 días'
+    },
+    {
+      id: 4,
+      date: new Date(),
+      titularID: 75,
+      titular: 'un coso',
+      assigned: 'Estudio',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence mañana'
+    },
+    {
+      id: 5,
+      date: new Date(),
+      titularID: 185,
+      titular: 'Marcas locales',
+      assigned: 'Nails',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    },
+    {
+      id: 6,
+      date: new Date(),
+      titularID: 58,
+      titular: 'Marcas locales',
+      assigned: 'Estudio',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    },
+    {
+      id: 7,
+      date: new Date(),
+      titularID: 458,
+      titular: 'Marcas locales',
+      assigned: 'Estudio',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    },
+    {
+      id: 8,
+      date: new Date(),
+      titularID: 9878,
+      titular: 'Marcas locales',
+      assigned: 'Estudio',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    },
+    {
+      id: 9,
+      date: new Date(),
+      titularID: 978,
+      titular: 'Marcas locales',
+      assigned: 'Estudio',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    },
+    {
+      id: 10,
+      date: new Date(),
+      titularID: 89,
+      titular: 'Marcas locales',
+      assigned: 'Estudio',
+      expediente: 5478,
+      tipoId: 'D',
+      tipo: 'algun tipo',
+      group: 'Minos',
+      agent: 'un agente',
+      cargo: 'gerente',
+      cuil: '29-87514-54',
+      persoType: 'Juridica',
+      nroDoc: '8745698554',
+      carta: 'Titular',
+      sobre: 'sobre algo',
+      factura: 'titular',
+      atencion: 'una linda atencion',
+      sector: 'un sector lindo',
+      rubro: 'Oro',
+      direccion: 'Av. Avellaneda 8857',
+      localidad: 'C.A.B.A',
+      potalCode: '1854',
+      provincia: 'Buenos Aires',
+      pais: 'Argentina',
+      expiration: 'Vence en 8 días'
+    }
+  ]
+  const fakeTableAtributes = ['date', 'titular', 'assigned', 'expediente', 'expiration', 'button']
+  const tableInfomation = {
+    headers: fakeTitleTable,
+    data: fakeData,
+    body: fakeTableAtributes
+  }
+  const formSearchStructure = [
     {
       label: 'Fecha:',
       name: 'fecha',
@@ -29,6 +323,17 @@ const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
       type: 'date'
     }
   ]
+
+  // const [showDetail, setShowDetail] = useState(true)
+  const [showDetail, setShowDetail] = useState(false)
+  // const [details, setDetails] = useState(fakeData[1])
+  const [details, setDetails] = useState({})
+
+  const seeDetail = (id) => {
+    setDetails(fakeData.find(e => e.id === id))
+    setShowDetail(true)
+  }
+  const goback = () => setShowDetail(false)
   return (
     <>
       <HeaderDash user={user}/>
@@ -40,29 +345,11 @@ const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
           <div className='col py-3 px-4' style={{ background: 'white' }}>
             Tus trámites
           </div>
-          <div className='row m-0'>
-            {
-              formStructure.map(elem => (
-                <div className='col px-4' key={elem.name}>
-                  <InputText
-                    style={{ paddingTop: '0.2rem', paddingBottom: '0.2rem', fontSize: '15px' }}
-                    onChange={() => {}}
-                    colorLabel='gray'
-                    {...elem}
-                  />
-                </div>
-              ))
-            }
-            <div className='col d-flex justify-content-start align-items-end'>
-              <Button title='Aplicar filtro' size='sm' color='#4990e2' />
-            </div>
-          </div>
-          <div className='col px-4'>
-            <TableFilter />
-          </div>
-          <div className='col mb-5'>
-            <Paginator />
-          </div>
+          {
+            showDetail
+              ? <Detail data={details} handleClick={goback}/>
+              : <ListBrands formStructure={formSearchStructure} onClickDetails={seeDetail} tableInformation={tableInfomation}/>
+          }
         </div>
       </div>
     </>

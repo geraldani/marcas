@@ -23,7 +23,8 @@ const disableScroll = () => {
 
 const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
-const FormateaFecha = (date) => `${days[date.getDay()].substr(0, 3)} ${date.getHours()}:${date.getMinutes()}`
+const dateFormattedTable = (date) => `${days[date.getDay()].substr(0, 3)} ${date.getHours()}:${date.getMinutes()}`
+const dateFormattedNormal = (date) => `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
 
 export {
   enableScroll,
@@ -31,5 +32,6 @@ export {
   setViewUp,
   isEmailValid,
   isHexColor,
-  FormateaFecha
+  dateFormattedTable,
+  dateFormattedNormal
 }
