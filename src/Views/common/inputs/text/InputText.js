@@ -35,7 +35,7 @@ const InputText = ({ type, name, value, onChange, error, label, disabled, classN
     label,
     defaultValue: initialValue,
     tooltip,
-    colorLabel,
+    colorlabel: colorLabel,
     moreinfo: moreInfo,
     onKeyDown,
     style

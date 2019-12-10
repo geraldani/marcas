@@ -4,6 +4,7 @@ import Navbar from './navbar/Navbar'
 import InputText from '../common/inputs/text/InputText'
 import Button from '../common/buttons/Button'
 import TableFilter from './table/TableFilter'
+import Paginator from './paginator/Paginator'
 
 const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
   const formStructure = [
@@ -35,7 +36,6 @@ const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
         <div className='col-2 px-0'>
           <Navbar/>
         </div>
-        {/*<div className='col-10 px-0' style={{ background: 'blue' }}>*/}
         <div className='col-10 px-0' style={{ background: '#f7f8fc' }}>
           <div className='col py-3 px-4' style={{ background: 'white' }}>
             Tus trámites
@@ -47,7 +47,8 @@ const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
                   <InputText
                     style={{ paddingTop: '0.2rem', paddingBottom: '0.2rem', fontSize: '15px' }}
                     onChange={() => {}}
-                    colorLabel='gray' {...elem}
+                    colorLabel='gray'
+                    {...elem}
                   />
                 </div>
               ))
@@ -56,8 +57,11 @@ const DashBoard = ({ user = 'Geraldyn Chirinos' }) => {
               <Button title='Aplicar filtro' size='sm' color='#4990e2' />
             </div>
           </div>
-          <div className="col px-4">
-            <TableFilter/>
+          <div className='col px-4'>
+            <TableFilter />
+          </div>
+          <div className='col mb-5'>
+            <Paginator />
           </div>
         </div>
       </div>

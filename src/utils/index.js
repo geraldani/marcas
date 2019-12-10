@@ -21,10 +21,15 @@ const disableScroll = () => {
   // document.addEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
 }
 
+const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+
+const FormateaFecha = (date) => `${days[date.getDay()].substr(0, 3)} ${date.getHours()}:${date.getMinutes()}`
+
 export {
   enableScroll,
   disableScroll,
   setViewUp,
   isEmailValid,
-  isHexColor
+  isHexColor,
+  FormateaFecha
 }

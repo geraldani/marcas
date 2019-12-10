@@ -1,5 +1,7 @@
 import React from 'react'
 import { StyledTable } from './styles'
+import { FormateaFecha } from '../../../utils'
+import { IoIosDocument as IconDoc } from 'react-icons/io'
 
 const TableFilter = () => {
   const fakeTitleTable = [
@@ -12,84 +14,84 @@ const TableFilter = () => {
   ]
   const fakeTableData = [
     {
-      date: 'fecha',
+      id: 1,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 2,
+      date: new Date(2018, 11, 24, 18, 25, 30),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 3,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 4,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 5,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 6,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 7,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 8,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 9,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     },
     {
-      date: 'fecha',
+      id: 10,
+      date: new Date(),
       title: 'Marcas locales',
       assigned: 'Estudio',
       expediente: 5478,
-      expiration: 'Vence en 8 días',
-      coso: 'icon'
+      expiration: 'Vence en 8 días'
     }
   ]
 
@@ -103,8 +105,12 @@ const TableFilter = () => {
       <tbody>
         {
           fakeTableData.map(data => (
-            <tr key={data.title}>
-              {Object.values(data).map(elem => (<td>{elem}</td>))}
+            <tr key={data.id}>
+              {Object.values(data).concat([1]).map((elem, i, arr) => {
+                if (Object.keys(data)[i] === 'date') return <td>{FormateaFecha(elem)}</td>
+                else if (i === arr.length - 1) return <td><IconDoc size={'25px'}/></td>
+                else if (Object.keys(data)[i] !== 'id') return <td>{elem}</td>
+              })}
             </tr>
           ))
         }
