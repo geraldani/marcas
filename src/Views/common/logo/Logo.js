@@ -2,10 +2,11 @@ import React from 'react'
 import { StyledLinkImage } from './styles'
 import logoDark from '../../../assets/img/logo_laweb.png'
 import logoLight from '../../../assets/img/logo laweb_white.png'
+import { ROUTES } from '../../../utils/constants'
 
 const Logo = ({ className = '', light }) => {
   return (
-    <StyledLinkImage className={className} to='/'>
+    <StyledLinkImage className={className} to={ROUTES.home}>
       <img
         src={light ? logoLight : logoDark}
         alt='brand'

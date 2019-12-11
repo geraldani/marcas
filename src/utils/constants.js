@@ -34,7 +34,8 @@ const ROUTES = {
   otherTrams: '/otros-tramites',
   searchBrand: '/busca-tu-tramite',
   writeContact: '/write-us',
-  domain: '/disputa-dominio'
+  domain: '/disputa-dominio',
+  seeRegister: '/registro'
 }
 
 // for media queries screens

@@ -9,7 +9,7 @@ const HeaderDash = ({ user }) => {
       className='navbar navbar-expand-lg shadow-sm d-flex justify-content-between'
       style={{ background: COLOR.primary }}
     >
-      <Logo light/>
+      <Logo light />
       <div className='d-flex align-items-center'>
         <p className='text-white mr-2 mb-0'>{user}</p>
         <UserIcon color='white' size='28px' />

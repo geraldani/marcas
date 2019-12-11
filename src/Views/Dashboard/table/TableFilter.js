@@ -2,8 +2,10 @@ import React from 'react'
 import { StyledTable } from './styles'
 import { IoIosDocument as IconDoc } from 'react-icons/io'
 import { dateFormattedTable } from '../../../utils'
+import { Link } from 'react-router-dom'
+import { ROUTES } from '../../../utils/constants'
 
-const TableFilter = ({ information, onClick, hoverable = false }) => {
+const TableFilter = ({ information, hoverable = false }) => {
   return (
     <StyledTable className='table shadow-medium bg-white' hoverable={hoverable}>
       <thead>
@@ -17,7 +19,8 @@ const TableFilter = ({ information, onClick, hoverable = false }) => {
             <tr key={data.id}>
               {
                 information.body.map(elem => {
-                  if (elem === 'button') return <td><IconDoc size='25px' onClick={() => onClick(information.data[index].id)} /></td>
+                  const id = information.data[index].id
+                  if (elem === 'button') return <td><Link to={`${ROUTES.seeRegister}/${id}`}> <IconDoc size='25px' color='gray' /></Link></td>
                   else if (elem === 'date') return <td>{dateFormattedTable(data[elem])}</td>
                   return <td>{data[elem]}</td>
                 })

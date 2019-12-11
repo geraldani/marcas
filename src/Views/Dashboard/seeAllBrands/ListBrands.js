@@ -4,6 +4,7 @@ import Paginator from '../paginator/Paginator'
 import SearcherForm from '../searcher/SearcherForm'
 
 const ListBrands = ({ formStructure, onClickDetails, tableInformation }) => {
+  console.log('tableInformation ', tableInformation)
   return (
     <>
       <div className='row m-0'>
