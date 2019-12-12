@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { COLOR } from '../../../../utils/constants'
 
-const paddingCard = 1 + 'rem'
+const paddingCard = 1.5 + 'rem'
 const cardBorderWidth = 1 + 'px'
-const cardBorderRadius = 10 + 'px'
+const cardBorderRadius = 8 + 'px'
 
 const StyledCard = styled.div`
   position: relative;

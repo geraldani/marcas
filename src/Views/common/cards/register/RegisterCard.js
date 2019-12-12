@@ -7,8 +7,9 @@ const Form = ({ fields, buttonName, link }) => {
     <form>
       {
         fields.map(field => (
-          <StyledSublabel key={field.name}>{field.name}
-            <input type={field.type} className='form-control' />
+          <StyledSublabel key={field.name}>
+            {field.label}
+            <input type={field.type} name={field.name} className='form-control' />
           </StyledSublabel>
         ))
       }

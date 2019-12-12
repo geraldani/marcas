@@ -3,10 +3,10 @@ import HeaderDash from '../header/header'
 import Title from '../../common/title/Title'
 import SearcherForm from '../searcher/SearcherForm'
 import TableFilter from '../table/TableFilter'
-import Card from '../cards/genericCard/Card'
-import CardHeader from '../cards/genericCard/CardHeader'
-import CardBody from '../cards/genericCard/CardBody'
-import CardFooter from '../cards/genericCard/CardFooter'
+import Card from '../../common/cards/genericCard/Card'
+import CardHeader from '../../common/cards/genericCard/CardHeader'
+import CardBody from '../../common/cards/genericCard/CardBody'
+import CardFooter from '../../common/cards/genericCard/CardFooter'
 
 const SearchBrand = ({ user = 'Geraldyn Chirinos' }) => {
   const dataSearched = [{

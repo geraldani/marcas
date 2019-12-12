@@ -205,16 +205,12 @@ const menu = {
       }))
     },
     {
-      name: '¿Disputas de nombres de dominio?',
-      path: ROUTES.domain
-    },
-    {
       name: 'Registrarme',
-      path: ROUTES.signup
+      path: ROUTES.register
     },
     {
       name: 'Ingresar',
-      path: ROUTES.signin
+      path: ROUTES.login
     }
   ]
 }

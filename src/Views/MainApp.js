@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './Home/Home'
 import Register from '../Components/RegisterBrand/Register'
 import FinishRegister from './RegisterBrand/finish-register/FinishRegister'
-import Sign from './SignUp/Sign'
+import Login from './SignUp/Login'
 import MoreInfo from './Home/moreInfo/moreInfo'
 import Faqs from './Faq/Faqs'
 import TermsConditions from './Faq/TermsConditions'
@@ -13,7 +13,7 @@ import PageNotFound from './common/Warnings/PageNotFound'
 import { ROUTES } from '../utils/constants'
 import DashBoard from './Dashboard'
 import SearchBrand from './Dashboard/searchBrand/SearchBrand'
-import uuid from 'uuid'
+import RegisterUser from './SignUp/RegisterUser'
 
 const fakeData = [
   {
@@ -301,19 +301,20 @@ const fakeData = [
 const MainApp = () => (
   <BrowserRouter>
     <Switch>
-      {/*<Route exact path={ROUTES.home} component={Home} />*/}
-      <Route exact path={ROUTES.home} render={(props) => <DashBoard {...props} data={fakeData}/>}/>
-      <Route exact path={ROUTES.registerBrand} component={Register}/>
-      <Route exact path={ROUTES.orderDetail} component={SaveOrder}/>
-      <Route exact path={ROUTES.searchBrand} component={SearchBrand}/>
-      <Route exact path={ROUTES.finishRegister} component={FinishRegister}/>
-      <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => {console.log('las propsitas', fakeData); return <DashBoard {...props} data={fakeData}/>}}/>
-      <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo}/>
-      <Route exact path={ROUTES.terms} component={TermsConditions}/>
-      <Route exact path={ROUTES.faq} component={Faqs}/>
-      <Route exact path={ROUTES.beginBrand + '/:name'} component={ConstructionPage}/>
-      <Route exact path={ROUTES.login} component={Sign}/>
-      <Route exact component={PageNotFound}/>
+      <Route exact path={ROUTES.home} component={Login} />
+      <Route exact path={ROUTES.home} render={(props) => <DashBoard {...props} data={fakeData} /> } />
+      <Route exact path={ROUTES.registerBrand} component={Register} />
+      <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
+      <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
+      <Route exact path={ROUTES.finishRegister} component={FinishRegister} />
+      <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} /> } />
+      <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo} />
+      <Route exact path={ROUTES.terms} component={TermsConditions} />
+      <Route exact path={ROUTES.faq} component={Faqs} />
+      <Route exact path={ROUTES.beginBrand + '/:name'} component={ConstructionPage} />
+      <Route exact path={ROUTES.login} component={Login} />
+      <Route exact path={ROUTES.register} component={RegisterUser} />
+      <Route exact component={PageNotFound} />
     </Switch>
   </BrowserRouter>
 )
