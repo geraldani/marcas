@@ -1,50 +1,15 @@
 import React from 'react'
 import Header from '../common/header/Header'
-import FormCard from '../common/miniForm'
 import Footer from '../common/footer/Footer'
-import { setViewUp } from '../../utils'
 import Card from '../common/cards/genericCard/Card'
 import CardHeader from '../common/cards/genericCard/CardHeader'
-import Title from '../common/title/Title'
 import CardBody from '../common/cards/genericCard/CardBody'
-import { StyledSublabel } from '../styles/GlobalStyles'
 import Button from '../common/buttons/Button'
 import InputText from '../common/inputs/text/InputText'
+import ModalLoader from '../common/modal/ModalLoader'
+import { StyledError } from '../common/alerts/styles'
 
-const data = {
-  header: 'Registrate',
-  buttonName: 'Crear cuenta',
-  inputs: [
-    {
-      label: 'Nombre',
-      name: 'name',
-      type: 'text'
-    },
-    {
-      label: 'Apellido',
-      name: 'surname',
-      type: 'text'
-    },
-    {
-      label: 'Email',
-      name: 'email',
-      type: 'email'
-    },
-    {
-      label: 'Contraseña',
-      name: 'password',
-      type: 'password'
-    },
-    {
-      label: 'Repetir contraseña',
-      name: 'repeatPassword',
-      type: 'password'
-    }
-  ]
-}
-
-const RegisterUser = () => {
-  setViewUp()
+const RegisterUser = (props) => {
   return (
     <>
       <Header showMenu />
@@ -52,26 +17,32 @@ const RegisterUser = () => {
         <div className='col-md-7 col-lg-6 col-xl-5 col-12 mt-3 mb-5 px-2 px-md-0 px-0 '>
           <Card>
             <CardHeader>
-              <h3 className='mb-0'>{data.header}</h3>
+              <h3 className='mb-0'>{props.form.header}</h3>
             </CardHeader>
             <CardBody>
               <form>
                 {
-                  data.inputs.map(field => (
+                  props.form.inputs.map(field => (
                     <InputText
                       key={field.name}
-                      onChange={() => {}}
+                      onChange={props.onChange}
                       name={field.name}
                       type={field.type}
                       label={field.label}
+                      error={props.errors[field.name]}
+                      value={props.value[field.name]}
                     />
                   ))
                 }
-                <Button title={data.buttonName} className='w-100 mt-4' />
+                <Button title={props.form.buttonName} className='w-100 mt-4' onClick={props.onClick} />
               </form>
             </CardBody>
           </Card>
+          {
+            props.errorFetch && <StyledError>Ocurrio un error <br />{props.errorFetch}</StyledError>
+          }
         </div>
+        <ModalLoader showModal={props.loading} />
       </div>
       <Footer />
     </>

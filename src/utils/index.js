@@ -25,6 +25,8 @@ const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', '
 
 const dateFormattedTable = (date) => `${days[date.getDay()].substr(0, 3)} ${date.getHours()}:${date.getMinutes()}`
 const dateFormattedNormal = (date) => `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+const isEmptyObject = (obj) => Object.keys(obj).length === 0
+const isEmptyArray = (arr) => arr.length === 0
 
 export {
   enableScroll,
@@ -33,5 +35,7 @@ export {
   isEmailValid,
   isHexColor,
   dateFormattedTable,
-  dateFormattedNormal
+  dateFormattedNormal,
+  isEmptyArray,
+  isEmptyObject
 }

@@ -7,6 +7,17 @@ const hayMarcaSelected = (marcas) => {
   })
   return checked
 }
+export const validateRegisterUser = (data) => {
+  const errors = []
+  Object.keys(data).forEach(e => {
+    if (!data[e]) {
+      errors[e] = 'Campo requerido'
+    } else if (e === 'email' && !isEmailValid(data[e])) {
+      errors[e] = 'El correo introducido no es valido'
+    }
+  })
+  return errors
+}
 
 const validation = (state, actualStep) => {
   const errors = {}

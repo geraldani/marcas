@@ -14,7 +14,7 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     font-weight: bold;
   }
-  ${props => props.active && css`
+  ${props => props.active === 'true' && css`
     background-color: rgba(255,255,255,0.2);
     font-weight: bold;
   `}

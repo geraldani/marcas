@@ -7,7 +7,7 @@ const Navbar = () => {
   const [height, viewPortHeight] = useWindowHeight()
   return (
     <StyledNav className='nav flex-column' {...{ viewPortHeight, height }}>
-      <StyledLink active to={ROUTES.registerBrand}>Tus Tramites</StyledLink>
+      <StyledLink active='true' to={ROUTES.registerBrand}>Tus Tramites</StyledLink>
       <StyledLink to={ROUTES.searchBrand}>Marcas locales</StyledLink>
     </StyledNav>
   )

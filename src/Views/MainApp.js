@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import Home from './Home/Home'
 import Register from '../Components/RegisterBrand/Register'
 import FinishRegister from './RegisterBrand/finish-register/FinishRegister'
@@ -13,7 +13,7 @@ import PageNotFound from './common/Warnings/PageNotFound'
 import { ROUTES } from '../utils/constants'
 import DashBoard from './Dashboard'
 import SearchBrand from './Dashboard/searchBrand/SearchBrand'
-import RegisterUser from './SignUp/RegisterUser'
+import RegisterUserComponent from '../Components/RegisterUser/RegisterUserComponent'
 
 const fakeData = [
   {
@@ -298,22 +298,37 @@ const fakeData = [
   }
 ]
 
+const PrivateRoute = ({ component: Component, link, ...rest }) => (
+  <Route
+    {...rest}
+    render={props => {
+      const currentUser = {}
+      // const currentUser = authenticationService.currentUserValue;
+      if (!currentUser) {
+        return <Redirect to={{ pathname: link, state: { from: props.location } }} />
+      }
+      return <Component {...props} />
+    }}
+  />
+)
+
 const MainApp = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path={ROUTES.home} component={Login} />
-      <Route exact path={ROUTES.home} render={(props) => <DashBoard {...props} data={fakeData} /> } />
+      <Route exact path={ROUTES.dashboard} component={DashBoard} />
+      <Route exact path={ROUTES.home} render={(props) => <DashBoard {...props} data={fakeData} />} />
       <Route exact path={ROUTES.registerBrand} component={Register} />
       <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
       <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
       <Route exact path={ROUTES.finishRegister} component={FinishRegister} />
-      <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} /> } />
+      <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} />} />
       <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo} />
       <Route exact path={ROUTES.terms} component={TermsConditions} />
       <Route exact path={ROUTES.faq} component={Faqs} />
       <Route exact path={ROUTES.beginBrand + '/:name'} component={ConstructionPage} />
       <Route exact path={ROUTES.login} component={Login} />
-      <Route exact path={ROUTES.register} component={RegisterUser} />
+      <Route exact path={ROUTES.register} component={RegisterUserComponent} />
       <Route exact component={PageNotFound} />
     </Switch>
   </BrowserRouter>

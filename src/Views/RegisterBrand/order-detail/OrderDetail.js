@@ -6,32 +6,6 @@ import Header from '../../common/header/Header'
 import ModalLoader from '../../common/modal/ModalLoader'
 import { StyledTotal, StyledItem, StyledType, StyledValue, StyledFieldContainer } from './styles'
 
-const OrderDetail = (props) => {
-  const { state, handleClickBack, handleClickFinish, loading } = props
-  const groupFields = getGroupFields(state)
-
-  return (
-    <>
-      <Header />
-      <div className='pt-5 px-md-5 px-3 margin-header mb-4'>
-        <div className='row justify-content-center align-items-center flex-column'>
-          <CircleSteps actualStep={6} totalSteps={5} />
-          <div className='col-md-9 col-12 mt-3'>
-            <CardSteps title='Detalle de orden' className='pb-5'>
-              <GroupFields fields={groupFields} />
-            </CardSteps>
-            <div className='d-flex justify-content-center align-items-center flex-column'>
-              <StyledTotal>Total: $520</StyledTotal>
-              <ButtonsNavigation handleClickBack={handleClickBack} handleClickFinish={handleClickFinish} />
-            </div>
-            <ModalLoader showModal={loading} />
-          </div>
-        </div>
-      </div>
-    </>
-  )
-}
-
 const ButtonsNavigation = ({ handleClickBack, handleClickFinish }) => (
   <div
     className='d-flex justify-content-md-between flex-column flex-md-row flex-md-row justify-content-center align-items-center w-100'>
@@ -115,6 +89,32 @@ const getGroupFields = (state) => {
       { label: 'Clase 15', value: '$$' }
     ]
   ]
+}
+
+const OrderDetail = (props) => {
+  const { state, handleClickBack, handleClickFinish, loading } = props
+  const groupFields = getGroupFields(state)
+
+  return (
+    <>
+      <Header />
+      <div className='pt-5 px-md-5 px-3 margin-header mb-4'>
+        <div className='row justify-content-center align-items-center flex-column'>
+          <CircleSteps actualStep={6} totalSteps={5} />
+          <div className='col-md-9 col-12 mt-3'>
+            <CardSteps title='Detalle de orden' className='pb-5'>
+              <GroupFields fields={groupFields} />
+            </CardSteps>
+            <div className='d-flex justify-content-center align-items-center flex-column'>
+              <StyledTotal>Total: $520</StyledTotal>
+              <ButtonsNavigation handleClickBack={handleClickBack} handleClickFinish={handleClickFinish} />
+            </div>
+            <ModalLoader showModal={loading} />
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default OrderDetail

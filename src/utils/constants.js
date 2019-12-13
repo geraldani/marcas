@@ -34,7 +34,8 @@ const ROUTES = {
   searchBrand: '/busca-tu-tramite',
   writeContact: '/write-us',
   domain: '/disputa-dominio',
-  seeRegister: '/registro'
+  seeRegister: '/registro',
+  dashboard: '/dashboard'
 }
 
 // for media queries screens
@@ -44,4 +45,8 @@ const SCREEN = {
   lg: 992,
   xl: 1200
 }
-export { ROUTES, COLOR, SCREEN }
+
+const TYPE_ACTIONS = {
+  ADD_REGISTER_BRAND: 'REGISTER_DATA'
+}
+export { ROUTES, COLOR, SCREEN, TYPE_ACTIONS }
