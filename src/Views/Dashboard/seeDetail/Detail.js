@@ -6,9 +6,8 @@ import CardHeader from '../../common/cards/genericCard/CardHeader'
 import CardBody from '../../common/cards/genericCard/CardBody'
 import InputText from '../../common/inputs/text/InputText'
 import { COLOR, ROUTES } from '../../../utils/constants'
-import { dateFormattedNormal } from '../../../utils'
 
-const Detail = ({ match, data }) => {
+const Detail = ({ match, data, history }) => {
   console.log('data ', data)
 
   const id = match.params.id
@@ -20,141 +19,16 @@ const Detail = ({ match, data }) => {
   })
   console.log('data filtrada ', filterData)
   console.log('match ', match)
+
   const formStructure = [
     {
-      colsSize: ['1', '3'],
+      colsSize: ['3'],
       inputs: [
         {
-          label: 'Titular',
+          label: 'Titular marcario',
           type: 'text',
-          name: 'titularID',
-          defaultValue: filterData.titularID
-        },
-        {
-          label: '',
-          type: 'text',
-          name: 'titular',
-          defaultValue: filterData.titular
-        }
-      ]
-    },
-    {
-      colsSize: ['1', '3'],
-      inputs: [
-        {
-          label: 'Tipo',
-          type: 'text',
-          name: 'tipoId',
-          defaultValue: filterData.tipoId
-        },
-        {
-          label: '',
-          type: 'text',
-          name: 'tipo',
-          defaultValue: filterData.tipo
-        }
-      ]
-    },
-    {
-      colsSize: ['3', '3', '3'],
-      inputs: [
-        {
-          label: 'Grupo',
-          type: 'text',
-          name: 'group',
-          defaultValue: filterData.group
-        },
-        {
-          label: 'Agente',
-          type: 'text',
-          name: 'agent',
-          defaultValue: filterData.agent
-        },
-        {
-          label: 'Cargo',
-          type: 'text',
-          name: 'cargo',
-          defaultValue: filterData.cargo
-        }
-      ]
-    },
-    {
-      colsSize: ['3', '3', '3'],
-      inputs: [
-        {
-          label: 'CUIT/CUIL',
-          type: 'text',
-          name: 'cuil',
-          defaultValue: filterData.cuil
-        },
-        {
-          label: 'Tipo de persona',
-          type: 'text',
-          name: 'persoType',
-          defaultValue: filterData.persoType
-        },
-        {
-          label: 'Doc',
-          type: 'text',
-          name: 'nroDoc',
-          defaultValue: filterData.nroDoc
-        }
-      ]
-    },
-    {
-      colsSize: ['3', '3', '3'],
-      inputs: [
-        {
-          label: 'Carta al',
-          type: 'text',
-          name: 'carta',
-          defaultValue: filterData.carta
-        },
-        {
-          label: 'Sobre al',
-          type: 'text',
-          name: 'sobre',
-          defaultValue: filterData.sobre
-        },
-        {
-          label: 'Factura al',
-          type: 'text',
-          name: 'factura',
-          defaultValue: filterData.factura
-        }
-      ]
-    },
-    {
-      colsSize: ['3', '3', '3'],
-      inputs: [
-        {
-          label: 'CUIT/CUIL',
-          type: 'text',
-          name: 'cuil',
-          defaultValue: filterData.cuil
-        },
-        {
-          label: 'Tipo de persona',
-          type: 'text',
-          name: 'persoType',
-          defaultValue: filterData.persoType
-        },
-        {
-          label: 'Doc',
-          type: 'text',
-          name: 'nroDoc',
-          defaultValue: filterData.nroDoc
-        }
-      ]
-    },
-    {
-      colsSize: ['9'],
-      inputs: [
-        {
-          label: 'Atención',
-          type: 'text',
-          name: 'atencion',
-          defaultValue: filterData.atencion
+          name: 'registerType',
+          defaultValue: filterData.registerType
         }
       ]
     },
@@ -162,56 +36,16 @@ const Detail = ({ match, data }) => {
       colsSize: ['3', '3'],
       inputs: [
         {
-          label: 'Sector',
+          label: 'Razon social',
           type: 'text',
-          name: 'sector',
-          defaultValue: filterData.sector
+          name: 'razonSocial',
+          defaultValue: filterData.razonSocial
         },
         {
-          label: 'Rubro',
+          label: 'CUIT',
           type: 'text',
-          name: 'rubro',
-          defaultValue: filterData.rubro
-        }
-      ]
-    },
-    {
-      colsSize: ['3', '3', '3'],
-      inputs: [
-        {
-          label: 'Dirección',
-          type: 'text',
-          name: 'direccion',
-          defaultValue: filterData.direccion
-        },
-        {
-          label: 'Localidad',
-          type: 'text',
-          name: 'localidad',
-          defaultValue: filterData.localidad
-        },
-        {
-          label: 'Código postal',
-          type: 'number',
-          name: 'potalCode',
-          defaultValue: filterData.potalCode
-        }
-      ]
-    },
-    {
-      colsSize: ['3', '3'],
-      inputs: [
-        {
-          label: 'Provincia',
-          type: 'text',
-          name: 'provincia',
-          defaultValue: filterData.provincia
-        },
-        {
-          label: 'País',
-          type: 'text',
-          name: 'pais',
-          defaultValue: filterData.pais
+          name: 'cuit',
+          defaultValue: filterData.cuit
         }
       ]
     }
@@ -223,7 +57,7 @@ const Detail = ({ match, data }) => {
         <div className='col-6'>
           <Button
             title='Volver'
-            link={ROUTES.home}
+            link={history.goBack()}
             styled='outline-primary'
             className='px-1 py-1'
             style={{ fontSize: '0.97rem' }}
@@ -235,7 +69,7 @@ const Detail = ({ match, data }) => {
         <div className='col-6'>
           <p className='text-normal text-right m-0' style={{ color: COLOR.textColor }}>
             <small>
-              Modificado el {dateFormattedNormal(filterData.date)} por {filterData.assigned.toLocaleUpperCase()}
+              {/*Modificado el {dateFormattedNormal(filterData.date)} por {filterData.assigned.toLocaleUpperCase()}*/}
             </small>
           </p>
         </div>
@@ -253,14 +87,14 @@ const Detail = ({ match, data }) => {
                   <div className='row mx-0' key={i}>
                     {
                       elems.inputs.map((input, index) => (
-                        <div key={input.name}
-                             className={`col-${elems.colsSize[index]} ${input.label ? '' : 'd-flex align-items-end'}`}>
+                        <div key={input.name} className={`col-${elems.colsSize[index]} ${input.label ? '' : 'd-flex align-items-end'}`}>
                           <InputText
                             onChange={() => {}}
                             colorLabel={COLOR.textColor}
                             label={input.label ? `${input.label}:` : ''}
                             type={input.type}
                             name={input.name}
+                            disabled
                             defaultValue={input.defaultValue}
                           />
                         </div>

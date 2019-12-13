@@ -9,4 +9,18 @@ const addRegisterBrand = (data) => {
   }
 }
 
-export { addRegisterBrand }
+const addPassword = (pass) => {
+  return {
+    type: TYPE_ACTIONS.ADD_PASSWORD,
+    pass
+  }
+}
+
+const addPaperWorks = (paperworks) => {
+  return {
+    type: TYPE_ACTIONS.ADD_PAPERWORK,
+    paperworks
+  }
+}
+
+export { addRegisterBrand, addPassword, addPaperWorks }

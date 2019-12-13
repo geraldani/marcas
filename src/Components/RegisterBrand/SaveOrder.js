@@ -65,8 +65,8 @@ const SaveOrder = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  if (state.data) {
-    return { dataRegister: state.data }
+  if (state.registerBrandData) {
+    return { dataRegister: state.registerBrandData }
   } else {
     return {
       dataRegister: {}

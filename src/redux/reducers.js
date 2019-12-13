@@ -19,6 +19,14 @@ const reducers = (state = inicialState, action) => {
       return Object.assign({}, state, {
         registerBrandData: action.data
       })
+    case TYPE_ACTIONS.ADD_PASSWORD:
+      return Object.assign({}, state, {
+        password: action.pass
+      })
+    case TYPE_ACTIONS.ADD_PAPERWORK:
+      return Object.assign({}, state, {
+        allPaperWorks: action.paperworks
+      })
     default:
       return state
   }

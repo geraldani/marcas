@@ -7,8 +7,22 @@ const hayMarcaSelected = (marcas) => {
   })
   return checked
 }
+
+export const validateRegisterUserWithBrand = (pass) => {
+  const errors = {}
+  Object.keys(pass).forEach(e => {
+    if (!pass[e]) {
+      errors[e] = 'Campo requerido'
+    }
+  })
+  if (pass.password !== pass.repeatPassword) {
+    errors.passDontMatch = 'Las contraseñas no coinciden'
+  }
+  return errors
+}
+
 export const validateRegisterUser = (data) => {
-  const errors = []
+  const errors = {}
   Object.keys(data).forEach(e => {
     if (!data[e]) {
       errors[e] = 'Campo requerido'

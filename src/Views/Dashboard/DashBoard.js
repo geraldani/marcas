@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderDash from './header/header'
 import Navbar from './navbar/Navbar'
 import ListBrands from './seeAllBrands/ListBrands'
@@ -6,17 +6,24 @@ import Detail from './seeDetail/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ROUTES } from '../../utils/constants'
 import { isEmptyArray } from '../../utils'
+import { connect } from 'react-redux'
 
-const DashBoard = ({ user = 'Geraldyn Chirinos', data = [] }) => {
+const DashBoard = ({ data = [], dataRegister }) => {
+  const [user, setUser] = useState('')
+
+  useEffect(() => {
+    const _session = window.localStorage.getItem('jwt')
+    setUser(`${data[data.length - 1].name} ${data[data.length - 1].surname}`)
+    console.log('todos las registros ', data)
+  }, [])
+
   const fakeTitleTable = [
-    'Fecha',
-    'Título',
-    'Asignado',
-    'Expediente',
-    'Vencimiento',
+    'Tipo de marca',
+    'Título de la marca',
+    'Tipo de registro',
     ''
   ]
-  const fakeTableAtributes = ['date', 'titular', 'assigned', 'expediente', 'expiration', 'button']
+  const fakeTableAtributes = ['marcaType', 'brandName', 'registerType', 'button']
   const tableInformation = {
     headers: fakeTitleTable,
     data: data,
@@ -36,10 +43,10 @@ const DashBoard = ({ user = 'Geraldyn Chirinos', data = [] }) => {
 
   return (
     <>
-      <HeaderDash user={user} />
+      <HeaderDash user={user}/>
       <div className='row mx-0'>
         <div className='col-2 px-0'>
-          <Navbar />
+          <Navbar/>
         </div>
         <div className='col-10 px-0' style={{ background: '#f7f8fc' }}>
           <div className='col py-3 px-4' style={{ background: 'white' }}>
@@ -47,11 +54,11 @@ const DashBoard = ({ user = 'Geraldyn Chirinos', data = [] }) => {
           </div>
           {
             isEmptyArray(data)
-              ? <div style={{ fontSize: '2rem', textAlign: 'center', marginTop: '2rem' }}>No tienes tramites</div>
+              ? <div style={{ fontSize: '2rem', textAlign: 'center', marginTop: '2rem' }}>No tienes registros</div>
               : <BrowserRouter>
                 <Switch>
-                  <Route exact path={ROUTES.home} render={(props) => <ListBrands {...commonProps} {...props} />} />
-                  <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <Detail {...props} data={data} />} />
+                  <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />}/>
+                  <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <Detail {...props} data={data} />}/>
                 </Switch>
               </BrowserRouter>
           }
@@ -60,5 +67,5 @@ const DashBoard = ({ user = 'Geraldyn Chirinos', data = [] }) => {
     </>
   )
 }
-
-export default DashBoard
+const mapStateToProps = (state) => ({ dataRegister: state.registerBrandData, data: state.allPaperWorks })
+export default connect(mapStateToProps)(DashBoard)

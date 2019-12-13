@@ -11,9 +11,10 @@ import SaveOrder from '../Components/RegisterBrand/SaveOrder'
 import ConstructionPage from './common/Warnings/constructioPage'
 import PageNotFound from './common/Warnings/PageNotFound'
 import { ROUTES } from '../utils/constants'
-import DashBoard from './Dashboard'
+import DashBoard from './Dashboard/DashBoard'
 import SearchBrand from './Dashboard/searchBrand/SearchBrand'
 import RegisterUserComponent from '../Components/RegisterUser/RegisterUserComponent'
+import RegisterUserWithBrand from '../Components/RegisterUser/RegisterUserWithBrand'
 
 const fakeData = [
   {
@@ -315,13 +316,13 @@ const PrivateRoute = ({ component: Component, link, ...rest }) => (
 const MainApp = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path={ROUTES.home} component={Login} />
+      <Route exact path={ROUTES.home} component={Home} />
       <Route exact path={ROUTES.dashboard} component={DashBoard} />
       <Route exact path={ROUTES.home} render={(props) => <DashBoard {...props} data={fakeData} />} />
       <Route exact path={ROUTES.registerBrand} component={Register} />
       <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
       <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
-      <Route exact path={ROUTES.finishRegister} component={FinishRegister} />
+      <Route exact path={ROUTES.finishRegister} component={RegisterUserWithBrand} />
       <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} />} />
       <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo} />
       <Route exact path={ROUTES.terms} component={TermsConditions} />

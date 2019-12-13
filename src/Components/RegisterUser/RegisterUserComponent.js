@@ -3,6 +3,7 @@ import RegisterUser from '../../Views/SignUp/RegisterUser'
 import { validateRegisterUser } from '../RegisterBrand/validation'
 import { ROUTES } from '../../utils/constants'
 import { isEmptyObject } from '../../utils'
+import { connect } from 'react-redux'
 
 const RegisterUserComponent = ({ history }) => {
   const formStrucute = {
@@ -74,7 +75,7 @@ const RegisterUserComponent = ({ history }) => {
       permission: 'USER'
     }
 
-    const fetchBody = {
+    let fetchBody = {
       method: 'POST',
       body: JSON.stringify(dataSend),
       headers: {
@@ -87,9 +88,27 @@ const RegisterUserComponent = ({ history }) => {
       console.log(fetchBody)
       const res = await window.fetch(url, fetchBody)
       const response = await res.text()
-      console.log('la respuesta fue ', response)
+
+      const loginInfo = {
+        email: dataSend.email,
+        password: dataSend.password
+      }
+
+      fetchBody = {
+        method: 'POST',
+        body: JSON.stringify(loginInfo),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+
+      const resLogin = await window.fetch('https://marcas-api-test.herokuapp.com/user/login', fetchBody)
+      const responseLogin = await res.json()
+
+      console.log('la respuesta fue ', responseLogin)
+
       setLoading(false)
-      history.push(ROUTES.dashboard)
+      // history.push(ROUTES.dashboard)
     } catch (e) {
       setLoading(false)
       setErrorFetch(e.message)
@@ -118,4 +137,6 @@ const RegisterUserComponent = ({ history }) => {
   )
 }
 
-export default RegisterUserComponent
+const mapStateToProps = state => ({ data: state.registerBrandData })
+
+export default connect(mapStateToProps)(RegisterUserComponent)
