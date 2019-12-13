@@ -8,13 +8,18 @@ import { ROUTES } from '../../utils/constants'
 import { isEmptyArray } from '../../utils'
 import { connect } from 'react-redux'
 
-const DashBoard = ({ data = [], dataRegister }) => {
+const DashBoard = ({ dataRegister, ...props }) => {
   const [user, setUser] = useState('')
+  const [data, setData] = useState('')
 
+  const state = props.location.state
+
+  console.log('las props en dash ', props)
   useEffect(() => {
-    const _session = window.localStorage.getItem('jwt')
-    setUser(`${data[data.length - 1].name} ${data[data.length - 1].surname}`)
-    console.log('todos las registros ', data)
+
+    setUser(`${state.user || 'Usuario'}`)
+    setData(state.paperworks)
+    // console.log('todos las registros ', data)
   }, [])
 
   const fakeTitleTable = [
@@ -58,7 +63,7 @@ const DashBoard = ({ data = [], dataRegister }) => {
               : <BrowserRouter>
                 <Switch>
                   <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />}/>
-                  <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <Detail {...props} data={data} />}/>
+                  <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <Detail {...props} data={data}/>}/>
                 </Switch>
               </BrowserRouter>
           }

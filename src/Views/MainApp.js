@@ -323,7 +323,7 @@ const MainApp = () => (
       <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
       <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
       <Route exact path={ROUTES.finishRegister} component={RegisterUserWithBrand} />
-      <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} />} />
+      {/*<Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} />} />*/}
       <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo} />
       <Route exact path={ROUTES.terms} component={TermsConditions} />
       <Route exact path={ROUTES.faq} component={Faqs} />

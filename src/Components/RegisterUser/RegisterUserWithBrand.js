@@ -37,10 +37,16 @@ const RegisterUserWithBrand = (props) => {
       console.log(JSON.stringify(props.data))
       const res = await window.fetch(url, fetchBody)
       const response = await res.json()
-      window.localStorage.setItem('jwt', JSON.stringify(response.token))
+
       setLoading(false)
       props.dispatch(addPaperWorks(response.paperworks))
-      props.history.push(ROUTES.dashboard)
+      props.history.push({
+        pathname: ROUTES.dashboard,
+        state: {
+          paperworks: response.paperworks,
+          user: 'Usuario'
+        }
+      })
     } catch (e) {
       setLoading(false)
       setErrorFetch('Ocurrió un error al hacer la solicitud')
