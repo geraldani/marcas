@@ -8,19 +8,6 @@ const hayMarcaSelected = (marcas) => {
   return checked
 }
 
-export const validateRegisterUserWithBrand = (pass) => {
-  const errors = {}
-  Object.keys(pass).forEach(e => {
-    if (!pass[e]) {
-      errors[e] = 'Campo requerido'
-    }
-  })
-  if (pass.password !== pass.repeatPassword) {
-    errors.passDontMatch = 'Las contraseñas no coinciden'
-  }
-  return errors
-}
-
 export const validateRegisterUser = (data) => {
   const errors = {}
   Object.keys(data).forEach(e => {
@@ -28,6 +15,12 @@ export const validateRegisterUser = (data) => {
       errors[e] = 'Campo requerido'
     } else if (e === 'email' && !isEmailValid(data[e])) {
       errors[e] = 'El correo introducido no es valido'
+    } else if (e === 'password' || e === 'repeatPassword') {
+      if (data.password && data.repeatPassword) {
+        if (data.password !== data.repeatPassword) {
+          errors.passDontMatch = 'Las contraseñas no coinciden'
+        }
+      }
     }
   })
   return errors

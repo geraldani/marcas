@@ -38,6 +38,12 @@ const ROUTES = {
   dashboard: '/dashboard'
 }
 
+const EDNPOINTS = {
+  registerUserWithBrand: 'https://marcas-api-test.herokuapp.com/paperwork/new',
+  login: 'https://marcas-api-test.herokuapp.com/user/authenticate',
+  registerUser: 'https://marcas-api-test.herokuapp.com/user/register'
+}
+
 // for media queries screens
 const SCREEN = {
   sm: 576,
@@ -52,4 +58,4 @@ const TYPE_ACTIONS = {
   ADD_PAPERWORK: 'ADD_PAPERWORKS'
 }
 
-export { ROUTES, COLOR, SCREEN, TYPE_ACTIONS }
+export { ROUTES, COLOR, SCREEN, TYPE_ACTIONS, EDNPOINTS }

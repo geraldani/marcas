@@ -9,7 +9,7 @@ import InputText from '../common/inputs/text/InputText'
 import ModalLoader from '../common/modal/ModalLoader'
 import { StyledError } from '../common/alerts/styles'
 
-const RegisterUser = (props) => {
+const RegisterUserView = (props) => {
   return (
     <>
       <Header showMenu />
@@ -17,12 +17,12 @@ const RegisterUser = (props) => {
         <div className='col-md-7 col-lg-6 col-xl-5 col-12 mt-3 mb-5 px-2 px-md-0 px-0 '>
           <Card>
             <CardHeader>
-              <h3 className='mb-0'>{props.form.header}</h3>
+              <h3 className='mb-0'>Registrate</h3>
             </CardHeader>
             <CardBody>
               <form>
                 {
-                  props.form.inputs.map(field => (
+                  props.form.map(field => (
                     <InputText
                       key={field.name}
                       onChange={props.onChange}
@@ -34,19 +34,18 @@ const RegisterUser = (props) => {
                     />
                   ))
                 }
-                <Button title={props.form.buttonName} className='w-100 mt-4' onClick={props.onClick} />
+                {props.errors.passDontMatch && <StyledError>{props.errors.passDontMatch }</StyledError>}
+                <Button title='Registrarse' className='w-100 mt-5' onClick={props.onClick} />
               </form>
             </CardBody>
           </Card>
-          {
-            props.errorFetch && <StyledError>Ocurrio un error <br />{props.errorFetch}</StyledError>
-          }
+          {/*{props.error && <StyledError>Ocurrio un error <br />{props.errorFetch}</StyledError>}*/}
         </div>
-        <ModalLoader showModal={props.loading} />
+        {/*<ModalLoader showModal={props.loading} />*/}
       </div>
       <Footer />
     </>
   )
 }
 
-export default RegisterUser
+export default RegisterUserView

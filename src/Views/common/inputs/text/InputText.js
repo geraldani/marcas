@@ -54,7 +54,8 @@ InputText.propTypes = {
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
+  error: PropTypes.string
 }
 
 export default InputText

@@ -56,7 +56,7 @@ const FinishRegister = ({ form, onClick, onChange, value, errors, loading, error
                 }
                 {errors.passDontMatch && <ErrorAlert message={errors.passDontMatch}/>}
                 {errorFetch && <ErrorAlert message={errorFetch}/>}
-                <Button title='Aceptar' className='w-100 mt-4' onClick={onClick}/>
+                <Button title='Aceptar' className='w-100 mt-5' onClick={onClick}/>
               </form>
             </CardBody>
           </Card>

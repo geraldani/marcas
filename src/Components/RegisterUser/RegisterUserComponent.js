@@ -1,71 +1,26 @@
-import React, { useState, useEffect } from 'react'
-import RegisterUser from '../../Views/SignUp/RegisterUser'
-import { validateRegisterUser } from '../RegisterBrand/validation'
-import { ROUTES } from '../../utils/constants'
-import { isEmptyObject } from '../../utils'
-import { connect } from 'react-redux'
+import React from 'react'
+import RegisterUserView from '../../Views/SignUp/RegisterUserView'
+import { useFormRegisterLoginUser } from '../../hooks/useFormLoginRegister'
 
-const RegisterUserComponent = ({ history }) => {
-  const formStrucute = {
-    header: 'Registrate',
-    buttonName: 'Crear cuenta',
-    inputs: [
-      {
-        label: 'Nombre',
-        name: 'name',
-        type: 'text'
-      },
-      {
-        label: 'Apellido',
-        name: 'surname',
-        type: 'text'
-      },
-      {
-        label: 'Email',
-        name: 'email',
-        type: 'email'
-      },
-      {
-        label: 'Contraseña',
-        name: 'password',
-        type: 'password'
-      }
-    ]
-  }
+const formStrucute = [
+  { label: 'Nombre', name: 'name', type: 'text' },
+  { label: 'Apellido', name: 'surname', type: 'text' },
+  { label: 'Email', name: 'email', type: 'email' },
+  { label: 'Contraseña', name: 'password', type: 'password' },
+  { label: 'Repite la contraseña', name: 'repeatPassword', type: 'password' }
+]
 
+const RegisterUserComponent = () => {
   const formValues = {}
-  formStrucute.inputs.forEach(el => { formValues[el.name] = '' })
-  const [data, setData] = useState(formValues)
-  const [errors, setErrors] = useState({})
-  const [errorFetch, setErrorFetch] = useState(false)
-  const [click, setClick] = useState(false)
-  const [loading, setLoading] = useState(false)
+  formStrucute.forEach(el => { formValues[el.name] = '' })
 
-  const handleInputChange = (e) => {
-    const value = e.target.value
-    const name = e.target.name
-    setData({
-      ...data,
-      [name]: value
-    })
+  const finish = () => {
+    console.log('Ahora me tengo q loguear o registrar')
   }
 
-  useEffect(() => { // validar el formulario
-    if (click) {
-      if (isEmptyObject(errors)) { // si el objeto error esta vacio
-        registerUser()
-      }
-    }
-  }, [errors])
+  const [data, handleInputChange, handleClick, errors] = useFormRegisterLoginUser(formValues, finish)
 
-  useEffect(() => { // quitar mensaje de error
-    if (!isEmptyObject(errors)) { // si el objeto error no esta vacio
-      setErrors(validateRegisterUser(data))
-      setClick(false)
-    }
-  }, [data])
-
-  const registerUser = async () => {
+  /*const registerUser = async () => {
     const url = 'https://marcas-api-test.herokuapp.com/user/register'
     const dataSend = {
       email: data.email,
@@ -108,35 +63,28 @@ const RegisterUserComponent = ({ history }) => {
       console.log('la respuesta fue ', responseLogin)
 
       setLoading(false)
-      // history.push(ROUTES.dashboard)
+      history.push(ROUTES.dashboard)
     } catch (e) {
       setLoading(false)
       setErrorFetch(e.message)
       console.log('Ocurrio un error ', e)
     }
-  }
-
-  const handleClick = (e) => {
-    e.preventDefault()
-    setErrors(validateRegisterUser(data))
-    setClick(true)
-  }
+  }*/
 
   const commonProps = {
     onClick: handleClick,
     onChange: handleInputChange,
     form: formStrucute,
     value: data,
-    loading,
-    errors,
-    errorFetch
+    errors
+    // loading,
+    // errorFetch
   }
 
   return (
-    <RegisterUser {...commonProps} />
+    <RegisterUserView {...commonProps} />
   )
 }
 
-const mapStateToProps = state => ({ data: state.registerBrandData })
 
-export default connect(mapStateToProps)(RegisterUserComponent)
+export default RegisterUserComponent
