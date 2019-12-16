@@ -1,19 +1,27 @@
-// funciones de utlidades para el resto de los componentes
+/** funciones de utlidades para el resto de los componentes */
 
-const setViewUp = () => window.scroll(0, 0) // pone el viewport al principio de la pagina
-const isEmailValid = (email) => /\S+@\S+\.\S+/.test(email) // para validar si el correo es valido
+const DAYS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
+/* pone el viewport al principio de la pagina */
+const setViewUp = () => window.scroll(0, 0)
+
+/* valida si un correo es valido siguiendo un patron */
+const isEmailValid = (email) => /\S+@\S+\.\S+/.test(email)
+
+/* valida si una cadena es un color en hexadecimal valido */
 const isHexColor = hex => {
   const regex = /^#?([a-f]|[A-F]|[0-9]){3}(([a-f]|[A-F]|[0-9]){3})?$/
   return typeof hex === 'string' && regex.test(hex)
   // return typeof hex === 'string' && hex.length === 6 && !isNaN(Number('0x' + hex))
 }
 
+/* habilita el scroll de una pagina */
 const enableScroll = () => {
   window.onscroll = () => {}
   // document.removeEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
 }
 
+/* desabilita el scroll de una pagina */
 const disableScroll = () => {
   const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -21,15 +29,20 @@ const disableScroll = () => {
   // document.addEventListener('scroll', () => window.scrollTo(scrollLeft, scrollTop))
 }
 
-const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+/* formatea una fecha con el siguiente formato: Dia hora:minutos */
+const dateFormattedTable = (date) => `${DAYS[date.getDay()].substr(0, 3)} ${date.getHours()}:${date.getMinutes()}`
 
-const dateFormattedTable = (date) => `${days[date.getDay()].substr(0, 3)} ${date.getHours()}:${date.getMinutes()}`
+/* formatea una fecha con el siguiente formato: dia/mes/año */
 const dateFormattedNormal = (date) => `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
+
+/* retorna si un objeto esta vacio */
 const isEmptyObject = (obj) => Object.keys(obj).length === 0
+
+/* retorna si un array esta vacio */
 const isEmptyArray = (arr) => arr.length === 0
 
-//funcion que ordena un vector
-const sortArray = (array, order = 'asc', key) => {
+/* funcion que ordena un vector */
+const sortArray = (array, order = 'asc', key) => { // el key es por si el vector esta compuesto por objetos, el key sera la clave para ordernar el vector
   const compare = (a, b) => {
     let bandA
     let bandB
@@ -51,8 +64,19 @@ const sortArray = (array, order = 'asc', key) => {
   return array.slice().sort(compare)
 }
 
-//funcion que pone una palabra con la primera le tra en mayuscula
+/* funcion que pone una palabra con la primera le tra en mayuscula */
 const upperFirstLetter = (word) => word.charAt(0).toUpperCase().concat(word.slice(1).toLowerCase())
+
+/* return authorization header with jwt token, si el usuario no esta logueado retorna un objeto vacio */
+const authHeader = () => {
+  const user = JSON.parse(window.localStorage.getItem('user'))
+
+  if (user && user.token) {
+    return { Authorization: 'Bearer ' + user.token }
+  } else {
+    return {}
+  }
+}
 
 export {
   enableScroll,
@@ -65,5 +89,6 @@ export {
   isEmptyArray,
   isEmptyObject,
   sortArray,
-  upperFirstLetter
+  upperFirstLetter,
+  authHeader
 }

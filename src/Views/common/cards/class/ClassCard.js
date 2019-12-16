@@ -2,7 +2,7 @@ import React from 'react'
 import { StyledSublabel } from '../../../styles/GlobalStyles'
 import CkeckInput from '../../check/CkeckInput'
 import { StylesCkeckInput } from './styles'
-import { upperFirstLetter } from '../../../../utils'
+import { upperFirstLetter } from '../../../../utils/utils'
 
 const ClassCard = ({ name, title, description, onChange }) => {
   return (

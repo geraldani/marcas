@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import RegisterUserView from '../../Views/SignUp/RegisterUserView'
 import { useFormRegisterLoginUser } from '../../hooks/useFormLoginRegister'
 
@@ -12,6 +12,7 @@ const formStrucute = [
 
 const RegisterUserComponent = () => {
   const formValues = {}
+  const [errorFetch, setErrorFetch] = useState('')
   formStrucute.forEach(el => { formValues[el.name] = '' })
 
   const finish = () => {
@@ -76,9 +77,8 @@ const RegisterUserComponent = () => {
     onChange: handleInputChange,
     form: formStrucute,
     value: data,
-    errors
-    // loading,
-    // errorFetch
+    errors,
+    errorFetch
   }
 
   return (

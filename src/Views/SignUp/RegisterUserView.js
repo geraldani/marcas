@@ -8,8 +8,16 @@ import Button from '../common/buttons/Button'
 import InputText from '../common/inputs/text/InputText'
 import ModalLoader from '../common/modal/ModalLoader'
 import { StyledError } from '../common/alerts/styles'
+import ErrorAlert from '../common/alerts/ErrorAlert'
 
 const RegisterUserView = (props) => {
+  const {
+    form,
+    errors,
+    onClick,
+    errorFetch,
+    value
+  } = props
   return (
     <>
       <Header showMenu />
@@ -22,24 +30,24 @@ const RegisterUserView = (props) => {
             <CardBody>
               <form>
                 {
-                  props.form.map(field => (
+                  form.map(field => (
                     <InputText
                       key={field.name}
                       onChange={props.onChange}
                       name={field.name}
                       type={field.type}
                       label={field.label}
-                      error={props.errors[field.name]}
-                      value={props.value[field.name]}
+                      error={errors[field.name]}
+                      value={value[field.name]}
                     />
                   ))
                 }
-                {props.errors.passDontMatch && <StyledError>{props.errors.passDontMatch }</StyledError>}
-                <Button title='Registrarse' className='w-100 mt-5' onClick={props.onClick} />
+                {props.errors.passDontMatch && <StyledError>{errors.passDontMatch}</StyledError>}
+                <Button title='Registrarse' className='w-100 mt-5' onClick={onClick} />
               </form>
             </CardBody>
           </Card>
-          {/*{props.error && <StyledError>Ocurrio un error <br />{props.errorFetch}</StyledError>}*/}
+          <ErrorAlert message={errorFetch} />
         </div>
         {/*<ModalLoader showModal={props.loading} />*/}
       </div>

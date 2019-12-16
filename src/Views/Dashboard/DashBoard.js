@@ -5,7 +5,7 @@ import ListBrands from './seeAllBrands/ListBrands'
 import Detail from './seeDetail/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ROUTES } from '../../utils/constants'
-import { isEmptyArray } from '../../utils'
+import { isEmptyArray } from '../../utils/utils'
 import { connect } from 'react-redux'
 
 const DashBoard = ({ dataRegister, ...props }) => {

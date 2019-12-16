@@ -7,7 +7,7 @@ import Footer from '../../common/footer/Footer'
 import { IoIosCheckmark as IconCheck, IoIosArrowRoundBack as IconBack } from 'react-icons/io'
 import { StyledContainer } from './styles'
 import { COLOR } from '../../../utils/constants'
-import { setViewUp } from '../../../utils'
+import { setViewUp } from '../../../utils/utils'
 import Button from '../../common/buttons/Button'
 
 const inputData = [

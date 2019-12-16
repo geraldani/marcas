@@ -16,7 +16,7 @@ import SearchBrand from './Dashboard/searchBrand/SearchBrand'
 import RegisterUserComponent from '../Components/RegisterUser/RegisterUserComponent'
 import RegisterUserWithBrand from '../Components/RegisterUser/RegisterUserWithBrand'
 
-const fakeData = [
+/* const fakeData = [
   {
     id: 1,
     date: new Date(),
@@ -297,16 +297,22 @@ const fakeData = [
     pais: 'Argentina',
     expiration: 'Vence en 8 días'
   }
-]
+] */
 
-const PrivateRoute = ({ component: Component, link, ...rest }) => (
+// si privateOnLogged es true, significa que la ruta es privada cuando alguien esta logeado, caso contrario, la ruta es privada cuando no se esta logueado
+const PrivateRoute = ({ component: Component, linkRedirected, privateOnLogged, ...rest }) => (
   <Route
     {...rest}
     render={props => {
-      const currentUser = {}
-      // const currentUser = authenticationService.currentUserValue;
-      if (!currentUser) {
-        return <Redirect to={{ pathname: link, state: { from: props.location } }} />
+      const currentUser = window.localStorage.getItem('user')
+      if (privateOnLogged) {
+        if (currentUser) {
+          return <Redirect to={{ pathname: linkRedirected, state: { from: props.location } }} />
+        }
+      } else {
+        if (!currentUser) {
+          return <Redirect to={{ pathname: linkRedirected, state: { from: props.location } }} />
+        }
       }
       return <Component {...props} />
     }}
@@ -317,20 +323,19 @@ const MainApp = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path={ROUTES.home} component={Home} />
-      <Route exact path={ROUTES.dashboard} component={DashBoard} />
-      <Route exact path={ROUTES.home} render={(props) => <DashBoard {...props} data={fakeData} />} />
+      <PrivateRoute exact path={ROUTES.login} component={Login} linkRedirected={ROUTES.dashboard} privateOnLogged />
+      <PrivateRoute exact path={ROUTES.register} component={RegisterUserComponent} linkRedirected={ROUTES.dashboard} privateOnLogged />
+      <PrivateRoute exact path={ROUTES.dashboard} component={DashBoard} linkRedirected={ROUTES.login} />
       <Route exact path={ROUTES.registerBrand} component={Register} />
       <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
       <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
       <Route exact path={ROUTES.finishRegister} component={RegisterUserWithBrand} />
-      {/*<Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} />} />*/}
       <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo} />
       <Route exact path={ROUTES.terms} component={TermsConditions} />
       <Route exact path={ROUTES.faq} component={Faqs} />
       <Route exact path={ROUTES.beginBrand + '/:name'} component={ConstructionPage} />
-      <Route exact path={ROUTES.login} component={Login} />
-      <Route exact path={ROUTES.register} component={RegisterUserComponent} />
       <Route exact component={PageNotFound} />
+      {/*<Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} />} />*/}
     </Switch>
   </BrowserRouter>
 )

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import FinishRegister from '../../Views/RegisterBrand/finish-register/FinishRegister'
-import { isEmptyObject } from '../../utils'
+import { isEmptyObject } from '../../utils/utils'
 import { validateRegisterUserWithBrand } from '../RegisterBrand/validation'
 import { connect } from 'react-redux'
 import { addPassword, addPaperWorks } from '../../redux/actions'

@@ -5,7 +5,7 @@ import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../
 import InputText from '../../common/inputs/text/InputText'
 import { IoMdSearch as SearchIcon, IoIosArrowForward as ArrowIcon } from 'react-icons/io'
 import CircleLoader from '../../common/loader/Circle/CircleLoader'
-import { isEmptyObject } from '../../../utils'
+import { isEmptyObject } from '../../../utils/utils'
 
 const StepFive = (props) => {
   const {

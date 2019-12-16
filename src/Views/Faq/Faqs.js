@@ -3,7 +3,7 @@ import Header from '../common/header/Header'
 import { COLOR } from '../../utils/constants'
 import { textFaq } from './text'
 import Footer from '../common/footer/Footer'
-import { setViewUp } from '../../utils'
+import { setViewUp } from '../../utils/utils'
 import { StyledContainer } from './styles'
 
 const Faqs = () => {

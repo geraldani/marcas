@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledTable } from './styles'
 import { IoIosDocument as IconDoc } from 'react-icons/io'
-import { dateFormattedTable } from '../../../utils'
+import { dateFormattedTable } from '../../../utils/utils'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../../utils/constants'
 

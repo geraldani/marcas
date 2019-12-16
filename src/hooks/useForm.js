@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import validation from '../Components/RegisterBrand/validation'
-import { setViewUp } from '../utils'
+import { setViewUp } from '../utils/utils'
 
 const useForm = (InitialState = {}, nextStepCallback, currentStep) => {
   const [state, setState] = useState(InitialState) // el estado o datos del formulario

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { StyledModal, StyledButton, ScrollFade } from './styles.js'
 // import { useWindowHeight } from '../../../../hooks/useWindowHeight'
-import { disableScroll, enableScroll } from '../../../../utils'
+import { disableScroll, enableScroll } from '../../../../utils/utils'
 
 const container = document.getElementById('modal')
 

@@ -38,11 +38,13 @@ const ROUTES = {
   dashboard: '/dashboard'
 }
 
-const EDNPOINTS = {
-  registerUserWithBrand: 'https://marcas-api-test.herokuapp.com/paperwork/new',
-  login: 'https://marcas-api-test.herokuapp.com/user/authenticate',
-  registerUser: 'https://marcas-api-test.herokuapp.com/user/register',
-  searchClass: 'https://marcas-api-test.herokuapp.com/clase/withScore?keyword='
+const BASE_URL = 'https://marcas-api-test.herokuapp.com'
+
+const ENDPOINTS = {
+  registerUserWithBrand: BASE_URL + '/paperwork/new',
+  login: BASE_URL + '/user/authenticate',
+  registerUser: BASE_URL + '/user/register',
+  searchClass: BASE_URL + '/clase/withScore?keyword='
 }
 
 // for media queries screens
@@ -53,10 +55,33 @@ const SCREEN = {
   xl: 1200
 }
 
+// actions constraints
+
 const TYPE_ACTIONS = {
-  ADD_REGISTER_BRAND: 'REGISTER_DATA',
-  ADD_PASSWORD: 'ADD_PASSWORD_TO_BRAND',
-  ADD_PAPERWORK: 'ADD_PAPERWORKS'
+  LOGIN_REQUEST: 'USERS_LOGIN_REQUEST',
+  LOGIN_SUCCESS: 'USERS_LOGIN_SUCCESS',
+  LOGIN_FAILURE: 'USERS_LOGIN_FAILURE',
+
+  REGISTER_USER_REQUEST: 'USER_REGISTER_REQUEST',
+  REGISTER_USER_SUCCESS: 'USER_REGISTER_SUCCESS',
+  REGISTER_USER_FAILURE: 'USER_REGISTER_FAILURE',
+
+  REGISTER_USER_PAPERWORK_REQUEST: 'USER_REGISTER_PAPERWORK_REQUEST',
+  REGISTER_USER_PAPERWORK_SUCCESS: 'USER_REGISTER_PAPERWORK_SUCCESS',
+  REGISTER_USER_PAPERWORK_FAILURE: 'USER_REGISTER_PAPERWORK_FAILURE',
+
+  REGISTER_PAPERWORK_REQUEST: 'PAPERWORK_REGISTER_REQUEST',
+  REGISTER_PAPERWORK_SUCCESS: 'PAPERWORK_REGISTER_SUCCESS',
+  REGISTER_PAPERWORK_FAILURE: 'PAPERWORK_REGISTER_FAILURE',
+
+  LOGOUT: 'USER_LOGOUT'
+
 }
 
-export { ROUTES, COLOR, SCREEN, TYPE_ACTIONS, EDNPOINTS }
+const ALERT_ACTIONS = {
+  SUCCESS: 'ALERT_SUCCESS',
+  ERROR: 'ALERT_ERROR',
+  CLEAR: 'ALERT_CLEAR'
+}
+
+export { ROUTES, COLOR, SCREEN, TYPE_ACTIONS, ENDPOINTS, ALERT_ACTIONS }

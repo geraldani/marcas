@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { validateRegisterUser } from '../Components/RegisterBrand/validation'
-import { isEmptyObject } from '../utils'
+import { isEmptyObject } from '../utils/utils'
 
 const useFormRegisterLoginUser = (initialData, callback) => {
   const [formValues, setFormValues] = useState(initialData)
@@ -8,8 +8,7 @@ const useFormRegisterLoginUser = (initialData, callback) => {
   const [click, setClick] = useState(false)
 
   const handleChange = (e) => {
-    const value = e.target.value
-    const name = e.target.name
+    const { value, name } = e.target
     setFormValues({
       ...formValues,
       [name]: value

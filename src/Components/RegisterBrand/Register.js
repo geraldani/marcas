@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { ROUTES, EDNPOINTS } from '../../utils/constants'
+import { ROUTES, ENDPOINTS } from '../../utils/constants'
 import RegisterView from '../../Views/RegisterBrand/register/RegisterView'
 import useForm from '../../hooks/useForm'
-import { isEmptyObject, setViewUp, sortArray } from '../../utils'
+import { isEmptyObject, setViewUp, sortArray } from '../../utils/utils'
 import { Model } from './model'
 
 const Register = (props) => {
@@ -34,7 +34,7 @@ const Register = (props) => {
   const searchClass = async () => {
     try {
       setLoading(true)
-      const res = await window.fetch(EDNPOINTS.searchClass + state.productService.value)
+      const res = await window.fetch(ENDPOINTS.searchClass + state.productService.value)
       const response = await res.json()
       if (!isEmptyObject(response)) {
         const responseOrdened = sortArray(Object.keys(response), 'desc')
@@ -47,11 +47,10 @@ const Register = (props) => {
           dataClases.push(obj)
         })
         setDataSearch(dataClases)
-        setLoading(false)
       } else {
-        setLoading(false)
         setDataSearch('Su búsqueda no coincide con ningún elemento')
       }
+      setLoading(false)
     } catch (e) {
       setLoading(false)
       // setErrorFetch('Ocurrió un error al hacer la solicitud')
