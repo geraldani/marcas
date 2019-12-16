@@ -66,9 +66,6 @@ const StyledSublabel = styled.label`
   &>*{
     margin-top: 0.5em;
   }
-  @media (max-width: ${SCREEN.lg}px){
-    margin-top: 0.7rem;
-  }
 `
 
 const StyledDivMarginBottom = styled.div`

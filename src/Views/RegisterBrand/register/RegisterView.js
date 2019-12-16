@@ -11,8 +11,9 @@ import CardSteps from '../../common/cards/steps/CardSteps'
 import OrderCard from '../../common/cards/order/OrderCard'
 
 // vista de los pasos o vistas del formulario con datos a ser pedidos en cada uno
-const Steps = ({ state, onChange, errors, step, removeCountry }) => {
-  const commonProps = { state, onChange, errors }
+const Steps = (props) => {
+  const commonProps = { state: props.state, onChange: props.onChange, errors: props.errors }
+  const { step, removeCountry, handleClickSearch, handleKeyDownSearch, dataSearch, loading } = props
 
   let aditionalProps = {}
   let WrappedComponennt
@@ -33,6 +34,7 @@ const Steps = ({ state, onChange, errors, step, removeCountry }) => {
       break
     case 5:
       WrappedComponennt = StepFive
+      aditionalProps = { handleClickSearch, handleKeyDownSearch, dataSearch, loading }
       break
   }
   return <WrappedComponennt {...aditionalProps} {...commonProps} />
@@ -76,7 +78,7 @@ const RegisterView = (props) => {
 
   return (
     <>
-      <Header />
+      <Header/>
       <section className='margin-header mb-5'>
         <div className='container-fluid pt-4 pt-md-5 px-3 px-md-5'>
           <div className='row justify-content-end'>

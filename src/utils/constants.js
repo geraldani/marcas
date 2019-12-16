@@ -41,7 +41,8 @@ const ROUTES = {
 const EDNPOINTS = {
   registerUserWithBrand: 'https://marcas-api-test.herokuapp.com/paperwork/new',
   login: 'https://marcas-api-test.herokuapp.com/user/authenticate',
-  registerUser: 'https://marcas-api-test.herokuapp.com/user/register'
+  registerUser: 'https://marcas-api-test.herokuapp.com/user/register',
+  searchClass: 'https://marcas-api-test.herokuapp.com/clase/withScore?keyword='
 }
 
 // for media queries screens

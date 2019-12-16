@@ -17,8 +17,29 @@ const StyledButton = styled.button`
   justify-content: space-between;
   align-items: center;
 `
+
+const StyledSearchButton = styled.button`
+  width: 30px;
+  height: 38px;
+  border: none;
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  background: ${COLOR.blue};
+  svg{
+    fill: ${COLOR.white};
+  }
+  &:hover{
+    background-color: ${COLOR.blue + 'c7'};
+  }
+`
+
 const StyledItalicLegend = styled(StyledLegend)`
   font-weight: 500;
   font-style: italic;
 `
-export { StyledButton, StyledItalicLegend }
+
+export {
+  StyledButton,
+  StyledItalicLegend,
+  StyledSearchButton
+}

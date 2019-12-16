@@ -1,51 +1,47 @@
 import React from 'react'
 import ClassCard from '../../common/cards/class/ClassCard'
-import { IoIosArrowForward as ArrowIcon } from 'react-icons/io'
-import { StyledButton, StyledItalicLegend } from './styles'
+import { StyledButton, StyledItalicLegend, StyledSearchButton } from './styles'
 import { StyledLabelName, StyledLegend, StyledSublabel, marginBottom } from '../../styles/GlobalStyles'
 import InputText from '../../common/inputs/text/InputText'
-import { IoMdSearch as SearchIcon } from 'react-icons/io'
-
-const FakeData = [
-  {
-    title: 'Clase 1',
-    items: [
-      {
-        description: 'Seleccionar todos',
-        name: 'selectAllClase1'
-      },
-      {
-        description: 'is simply text of the printing and typerestting industry. Lorem ipsum has been the insdustry standard dummy',
-        name: 'clase1valor1'
-      },
-      {
-        description: 'is simply text of the printing and typerestting industry. Lorem ipsum has been the industry standard dummy.',
-        name: 'clase1valor2'
-      }
-    ]
-  },
-  {
-    title: 'Clase 2',
-    items: [
-      {
-        description: 'Seleccionar todos',
-        name: 'selectAllClase2'
-      },
-      {
-        description: 'is simply text of the printing and typeresttings industry. Lorem ipsums has been the industry standard dummy',
-        name: 'clase2valor1'
-      },
-      {
-        description: 'is simply text of the printing and typerestting industry. Lorem ipsum has been the industry standard dummy',
-        name: 'clase2valor2'
-      }
-    ]
-  }
-]
+import { IoMdSearch as SearchIcon, IoIosArrowForward as ArrowIcon } from 'react-icons/io'
+import CircleLoader from '../../common/loader/Circle/CircleLoader'
+import { isEmptyObject } from '../../../utils'
 
 const StepFive = (props) => {
-  const { state, onChange, errors } = props
-  // todo
+  const {
+    state,
+    onChange,
+    errors,
+    handleClickSearch,
+    handleKeyDownSearch,
+    dataSearch,
+    loading
+  } = props
+
+  const ClassesFound = () => (
+    <>
+      <StyledSublabel>PRODUCTOS</StyledSublabel>
+      <StyledItalicLegend>*Agregar texto de que cada clase elegida es un registro diferente</StyledItalicLegend>
+      {
+        dataSearch.map((elem) => <ClassCard {...elem} key={elem.title} />)
+      }
+      <StyledButton>
+        Quiero agregar mas clases a mi registro
+        <ArrowIcon size='18px' />
+      </StyledButton>
+    </>
+  )
+
+  const SearchResults = () => {
+    if (typeof dataSearch === 'object') {
+      if (!isEmptyObject(dataSearch)) {
+        return <ClassesFound />
+      }
+      return null
+    }
+    return <StyledSublabel>{dataSearch}</StyledSublabel>
+  }
+
   return (
     <>
       <div className='col-md-10 col-12 px-4 mt-md-5 mt-3'>
@@ -63,39 +59,20 @@ const StepFive = (props) => {
             onChange={onChange}
             error={errors.productService}
             className='search-input'
-            onKeyDown={(e) => {
-              const code = e.keyCode || e.charCode
-              if (code === 13) {
-                e.preventDefault()
-                console.log(e.target)
-              }
-            }}
+            onKeyDown={handleKeyDownSearch}
           />
         </div>
-        <button style={{
-          width: '30px',
-          height: '38px',
-          border: 'none',
-          borderBottomRightRadius: '0.25rem',
-          borderTopRightRadius: '0.25rem'
-        }}>
-          <SearchIcon />
-        </button>
+        <StyledSearchButton onClick={handleClickSearch}>
+          {
+            loading
+              ? <CircleLoader />
+              : <SearchIcon />
+          }
+        </StyledSearchButton>
       </div>
 
       <div className='col-md-9 col-12 px-4' style={marginBottom}>
-        <StyledSublabel>PRODUCTOS</StyledSublabel>
-        <StyledItalicLegend>*Agregar texto de que cada clase elegida es un registro diferente</StyledItalicLegend>
-        {
-          // todo arreglar este fakedata desde el modelo o dinamicamente (no datos hardcodeados)
-          FakeData.map((elem) => (
-            <ClassCard name={elem.title} key={elem.title} items={elem.items} onChange={props.onChange}/>
-          ))
-        }
-        <StyledButton>
-          Quiero agregar mas clases a mi registro
-          <ArrowIcon size='18px'/>
-        </StyledButton>
+        <SearchResults />
       </div>
     </>
   )

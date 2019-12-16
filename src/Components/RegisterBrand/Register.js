@@ -1,17 +1,19 @@
-import React, { useState } from 'react'
-import { ROUTES } from '../../utils/constants'
+import React, { useState, useEffect } from 'react'
+import { ROUTES, EDNPOINTS } from '../../utils/constants'
 import RegisterView from '../../Views/RegisterBrand/register/RegisterView'
 import useForm from '../../hooks/useForm'
-import { setViewUp } from '../../utils'
+import { isEmptyObject, setViewUp, sortArray } from '../../utils'
 import { Model } from './model'
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
   const previousState = props.location.state // el estado pasapo por props en el history
-  const [step, setStep] = useState(previousState ? previousState.step : 1)
+  const [step, setStep] = useState(previousState ? previousState.step : 5)
+  const [dataSearch, setDataSearch] = useState([])
+  const [loading, setLoading] = useState(false)
 
   const clickNext = (e) => {
-    // e.preventDefault()
+    e.preventDefault()
     setViewUp()
     if (step === TOTAL_STEPS) {
       props.history.push({
@@ -24,6 +26,52 @@ const Register = (props) => {
   }
 
   const { state, handleChange, removeCountry, nextStep, errors } = useForm(previousState ? previousState.data : Model, clickNext, step)
+
+  useEffect(() => {
+    setViewUp()
+  }, [])
+
+  const searchClass = async () => {
+    try {
+      setLoading(true)
+      const res = await window.fetch(EDNPOINTS.searchClass + state.productService.value)
+      const response = await res.json()
+      if (!isEmptyObject(response)) {
+        const responseOrdened = sortArray(Object.keys(response), 'desc')
+        const dataClases = []
+        responseOrdened.forEach(e => {
+          const obj = {}
+          obj.title = 'Clase ' + response[e].number
+          obj.description = response[e].possibleNames
+          obj.name = response[e].name
+          dataClases.push(obj)
+        })
+        setDataSearch(dataClases)
+        setLoading(false)
+      } else {
+        setLoading(false)
+        setDataSearch('Su búsqueda no coincide con ningún elemento')
+      }
+    } catch (e) {
+      setLoading(false)
+      // setErrorFetch('Ocurrió un error al hacer la solicitud')
+      console.log('Ocurrio un error ', e.message)
+    }
+  }
+
+  const handleClickSearch = (e) => {
+    if (e) e.preventDefault()
+    searchClass()
+  }
+
+  const handleKeyDownSearch = (e) => {
+    const code = e.keyCode || e.charCode
+    if (code === 13) {
+      e.preventDefault()
+      searchClass()
+    }
+  }
+
   const clickBack = (e) => {
     e.preventDefault()
     setViewUp()
@@ -37,7 +85,11 @@ const Register = (props) => {
     onChange: handleChange,
     handleClickBack: clickBack,
     handleClickNext: nextStep,
+    handleClickSearch,
+    handleKeyDownSearch,
     removeCountry,
+    loading,
+    dataSearch,
     errors
   }
 

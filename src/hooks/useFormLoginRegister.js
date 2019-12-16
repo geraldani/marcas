@@ -6,8 +6,6 @@ const useFormRegisterLoginUser = (initialData, callback) => {
   const [formValues, setFormValues] = useState(initialData)
   const [errors, setErrors] = useState({})
   const [click, setClick] = useState(false)
-  // const [errorFetch, setErrorFetch] = useState('')
-  // const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const value = e.target.value
