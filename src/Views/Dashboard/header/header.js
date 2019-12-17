@@ -3,7 +3,7 @@ import Logo from '../../common/logo/Logo'
 import { COLOR, ROUTES } from '../../../utils/constants'
 import { IoMdContact as UserIcon } from 'react-icons/io'
 
-const HeaderDash = ({ user, logout }) => {
+const HeaderDash = ({ user }) => {
   return (
     <header
       className='navbar navbar-expand-lg shadow-sm d-flex justify-content-between'
@@ -11,7 +11,6 @@ const HeaderDash = ({ user, logout }) => {
     >
       <Logo light/>
       <div className='d-flex align-items-center'>
-        <button onClick={logout}>Salir</button>
         <p className='text-white mr-2 mb-0'>{user}</p>
         <UserIcon color='white' size='28px'/>
       </div>

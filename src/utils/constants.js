@@ -78,10 +78,17 @@ const TYPE_ACTIONS = {
 
 }
 
+const LocalStorage = {
+  registerBrand: 'paperworkRegister',
+  user: 'userRegistered',
+  paperworks: 'allPaperworks',
+  token: 'jwt'
+}
+
 const ALERT_ACTIONS = {
   SUCCESS: 'ALERT_SUCCESS',
   ERROR: 'ALERT_ERROR',
   CLEAR: 'ALERT_CLEAR'
 }
 
-export { ROUTES, COLOR, SCREEN, TYPE_ACTIONS, ENDPOINTS, ALERT_ACTIONS }
+export { ROUTES, COLOR, SCREEN, TYPE_ACTIONS, ENDPOINTS, ALERT_ACTIONS, LocalStorage }

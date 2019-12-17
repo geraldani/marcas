@@ -60,6 +60,7 @@ const FinishRegister = ({ form, onClick, onChange, value, errors, loading, error
               </form>
             </CardBody>
           </Card>
+          <ModalLoader showModal={loading} />
         </div>
       </div>
     </>

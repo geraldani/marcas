@@ -34,7 +34,6 @@ const RegisterUserComponent = (props) => {
       setLoading(true)
       const res = await window.fetch(ENDPOINTS.registerUser, requestOptions)
       const response = await res.text()
-      console.log(response)
       if (response) {
         await userLogin(email, password, setLoading, setErrorFetch)
       }

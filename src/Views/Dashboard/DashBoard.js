@@ -4,7 +4,7 @@ import Navbar from './navbar/Navbar'
 import ListBrands from './seeAllBrands/ListBrands'
 import Detail from './seeDetail/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { ROUTES } from '../../utils/constants'
+import { LocalStorage, ROUTES } from '../../utils/constants'
 import { isEmptyArray } from '../../utils/utils'
 
 const DashBoard = (props) => {
@@ -12,11 +12,15 @@ const DashBoard = (props) => {
   const [paperworks, setPaperworks] = useState([])
 
   useEffect(() => {
-    if (window.localStorage.getItem('user')) {
-      setUser(JSON.parse(window.localStorage.getItem('user')))
+    if (window.localStorage.getItem(LocalStorage.registerBrand)) {
+      window.localStorage.removeItem(LocalStorage.registerBrand)
     }
-    if (window.localStorage.getItem('paperworks')) {
-      setPaperworks(JSON.parse(window.localStorage.getItem('paperworks')))
+
+    if (window.localStorage.getItem(LocalStorage.user)) {
+      setUser(JSON.parse(window.localStorage.getItem(LocalStorage.user)))
+    }
+    if (window.localStorage.getItem(LocalStorage.paperworks)) {
+      setPaperworks(JSON.parse(window.localStorage.getItem(LocalStorage.paperworks)))
     }
   }, [])
 
@@ -39,32 +43,33 @@ const DashBoard = (props) => {
     { label: 'Vencimiento:', name: 'vencimiento', type: 'date' }
   ]
 
-  const commonProps = {
-    formStructure: formSearchStructure,
-    tableInformation
-  }
-
   const RoutesDetail = () => (
     <BrowserRouter>
       <Switch>
-        <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />}/>
-        <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <Detail {...props} data={paperworks}/>}/>
+        <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />} />
+        <Route exact path={ROUTES.seeRegister + '/:id'} component={Detail} />
       </Switch>
     </BrowserRouter>
   )
 
   const logout = () => {
-    window.localStorage.removeItem('token')
-    window.localStorage.removeItem('user')
-    window.localStorage.removeItem('paperworks')
+    window.localStorage.removeItem(LocalStorage.token)
+    window.localStorage.removeItem(LocalStorage.user)
+    window.localStorage.removeItem(LocalStorage.paperworks)
     props.history.push(ROUTES.login)
   }
+
+  const commonProps = {
+    formStructure: formSearchStructure,
+    tableInformation
+  }
+
   return (
     <>
-      <HeaderDash user={user.name} logout={logout} />
+      <HeaderDash user={user.name} />
       <div className='row mx-0'>
         <div className='col-2 px-0'>
-          <Navbar/>
+          <Navbar onLogout={logout} />
         </div>
         <div className='col-10 px-0' style={{ background: '#f7f8fc' }}>
           <div className='col py-3 px-4' style={{ background: 'white' }}>
@@ -73,7 +78,7 @@ const DashBoard = (props) => {
           {
             isEmptyArray(paperworks)
               ? <div style={{ fontSize: '2rem', textAlign: 'center', marginTop: '2rem' }}>No tienes registros</div>
-              : <RoutesDetail/>
+              : <RoutesDetail />
           }
         </div>
       </div>

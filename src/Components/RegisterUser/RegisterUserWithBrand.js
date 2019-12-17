@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import FinishRegister from '../../Views/RegisterBrand/finish-register/FinishRegister'
-import { isEmptyObject } from '../../utils/utils'
-import { validateRegisterUserWithBrand } from '../RegisterBrand/validation'
-import { connect } from 'react-redux'
-import { addPassword, addPaperWorks } from '../../redux/actions'
-import { ROUTES } from '../../utils/constants'
 import { useFormRegisterLoginUser } from '../../hooks/useFormLoginRegister'
+import { ENDPOINTS, LocalStorage, ROUTES } from '../../utils/constants'
+import { history } from '../../redux/store'
+import { userLogin } from '../../hooks/useLogin'
 
 const formStructure = [
   { label: 'Contraseña', name: 'password', type: 'password' },
@@ -15,44 +13,34 @@ const formStructure = [
 const RegisterUserWithBrand = (props) => {
   const formValues = {}
   formStructure.forEach(el => { formValues[el.name] = '' })
-
-  // const [errorFetch, setErrorFetch] = useState('')
+  const [errorFetch, setErrorFetch] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const registerUser = async () => {
-    console.log('ahora me registro')
-    /*    await props.dispatch(addPassword(pass.password))
+    const dataPaperwor = JSON.parse(window.localStorage.getItem(LocalStorage.registerBrand))
+    const newObject = { ...dataPaperwor, password: data.password }
+    const requestOptions = {
+      method: 'POST',
+      body: JSON.stringify(newObject),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
 
-        const obj = Object.assign({}, props.data, {
-          ...props.data,
-          password: pass.password
-        })
-        const url = 'https://marcas-api-test.herokuapp.com/paperwork/new'
-        const fetchBody = {
-          method: 'POST',
-          body: JSON.stringify(obj),
-          headers: { 'Content-Type': 'application/json' }
-        }
-
-        try {
-          setLoading(true)
-          console.log(JSON.stringify(props.data))
-          const res = await window.fetch(url, fetchBody)
-          const response = await res.json()
-
-          setLoading(false)
-          props.dispatch(addPaperWorks(response.paperworks))
-          props.history.push({
-            pathname: ROUTES.dashboard,
-            state: {
-              paperworks: response.paperworks,
-              user: 'Usuario'
-            }
-          })
-        } catch (e) {
-          setLoading(false)
-          setErrorFetch('Ocurrió un error al hacer la solicitud')
-          console.log('Ocurrio un error ', e.message)
-        }*/
+    try {
+      console.log(window.localStorage.getItem(LocalStorage.registerBrand))
+      setLoading(true)
+      const res = await window.fetch(ENDPOINTS.registerUserWithBrand, requestOptions)
+      const response = await res.json()
+      if (response) {
+        await userLogin(newObject.email, newObject.password, setLoading, setErrorFetch)
+      }
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      setErrorFetch(error.message)
+      console.log('Ocurrio un error: ', error)
+    }
   }
 
   const [data, handleInputChange, handleClick, errors] = useFormRegisterLoginUser(formValues, registerUser)
@@ -62,6 +50,7 @@ const RegisterUserWithBrand = (props) => {
     onClick: handleClick,
     onChange: handleInputChange,
     value: data,
+    loading,
     errors
   }
   return (
@@ -69,6 +58,4 @@ const RegisterUserWithBrand = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({ data: state.registerBrandData })
-
-export default connect(mapStateToProps)(RegisterUserWithBrand)
+export default RegisterUserWithBrand

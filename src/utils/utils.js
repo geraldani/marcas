@@ -67,17 +67,6 @@ const sortArray = (array, order = 'asc', key) => { // el key es por si el vector
 /* funcion que pone una palabra con la primera le tra en mayuscula */
 const upperFirstLetter = (word) => word.charAt(0).toUpperCase().concat(word.slice(1).toLowerCase())
 
-/* return authorization header with jwt token, si el usuario no esta logueado retorna un objeto vacio */
-const authHeader = () => {
-  const user = JSON.parse(window.localStorage.getItem('user'))
-
-  if (user && user.token) {
-    return { Authorization: 'Bearer ' + user.token }
-  } else {
-    return {}
-  }
-}
-
 export {
   enableScroll,
   disableScroll,
@@ -89,6 +78,5 @@ export {
   isEmptyArray,
   isEmptyObject,
   sortArray,
-  upperFirstLetter,
-  authHeader
+  upperFirstLetter
 }

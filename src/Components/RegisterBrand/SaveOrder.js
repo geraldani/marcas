@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import OrderDetail from '../../Views/RegisterBrand/order-detail/OrderDetail'
-import { ROUTES } from '../../utils/constants'
-import { connect } from 'react-redux'
-import { addRegisterBrand } from '../../redux/actions'
-
+import { LocalStorage, ROUTES } from '../../utils/constants'
+import { history } from '../../redux/store'
 // para armar el cuerpo del json a ser enviado a guardarse a partir de los datos guardados en el estado
 const getData = (state) => {
   const data = {}
@@ -37,8 +35,8 @@ const SaveOrder = (props) => {
   const handleClickFinish = async (e) => {
     e.preventDefault()
     const data = getData(state)
-    props.dispatch(addRegisterBrand(data))
-    props.history.push(ROUTES.finishRegister)
+    window.localStorage.setItem(LocalStorage.registerBrand, JSON.stringify(data))
+    history.push(ROUTES.finishRegister)
 
     /*  const url = 'https://marcas-api-test.herokuapp.com/paperwork/new'
      const fetchBody = {
@@ -64,14 +62,4 @@ const SaveOrder = (props) => {
   return <OrderDetail {...orderProps} />
 }
 
-const mapStateToProps = (state) => {
-  if (state.registerBrandData) {
-    return { dataRegister: state.registerBrandData }
-  } else {
-    return {
-      dataRegister: {}
-    }
-  }
-}
-
-export default connect(mapStateToProps)(SaveOrder)
+export default SaveOrder
