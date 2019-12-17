@@ -1,6 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import RegisterUserView from '../../Views/SignUp/RegisterUserView'
 import { useFormRegisterLoginUser } from '../../hooks/useFormLoginRegister'
+import { ENDPOINTS } from '../../utils/constants'
+import { userLogin } from '../../hooks/useLogin'
 
 const formStrucute = [
   { label: 'Nombre', name: 'name', type: 'text' },
@@ -10,30 +12,19 @@ const formStrucute = [
   { label: 'Repite la contraseña', name: 'repeatPassword', type: 'password' }
 ]
 
-const RegisterUserComponent = () => {
+const RegisterUserComponent = (props) => {
   const formValues = {}
   const [errorFetch, setErrorFetch] = useState('')
+  const [loading, setLoading] = useState(false)
   formStrucute.forEach(el => { formValues[el.name] = '' })
 
-  const finish = () => {
-    console.log('Ahora me tengo q loguear o registrar')
-  }
+  const finish = async () => {
+    const { name, surname, email, password } = data
+    console.log('la data regsiter ', data)
 
-  const [data, handleInputChange, handleClick, errors] = useFormRegisterLoginUser(formValues, finish)
-
-  /*const registerUser = async () => {
-    const url = 'https://marcas-api-test.herokuapp.com/user/register'
-    const dataSend = {
-      email: data.email,
-      password: data.password,
-      description: '',
-      name: `${data.name} ${data.surname}`,
-      permission: 'USER'
-    }
-
-    let fetchBody = {
+    const requestOptions = {
       method: 'POST',
-      body: JSON.stringify(dataSend),
+      body: JSON.stringify({ email, password, description: '', name: `${name} ${surname}`, permission: 'USER' }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -41,36 +32,21 @@ const RegisterUserComponent = () => {
 
     try {
       setLoading(true)
-      console.log(fetchBody)
-      const res = await window.fetch(url, fetchBody)
+      const res = await window.fetch(ENDPOINTS.registerUser, requestOptions)
       const response = await res.text()
-
-      const loginInfo = {
-        email: dataSend.email,
-        password: dataSend.password
+      console.log(response)
+      if (response) {
+        await userLogin(email, password, setLoading, setErrorFetch)
       }
-
-      fetchBody = {
-        method: 'POST',
-        body: JSON.stringify(loginInfo),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-
-      const resLogin = await window.fetch('https://marcas-api-test.herokuapp.com/user/login', fetchBody)
-      const responseLogin = await res.json()
-
-      console.log('la respuesta fue ', responseLogin)
-
       setLoading(false)
-      history.push(ROUTES.dashboard)
-    } catch (e) {
+    } catch (error) {
       setLoading(false)
-      setErrorFetch(e.message)
-      console.log('Ocurrio un error ', e)
+      setErrorFetch(error.message)
+      console.log('Ocurrio un error: ', error)
     }
-  }*/
+  }
+
+  const [data, handleInputChange, handleClick, errors] = useFormRegisterLoginUser(formValues, finish)
 
   const commonProps = {
     onClick: handleClick,
@@ -78,13 +54,13 @@ const RegisterUserComponent = () => {
     form: formStrucute,
     value: data,
     errors,
-    errorFetch
+    errorFetch,
+    loading
   }
 
   return (
     <RegisterUserView {...commonProps} />
   )
 }
-
 
 export default RegisterUserComponent

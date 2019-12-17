@@ -1,28 +1,37 @@
-import { TYPE_ACTIONS, ALERT_ACTIONS } from '../utils/constants'
+import { ROUTES, TYPE_ACTIONS } from '../utils/constants'
+import { userService } from './services'
+import { history } from './store'
 
-/*
-const addRegisterBrand = (data) => {
-  if (data) {
-    return { type: TYPE_ACTIONS.ADD_REGISTER_BRAND, data }
-  }
-}
-
-const addPassword = (pass) => {
-  return { type: TYPE_ACTIONS.ADD_PASSWORD, pass }
-}
-
-const addPaperWorks = (paperworks) => {
-  return { type: TYPE_ACTIONS.ADD_PAPERWORK, paperworks }
-}
-*/
-
-/* alert actions */
-
-const success = (message) => ({ type: ALERT_ACTIONS.SUCCESS, message })
+/*const success = (message) => ({ type: ALERT_ACTIONS.SUCCESS, message })
 const error = (message) => ({ type: ALERT_ACTIONS.ERROR, message })
-const clear = () => ({ type: ALERT_ACTIONS.CLEAR })
+const clear = () => ({ type: ALERT_ACTIONS.CLEAR })*/
 
-// export { addRegisterBrand, addPassword, addPaperWorks }
-export const alertActions = {
-  success, error, clear
+function login (email, password) {
+  return dispatch => {
+    dispatch(request({ email }))
+
+    userService.login(email, password)
+     /* .then(
+        user => {
+          dispatch(success(user))
+          history.push(ROUTES.dashboard)
+        },
+        error => {
+          dispatch(failure(error))
+          // dispatch(alertActions.error(error))
+        }
+      )*/
+  }
+
+  function request (user) { return { type: TYPE_ACTIONS.LOGIN_REQUEST, user } }
+  function success (user) { return { type: TYPE_ACTIONS.LOGIN_SUCCESS, user } }
+  function failure (error) { return { type: TYPE_ACTIONS.LOGIN_FAILURE, error } }
 }
+
+export const userActions = {
+  login
+}
+
+/*export const alertActions = {
+  success, error, clear
+}*/

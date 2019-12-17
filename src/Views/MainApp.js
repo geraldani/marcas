@@ -1,9 +1,8 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Router, Switch, Route, Redirect } from 'react-router-dom'
 import Home from './Home/Home'
 import Register from '../Components/RegisterBrand/Register'
 import FinishRegister from './RegisterBrand/finish-register/FinishRegister'
-import Login from './SignUp/Login'
 import MoreInfo from './Home/moreInfo/moreInfo'
 import Faqs from './Faq/Faqs'
 import TermsConditions from './Faq/TermsConditions'
@@ -15,6 +14,8 @@ import DashBoard from './Dashboard/DashBoard'
 import SearchBrand from './Dashboard/searchBrand/SearchBrand'
 import RegisterUserComponent from '../Components/RegisterUser/RegisterUserComponent'
 import RegisterUserWithBrand from '../Components/RegisterUser/RegisterUserWithBrand'
+import LoginComponent from '../Components/LoginUser/LoginComponent'
+import { history } from '../redux/store'
 
 /* const fakeData = [
   {
@@ -304,7 +305,10 @@ const PrivateRoute = ({ component: Component, linkRedirected, privateOnLogged, .
   <Route
     {...rest}
     render={props => {
-      const currentUser = window.localStorage.getItem('user')
+      // window.localStorage.removeItem('token')
+      // window.localStorage.removeItem('user')
+      // window.localStorage.removeItem('paperwork')
+      const currentUser = window.localStorage.getItem('token')
       if (privateOnLogged) {
         if (currentUser) {
           return <Redirect to={{ pathname: linkRedirected, state: { from: props.location } }} />
@@ -320,23 +324,25 @@ const PrivateRoute = ({ component: Component, linkRedirected, privateOnLogged, .
 )
 
 const MainApp = () => (
-  <BrowserRouter>
+  <Router history={history}>
     <Switch>
-      <Route exact path={ROUTES.home} component={Home} />
-      <PrivateRoute exact path={ROUTES.login} component={Login} linkRedirected={ROUTES.dashboard} privateOnLogged />
-      <PrivateRoute exact path={ROUTES.register} component={RegisterUserComponent} linkRedirected={ROUTES.dashboard} privateOnLogged />
-      <PrivateRoute exact path={ROUTES.dashboard} component={DashBoard} linkRedirected={ROUTES.login} />
-      <Route exact path={ROUTES.registerBrand} component={Register} />
-      <Route exact path={ROUTES.orderDetail} component={SaveOrder} />
-      <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
-      <Route exact path={ROUTES.finishRegister} component={RegisterUserWithBrand} />
-      <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo} />
-      <Route exact path={ROUTES.terms} component={TermsConditions} />
-      <Route exact path={ROUTES.faq} component={Faqs} />
-      <Route exact path={ROUTES.beginBrand + '/:name'} component={ConstructionPage} />
-      <Route exact component={PageNotFound} />
+      <Route exact path={ROUTES.home} component={Home}/>
+      <PrivateRoute exact path={ROUTES.login} component={LoginComponent} linkRedirected={ROUTES.dashboard}
+                    privateOnLogged/>
+      <PrivateRoute exact path={ROUTES.register} component={RegisterUserComponent} linkRedirected={ROUTES.dashboard}
+                    privateOnLogged/>
+      <PrivateRoute exact path={ROUTES.dashboard} component={DashBoard} linkRedirected={ROUTES.login}/>
+      <Route exact path={ROUTES.registerBrand} component={Register}/>
+      <Route exact path={ROUTES.orderDetail} component={SaveOrder}/>
+      <Route exact path={ROUTES.searchBrand} component={SearchBrand}/>
+      <Route exact path={ROUTES.finishRegister} component={RegisterUserWithBrand}/>
+      <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo}/>
+      <Route exact path={ROUTES.terms} component={TermsConditions}/>
+      <Route exact path={ROUTES.faq} component={Faqs}/>
+      <Route exact path={ROUTES.beginBrand + '/:name'} component={ConstructionPage}/>
+      <Route exact component={PageNotFound}/>
       {/*<Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <DashBoard {...props} data={fakeData} />} />*/}
     </Switch>
-  </BrowserRouter>
+  </Router>
 )
 export default MainApp

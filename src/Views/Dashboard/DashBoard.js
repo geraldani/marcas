@@ -6,20 +6,18 @@ import Detail from './seeDetail/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { ROUTES } from '../../utils/constants'
 import { isEmptyArray } from '../../utils/utils'
-import { connect } from 'react-redux'
 
-const DashBoard = ({ dataRegister, ...props }) => {
+const DashBoard = (props) => {
   const [user, setUser] = useState('')
-  const [data, setData] = useState('')
+  const [paperworks, setPaperworks] = useState([])
 
-  const state = props.location.state
-
-  console.log('las props en dash ', props)
   useEffect(() => {
-
-    setUser(`${state.user || 'Usuario'}`)
-    setData(state.paperworks)
-    // console.log('todos las registros ', data)
+    if (window.localStorage.getItem('user')) {
+      setUser(JSON.parse(window.localStorage.getItem('user')))
+    }
+    if (window.localStorage.getItem('paperworks')) {
+      setPaperworks(JSON.parse(window.localStorage.getItem('paperworks')))
+    }
   }, [])
 
   const fakeTitleTable = [
@@ -31,7 +29,7 @@ const DashBoard = ({ dataRegister, ...props }) => {
   const fakeTableAtributes = ['marcaType', 'brandName', 'registerType', 'button']
   const tableInformation = {
     headers: fakeTitleTable,
-    data: data,
+    data: paperworks,
     body: fakeTableAtributes
   }
   const formSearchStructure = [
@@ -46,9 +44,24 @@ const DashBoard = ({ dataRegister, ...props }) => {
     tableInformation
   }
 
+  const RoutesDetail = () => (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />}/>
+        <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <Detail {...props} data={paperworks}/>}/>
+      </Switch>
+    </BrowserRouter>
+  )
+
+  const logout = () => {
+    window.localStorage.removeItem('token')
+    window.localStorage.removeItem('user')
+    window.localStorage.removeItem('paperworks')
+    props.history.push(ROUTES.login)
+  }
   return (
     <>
-      <HeaderDash user={user}/>
+      <HeaderDash user={user.name} logout={logout} />
       <div className='row mx-0'>
         <div className='col-2 px-0'>
           <Navbar/>
@@ -58,14 +71,9 @@ const DashBoard = ({ dataRegister, ...props }) => {
             Tus trámites
           </div>
           {
-            isEmptyArray(data)
+            isEmptyArray(paperworks)
               ? <div style={{ fontSize: '2rem', textAlign: 'center', marginTop: '2rem' }}>No tienes registros</div>
-              : <BrowserRouter>
-                <Switch>
-                  <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />}/>
-                  <Route exact path={ROUTES.seeRegister + '/:id'} render={(props) => <Detail {...props} data={data}/>}/>
-                </Switch>
-              </BrowserRouter>
+              : <RoutesDetail/>
           }
         </div>
       </div>
@@ -73,4 +81,4 @@ const DashBoard = ({ dataRegister, ...props }) => {
   )
 }
 const mapStateToProps = (state) => ({ dataRegister: state.registerBrandData, data: state.allPaperWorks })
-export default connect(mapStateToProps)(DashBoard)
+export default DashBoard

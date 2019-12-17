@@ -16,7 +16,8 @@ const RegisterUserView = (props) => {
     errors,
     onClick,
     errorFetch,
-    value
+    value,
+    loading
   } = props
   return (
     <>
@@ -49,7 +50,7 @@ const RegisterUserView = (props) => {
           </Card>
           <ErrorAlert message={errorFetch} />
         </div>
-        {/*<ModalLoader showModal={props.loading} />*/}
+        <ModalLoader showModal={loading} />
       </div>
       <Footer />
     </>

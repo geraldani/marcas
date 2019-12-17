@@ -8,17 +8,11 @@ import InputText from '../../common/inputs/text/InputText'
 import { COLOR, ROUTES } from '../../../utils/constants'
 
 const Detail = ({ match, data, history }) => {
-  console.log('data ', data)
 
   const id = match.params.id
-  console.log('id  ', id)
-  data.forEach(e => { console.log('e.id', e.id, ' id ', id) })
   const filterData = data.find(e => {
-    console.log('e.id', e.id, ' id ', id)
     return e.id.toString() === id.toString()
   })
-  console.log('data filtrada ', filterData)
-  console.log('match ', match)
 
   const formStructure = [
     {

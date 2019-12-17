@@ -8,7 +8,7 @@ const StyledModal = styled.div`
   flex-direction: column;
   position: absolute;
   z-index: 2000;
-  top: ${props => {console.log(props.offset); return props.offset}}px;
+  top: ${props => props.offset}px;
   left: 0;
   right: 0;
   height: 100vh;
