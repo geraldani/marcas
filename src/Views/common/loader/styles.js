@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+import { COLOR } from '../../../utils/constants'
 
 const LoaderSize = 64
 
@@ -23,7 +24,7 @@ const StyledContainer = styled.div`
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: #000;
+    background: ${COLOR.white};
     animation: ${fadeIn} 1.2s linear infinite;
     &:nth-child(1) {
       top: 6px;

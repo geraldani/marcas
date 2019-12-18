@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../../common/logo/Logo'
-import { COLOR, ROUTES } from '../../../utils/constants'
+import { COLOR } from '../../../utils/constants'
 import { IoMdContact as UserIcon } from 'react-icons/io'
 
 const HeaderDash = ({ user }) => {

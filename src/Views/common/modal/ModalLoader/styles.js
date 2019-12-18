@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { LoaderSize } from '../../loader/styles'
+import { COLOR } from '../../../../utils/constants'
 
 const StyledLoader = styled.div`
   margin: auto;
@@ -11,6 +12,7 @@ const StyledLoader = styled.div`
   left: calc(50vw - ${LoaderSize / 2}px);
   p{
     margin-bottom: 0;
+    color: ${COLOR.white};
   }
 `
 export { StyledLoader }

@@ -7,7 +7,7 @@ const ListBrands = ({ formStructure, onClickDetails, tableInformation }) => {
   return (
     <>
       <div className='row m-0'>
-        <div className="col-12 m-auto">
+        <div className='col-12 m-auto'>
           <SearcherForm formData={formStructure} />
         </div>
       </div>
@@ -15,7 +15,7 @@ const ListBrands = ({ formStructure, onClickDetails, tableInformation }) => {
         <TableFilter information={tableInformation} onClick={onClickDetails} hoverable />
       </div>
       <div className='col mb-5'>
-        <Paginator/>
+        <Paginator />
       </div>
     </>
   )

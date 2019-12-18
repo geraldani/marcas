@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import FinishRegister from '../../Views/RegisterBrand/finish-register/FinishRegister'
 import { useFormRegisterLoginUser } from '../../hooks/useFormLoginRegister'
-import { ENDPOINTS, LocalStorage, ROUTES } from '../../utils/constants'
-import { history } from '../../redux/store'
-import { userLogin } from '../../hooks/useLogin'
+import { ENDPOINTS, LocalStorage } from '../../utils/constants'
+import { userLogin } from '../../services/Login'
 
 const formStructure = [
   { label: 'Contraseña', name: 'password', type: 'password' },

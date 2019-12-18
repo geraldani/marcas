@@ -2,6 +2,7 @@ import React from 'react'
 import Modal from '../generic/Modal'
 import Loader from '../../loader/Loader'
 import { StyledLoader } from './styles'
+import PropTypes from 'prop-types'
 
 const ModalLoader = (props) => {
   return (
@@ -14,4 +15,7 @@ const ModalLoader = (props) => {
   )
 }
 
+ModalLoader.prototype = {
+  showModal: PropTypes.bool
+}
 export default ModalLoader

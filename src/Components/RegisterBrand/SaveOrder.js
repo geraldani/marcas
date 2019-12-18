@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import OrderDetail from '../../Views/RegisterBrand/order-detail/OrderDetail'
 import { LocalStorage, ROUTES } from '../../utils/constants'
-import { history } from '../../redux/store'
+import { history } from '../../helpers/history'
 // para armar el cuerpo del json a ser enviado a guardarse a partir de los datos guardados en el estado
 const getData = (state) => {
   const data = {}

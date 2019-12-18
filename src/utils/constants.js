@@ -34,7 +34,7 @@ const ROUTES = {
   searchBrand: '/busca-tu-tramite',
   writeContact: '/write-us',
   domain: '/disputa-dominio',
-  seeRegister: '/registro',
+  seeRegister: '/registro-detalle',
   dashboard: '/dashboard'
 }
 

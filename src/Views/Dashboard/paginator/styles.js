@@ -13,6 +13,7 @@ const StyledPageItem = styled.li`
   }
   &.page-item.active .page-link{
     background-color: ${COLOR.primary};
+    color: ${COLOR.white}!important;
     border-radius: 50%;
   }
   &.page-item:first-child .page-link,

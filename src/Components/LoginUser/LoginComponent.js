@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Login from '../../Views/SignUp/Login'
 import { useFormRegisterLoginUser } from '../../hooks/useFormLoginRegister'
-import { userLogin } from '../../hooks/useLogin'
+import { userLogin } from '../../services/Login'
 
 const formStructure = [
   { label: 'Email', name: 'email', type: 'email' },

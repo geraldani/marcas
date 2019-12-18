@@ -7,7 +7,15 @@ import { Model } from './model'
 
 const Register = (props) => {
   const TOTAL_STEPS = 5
-  const previousState = props.location.state // el estado pasapo por props en el history
+  let previousState = props.location.state // el estado pasapo por props en el history
+  if (previousState) {
+    if (previousState.from) {
+      if (!previousState.from.state) {
+        previousState = undefined
+      }
+    }
+  }
+
   const [step, setStep] = useState(previousState ? previousState.step : 1)
   const [dataSearch, setDataSearch] = useState([])
   const [loading, setLoading] = useState(false)

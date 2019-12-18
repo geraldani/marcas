@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import RegisterUserView from '../../Views/SignUp/RegisterUserView'
 import { useFormRegisterLoginUser } from '../../hooks/useFormLoginRegister'
 import { ENDPOINTS } from '../../utils/constants'
-import { userLogin } from '../../hooks/useLogin'
+import { userLogin } from '../../services/Login'
 
 const formStrucute = [
   { label: 'Nombre', name: 'name', type: 'text' },

@@ -49,20 +49,25 @@ const StyledLabelName = styled.label`
     font-size: 1em;
   }
 `
-const color = (color, disabled) => {
-  if (disabled) return COLOR.darkGrey
-  else {
-    if (color) return color
-    else return COLOR.black
-  }
-}
+
 const StyledSublabel = styled.label`
-  color: ${props => color(props.color, props.disabled)};
+  color: ${props => props.disabled ? COLOR.darkGrey : COLOR.black};
   font-size: 15px;
   margin-top: 1.5rem;
   margin-bottom: 0;
   text-align: left;
   width: 100%;
+  ${props => props.inline && css`
+    display: flex;
+    align-items: center;
+    input{
+      margin-top: 0;
+    }
+    span:first-child{
+      margin-right: 0.5rem;
+       margin-top: 0;
+    }
+  `}
   &>*{
     margin-top: 0.5em;
   }

@@ -1,36 +1,39 @@
 import React from 'react'
 import { Router, Switch, Route, Redirect } from 'react-router-dom'
-import Home from './Home/Home'
-import Register from '../Components/RegisterBrand/Register'
-import FinishRegister from './RegisterBrand/finish-register/FinishRegister'
-import MoreInfo from './Home/moreInfo/moreInfo'
-import Faqs from './Faq/Faqs'
-import TermsConditions from './Faq/TermsConditions'
-import SaveOrder from '../Components/RegisterBrand/SaveOrder'
-import ConstructionPage from './common/Warnings/constructioPage'
-import PageNotFound from './common/Warnings/PageNotFound'
+import Home from '../Views/Home/Home'
+import Register from './RegisterBrand/Register'
+import MoreInfo from '../Views/Home/moreInfo/moreInfo'
+import Faqs from '../Views/Faq/Faqs'
+import TermsConditions from '../Views/Faq/TermsConditions'
+import SaveOrder from './RegisterBrand/SaveOrder'
+import ConstructionPage from '../Views/common/Warnings/constructioPage'
+import PageNotFound from '../Views/common/Warnings/PageNotFound'
 import { LocalStorage, ROUTES } from '../utils/constants'
-import DashBoard from './Dashboard/DashBoard'
-import SearchBrand from './Dashboard/searchBrand/SearchBrand'
-import RegisterUserComponent from '../Components/RegisterUser/RegisterUserComponent'
-import RegisterUserWithBrand from '../Components/RegisterUser/RegisterUserWithBrand'
-import LoginComponent from '../Components/LoginUser/LoginComponent'
-import { history } from '../redux/store'
-import Detail from './Dashboard/seeDetail/Detail'
+import DashBoard from '../Views/Dashboard/DashBoard'
+import SearchBrand from '../Views/Dashboard/searchBrand/SearchBrand'
+import RegisterUserComponent from './RegisterUser/RegisterUserComponent'
+import RegisterUserWithBrand from './RegisterUser/RegisterUserWithBrand'
+import LoginComponent from './LoginUser/LoginComponent'
+import { history } from '../helpers/history'
+import Detail from '../Views/Dashboard/seeDetail/Detail'
+// import FinishRegister from '../Views/RegisterBrand/finish-register/FinishRegister'
 
 // si privateOnRule es true, significa que la ruta es privada cuando alguien esta logeado o cuando la regla se cumple, caso contrario, la ruta es privada cuando no se esta logueado o no se cumple la regla
 const PrivateRoute = ({ component: Component, linkRedirected, privateOnRule, rule, ...rest }) => (
   <Route
     {...rest}
     render={props => {
+     /* window.localStorage.removeItem(LocalStorage.token)
+      window.localStorage.removeItem(LocalStorage.user)
+      window.localStorage.removeItem(LocalStorage.paperworks)*/
       const currentUser = window.localStorage.getItem(rule)
       if (privateOnRule) {
         if (currentUser) {
-          return <Redirect to={{ pathname: linkRedirected, state: { from: props.location } }} />
+          return <Redirect to={{ pathname: linkRedirected, state: { from: props.location } }}/>
         }
       } else {
         if (!currentUser) {
-          return <Redirect to={{ pathname: linkRedirected, state: { from: props.location } }} />
+          return <Redirect to={{ pathname: linkRedirected, state: { from: props.location } }}/>
         }
       }
       return <Component {...props} />
@@ -41,7 +44,15 @@ const PrivateRoute = ({ component: Component, linkRedirected, privateOnRule, rul
 const MainApp = () => (
   <Router history={history}>
     <Switch>
-      <Route exact path={ROUTES.home} component={Home} />
+      <Route exact path={ROUTES.seeRegister + '/:id'} component={DashBoard} />
+      <PrivateRoute
+        exact
+        path={ROUTES.home}
+        component={Home}
+        rule={LocalStorage.user}
+        linkRedirected={ROUTES.dashboard}
+        privateOnRule
+      />
       <PrivateRoute
         exact path={ROUTES.login}
         component={LoginComponent}
@@ -65,7 +76,7 @@ const MainApp = () => (
       <PrivateRoute
         exact path={ROUTES.finishRegister}
         component={RegisterUserWithBrand}
-        linkRedirected={ROUTES.home}
+        linkRedirected={ROUTES.registerBrand}
         rule={LocalStorage.registerBrand}
       />
       <Route exact path={ROUTES.registerBrand} component={Register}/>
@@ -76,7 +87,6 @@ const MainApp = () => (
       <Route exact path={ROUTES.faq} component={Faqs}/>
       <Route exact path={ROUTES.beginBrand + '/:name'} component={ConstructionPage}/>
       <Route exact component={PageNotFound}/>
-      <Route exact path={ROUTES.seeRegister + '/:id'} component={Detail}  />
     </Switch>
   </Router>
 )

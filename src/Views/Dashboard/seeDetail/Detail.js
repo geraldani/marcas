@@ -5,20 +5,24 @@ import Card from '../../common/cards/genericCard/Card'
 import CardHeader from '../../common/cards/genericCard/CardHeader'
 import CardBody from '../../common/cards/genericCard/CardBody'
 import InputText from '../../common/inputs/text/InputText'
-import { COLOR, ROUTES } from '../../../utils/constants'
-import { history } from '../../../redux/store'
+import { COLOR, LocalStorage, ROUTES } from '../../../utils/constants'
+import { history } from '../../../helpers/history'
 
 const Detail = ({ match }) => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState({})
 
   useEffect(() => {
-
+    const id = match.params.id
+    const datos = JSON.parse(window.localStorage.getItem(LocalStorage.paperworks))
+    const elemFound = datos.find(e => {
+      return e.id.toString() === id.toString()
+    })
+    setData(elemFound)
   }, [])
 
-  const id = match.params.id
-  const data1 = data.find(e => {
-    return e.id.toString() === id.toString()
-  })
+  useEffect(() => {
+    console.log('la data ', data)
+  }, [data])
 
   const formStructure = [
     {
@@ -57,7 +61,7 @@ const Detail = ({ match }) => {
         <div className='col-6'>
           <Button
             title='Volver'
-            link={history.goBack()}
+            onClick={() => history.goBack()}
             styled='outline-primary'
             className='px-1 py-1'
             style={{ fontSize: '0.97rem' }}
@@ -87,7 +91,8 @@ const Detail = ({ match }) => {
                   <div className='row mx-0' key={i}>
                     {
                       elems.inputs.map((input, index) => (
-                        <div key={input.name} className={`col-${elems.colsSize[index]} ${input.label ? '' : 'd-flex align-items-end'}`}>
+                        <div key={input.name}
+                             className={`col-${elems.colsSize[index]} ${input.label ? '' : 'd-flex align-items-end'}`}>
                           <InputText
                             onChange={() => {}}
                             colorLabel={COLOR.textColor}
@@ -108,7 +113,6 @@ const Detail = ({ match }) => {
         </div>
       </div>
     </div>
-
   )
 }
 
