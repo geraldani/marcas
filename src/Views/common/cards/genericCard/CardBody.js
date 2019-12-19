@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyledHeaderBody } from './styles'
 
-const CardBody = ({ children }) => {
+const CardBody = ({ children, className }) => {
   return (
-    <StyledHeaderBody>
+    <StyledHeaderBody className={className}>
       {children}
     </StyledHeaderBody>
   )

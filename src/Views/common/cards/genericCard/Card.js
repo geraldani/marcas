@@ -1,12 +1,18 @@
 import React from 'react'
 import { StyledCard } from './styles'
 
-const Card = ({ children, shadow = false, color }) => {
+const Card = (props) => {
+  const { shadow, color, style, className, children } = props
+  const commonProps = { shadow, color, style, className }
   return (
-    <StyledCard shadow={shadow} color={color}>
+    <StyledCard {...commonProps}>
       {children}
     </StyledCard>
   )
+}
+
+Card.defaultProps = {
+  shadow: false
 }
 
 export default Card

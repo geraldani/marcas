@@ -60,11 +60,10 @@ const sortArray = (array, order = 'asc', key) => { // el key es por si el vector
 
     return (order === 'desc' ? comparision * -1 : comparision)
   }
-
   return array.slice().sort(compare)
 }
 
-/* funcion que pone una palabra con la primera le tra en mayuscula */
+/* funcion que pone una palabra con la primera letra en mayuscula */
 const upperFirstLetter = (word) => word.charAt(0).toUpperCase().concat(word.slice(1).toLowerCase())
 
 export {

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { COLOR, SCREEN } from '../../../utils/constants'
 import { Link } from 'react-router-dom'
 

@@ -22,7 +22,7 @@ const Register = (props) => {
 
   const clickNext = (e) => {
     if (e) e.preventDefault()
-    setViewUp()
+    // setViewUp()
     if (step === TOTAL_STEPS) {
       props.history.push({
         pathname: ROUTES.orderDetail,
@@ -36,7 +36,7 @@ const Register = (props) => {
   const { state, handleChange, removeCountry, nextStep, errors } = useForm(previousState ? previousState.data : Model, clickNext, step)
 
   useEffect(() => {
-    setViewUp()
+    // setViewUp()
   }, [])
 
   const searchClass = async () => {
@@ -81,7 +81,7 @@ const Register = (props) => {
 
   const clickBack = (e) => {
     e.preventDefault()
-    setViewUp()
+    // setViewUp()
     setStep(step - 1)
   }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HeaderDash from '../header/header'
 import Title from '../../common/title/Title'
 import SearcherForm from '../searcher/SearcherForm'
@@ -7,131 +7,213 @@ import Card from '../../common/cards/genericCard/Card'
 import CardHeader from '../../common/cards/genericCard/CardHeader'
 import CardBody from '../../common/cards/genericCard/CardBody'
 import CardFooter from '../../common/cards/genericCard/CardFooter'
+import InputText from '../../common/inputs/text/InputText'
+import Button from '../../common/buttons/Button'
+import { COLOR } from '../../../utils/constants'
+import { StyledTab, StyledInfo } from './styles'
+import { FaFileExcel as IconExcel } from 'react-icons/fa'
 
-const SearchBrand = ({ user = 'Geraldyn Chirinos' }) => {
-  const dataSearched = [{
-    id: 9,
-    presentada: '15/8/2012',
-    publicada: '29/8/2012',
-    condecida: '29/8/2012',
-    disposicion: '29/8/2012',
-    vencimiento: '29/8/2012',
-    acta: '43564354',
-    boletin: '54545',
-    numero: '58454',
-    boletin2: '545587',
-    declaracion2: '54545',
-    vencimiento2: '29/78/1965',
-    titularID: 785,
-    titular: 'Marcas locales',
-    assigned: 'Geraldyn Chirinos',
-    expediente: 5478,
-    tipoId: 'D',
-    tipo: 'algun tipo',
-    group: 'Minos',
-    agent: 'un agente',
-    cargo: 'gerente',
-    cuil: '29-87514-54',
-    persoType: 'Juridica',
-    nroDoc: '8745698554',
-    carta: 'Titular',
-    sobre: 'sobre algo',
-    factura: 'titular',
-    atencion: 'una linda atencion',
-    sector: 'un sector lindo',
-    rubro: 'Oro',
-    direccion: 'Av. Avellaneda 8857',
-    localidad: 'C.A.B.A',
-    potalCode: '1854',
-    provincia: 'Buenos Aires',
-    pais: 'Argentina',
-    expiration: 'Vence en 8 días'
-  }]
-
-  const header1 = ['Prensentada', 'Publicada', 'Concedida', 'Disposición', 'Declaración de uso', 'Vencimiento']
-  const header2 = ['Acta', 'Boletin', 'Número', 'Boletin', 'Declaración de uso', 'Vencimiento']
-  const TableAtributes1 = ['presentada', 'publicada', 'condecida', 'disposicion', 'vencimiento']
-  const TableAtributes2 = ['acta', 'boletin', 'numero', 'boletin2', 'declaracion2', 'vencimiento2']
-
-  const tableInfomation = {
-    headers: header1,
-    data: dataSearched,
-    body: TableAtributes1
+const logo = 'http://2.bp.blogspot.com/-SMJiqF5_Ct4/VXCPtCsWArI/AAAAAAAAAdE/LNpA2JemQKM/s1600/vertical.jpg'
+const tabs = [
+  {
+    id: 1,
+    name: 'Marcas registradas',
+    number: '7'
+  },
+  {
+    id: 2,
+    name: 'Diseños',
+    number: '2'
+  },
+  {
+    id: 3,
+    name: 'Propietarios',
+    number: '4'
   }
+]
 
-  const tableInfomation2 = {
-    headers: header2,
-    data: dataSearched,
-    body: TableAtributes2
-  }
-
-  const formSearchStructure = [
+const infoMarca = [
+  [
     {
-      label: 'Clase',
-      name: 'clase',
-      type: 'number'
+      title: 'Información de marca',
+      info: [
+        {
+          name: 'Numero de marca',
+          value: '333355447788'
+        },
+        {
+          name: 'Tipo',
+          value: 'Figurativa'
+        },
+        {
+          name: 'Fecha de presentacion',
+          value: '28/08/2012'
+        },
+        {
+          name: 'Fecha de registro',
+          value: '29/004/2009'
+        },
+        {
+          name: 'Clasificacion agradable',
+          value: '32'
+        },
+        {
+          name: 'Estado de la marca',
+          value: 'Registrada'
+        }
+      ]
+    }
+  ],
+  [
+    {
+      title: 'Informacion del propietario',
+      info: [
+        {
+          name: 'Numero de indentificacion del propietario',
+          value: '33322555588774'
+        },
+        {
+          name: 'Nombre del dueño',
+          value: 'Figurativa'
+        }
+      ]
     },
     {
-      label: 'Denominación',
-      name: 'denominacion',
-      type: 'text'
-    },
-    {
-      label: 'Tipo de marca:',
-      name: 'marcaType',
-      type: 'text',
-      options: [
-        'Marca mixta',
-        'Marca denominatica',
-        'Otras marcas'
+      title: 'Informacion representativa',
+      info: [
+        {
+          name: 'Numero de indetificacion del representante',
+          value: '52055'
+        },
+        {
+          name: 'Nombre representativo',
+          value: 'Hoyng rokh monegier spain llp'.toLocaleUpperCase()
+        }
       ]
     }
   ]
+]
 
+const TabOne = () => {
+  return (
+    <Card className='py-2' shadow>
+      <CardHeader className='pb-2'>
+        <h3 className='mb-0'>Coca cola</h3>
+      </CardHeader>
+      <CardBody>
+        <div className='d-flex'>
+          <div className='col-4'>
+            <Card className='py-0'>
+              <img src={logo} alt='logo' className='img-fluid' />
+            </Card>
+          </div>
+          {
+            infoMarca.map(col => (
+              <div className='col-4'>
+                {
+                  col.map((e, i) => (
+                    <StyledInfo key={e.title}>
+                      <h5 className={i !== 0 ? 'mt-5' : ''}>{e.title}</h5>
+                      {
+                        e.info.map(info => (
+                          <div key={info.name}>
+                            <h6 className='m-0'>{info.name}</h6>
+                            <p>{info.value}</p>
+                          </div>
+                        ))
+                      }
+                    </StyledInfo>
+                  ))
+                }
+              </div>
+            ))
+          }
+        </div>
+      </CardBody>
+      <CardFooter>
+        <div className="d-flex justify-content-end">
+          <Button childrenFirst styled='outline-primary' color={COLOR.blue} title='Exportar .xlsx'>
+            <IconExcel style={{ marginRight: '10px' }} size='22px' />
+          </Button>
+        </div>
+      </CardFooter>
+    </Card>
+  )
+}
+
+const TabTwo = () => {
+  return (
+    <h4>Tab 2</h4>
+  )
+}
+
+const TabThree = () => {
+  return (
+    <h4>Tab 3</h4>
+  )
+}
+
+const ActualTabContent = ({ tab }) => {
+  switch (tab) {
+    case 1:
+      return <TabOne />
+    case 2:
+      return <TabTwo />
+    case 3:
+      return <TabThree />
+    default:
+      return <TabOne />
+  }
+}
+
+const SearchBrand = () => {
+  const [actualTab, setActualTab] = useState(tabs[0].id)
   return (
     <>
-      <HeaderDash user={user}/>
-      <Title title='Buscador de marcas'/>
-      <SearcherForm formData={formSearchStructure}/>
-
-      <div className='row mx-0 mt-5 justify-content-center' style={{ background: '#f7f8fc' }}>
-        <div className='col-8 px-4 mt-5'>
-          <TableFilter information={tableInfomation}/>
-          <div className='mt-5'>
-            <TableFilter information={tableInfomation2}/>
-          </div>
-          <div className='row my-5'>
-            <div className='col-6 px-1'>
-              <Card color='transparent'>
-                <CardHeader>
-                  <div className='d-flex justify-content-between' style={{ fontSize: '0.9rem', fontWeight: 'normal' }}>
-                    <p>Titulares</p>
-                    <p>Buenos Aires Gabriel Augusto (Malasia)</p>
-                  </div>
-                </CardHeader>
-                <CardBody>
-                  <div className='d-flex justify-content-between' style={{ fontSize: '0.9rem', fontWeight: 'normal' }}>
-                    <p className='font-weight-bold'>Representantes</p>
-                    <p>Livitvin Melisa MATRICULA 1810</p>
-                  </div>
-                </CardBody>
-              </Card>
-            </div>
-            <div className='col-6 px-1'>
-              <Card>
-                <CardBody>
-                  <img className='img-fluid' src="https://discordapp.com/assets/94db9c3c1eba8a38a1fcf4f223294185.png" alt=""/>
-                </CardBody>
-              </Card>
-            </div>
+      <div className='d-flex justify-content-center bg-white' style={{ paddingBottom: '5rem' }}>
+        <div className='col-8'>
+          <Title title='Buscador de marcas' size='28px' />
+          <p className='text-muted text-center'>
+            <small>Busque marcas comerciales, diseños, propietarios, representantes y boletines</small>
+          </p>
+          <div className='d-flex justify-content-center align-items-start'>
+            <InputText
+              type='text'
+              name='searchBrand'
+              onChange={() => {}}
+              placeholder='Ingresa la marca que estas búscando'
+              style={{ width: '80%', padding: '0.2rem 0.5rem', fontSize: '15px' }}
+            />
+            <Button title='Aplicar filtro' size='sm' style={{ height: '36px', marginLeft: '8px' }} color={COLOR.blue} />
           </div>
         </div>
-
       </div>
-
+      <div className='d-flex justify-content-ce nter'>
+        <div className='col-11 mt-4'>
+          <Card color={COLOR.transparent} className='py-3'>
+            <CardHeader className='py-0'>
+              {
+                tabs.map(e => (
+                  <StyledTab
+                    key={e.id}
+                    number={e.number}
+                    className={actualTab === e.id ? 'active' : ''}
+                    onClick={() => setActualTab(e.id)}
+                  >
+                    {e.name}
+                    <span>{e.number}</span>
+                  </StyledTab>
+                ))
+              }
+            </CardHeader>
+            <CardBody>
+              <ActualTabContent tab={actualTab} />
+            </CardBody>
+          </Card>
+        </div>
+      </div>
     </>
   )
 }
 
 export default SearchBrand
-

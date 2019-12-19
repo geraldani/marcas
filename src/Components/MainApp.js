@@ -44,7 +44,7 @@ const PrivateRoute = ({ component: Component, linkRedirected, privateOnRule, rul
 const MainApp = () => (
   <Router history={history}>
     <Switch>
-      <Route exact path={ROUTES.seeRegister + '/:id'} component={DashBoard} />
+      <Route exact path={`${ROUTES.seeRegister}/:id`} component={DashBoard} />
       <PrivateRoute
         exact
         path={ROUTES.home}
@@ -81,7 +81,7 @@ const MainApp = () => (
       />
       <Route exact path={ROUTES.registerBrand} component={Register}/>
       <Route exact path={ROUTES.orderDetail} component={SaveOrder}/>
-      <Route exact path={ROUTES.searchBrand} component={SearchBrand}/>
+      <Route exact path={ROUTES.searchBrand} component={DashBoard} />
       <Route exact path={ROUTES.moreInfo + '/:name'} component={MoreInfo}/>
       <Route exact path={ROUTES.terms} component={TermsConditions}/>
       <Route exact path={ROUTES.faq} component={Faqs}/>

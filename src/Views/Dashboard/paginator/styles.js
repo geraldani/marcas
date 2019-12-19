@@ -10,10 +10,17 @@ const StyledPageItem = styled.li`
     border: none;
     color: ${COLOR.primary};
     background: none;
+    text-align: center;
   }
   &.page-item.active .page-link{
-    background-color: ${COLOR.primary};
+    background-color: ${COLOR.transparent};
     color: ${COLOR.white}!important;
+    border-radius: 50%;
+  }
+  &.page-item.active{
+    width: 37px;
+    height: 37px;
+    background-color: ${COLOR.primary};
     border-radius: 50%;
   }
   &.page-item:first-child .page-link,

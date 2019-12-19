@@ -2,10 +2,12 @@ import React from 'react'
 import TableFilter from '../table/TableFilter'
 import Paginator from '../paginator/Paginator'
 import SearcherForm from '../searcher/SearcherForm'
+import Title from '../Title'
 
 const ListBrands = ({ formStructure, onClickDetails, tableInformation }) => {
   return (
     <>
+      <Title />
       <div className='row m-0'>
         <div className='col-12 m-auto'>
           <SearcherForm formData={formStructure} />

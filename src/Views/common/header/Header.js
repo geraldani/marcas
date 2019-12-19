@@ -4,6 +4,7 @@ import { menu } from '../../../data.js'
 import { StyledNavItem, StyledLink, StyledSubLink } from './styles'
 import HamburgerButton from '../buttons/Hamburger/HamburgerButton'
 import { COLOR } from '../../../utils/constants'
+import { history } from '../../../helpers/history'
 
 const Header = (props) => {
   return (
@@ -31,8 +32,8 @@ const Header = (props) => {
                 {
                   menu.home.map(menu => {
                     let active = ''
-                    if (menu.path && props.page) {
-                      active = props.page === menu.path.slice(1) ? 'active' : ''
+                    if (menu.path) {
+                      active = history.location.pathname.slice(1) === menu.path.slice(1) ? 'active' : ''
                     }
                     return (
                       <StyledNavItem className={`nav-item position-relative ${active}`} key={menu.name}>

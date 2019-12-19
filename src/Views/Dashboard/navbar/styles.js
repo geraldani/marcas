@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { COLOR } from '../../../utils/constants'
-import { HashLink as Link } from 'react-router-hash-link'
+import { NavLink } from 'react-router-dom'
 
 const StyledNav = styled.nav`
   height: ${props => props.viewPortHeight >= props.height ? 'calc(100vh - 66px)' : '100%'};
@@ -15,13 +15,13 @@ const commonStyles = css`
     text-decoration: none;
     font-weight: bold;
   }
-  ${props => props.active === 'true' && css`
+  &.active{
     background-color: rgba(255,255,255,0.2);
     font-weight: bold;
-  `}
+  }
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
   ${commonStyles};
 `
 const StyledButton = styled.button`
