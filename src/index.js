@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 
 const StyledMainApp = () => <><GlobalStyles /><MainApp /></>
+
 render()
 
 // Hot Module Replacement

@@ -7,6 +7,7 @@ import Formalities from './formalities/Formalities'
 import Contact from './contact/Contact'
 import Footer from '../common/footer/Footer'
 import Header from '../common/header/Header'
+import Prices from './Prices/Prices'
 
 const props = {
   title: 'Buscá y registrá tu marca',
@@ -24,6 +25,7 @@ export default function Home () {
         <AboutUs />
         <Help />
         <Formalities />
+        <Prices />
         <Contact />
         <Footer />
       </div>

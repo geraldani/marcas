@@ -19,7 +19,6 @@ const navMenu = [
   }
 ]
 const Navbar = (props) => {
-  console.log('las props en navbar', props)
   const [height, viewPortHeight] = useWindowHeight()
   return (
     <StyledNav className='nav flex-column justify-content-between align-items-start' {...{ viewPortHeight, height }}>

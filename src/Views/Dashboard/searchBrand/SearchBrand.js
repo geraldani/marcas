@@ -96,7 +96,7 @@ const infoMarca = [
 
 const TabOne = () => {
   return (
-    <Card className='py-2' shadow>
+    <Card className='py-2 mb-4' shadow>
       <CardHeader className='pb-2'>
         <h3 className='mb-0'>Coca cola</h3>
       </CardHeader>
@@ -132,7 +132,7 @@ const TabOne = () => {
       </CardBody>
       <CardFooter>
         <div className="d-flex justify-content-end">
-          <Button childrenFirst styled='outline-primary' color={COLOR.blue} title='Exportar .xlsx'>
+          <Button childrenFirst styled='outline-primary' color={COLOR.blue} title='Exportar .xlsx' className='d-flex justify-content-center'>
             <IconExcel style={{ marginRight: '10px' }} size='22px' />
           </Button>
         </div>
@@ -188,9 +188,9 @@ const SearchBrand = () => {
           </div>
         </div>
       </div>
-      <div className='d-flex justify-content-ce nter'>
+      <div className='d-flex justify-content-center'>
         <div className='col-11 mt-4'>
-          <Card color={COLOR.transparent} className='py-3'>
+          <Card color={COLOR.transparent} className='py-3 mb-5'>
             <CardHeader className='py-0'>
               {
                 tabs.map(e => (

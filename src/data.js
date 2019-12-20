@@ -292,4 +292,27 @@ const footer = [
   }
 ]
 
-export { menu, work, about, formalities, contact, countries, help, footer }
+const pricing = [
+  {
+    name: 'Plan Basico',
+    price: '100',
+    description: 'Pago basico mensual'
+  },
+  {
+    name: 'Plan Intermedio',
+    price: '250',
+    description: 'El doblde de beneficios'
+  },
+  {
+    name: 'Plan Express',
+    price: '300',
+    description: 'Plan para sacar el maximo provecho'
+  },
+  {
+    name: 'Plan Premium',
+    price: '100',
+    description: 'Para clientes que lo quieren todo'
+  }
+]
+
+export { menu, work, about, formalities, contact, countries, help, footer, pricing }

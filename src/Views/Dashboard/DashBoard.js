@@ -7,12 +7,11 @@ import { Router, Route, Switch } from 'react-router-dom'
 import { COLOR, LocalStorage, ROUTES } from '../../utils/constants'
 import { isEmptyArray } from '../../utils/utils'
 import SearchBrand from './searchBrand/SearchBrand'
-import {history} from '../../helpers/history'
+import { history } from '../../helpers/history'
 
 const DashBoard = (props) => {
   const [user, setUser] = useState('')
   const [paperworks, setPaperworks] = useState([])
-  console.log('las props en dashboard ', props)
   useEffect(() => {
     if (window.localStorage.getItem(LocalStorage.registerBrand)) {
       window.localStorage.removeItem(LocalStorage.registerBrand)
@@ -49,18 +48,14 @@ const DashBoard = (props) => {
 
   const RoutesDetail = () => {
     if (isEmptyArray(paperworks)) {
-      return (
-        <div style={{ fontSize: '2rem', textAlign: 'center', marginTop: '2rem' }}>
-          No tienes registros
-        </div>
-      )
+      return <h3 className='mt-4 text-center'>No tienes registros</h3>
     }
     return (
       <Router history={history}>
         <Switch>
-          <Route exact path={ROUTES.searchBrand} component={SearchBrand} />
-          <Route exact path={`${ROUTES.seeRegister}/:id`} component={Detail} />
-          <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />} />
+          <Route exact path={ROUTES.searchBrand} component={SearchBrand}/>
+          <Route exact path={`${ROUTES.seeRegister}/:id`} component={Detail}/>
+          <Route exact path={ROUTES.dashboard} render={(props) => <ListBrands {...commonProps} {...props} />}/>
         </Switch>
       </Router>
     )
@@ -80,13 +75,13 @@ const DashBoard = (props) => {
 
   return (
     <div style={{ height: '100vh' }}>
-      <HeaderDash user={user.name} />
+      <HeaderDash user={user.name}/>
       <div className='row mx-0'>
         <div className='col-2 px-0'>
-          <Navbar onLogout={logout} />
+          <Navbar onLogout={logout}/>
         </div>
         <div className='col-10 px-0' style={{ background: '#f7f8fc', overflowY: 'auto', height: 'calc(100vh - 66px)' }}>
-          <RoutesDetail />
+          <RoutesDetail/>
         </div>
       </div>
     </div>

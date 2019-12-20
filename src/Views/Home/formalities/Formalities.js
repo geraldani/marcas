@@ -12,7 +12,7 @@ const Formalities = () => (
         </div>
         {
           formalities.brands.map((brand, index) => (
-            <div className='col-md-3 col-12 mb-md-0 mb-4' key={index}>
+            <div className='col-md-3 col-12 mb-md-0 mb-4' key={brand.description}>
               <BrandCards {...brand} />
             </div>
           ))

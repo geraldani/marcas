@@ -37,25 +37,6 @@ const SaveOrder = (props) => {
     const data = getData(state)
     window.localStorage.setItem(LocalStorage.registerBrand, JSON.stringify(data))
     history.push(ROUTES.finishRegister)
-
-    /*  const url = 'https://marcas-api-test.herokuapp.com/paperwork/new'
-     const fetchBody = {
-       method: 'POST',
-       body: JSON.stringify(data),
-       headers: { 'Content-Type': 'application/json' }
-     }
-
-     try       /* setLoading(true)
-        const res = await window.fetch(url, fetchBody)
-        const response = await res.json()
-        console.log('la respuesta fue ', response)
-        setLoading(false)
-       console.log(fetchBody)
-        props.history.push(ROUTES.finishRegister)
-
-    } catch (e) {
-      console.log('Ocurrio un error ', e.message)
-    } */
   }
 
   const orderProps = { state, handleClickBack, handleClickFinish, loading }

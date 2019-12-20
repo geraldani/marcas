@@ -5,12 +5,14 @@ import Card from '../../common/cards/genericCard/Card'
 import CardHeader from '../../common/cards/genericCard/CardHeader'
 import CardBody from '../../common/cards/genericCard/CardBody'
 import InputText from '../../common/inputs/text/InputText'
-import { COLOR, LocalStorage, ROUTES } from '../../../utils/constants'
+import { COLOR, LocalStorage } from '../../../utils/constants'
 import { history } from '../../../helpers/history'
 import Title from '../Title'
+import { isEmptyObject } from '../../../utils/utils'
 
 const Detail = ({ match }) => {
   const [data, setData] = useState({})
+  const [formStructure, setFormStructure] = useState([])
 
   useEffect(() => {
     const id = match.params.id
@@ -22,43 +24,61 @@ const Detail = ({ match }) => {
   }, [])
 
   useEffect(() => {
-    console.log('la data ', data)
-  }, [data])
-
-  const formStructure = [
-    {
-      colsSize: ['3'],
-      inputs: [
+    if (!isEmptyObject(data)) {
+      console.log('la data ', data)
+      setFormStructure([
         {
-          label: 'Titular marcario',
-          type: 'text',
-          name: 'registerType',
-          defaultValue: data.registerType
-        }
-      ]
-    },
-    {
-      colsSize: ['3', '3'],
-      inputs: [
-        {
-          label: 'Razon social',
-          type: 'text',
-          name: 'razonSocial',
-          defaultValue: data.razonSocial
+          colsSize: ['3'],
+          inputs: [
+            {
+              label: 'Nombre de la marca',
+              type: 'text',
+              name: 'brandName',
+              defaultValue: data.brandName
+            }
+          ]
         },
         {
-          label: 'CUIT',
-          type: 'text',
-          name: 'cuit',
-          defaultValue: data.cuit
+          colsSize: ['3', '3'],
+          inputs: [
+            {
+              label: 'Color',
+              type: 'text',
+              name: 'color',
+              defaultValue: data.color
+            },
+            {
+              label: 'Numero de registro',
+              type: 'number',
+              name: 'nroRegistro',
+              defaultValue: data.nroRegistro
+            }
+          ]
+        },
+        {
+          colsSize: ['5', '3'],
+          inputs: [
+            {
+              label: 'Tipo de restro',
+              type: 'text',
+              name: 'registerType',
+              defaultValue: data.registerType
+            },
+            {
+              label: 'Pais del gestor',
+              type: 'text',
+              name: 'countryGestor',
+              defaultValue: data.countryGestor
+            }
+          ]
         }
-      ]
+      ])
     }
-  ]
+  }, [data])
 
   return (
     <>
-      <Title />
+      <Title/>
       <div className='container-fluid'>
         <div className='row m-0 my-4'>
           <div className='col-6'>
@@ -70,7 +90,7 @@ const Detail = ({ match }) => {
               style={{ fontSize: '0.97rem' }}
               childrenFirst
             >
-              <IconBack size='25px' />
+              <IconBack size='25px'/>
             </Button>
           </div>
           <div className='col-6'>
@@ -86,12 +106,12 @@ const Detail = ({ match }) => {
           <div className='col-12 mb-5'>
             <Card shadow>
               <CardHeader>
-                T.A.B Billetera
+                {data.brandName && data.brandName.toUpperCase()}
               </CardHeader>
               <CardBody>
                 {
                   formStructure.map((elems, i) => (
-                    <div className='row mx-0' key={i}>
+                    <div className='row mx-0' key={elems}>
                       {
                         elems.inputs.map((input, index) => (
                           <div key={input.name} className={`col-${elems.colsSize[index]} ${input.label ? '' : 'd-flex align-items-end'}`}>

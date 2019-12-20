@@ -20,7 +20,6 @@ const RegisterUserComponent = (props) => {
 
   const finish = async () => {
     const { name, surname, email, password } = data
-    console.log('la data regsiter ', data)
 
     const requestOptions = {
       method: 'POST',

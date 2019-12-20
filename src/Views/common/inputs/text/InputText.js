@@ -10,7 +10,7 @@ const Input = ({ value, onChange, type, name, defaultValue, className, style, pl
   if (props.label) {
     return (
       <StyledSublabel
-        disabled={props.disabled}
+        disabled={disabled}
         inline={props.inline}
         className={props.classnameLabel}
         style={props.styleLabel}

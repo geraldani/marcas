@@ -27,7 +27,6 @@ const RegisterUserWithBrand = (props) => {
     }
 
     try {
-      console.log(window.localStorage.getItem(LocalStorage.registerBrand))
       setLoading(true)
       const res = await window.fetch(ENDPOINTS.registerUserWithBrand, requestOptions)
       const response = await res.json()
