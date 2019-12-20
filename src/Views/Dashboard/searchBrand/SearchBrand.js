@@ -54,7 +54,7 @@ const infoMarca = [
           value: '29/004/2009'
         },
         {
-          name: 'Clasificacion agradable',
+          name: 'Clasificacion',
           value: '32'
         },
         {

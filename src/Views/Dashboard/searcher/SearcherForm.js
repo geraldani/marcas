@@ -39,7 +39,7 @@ const formGroup = [
     inline: false,
     inputs: [
       {
-        title: 'Titulo',
+        title: 'Denominación',
         name: 'title',
         type: 'text',
         label: ''

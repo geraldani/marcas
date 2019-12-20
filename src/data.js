@@ -304,13 +304,8 @@ const pricing = [
     description: 'El doblde de beneficios'
   },
   {
-    name: 'Plan Express',
-    price: '300',
-    description: 'Plan para sacar el maximo provecho'
-  },
-  {
     name: 'Plan Premium',
-    price: '100',
+    price: '500',
     description: 'Para clientes que lo quieren todo'
   }
 ]

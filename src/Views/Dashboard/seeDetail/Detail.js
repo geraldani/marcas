@@ -39,7 +39,7 @@ const Detail = ({ match }) => {
           ]
         },
         {
-          colsSize: ['3', '3'],
+          colsSize: ['3', '3', '3'],
           inputs: [
             {
               label: 'Color',
@@ -52,6 +52,12 @@ const Detail = ({ match }) => {
               type: 'number',
               name: 'nroRegistro',
               defaultValue: data.nroRegistro
+            },
+            {
+              label: 'CUIT/CUIL',
+              type: 'text',
+              name: 'cuit',
+              defaultValue: data.cuit
             }
           ]
         },
@@ -78,7 +84,7 @@ const Detail = ({ match }) => {
 
   return (
     <>
-      <Title/>
+      <Title />
       <div className='container-fluid'>
         <div className='row m-0 my-4'>
           <div className='col-6'>
@@ -90,7 +96,7 @@ const Detail = ({ match }) => {
               style={{ fontSize: '0.97rem' }}
               childrenFirst
             >
-              <IconBack size='25px'/>
+              <IconBack size='25px' />
             </Button>
           </div>
           <div className='col-6'>

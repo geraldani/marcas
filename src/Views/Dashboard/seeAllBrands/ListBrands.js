@@ -4,7 +4,7 @@ import Paginator from '../paginator/Paginator'
 import SearcherForm from '../searcher/SearcherForm'
 import Title from '../Title'
 
-const ListBrands = ({ formStructure, onClickDetails, tableInformation }) => {
+const ListBrands = ({ formStructure, tableInformation, data }) => {
   return (
     <>
       <Title />
@@ -14,7 +14,7 @@ const ListBrands = ({ formStructure, onClickDetails, tableInformation }) => {
         </div>
       </div>
       <div className='col px-4 my-4'>
-        <TableFilter information={tableInformation} onClick={onClickDetails} hoverable />
+        <TableFilter information={tableInformation} hoverable data={data} />
       </div>
       <div className='col mb-5'>
         <Paginator />

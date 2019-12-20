@@ -15,7 +15,9 @@ const COLOR = {
   mediumBlue: '#8bb9ed',
   darkBlue: '#303e5b',
   red: 'rgba(171,1,0,0.82)',
-  border: 'rgba(0, 0, 0, 0.125)'
+  border: 'rgba(0, 0, 0, 0.125)',
+  green: '#06d755',
+  orange: '#E37400'
 }
 
 const ROUTES = {
@@ -32,7 +34,6 @@ const ROUTES = {
   contact: '/contact-with-us',
   otherTrams: '/otros-tramites',
   searchBrand: '/busca-tu-tramite',
-  writeContact: '/write-us',
   domain: '/disputa-dominio',
   seeRegister: '/registro-detalle',
   dashboard: '/dashboard'

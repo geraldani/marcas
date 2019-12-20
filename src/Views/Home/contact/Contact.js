@@ -18,7 +18,6 @@ const Contact = () => {
             className='ml-3'
             title={contact.buttonTitle}
             styled='outline-primary'
-            link={ROUTES.writeContact}
           />
         </div>
       </div>

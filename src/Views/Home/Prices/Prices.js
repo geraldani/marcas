@@ -7,8 +7,8 @@ const Prices = () => {
   return (
     <section className='mb-5'>
       <div className='container'>
-        <div className='row'>
-          <div className='col-12'>
+        <div className='row justify-content-center'>
+          <div className='col-12 mb-4'>
             <Title title='Nuestros planes' className='mb-4' />
           </div>
           {
@@ -19,6 +19,7 @@ const Prices = () => {
                   <h2>${price.price}</h2>
                   <p>{price.description}</p>
                 </div>
+                <p>Contacte a:  info@laweb.io</p>
               </StyledContainer>
             ))
           }
