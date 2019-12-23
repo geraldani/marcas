@@ -83,6 +83,23 @@ body {
     border-radius: 0!important;
 }
 
+.navbar-expand-lg .navbar-nav .dropdown-menu{
+    top: 51px;
+    border-radius: 0;
+    border-top: none;
+    background: #f5f2f2;
+    left: -13px;
+}
+.dropdown-menu.left{
+    /*left: -100%;*/
+}
+.dropdown-menu.left a{
+    padding-left: 10px;
+    padding-right: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 @media (max-width: 992px) {
     .big-margin {
         margin-left: 1.8rem;

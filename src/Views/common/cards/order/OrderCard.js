@@ -23,7 +23,7 @@ const OrderCard = ({ state }) => {
     { ...state.countryRegister, label: 'País de registro' }
   ]
   return (
-    <div className='card text-center shadow-card border-0'>
+    <div className='card text-center shadow-card border-0 sticky-top' style={{ top: '78px' }}>
       <HeaderOrder setShowOrder={setShowOrder} showOrder={dropDown} />
       {
         dropDown

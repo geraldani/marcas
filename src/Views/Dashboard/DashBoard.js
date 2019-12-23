@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import HeaderDash from './header/header'
 import Navbar from './navbar/Navbar'
 import ListBrands from './seeAllBrands/ListBrands'
 import Detail from './seeDetail/Detail'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { LocalStorage, ROUTES } from '../../utils/constants'
+import { COLOR, LocalStorage, ROUTES } from '../../utils/constants'
 import { isEmptyArray } from '../../utils/utils'
 import SearchBrand from './searchBrand/SearchBrand'
+import Header from '../common/header/Header'
 
 const tableInformation = {
   headers: ['Fecha', 'Denominacion', 'Asignado', 'Registro No.', 'Estatus', ''],
@@ -21,16 +21,12 @@ const formSearchStructure = [
 ]
 
 const DashBoard = (props) => {
-  const [user, setUser] = useState({})
   const [paperworks, setPaperworks] = useState([])
   useEffect(() => {
     if (window.localStorage.getItem(LocalStorage.registerBrand)) {
       window.localStorage.removeItem(LocalStorage.registerBrand)
     }
 
-    if (window.localStorage.getItem(LocalStorage.user)) {
-      setUser(JSON.parse(window.localStorage.getItem(LocalStorage.user)))
-    }
     if (window.localStorage.getItem(LocalStorage.paperworks)) {
       setPaperworks(JSON.parse(window.localStorage.getItem(LocalStorage.paperworks)))
     }
@@ -61,7 +57,7 @@ const DashBoard = (props) => {
 
   return (
     <div style={{ height: '100vh' }}>
-      <HeaderDash user={user.name} />
+      <Header fixed={false} color={COLOR.primary} light />
       <div className='row mx-0'>
         <div className='col-2 px-0'>
           <Navbar onLogout={logout} />

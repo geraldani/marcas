@@ -1,81 +1,51 @@
-import React  from 'react'
+import React, { useState, useEffect } from 'react'
 import Logo from '../logo/Logo'
-import { menu } from '../../../data.js'
-import { StyledNavItem, StyledLink, StyledSubLink } from './styles'
-import HamburgerButton from '../buttons/Hamburger/HamburgerButton'
-import { COLOR } from '../../../utils/constants'
-import { history } from '../../../helpers/history'
+import PropTypes from 'prop-types'
+import MenuHeader from '../MenuHeader/MenuHeader'
+import { IoMdContact as UserIcon } from 'react-icons/io'
+import { LocalStorage } from '../../../utils/constants'
 
 const Header = (props) => {
+  const [user, setUser] = useState(null)
+  useEffect(() => {
+    if (window.localStorage.getItem(LocalStorage.user)) {
+      setUser(JSON.parse(window.localStorage.getItem(LocalStorage.user)))
+    }
+  }, [])
+
   return (
     <header>
-      <nav className='navbar navbar-expand-lg navbar-light shadow-sm fixed-top bg-white'>
-        <Logo />
-        {/* Button for mobile that shows and hide the main menu */}
+      <nav
+        style={{ background: props.color }}
+        className={`navbar navbar-expand-lg navbar-light shadow-sm justify-content-between ${props.fixed ? 'fixed-top' : ''}`}
+      >
+        <Logo light={props.light} />
+        {props.showMenu && <MenuHeader />}
         {
-          props.showMenu &&
-          <>
-            <button
-              className='navbar-toggler p-0'
-              type='button'
-              data-toggle='collapse'
-              data-target='#navbarNavHeader'
-              aria-controls='navbarNavHeader'
-              aria-expanded='false'
-              aria-label='Toggle navigation'
-            >
-              <HamburgerButton color={COLOR.primary} />
-            </button>
-
-            <div className='collapse navbar-collapse justify-content-end' id='navbarNavHeader'>
-              <ul className='navbar-nav'>
-                {
-                  menu.home.map(menu => {
-                    let active = ''
-                    if (menu.path) {
-                      active = history.location.pathname.slice(1) === menu.path.slice(1) ? 'active' : ''
-                    }
-                    return (
-                      <StyledNavItem className={`nav-item position-relative ${active}`} key={menu.name}>
-                        {
-                          menu.submenu
-                            ? <Submenu items={menu.submenu} name={menu.name} />
-                            : <StyledLink className='nav-link' to={menu.path}>{menu.name}</StyledLink>
-                        }
-                      </StyledNavItem>
-                    )
-                  })
-                }
-              </ul>
+          user &&
+            <div className='d-flex align-items-center'>
+              <p className={`mr-2 mb-0 ${props.light ? 'text-white' : ''}`}>{user.name}</p>
+              <UserIcon color={props.light ? 'white' : 'black'} size='28px' />
             </div>
-          </>
         }
       </nav>
     </header>
   )
 }
 
-const Submenu = ({ items, name }) => (
-  <>
-    <StyledLink
-      to='/'
-      className='nav-link dropdown-toggle'
-      id='navbarDropdownMenuLink'
-      role='button'
-      data-toggle='dropdown'
-      ria-haspopup='true'
-      aria-expanded='false'
-    >
-      {name}
-    </StyledLink>
-    <div className='dropdown-menu border-0' aria-labelledby='navbarDropdownMenuLink'>
-      {
-        items.map((item, index) => (
-          <StyledSubLink className='dropdown-item' to={item.path} key={index}>{item.name}</StyledSubLink>
-        ))
-      }
-    </div>
-  </>
-)
+Header.defaultProps = {
+  showMenu: false,
+  color: 'white',
+  fixed: true,
+  light: false
+}
+
+Header.prototype = {
+  showMenu: PropTypes.bool,
+  color: PropTypes.string,
+  user: PropTypes.string,
+  fixed: PropTypes.string,
+  light: PropTypes.bool
+}
 
 export default Header

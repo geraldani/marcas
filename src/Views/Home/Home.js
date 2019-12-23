@@ -11,7 +11,7 @@ import Prices from './Prices/Prices'
 
 const props = {
   title: 'Buscá y registrá tu marca',
-  subtitle: 'En Sitebrand te damos la posibilidad de registrar tu marca hoy, en el pais que vos quieras.',
+  subtitle: 'En Laweb.io te damos la posibilidad de registrar tu marca hoy, en el país que vos queras.',
   buttons: ['Registrar marca', 'Otros trámites']
 }
 

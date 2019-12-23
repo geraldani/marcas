@@ -6,6 +6,7 @@ import './Views/styles/globalStyles.css'
 // Bootstrap y Jquery
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min'
+import PruebasFormsHooks from './pruebas/pruebasFormsHooks'
 
 const StyledMainApp = () => <><GlobalStyles /><MainApp /></>
 
