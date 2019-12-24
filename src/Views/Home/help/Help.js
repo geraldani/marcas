@@ -5,8 +5,8 @@ import { help } from '../../../data.js'
 import { StyledText } from './styles'
 
 const Help = () => (
-  <section id='otros-tramites'>
-    <div className='container'>
+  <section>
+    <div className='container my-5'>
       <Title title={help.title} className='mb-4' />
       <StyledText>
         {help.description}
@@ -19,6 +19,7 @@ const Help = () => (
             buttonInfo={help.buttonInfo}
             buttonTitle={help.buttonTitle}
             link={card.url}
+            className='mb-4'
             {...card}
           />
         ))

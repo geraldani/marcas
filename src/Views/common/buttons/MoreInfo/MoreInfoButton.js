@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { StyledButtonInfo } from './styles'
 import { IoIosInformationCircle as IconInfo } from 'react-icons/io'
-import Modal from '../../modal/generic/Modal'
 import ModalInfo from '../../modal/InfoModal'
 import PropTypes from 'prop-types'
 import { COLOR } from '../../../../utils/constants'
@@ -25,10 +24,7 @@ const MoreInfoButton = ({ style, showInModal, info, type = 'icon' }) => {
         }
       </StyledButtonInfo>
       {
-        showInModal &&
-          <Modal setShowModal={setShowModal} showModal={showModal}>
-            <ModalInfo info={info} setShowModal={handleModal} />
-          </Modal>
+        showInModal && <ModalInfo info={info} setShowModal={handleModal} showModal={showModal} />
       }
     </div>
   )

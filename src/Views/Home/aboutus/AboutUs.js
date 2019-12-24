@@ -6,7 +6,7 @@ import { StyledContainer } from './styles.js'
 const AboutUs = () => (
   <section>
     <StyledContainer>
-      <div className='container mb-md-5 mb-3'>
+      <div className='container mb-md-5 mb-3 my-5'>
         <div className='col-12 px-0 px-md-5'>
           <Title title={about.title} color='white' />
           <p className='text-white text-center text-normal big-margin'>

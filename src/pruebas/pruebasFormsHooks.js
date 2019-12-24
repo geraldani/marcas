@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './pruebas.css'
+// import './pruebas.css'
 
 const PruebasFormsHooks = () => {
   return (

@@ -8,7 +8,7 @@ const Prices = () => {
     <section className='mb-5'>
       <div className='container'>
         <div className='row justify-content-center'>
-          <div className='col-12 mb-4'>
+          <div className='col-12 mb-5'>
             <Title title='Nuestros planes' className='mb-4' />
           </div>
           {

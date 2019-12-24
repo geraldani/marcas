@@ -6,7 +6,7 @@ import { SCREEN } from '../../../utils/constants'
 
 const Work = () => (
   <section>
-    <div className='container'>
+    <div className='container my-5'>
       <div className='row m-0'>
         <div className='col-12'>
           <StyledTitle>{work.title}</StyledTitle>

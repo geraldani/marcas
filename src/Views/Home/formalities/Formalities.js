@@ -5,9 +5,9 @@ import BrandCards from '../../common/cards/brand/BrandCards'
 
 const Formalities = () => (
   <section className='mb-5'>
-    <div className='container'>
+    <div className='container my-5'>
       <div className='row'>
-        <div className='col-12'>
+        <div className='col-12 mb-4'>
           <Title title={formalities.title} className='mb-4' />
         </div>
         {

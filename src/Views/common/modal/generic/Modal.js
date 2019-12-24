@@ -7,8 +7,7 @@ import { disableScroll, enableScroll } from '../../../../utils/utils'
 
 const container = document.getElementById('modal')
 
-const Modal = ({ children, showModal, setShowModal, showCloseButton }) => {
-  // const windowHeight = useWindowHeight()
+const Modal = ({ children, showModal, closeModal, showCloseButton }) => {
 
   const MainModal = () => {
     if (showModal) {
@@ -20,9 +19,7 @@ const Modal = ({ children, showModal, setShowModal, showCloseButton }) => {
             showCloseButton &&
             <StyledButton
               title='Cerrar Modal'
-              onClick={() => {
-                setShowModal(false)
-              }}
+              onClick={closeModal}
             />
           }
           {children}
@@ -39,7 +36,6 @@ const Modal = ({ children, showModal, setShowModal, showCloseButton }) => {
 
 Modal.propTypes = {
   showModal: PropTypes.bool.isRequired,
-  setShowModal: PropTypes.func
 }
 
 export default Modal

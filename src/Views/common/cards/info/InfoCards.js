@@ -23,7 +23,7 @@ const CardInfo = (props) => {
   )
 
   return (
-    <div className={`row mx-0 mb-3 mb-md-5 ${classes.justify}`}>
+    <div className={`row mx-0 mb-3 my-md-5 ${classes.justify}`}>
       <div className='col-12 col-md-10 col-xl-8'>
         <div className='card shadow-medium'>
           <div className={`card-body d-flex flex-column align-items-center ${classes.align}`}>
