@@ -107,14 +107,14 @@ const SearcherForm = () => {
       </div>
 
       <div className='justify-content-end d-flex my-3'>
-        <Button title='Aplicar filtro' size='sm' color={COLOR.blue}/>
+        <Button title='Aplicar filtro' size='sm' color={COLOR.blue} />
       </div>
     </>
 
   )
 }
 
-SearcherForm.prototype = {
+SearcherForm.propTypes = {
   formData: Proptypes.array.isRequired
 }
 export default SearcherForm

@@ -1,8 +1,7 @@
 import React from 'react'
-import { StyledNav, StyledLink, StyledButton } from './styles'
+import { StyledNav, StyledLink } from './styles'
 import { ROUTES } from '../../../utils/constants'
 import { useWindowHeight } from '../../../hooks/useWindowHeight'
-import { IoIosLogOut as IconLogout } from 'react-icons/io'
 
 const navMenu = [
   {
@@ -27,10 +26,6 @@ const Navbar = (props) => {
           navMenu.map(e => <StyledLink key={e.name} to={e.link} activeClassName='active'>{e.name}</StyledLink>)
         }
       </div>
-      <StyledButton onClick={props.onLogout}>
-        Salir
-        <IconLogout size='20px' style={{ marginLeft: '10px' }} />
-      </StyledButton>
     </StyledNav>
   )
 }

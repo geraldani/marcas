@@ -128,7 +128,7 @@ const TabOne = () => {
         </div>
       </CardBody>
       <CardFooter>
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-end pb-4">
           <Button childrenFirst styled='outline-primary' color={COLOR.blue} title='Exportar .xlsx' className='d-flex justify-content-center'>
             <IconExcel style={{ marginRight: '10px' }} size='22px' />
           </Button>
@@ -181,7 +181,7 @@ const SearchBrand = () => {
               placeholder='Ingresa la marca que estas búscando'
               style={{ width: '80%', padding: '0.2rem 0.5rem', fontSize: '15px' }}
             />
-            <Button title='Aplicar filtro' size='sm' style={{ height: '36px', marginLeft: '8px' }} color={COLOR.blue} />
+            <Button title='Aplicar filtro' size='sm' style={{ height: '46px', marginLeft: '8px' }} color={COLOR.blue} />
           </div>
         </div>
       </div>

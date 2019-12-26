@@ -1,6 +1,6 @@
 import React from 'react'
 import CkeckInput from './CkeckInput'
-import ErrorAlert from '../alerts/ErrorAlert'
+import ErrorAlert from '../../alerts/ErrorAlert'
 
 const CheckContainer = ({ options, onChange, error }) => {
   return (

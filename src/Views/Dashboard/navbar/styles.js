@@ -24,10 +24,4 @@ const commonStyles = css`
 const StyledLink = styled(NavLink)`
   ${commonStyles};
 `
-const StyledButton = styled.button`
-  ${commonStyles};
-  background-color: transparent;
-  border: none; 
-  text-align: left;
-`
-export { StyledNav, StyledLink, StyledButton }
+export { StyledNav, StyledLink }

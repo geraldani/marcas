@@ -15,7 +15,7 @@ const ModalLoader = (props) => {
   )
 }
 
-ModalLoader.prototype = {
+ModalLoader.propTypes = {
   showModal: PropTypes.bool
 }
 export default ModalLoader

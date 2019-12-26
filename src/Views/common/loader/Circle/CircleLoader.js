@@ -9,7 +9,7 @@ CircleLoader.defaultProps = {
   width: '3px'
 }
 
-CircleLoader.prototype = {
+CircleLoader.propTypes = {
   size: Proptypes.string,
   width: Proptypes.string
 }

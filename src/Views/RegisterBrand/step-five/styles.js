@@ -19,8 +19,8 @@ const StyledButton = styled.button`
 `
 
 const StyledSearchButton = styled.button`
-  width: 30px;
-  height: 38px;
+  width: 35px;
+  height: 45px;
   border: none;
   border-bottom-right-radius: 0.25rem;
   border-top-right-radius: 0.25rem;

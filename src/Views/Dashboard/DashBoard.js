@@ -57,10 +57,10 @@ const DashBoard = (props) => {
 
   return (
     <div style={{ height: '100vh' }}>
-      <Header fixed={false} color={COLOR.primary} light />
+      <Header fixed={false} color={COLOR.primary} light onLogout={logout} />
       <div className='row mx-0'>
         <div className='col-2 px-0'>
-          <Navbar onLogout={logout} />
+          <Navbar />
         </div>
         <div className='col-10 px-0' style={{ background: '#f7f8fc', overflowY: 'auto', height: 'calc(100vh - 66px)' }}>
           {

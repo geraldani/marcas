@@ -1,5 +1,5 @@
 import React from 'react'
-import Tooltip from '../tooltip/Tooltip'
+import Tooltip from '../../tooltip/Tooltip'
 import { StyledLabel, StyledCheckbox, StyledCheckboxIcon } from './styles'
 import PropTypes from 'prop-types'
 

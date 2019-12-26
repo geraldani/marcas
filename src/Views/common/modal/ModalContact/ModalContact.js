@@ -8,6 +8,8 @@ import Title from '../../title/Title'
 import CardBody from '../../cards/genericCard/CardBody'
 import CardFooter from '../../cards/genericCard/CardFooter'
 import Button from '../../buttons/Button'
+import { StyledSublabel } from '../../../styles/GlobalStyles'
+import { COLOR } from '../../../../utils/constants'
 
 const ModalContact = (props) => {
   return (
@@ -21,13 +23,14 @@ const ModalContact = (props) => {
             <CardBody>
               <InputText label='Nombre' type='text' name='name' onChange={() => {}} />
               <InputText label='Email' type='email' name='email' onChange={() => {}} />
-              <label>
+              <StyledSublabel>
                 Mensaje
-                <textarea className='form-control' name='message' cols='30' />
-              </label>
+                <textarea className='form-control' name='message' />
+              </StyledSublabel>
             </CardBody>
-            <CardFooter>
-              <Button onClick={props.closeModal} title='Cerrar' />
+            <CardFooter className='d-flex justify-content-around'>
+              <Button title='Aceptar' />
+              <Button onClick={props.closeModal} title='Cerrar' styled='outline-primary' />
             </CardFooter>
           </Card>
         </div>
@@ -36,7 +39,7 @@ const ModalContact = (props) => {
   )
 }
 
-ModalContact.prototype = {
+ModalContact.propTypes = {
   showModal: PropTypes.bool.isRequired
 }
 export default ModalContact

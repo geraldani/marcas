@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledSublabel } from '../../../styles/GlobalStyles'
-import CkeckInput from '../../check/CkeckInput'
+import CkeckInput from '../../inputs/check/CkeckInput'
 import { StylesCkeckInput } from './styles'
 import { upperFirstLetter } from '../../../../utils/utils'
 

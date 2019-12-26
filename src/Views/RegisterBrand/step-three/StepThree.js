@@ -3,7 +3,7 @@ import ColorPicker from '../../common/inputs/color/ColorPicker'
 import Measurement from '../../common/measurement/Measurement'
 import FileInput from '../../common/inputs/file/FileInput'
 import InputText from '../../common/inputs/text/InputText'
-import CheckContainer from '../../common/check/CheckContainer'
+import CheckContainer from '../../common/inputs/check/CheckContainer'
 import { StyledLabelName, StyledDivMarginBottom, StyledSublabel } from '../../styles/GlobalStyles'
 
 const StepThree = (props) => {

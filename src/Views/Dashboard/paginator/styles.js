@@ -1,36 +1,39 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import { COLOR } from '../../../utils/constants'
 
-const StyledPageItem = styled.li`
-  &.page-item:focus,
-  .page-link:focus{
-    outline: none!important;
+const StyledPageItem = styled.button`
+  border: none;
+  color: ${COLOR.primary};
+  background: none;
+  text-align: center;
+  font-weight: normal;
+  transition: transform 100ms;
+  margin: 0 .25em;
+  &:hover{
+    font-weight: bold;
   }
-  &.page-item .page-link{
-    border: none;
-    color: ${COLOR.primary};
-    background: none;
-    text-align: center;
+  &:active{
+    transform: scale(.9);
   }
-  &.page-item.active .page-link{
-    background-color: ${COLOR.transparent};
-    color: ${COLOR.white}!important;
-    border-radius: 50%;
-  }
-  &.page-item.active{
+  ${props => props.active && css`
+    background-color: ${COLOR.primary};
+    font-weight: bold;
+    color: ${COLOR.white};
     width: 37px;
     height: 37px;
-    background-color: ${COLOR.primary};
     border-radius: 50%;
-  }
-  &.page-item:first-child .page-link,
-  &.page-item:last-child .page-link{
+  `};
+
+
+  &:first-child,
+  &:last-child{
     color: ${COLOR.darkGrey};
-  }
-  &.page-item.disabled:first-child .page-link,
-  &.page-item.disabled:last-child .page-link{
-    color: ${COLOR.mediumGray};
-    background: none;
+    ${props => props.disabled && css`
+      color: ${COLOR.mediumGray};
+    `}
+    &:hover{
+      opacity: 0.8;
+    }
   }
 `
 export {

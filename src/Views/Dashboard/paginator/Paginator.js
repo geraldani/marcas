@@ -1,31 +1,50 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { IoIosArrowBack as ArrowBack, IoIosArrowForward as ArrowNext } from 'react-icons/io'
 import { StyledPageItem } from './styles'
 
-const Paginator = () => {
-  return (
-    <ul className='pagination justify-content-center mb-0'>
-      <StyledPageItem className='page-item'>
-        <a className='page-link' href='#' tabIndex='-1' aria-disabled='true'><ArrowBack/></a>
-      </StyledPageItem>
+const Paginator = ({ itemsPerPage, currentPage, totalItems, onChangePage }) => {
+  let iteratorNro = parseInt(totalItems / itemsPerPage)
+  if (totalItems % itemsPerPage !== 0 && iteratorNro !== 0) iteratorNro++
 
-      <StyledPageItem className='page-item'>
-        <a className='page-link' href='#'>1</a>
-      </StyledPageItem>
+  if (iteratorNro > 1) {
+    return (
+      <div className='d-flex justify-content-center mb-0'>
+        <StyledPageItem
+          disabled={currentPage === 1}
+          onClick={() => onChangePage(currentPage - 1)}
+        >
+          <ArrowBack />
+        </StyledPageItem>
+        {
+          [...Array(iteratorNro)].map((e, i) => (
+            <StyledPageItem
+              key={i}
+              active={i + 1 === currentPage}
+              onClick={() => onChangePage(i + 1)}
+            >
+              {i + 1}
+            </StyledPageItem>
+          ))
+        }
+        <StyledPageItem
+          disabled={currentPage === iteratorNro}
+          onClick={() => onChangePage(currentPage + 1)}
+        >
+          <ArrowNext />
+        </StyledPageItem>
+      </div>
+    )
+  } else {
+    return null
+  }
+}
 
-      <StyledPageItem className='page-item active'>
-        <a className='page-link' href='#'>2</a>
-      </StyledPageItem>
-
-      <StyledPageItem className='page-item'>
-        <a className='page-link' href='#'>3</a>
-      </StyledPageItem>
-
-      <StyledPageItem className='page-item disabled'>
-        <a className='page-link' href='#'><ArrowNext/></a>
-      </StyledPageItem>
-    </ul>
-  )
+Paginator.propTypes = {
+  itemsPerPage: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  totalItems: PropTypes.number.isRequired,
+  onChangePage: PropTypes.func
 }
 
 export default Paginator

@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import { COLOR } from '../../../utils/constants'
+import { COLOR } from '../../../../utils/constants'
 
+const size = 18
 const StyledLabel = styled.label`
   position: relative;
  font-size: .9em;
@@ -36,8 +37,8 @@ const StyledCheckboxIcon = styled.span`
   bottom: 0;
   margin: auto;
   left: 0;
-  height: 15px;
-  width: 15px;
+  height: ${size}px;
+  width: ${size}px;
   border-style: solid;
   border-width: 2px;
   border-color: ${props => props.error ? COLOR.red : COLOR.mediumGray};
@@ -52,8 +53,8 @@ const StyledCheckboxIcon = styled.span`
     right: 0;
     top: 0;
     bottom: 0;
-    width: 5px;
-    height: 9px;
+    width: 7px;
+    height: 12px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);

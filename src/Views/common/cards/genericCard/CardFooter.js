@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyledHeaderFooter } from './styles'
 
-const CardFooter = ({ children }) => {
+const CardFooter = ({ children, className }) => {
   return (
-    <StyledHeaderFooter>
+    <StyledHeaderFooter className={className}>
       {children}
     </StyledHeaderFooter>
   )

@@ -20,10 +20,13 @@ const StyledScroll = css`
 `
 const GlobalStyles = createGlobalStyle`
   ${StyledScroll};
-  input:focus{
-    outline: none!important;
-    box-shadow: none!important;
+  input:not([type='radio']), select{
+    height: 45px!important;
   }
+    input:focus{
+      outline: none!important;
+      box-shadow: none!important;
+    }
   p{
     margin: 0;
   }
