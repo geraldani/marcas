@@ -7,6 +7,7 @@ import { COLOR, LocalStorage, ROUTES } from '../../utils/constants'
 import { isEmptyArray } from '../../utils/utils'
 import SearchBrand from './searchBrand/SearchBrand'
 import Header from '../common/header/Header'
+import { useHeader } from '../../hooks/useHeader'
 
 const tableInformation = {
   headers: ['Fecha', 'Denominacion', 'Asignado', 'Registro No.', 'Estatus', ''],
@@ -22,6 +23,7 @@ const formSearchStructure = [
 
 const DashBoard = (props) => {
   const [paperworks, setPaperworks] = useState([])
+  const [mainContainer, headerUp] = useHeader()
   useEffect(() => {
     if (window.localStorage.getItem(LocalStorage.registerBrand)) {
       window.localStorage.removeItem(LocalStorage.registerBrand)
@@ -48,21 +50,14 @@ const DashBoard = (props) => {
     </BrowserRouter>
   )
 
-  const logout = () => {
-    window.localStorage.removeItem(LocalStorage.token)
-    window.localStorage.removeItem(LocalStorage.user)
-    window.localStorage.removeItem(LocalStorage.paperworks)
-    props.history.push(ROUTES.login)
-  }
-
   return (
-    <div style={{ height: '100vh' }}>
-      <Header fixed={false} color={COLOR.primary} light onLogout={logout} />
+    <div ref={mainContainer}>
+      {/*<Header fixed={false} color={COLOR.primary} light onLogout={logout} />*/}
       <div className='row mx-0'>
         <div className='col-2 px-0'>
-          <Navbar />
+          <Navbar header={headerUp} />
         </div>
-        <div className='col-10 px-0' style={{ background: '#f7f8fc', overflowY: 'auto', height: 'calc(100vh - 66px)' }}>
+        <div className='col-10 px-0' style={{ background: '#f7f8fc', overflowY: 'auto', height: headerUp ? 'calc(100vh - 66px)' : '100vh' }}>
           {
             isEmptyArray(paperworks)
               ? <h3 className='mt-4 text-center'>No tienes registros</h3>

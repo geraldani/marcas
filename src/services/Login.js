@@ -32,3 +32,8 @@ export const userLogin = async (email, password, setLoading, setErrorFetch) => {
     console.log('Ocurrio un error: ', error)
   }
 }
+
+export const isLogged = () => {
+  if (window.localStorage.getItem(LocalStorage.user)) return (JSON.parse(window.localStorage.getItem(LocalStorage.user)))
+  else return null
+}

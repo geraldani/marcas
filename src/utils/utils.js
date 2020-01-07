@@ -1,3 +1,5 @@
+import { SwitchHeader } from '../data'
+
 /** funciones de utlidades para el resto de los componentes */
 
 const DAYS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
@@ -66,6 +68,8 @@ const sortArray = (array, order = 'asc', key) => { // el key es por si el vector
 /* funcion que pone una palabra con la primera letra en mayuscula */
 const upperFirstLetter = (word) => word.charAt(0).toUpperCase().concat(word.slice(1).toLowerCase())
 
+const findActualRouteToShowHeader = (pathname) => SwitchHeader.find(e => e.path === pathname)
+
 export {
   enableScroll,
   disableScroll,
@@ -77,5 +81,6 @@ export {
   isEmptyArray,
   isEmptyObject,
   sortArray,
-  upperFirstLetter
+  upperFirstLetter,
+  findActualRouteToShowHeader
 }

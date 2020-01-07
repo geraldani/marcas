@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../common/header/Header'
+import { MainContainer } from '../styles/GlobalStyles'
 import Footer from '../common/footer/Footer'
 import Card from '../common/cards/genericCard/Card'
 import CardHeader from '../common/cards/genericCard/CardHeader'
@@ -9,8 +9,10 @@ import InputText from '../common/inputs/text/InputText'
 import ModalLoader from '../common/modal/ModalLoader'
 import { StyledError } from '../common/alerts/styles'
 import ErrorAlert from '../common/alerts/ErrorAlert'
+import { useHeader } from '../../hooks/useHeader'
 
 const RegisterUserView = (props) => {
+  const [container, header] = useHeader()
   const {
     form,
     errors,
@@ -21,8 +23,7 @@ const RegisterUserView = (props) => {
   } = props
   return (
     <>
-      <Header showMenu />
-      <div className='margin-header row justify-content-center pt-0 pt-md-5 px-1 px-md-5 mx-0 mx-md-5'>
+      <MainContainer className='row justify-content-center pt-0 pt-md-5 px-1 px-md-5 mx-0 mx-md-5' ref={container} header={header}>
         <div className='col-md-7 col-lg-6 col-xl-5 col-12 mt-3 mb-5 px-2 px-md-0 px-0 '>
           <Card>
             <CardHeader>
@@ -51,7 +52,7 @@ const RegisterUserView = (props) => {
           <ErrorAlert message={errorFetch} />
         </div>
         <ModalLoader showModal={loading} />
-      </div>
+      </MainContainer>
       <Footer />
     </>
   )

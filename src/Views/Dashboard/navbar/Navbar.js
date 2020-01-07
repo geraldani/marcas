@@ -18,9 +18,10 @@ const navMenu = [
   }
 ]
 const Navbar = (props) => {
-  const [height, viewPortHeight] = useWindowHeight()
+  // const [height, viewPortHeight] = useWindowHeight()
+  const { header } = props
   return (
-    <StyledNav className='nav flex-column justify-content-between align-items-start' {...{ viewPortHeight, height }}>
+    <StyledNav className='nav flex-column justify-content-between align-items-start' header={header}>
       <div className='d-flex flex-column w-100'>
         {
           navMenu.map(e => <StyledLink key={e.name} to={e.link} activeClassName='active'>{e.name}</StyledLink>)

@@ -1,4 +1,4 @@
-import { ROUTES } from './utils/constants'
+import { COLOR, ROUTES } from './utils/constants'
 
 const Tramites = [
   {
@@ -310,4 +310,16 @@ const pricing = [
   }
 ]
 
-export { menu, work, about, formalities, contact, countries, help, footer, pricing }
+const SwitchHeader = [
+  { path: ROUTES.home, show: true, showMenu: true, light: false, color: COLOR.white }, // home page
+  { path: ROUTES.dashboard, show: true, showMenu: false, light: true, color: COLOR.primary, fixed: false }, // dashboard cuadno ya este logeado
+  { path: ROUTES.searchBrand, show: true, showMenu: false, light: true, color: COLOR.primary, fixed: false }, // dashboard cuadno ya este logeado
+  { path: ROUTES.registerBrand, show: false, showMenu: false, light: false, color: COLOR.white }, // registro de nuevas marcas
+  { path: ROUTES.register, show: true, showMenu: true, light: false, color: COLOR.white }, // registro de usuario
+  { path: ROUTES.login, show: true, showMenu: true, light: false, color: COLOR.white }, // login
+  { path: ROUTES.moreInfo, show: true, showMenu: true, light: false, color: COLOR.white }, // mas info de los items
+  { path: ROUTES.terms, show: true, showMenu: true, light: false, color: COLOR.white }, // mas info de los items
+  { path: ROUTES.faq, show: true, showMenu: true, light: false, color: COLOR.white }, // mas info de los items
+]
+
+export { menu, work, about, formalities, contact, countries, help, footer, pricing, SwitchHeader }

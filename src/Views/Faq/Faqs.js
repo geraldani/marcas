@@ -1,17 +1,19 @@
 import React from 'react'
-import Header from '../common/header/Header'
 import { COLOR } from '../../utils/constants'
 import { textFaq } from './text'
 import Footer from '../common/footer/Footer'
 import { setViewUp } from '../../utils/utils'
 import { StyledContainer } from './styles'
+import { useHeader } from '../../hooks/useHeader'
+import { MainContainer } from '../styles/GlobalStyles'
 
 const Faqs = () => {
+  const [container, headerUp] = useHeader()
+
   setViewUp()
   return (
     <>
-      <Header showMenu />
-      <div className='margin-header d-flex'>
+      <MainContainer className='d-flex' ref={container} header={headerUp}>
         <div className='col-12  p-md-5 pt-4' style={{ backgroundColor: COLOR.lightGrey }}>
           <h2 className='text-center'>
             Preguntas frecuentes
@@ -29,7 +31,7 @@ const Faqs = () => {
             }
           </div>
         </div>
-      </div>
+      </MainContainer>
       <Footer />
     </>
   )

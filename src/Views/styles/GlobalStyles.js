@@ -86,6 +86,9 @@ const marginBottom = {
   marginBottom: '7rem'
 }
 
+const MainContainer = styled.div`
+   margin-top: ${props => props.header ? '66px' : '0'};
+`
 export {
   StyledLegend,
   StyledSublabel,
@@ -93,5 +96,6 @@ export {
   StyledDivMarginBottom,
   marginBottom,
   GlobalStyles,
-  StyledScroll
+  StyledScroll,
+  MainContainer
 }

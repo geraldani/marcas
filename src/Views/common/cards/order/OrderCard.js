@@ -13,7 +13,7 @@ const isThereData = (data) => {
   return hayData
 }
 
-const OrderCard = ({ state }) => {
+const OrderCard = ({ state, showMenu }) => {
   const { dropDown, setDropDown } = useWindowWidth()
   const setShowOrder = () => setDropDown(!dropDown)
 
@@ -23,7 +23,7 @@ const OrderCard = ({ state }) => {
     { ...state.countryRegister, label: 'País de registro' }
   ]
   return (
-    <div className='card text-center shadow-card border-0 sticky-top' style={{ top: '78px' }}>
+    <div className='card text-center shadow-card border-0 sticky-top' style={{ top: showMenu ? '78px' : '10px' }}>
       <HeaderOrder setShowOrder={setShowOrder} showOrder={dropDown} />
       {
         dropDown

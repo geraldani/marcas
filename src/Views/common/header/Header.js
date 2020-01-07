@@ -12,25 +12,30 @@ import {
 import { LocalStorage, ROUTES } from '../../../utils/constants'
 import { Link } from 'react-router-dom'
 import { StyledNav, StyledButton } from './styles'
+import { history } from '../../../helpers/history'
 
 const Header = (props) => {
-  const [user, setUser] = useState(null)
+  const { user } = props
   const [showDrop, setShowDrop] = useState(false)
-  useEffect(() => {
-    if (window.localStorage.getItem(LocalStorage.user)) {
-      setUser(JSON.parse(window.localStorage.getItem(LocalStorage.user)))
-    }
-  }, [])
+
+  const logout = () => {
+    window.localStorage.removeItem(LocalStorage.token)
+    window.localStorage.removeItem(LocalStorage.user)
+    window.localStorage.removeItem(LocalStorage.paperworks)
+    setShowDrop(false)
+    history.push(ROUTES.login)
+  }
 
   const showNav = () => setShowDrop(!showDrop)
+  if (!props.show) return null
   return (
     <header className='position-relative'>
       <nav
         style={{ background: props.color, zIndex: '1030' }}
         className={`navbar navbar-expand-lg navbar-light shadow-sm justify-content-between ${props.fixed ? 'fixed-top' : 'position-relative'}`}
       >
-        <Logo light={props.light} />
-        {props.showMenu && <MenuHeader />}
+        <Logo light={props.light}/>
+        {props.showMenu && <MenuHeader/>}
         {
           user &&
           <div className='d-flex align-items-center'>
@@ -42,11 +47,14 @@ const Header = (props) => {
           </div>
         }
       </nav>
-      <StyledNav show={showDrop} fixed={props.fixed}>
-        <Link to='#'><PersonIcon />Perfil</Link>
-        <Link to={ROUTES.dashboard}><IconPaper />Tus tramites</Link>
-        <button onClick={props.onLogout}><IconLogout />Salir</button>
-      </StyledNav>
+      {
+        user &&
+        <StyledNav show={showDrop} fixed={props.fixed}>
+          <Link to='#'><PersonIcon/>Perfil</Link>
+          <Link to={ROUTES.dashboard}><IconPaper/>Tus tramites</Link>
+          <button onClick={logout}><IconLogout/>Salir</button>
+        </StyledNav>
+      }
     </header>
   )
 }
@@ -61,8 +69,8 @@ Header.defaultProps = {
 Header.propTypes = {
   showMenu: PropTypes.bool,
   color: PropTypes.string,
-  user: PropTypes.string,
-  fixed: PropTypes.string,
+  user: PropTypes.object,
+  fixed: PropTypes.bool,
   light: PropTypes.bool
 }
 

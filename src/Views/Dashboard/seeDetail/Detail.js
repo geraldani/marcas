@@ -25,7 +25,6 @@ const Detail = ({ match }) => {
 
   useEffect(() => {
     if (!isEmptyObject(data)) {
-      console.log('la data ', data)
       setFormStructure([
         {
           colsSize: ['3'],

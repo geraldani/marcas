@@ -3,7 +3,8 @@ import { COLOR } from '../../../utils/constants'
 import { NavLink } from 'react-router-dom'
 
 const StyledNav = styled.nav`
-  height: ${props => props.viewPortHeight >= props.height ? 'calc(100vh - 66px)' : '100%'};
+  //height: ${props => props.viewPortHeight >= props.height ? 'calc(100vh - 66px)' : '100%'};
+  height: ${props => props.header ? 'calc(100vh - 66px)' : '100%'};
   background: ${COLOR.darkBlue};
 `
 const commonStyles = css`

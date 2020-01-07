@@ -6,8 +6,9 @@ import AboutUs from './aboutus/AboutUs'
 import Formalities from './formalities/Formalities'
 import Contact from './contact/Contact'
 import Footer from '../common/footer/Footer'
-import Header from '../common/header/Header'
 import Prices from './Prices/Prices'
+import { MainContainer } from '../styles/GlobalStyles'
+import { useHeader } from '../../hooks/useHeader'
 
 const props = {
   title: 'Buscá y registrá tu marca',
@@ -16,10 +17,11 @@ const props = {
 }
 
 export default function Home () {
+  const [refContainer, headerAbove] = useHeader()
+
   return (
     <>
-      <Header showMenu />
-      <div className='margin-header'>
+      <MainContainer ref={refContainer} header={headerAbove}>
         <RegisterBrand {...props} />
         <Work />
         <AboutUs />
@@ -28,7 +30,7 @@ export default function Home () {
         <Prices />
         <Contact />
         <Footer />
-      </div>
+      </MainContainer>
     </>
 
   )

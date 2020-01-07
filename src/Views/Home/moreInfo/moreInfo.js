@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../common/header/Header'
+import { MainContainer } from '../../styles/GlobalStyles'
 import RegisterBrand from '../register/RegisterBrand'
 import { help } from '../../../data.js'
 import FormCard from '../../common/miniForm'
@@ -9,6 +9,7 @@ import { StyledContainer } from './styles'
 import { COLOR } from '../../../utils/constants'
 import { setViewUp } from '../../../utils/utils'
 import Button from '../../common/buttons/Button'
+import { useHeader } from '../../../hooks/useHeader'
 
 const inputData = [
   {
@@ -23,11 +24,11 @@ const inputData = [
 
 const MoreInfo = (props) => {
   const elem = help.brands.find(el => el.id === props.match.params.name)
+  const [container, header] = useHeader()
   setViewUp()
   return (
-    <div className='margin-header'>
-      <Header showMenu />
-      <RegisterBrand title={elem.title} subtitle={elem.description} />
+    <MainContainer ref={container} header={header}>
+      <RegisterBrand title={elem.title} subtitle={elem.description}/>
       <div className='row m-0'>
         <div className='col-12 col-md-7 p-5'>
           <Button
@@ -38,7 +39,7 @@ const MoreInfo = (props) => {
             style={{ fontSize: '0.97rem' }}
             childrenFirst
           >
-            <IconBack size='25px' />
+            <IconBack size='25px'/>
           </Button>
           {
             elem.info.map(detailInfo => (
@@ -48,7 +49,7 @@ const MoreInfo = (props) => {
                   detailInfo.text.map(text => (
                     <p key={text}>
                       {
-                        detailInfo.isEnum && <IconCheck size='30px' color={COLOR.primary} />
+                        detailInfo.isEnum && <IconCheck size='30px' color={COLOR.primary}/>
                       }
                       {text}
                     </p>
@@ -68,8 +69,8 @@ const MoreInfo = (props) => {
           />
         </div>
       </div>
-      <Footer />
-    </div>
+      <Footer/>
+    </MainContainer>
   )
 }
 

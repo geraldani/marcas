@@ -5,13 +5,15 @@ import { COLOR } from '../../utils/constants'
 import { setViewUp } from '../../utils/utils'
 import { StyledParagraph } from './styles'
 import { textTermsConditions } from './text'
+import { useHeader } from '../../hooks/useHeader'
+import {MainContainer} from '../styles/GlobalStyles'
 
 const TermsConditions = () => {
+  const [container, headerUp] = useHeader()
   setViewUp()
   return (
     <>
-      <Header showMenu />
-      <div className='margin-header d-flex'>
+      <MainContainer className='d-flex' ref={container} header={headerUp}>
         <div className='col-12  p-md-5 pt-4' style={{ backgroundColor: COLOR.lightGrey }}>
           <h2 className='text-center mb-5'>
             Terminos y condiciones
@@ -25,7 +27,7 @@ const TermsConditions = () => {
             }
           </div>
         </div>
-      </div>
+      </MainContainer>
       <Footer />
     </>
   )

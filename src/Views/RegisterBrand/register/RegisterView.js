@@ -9,6 +9,7 @@ import Header from '../../common/header/Header'
 import CircleSteps from '../../common/circles/CircleSteps'
 import CardSteps from '../../common/cards/steps/CardSteps'
 import OrderCard from '../../common/cards/order/OrderCard'
+import { useHeader } from '../../../hooks/useHeader'
 
 // vista de los pasos o vistas del formulario con datos a ser pedidos en cada uno
 const Steps = (props) => {
@@ -62,13 +63,15 @@ const ButtonsNavigation = ({ step, handleClickBack, totalSteps, handleClickNext 
 
   return (
     <div className={`border-top mt-5 py-3 px-4 d-flex flex-column flex-md-row ${justify}`}>
-      {step > 1 && <ButtonBack />}
-      <ButtonNext />
+      {step > 1 && <ButtonBack/>}
+      <ButtonNext/>
     </div>
   )
 }
 
 const RegisterView = (props) => {
+  const [container, headerAbove] = useHeader()
+
   const buttonsProps = {
     step: props.step,
     handleClickBack: props.handleClickBack,
@@ -78,14 +81,13 @@ const RegisterView = (props) => {
 
   return (
     <>
-      <Header/>
-      <section className='margin-header mb-5'>
+      <section className={`${headerAbove ? 'margin-header' : ''} mb-5`} ref={container}>
         <div className='container-fluid pt-4 pt-md-5 px-3 px-md-5'>
           <div className='row justify-content-end'>
 
             {/* Circulos del paso actual y totales */}
             <div className='col-12 mb-0 mb-md-4'>
-              <CircleSteps actualStep={props.step} totalSteps={props.totalSteps} />
+              <CircleSteps actualStep={props.step} totalSteps={props.totalSteps}/>
             </div>
 
             {/* formulario principal */}
@@ -101,7 +103,7 @@ const RegisterView = (props) => {
 
               {/* Detalle de la orden Card */}
               <div className='col-12 mt-2 mt-md-4 col-lg-3 mt-lg-0 order-lg-last order-first mb-4'>
-                <OrderCard state={props.state} />
+                <OrderCard state={props.state} showMenu={headerAbove} />
               </div>
             </div>
           </div>
