@@ -12,7 +12,7 @@ import { useHeader } from '../../hooks/useHeader'
 
 const props = {
   title: 'Buscá y registrá tu marca',
-  subtitle: 'En Laweb.io te damos la posibilidad de registrar tu marca hoy, en el país que vos queras.',
+  subtitle: 'En tumarca.com te damos la posibilidad de registrar tu marca hoy, en el país que vos queras.',
   buttons: ['Registrar marca', 'Otros trámites']
 }
 

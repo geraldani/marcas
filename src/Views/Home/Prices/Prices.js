@@ -19,7 +19,7 @@ const Prices = () => {
                   <h2>${price.price}</h2>
                   <p>{price.description}</p>
                 </div>
-                <p>Contacte a:  info@laweb.io</p>
+                <p>Contacte a:  tupagina.com</p>
               </StyledContainer>
             ))
           }

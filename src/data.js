@@ -314,7 +314,7 @@ const SwitchHeader = [
   { path: ROUTES.home, show: true, showMenu: true, light: false, color: COLOR.white }, // home page
   { path: ROUTES.dashboard, show: true, showMenu: false, light: true, color: COLOR.primary, fixed: false }, // dashboard cuadno ya este logeado
   { path: ROUTES.searchBrand, show: true, showMenu: false, light: true, color: COLOR.primary, fixed: false }, // dashboard cuadno ya este logeado
-  { path: ROUTES.registerBrand, show: false, showMenu: false, light: false, color: COLOR.white }, // registro de nuevas marcas
+  { path: ROUTES.registerBrand, show: true, showMenu: false, light: false, color: COLOR.white }, // registro de nuevas marcas
   { path: ROUTES.register, show: true, showMenu: true, light: false, color: COLOR.white }, // registro de usuario
   { path: ROUTES.login, show: true, showMenu: true, light: false, color: COLOR.white }, // login
   { path: ROUTES.moreInfo, show: true, showMenu: true, light: false, color: COLOR.white }, // mas info de los items

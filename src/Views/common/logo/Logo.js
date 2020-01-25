@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyledLinkImage } from './styles'
-import logoDark from '../../../assets/img/logo_laweb.png'
-import logoLight from '../../../assets/img/logo laweb_white.png'
 import { ROUTES } from '../../../utils/constants'
+const logoDark = 'http://logosvg.com/wp-content/uploads/2016/08/logosvgcom.png'
+const logoLight = 'https://cdn.worldvectorlogo.com/logos/react.svg'
 
 const Logo = ({ className = '', light }) => {
   return (

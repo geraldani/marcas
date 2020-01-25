@@ -5,7 +5,6 @@ import StepThree from '../step-three/StepThree'
 import StepFour from '../step-four/StepFour'
 import StepFive from '../step-five/StepFive'
 import Button from '../../common/buttons/Button'
-import Header from '../../common/header/Header'
 import CircleSteps from '../../common/circles/CircleSteps'
 import CardSteps from '../../common/cards/steps/CardSteps'
 import OrderCard from '../../common/cards/order/OrderCard'
@@ -63,15 +62,15 @@ const ButtonsNavigation = ({ step, handleClickBack, totalSteps, handleClickNext 
 
   return (
     <div className={`border-top mt-5 py-3 px-4 d-flex flex-column flex-md-row ${justify}`}>
-      {step > 1 && <ButtonBack/>}
-      <ButtonNext/>
+      {step > 1 && <ButtonBack />}
+      <ButtonNext />
     </div>
   )
 }
 
 const RegisterView = (props) => {
   const [container, headerAbove] = useHeader()
-
+  console.log('hay header? ', headerAbove)
   const buttonsProps = {
     step: props.step,
     handleClickBack: props.handleClickBack,
@@ -87,7 +86,7 @@ const RegisterView = (props) => {
 
             {/* Circulos del paso actual y totales */}
             <div className='col-12 mb-0 mb-md-4'>
-              <CircleSteps actualStep={props.step} totalSteps={props.totalSteps}/>
+              <CircleSteps actualStep={props.step} totalSteps={props.totalSteps} />
             </div>
 
             {/* formulario principal */}
